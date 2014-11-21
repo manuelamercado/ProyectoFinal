@@ -8,15 +8,19 @@ public class CompanyApplication {
 	public String WorkPosition;
 	public String Area;
 	public GradeLevel Level;
+	public boolean Satisfied;
 	
-	public CompanyApplication (int EmployeeCant, String WorkPosition, String Area, GradeLevel Level)
-	{
-		this.WorkPosition = WorkPosition;
-		this.EmployeeCant = EmployeeCant;
-		this.Area = Area;
-		this.Level = Level;
-		
+	
+	public CompanyApplication(int employeeCant, String workPosition,
+			String area, GradeLevel level) {
+		super();
+		EmployeeCant = employeeCant;
+		WorkPosition = workPosition;
+		Area = area;
+		Level = level;
+		Satisfied = false;
 	}
+	
 	public int getEmployeeCant() {
 		return EmployeeCant;
 	}
@@ -40,6 +44,14 @@ public class CompanyApplication {
 	}
 	public void setLevel(GradeLevel level) {
 		this.Level = level;
+	}
+
+	public boolean isSatisfied() {
+		return Satisfied;
+	}
+
+	public void setSatisfied(boolean satisfied) {
+		Satisfied = satisfied;
 	}
 	
 	
