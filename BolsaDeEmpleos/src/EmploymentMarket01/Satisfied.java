@@ -54,10 +54,10 @@ public class Satisfied {
 	public void setCantSatisfiedPerson(int cantSatisfiedPerson) {
 		CantSatisfiedPerson = cantSatisfiedPerson;
 	}
-	public ArrayList<CompanyPerson> SearchPerson(Person P1){
+	public ArrayList<CompanyPerson> SearchPersonHistory(Person P1){
 		ArrayList<CompanyPerson>PersonHistory=new ArrayList<CompanyPerson>();
 		for(int i=0; i<SatisfiedEmployes.size(); i++)
-		if(P1.ID.equals(SatisfiedEmployes.get(i).getPerson().ID)){
+		if(P1.getID().equals(SatisfiedEmployes.get(i).getPerson().getID())){
 			PersonHistory.add(SatisfiedEmployes.get(i));
 		}
 		return PersonHistory;
