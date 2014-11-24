@@ -1,8 +1,12 @@
 package EmploymentMarket01;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Technical extends Person {
+
+	private String title;
+	private ArrayList<String> OthersTitles;
 
 	public Technical(String Name, String LastName, String ID, String Phone,
 			String Mobile, String Email, String sex, Date Birth,
@@ -208,6 +212,22 @@ public class Technical extends Person {
 	@Override
 	public void setPostalCode(long postalCode) {
 		super.setPostalCode(postalCode);
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public ArrayList<String> getOthersTitles() {
+		return OthersTitles;
+	}
+
+	public void setOthersTitles(ArrayList<String> othersTitles) {
+		OthersTitles = othersTitles;
 	}
 
 }

@@ -8,17 +8,21 @@ public class PersonApplication {
 	public enum Grade {};
 	public CompanyType Area;
 	private ArrayList<String> WorkPosition;
-	private boolean Satisfied; 
+	private boolean Satisfied;
+	private Person Person;
+	
 	
 	
 	
 	public PersonApplication(CompanyType area, ArrayList<String> workPosition,
-			boolean satisfied) {
+			boolean satisfied, EmploymentMarket01.Person person) {
 		super();
 		Area = area;
 		WorkPosition = workPosition;
 		Satisfied = satisfied;
+		Person = person;
 	}
+	
 	public ArrayList<String> getWorkPosition() {
 		return WorkPosition;
 	}
@@ -37,6 +41,13 @@ public class PersonApplication {
 	public void setSatisfied(boolean satisfied) {
 		Satisfied = satisfied;
 	}
+	public Person getPerson() {
+		return Person;
+	}
+	public void setPerson(Person person) {
+		Person = person;
+	}
+	
 	
 
 }

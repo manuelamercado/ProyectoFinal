@@ -18,6 +18,7 @@ public abstract class Person {
 	private int YearsExperience;
 	private String WorkingDay;
 	private String sex;
+	private boolean Duty;
 
 	public Person(String Name, String LastName, String ID, String Phone,
 			String Mobile, String Email, String sex, Date Birth, String City,
@@ -36,6 +37,7 @@ public abstract class Person {
 		Address = new Address(City, Sector, Calle, HouseNumber, PostalCode);
 		this.Nationality = Nationality;
 		this.YearsExperience = YearsExperience;
+		this.Duty=false;
 	}
 
 	public Person() {
@@ -203,5 +205,14 @@ public abstract class Person {
 	public void setPostalCode(long postalCode) {
 		Address.setPostalCode(postalCode);
 	}
+
+	public boolean isDuty() {
+		return Duty;
+	}
+
+	public void setDuty(boolean duty) {
+		Duty = duty;
+	}
+	
 
 }

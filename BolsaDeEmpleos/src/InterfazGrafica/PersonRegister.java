@@ -12,7 +12,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -38,7 +37,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import EmploymentMarket01.Academic;
-import EmploymentMarket01.Person;
+import EmploymentMarket01.CollectionPerson;
+import EmploymentMarket01.DreamerNini;
+import EmploymentMarket01.Technical;
 
 public class PersonRegister extends JDialog {
 
@@ -51,20 +52,19 @@ public class PersonRegister extends JDialog {
 	// private Dimension dim;
 	private final JTable table;
 	private final DefaultTableModel tableModel;
-	private Object[] fila;
-	private int filasel, pos1;
+	// private Object[] fila;
+	// private int filasel, pos1;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
-	private JTextField textField_9;
 	private JTextField textField_10;
 	private JTextField textField_11;
 	private final JPanel panelUniversityStudy;
 	private JComboBox comboBox_1;
-	private ArrayList<Person> persons;
+	private final CollectionPerson persons;
 	private final JPanel panelTechnicalStudies;
 	private final JPanel panel_5OtrosEstudios;
 	private JComboBox comboBox_1_3;
@@ -102,12 +102,15 @@ public class PersonRegister extends JDialog {
 				.getImage(
 						"C:\\Users\\Sorismelda\\Desktop\\7mo. Semestre\\Programacion 1\\Proyecto Final\\1416396913_Login.png"));
 		setTitle("REGISTRAR SOLICITANTE");
-		setBounds(10, 50, 836, 739);
+		setBounds(10, 50, 836, 685);
 		setResizable(false);
 		setLocationRelativeTo(rootPane);
 		// dim = super.,getToolkit().getScreenSize();
 		// super.setSize(dim);
 		// setLocationRelativeTo(null);
+
+		persons = CollectionPerson.getInstanceCollectionPerson();
+
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -295,7 +298,7 @@ public class PersonRegister extends JDialog {
 			{
 				panel_2Contacto = new JPanel();
 				panel_2Contacto.setBackground(new Color(248, 248, 255));
-				panel_2Contacto.setBounds(35, 267, 383, 405);
+				panel_2Contacto.setBounds(35, 267, 383, 340);
 				panel_2Contacto.setBorder(new TitledBorder(UIManager
 						.getBorder("TitledBorder.border"), "Contacto:",
 						TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -308,7 +311,7 @@ public class PersonRegister extends JDialog {
 							.getBorder("TitledBorder.border"),
 							"Direcci\u00F3n:", TitledBorder.LEFT,
 							TitledBorder.TOP, null, null));
-					panel_3Address.setBounds(2, 144, 343, 244);
+					panel_3Address.setBounds(2, 144, 343, 183);
 					panel_2Contacto.add(panel_3Address);
 					panel_3Address.setLayout(null);
 					{
@@ -360,21 +363,8 @@ public class PersonRegister extends JDialog {
 						textField_10.setColumns(10);
 					}
 					{
-						JLabel lblCity = new JLabel("City:");
-						lblCity.setBounds(-10, 144, 88, 14);
-						panel_3Address.add(lblCity);
-						lblCity.setVerticalAlignment(SwingConstants.BOTTOM);
-						lblCity.setHorizontalAlignment(SwingConstants.TRAILING);
-					}
-					{
-						textField_9 = new JTextField();
-						textField_9.setBounds(111, 134, 169, 20);
-						panel_3Address.add(textField_9);
-						textField_9.setColumns(10);
-					}
-					{
 						JLabel lblRegion = new JLabel("Regi\u00F3n:");
-						lblRegion.setBounds(-8, 168, 86, 14);
+						lblRegion.setBounds(-8, 138, 86, 14);
 						panel_3Address.add(lblRegion);
 						lblRegion.setVerticalAlignment(SwingConstants.BOTTOM);
 						lblRegion
@@ -382,7 +372,7 @@ public class PersonRegister extends JDialog {
 					}
 					{
 						textField_11 = new JTextField();
-						textField_11.setBounds(111, 162, 169, 20);
+						textField_11.setBounds(111, 135, 169, 20);
 						panel_3Address.add(textField_11);
 						textField_11.setColumns(10);
 					}
@@ -659,7 +649,7 @@ public class PersonRegister extends JDialog {
 					textField_4.setColumns(10);
 				}
 				{
-					JLabel lblTelephone = new JLabel("Telephone:");
+					JLabel lblTelephone = new JLabel("Telef\u00F3no:");
 					lblTelephone.setBounds(2, 91, 81, 14);
 					panel_2Contacto.add(lblTelephone);
 					lblTelephone.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -673,7 +663,7 @@ public class PersonRegister extends JDialog {
 					textField_5.setColumns(10);
 				}
 				{
-					JLabel lblPostalCode = new JLabel("Postal code:");
+					JLabel lblPostalCode = new JLabel("C\u00F3digo postal:");
 					lblPostalCode.setBounds(2, 119, 81, 14);
 					panel_2Contacto.add(lblPostalCode);
 					lblPostalCode.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -710,7 +700,7 @@ public class PersonRegister extends JDialog {
 
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 676, 830, 59);
+			buttonPane.setBounds(0, 623, 830, 33);
 			contentPanel.add(buttonPane);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			{
@@ -771,6 +761,83 @@ public class PersonRegister extends JDialog {
 									.toString());
 							temp.setTitle(comboBox_2.getSelectedItem()
 									.toString());
+
+							persons.setPersons(temp);
+						}
+						if (comboBox_1.getSelectedItem() == "Technical") {
+							// YearsExperience,
+							// String gradelevel
+							Technical temp = new Technical();
+							temp.setName(txtSuperlargoArchipielago.getText());
+							temp.setLastName(textField_2.getText());
+							temp.setID(textFieldID.getText());
+							temp.setPhone(textField_5.getText());
+							temp.setMobile(textField_4.getText());
+							temp.setEmail(textField_3.getText());
+							temp.setSex(comboBox_1_2.getSelectedItem()
+									.toString());
+							String date = spinner.getValue().toString();
+							Date date1 = null;
+							try {
+								date1 = format.parse(date);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							temp.setBirth(date1);
+							temp.setCity(comboBox_1_4.getSelectedItem()
+									.toString());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(Integer.parseInt(textField_7
+									.getText()));
+							temp.setPostalCode(Long.parseLong(textField_6
+									.getText()));
+							temp.setNationality(comboBox_1_1.getSelectedItem()
+									.toString());
+							temp.setCivilState(comboBox_1_3.getSelectedItem()
+									.toString());
+							temp.setAcademicLevel(comboBox_1.getSelectedItem()
+									.toString());
+							persons.setPersons(temp);
+						}
+
+						if (comboBox_1.getSelectedItem() == "Other") {
+							// YearsExperience,
+							// String gradelevel
+							DreamerNini temp = new DreamerNini();
+							temp.setName(txtSuperlargoArchipielago.getText());
+							temp.setLastName(textField_2.getText());
+							temp.setID(textFieldID.getText());
+							temp.setPhone(textField_5.getText());
+							temp.setMobile(textField_4.getText());
+							temp.setEmail(textField_3.getText());
+							temp.setSex(comboBox_1_2.getSelectedItem()
+									.toString());
+							String date = spinner.getValue().toString();
+							Date date1 = null;
+							try {
+								date1 = format.parse(date);
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							temp.setBirth(date1);
+							temp.setCity(comboBox_1_4.getSelectedItem()
+									.toString());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(Integer.parseInt(textField_7
+									.getText()));
+							temp.setPostalCode(Long.parseLong(textField_6
+									.getText()));
+							temp.setNationality(comboBox_1_1.getSelectedItem()
+									.toString());
+							temp.setCivilState(comboBox_1_3.getSelectedItem()
+									.toString());
+							temp.setAcademicLevel(comboBox_1.getSelectedItem()
+									.toString());
+							persons.setPersons(temp);
 						}
 
 					}
