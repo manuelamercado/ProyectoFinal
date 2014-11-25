@@ -1,8 +1,10 @@
 package EmploymentMarket01;
 
 public class CompanyPerson {
+	
 	private Company company;
 	private Person person;
+	
 	public CompanyPerson(Company company, Person person) {
 		super();
 		this.company = company;

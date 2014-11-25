@@ -9,18 +9,19 @@ public class CompanyApplication {
 	public String Area;
 	public GradeLevel Level;
 	public boolean Satisfied;
+	public Company company;
 	
 	
 	public CompanyApplication(int employeeCant, String workPosition,
-			String area, GradeLevel level) {
+			String area, GradeLevel level, boolean satisfied, Company company) {
 		super();
 		EmployeeCant = employeeCant;
 		WorkPosition = workPosition;
 		Area = area;
 		Level = level;
-		Satisfied = false;
+		Satisfied = satisfied;
+		this.company = company;
 	}
-	
 	public int getEmployeeCant() {
 		return EmployeeCant;
 	}
@@ -53,6 +54,13 @@ public class CompanyApplication {
 	public void setSatisfied(boolean satisfied) {
 		Satisfied = satisfied;
 	}
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+	
 	
 	
 }

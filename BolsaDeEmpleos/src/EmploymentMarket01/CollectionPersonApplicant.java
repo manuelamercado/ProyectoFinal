@@ -15,9 +15,8 @@ public class CollectionPersonApplicant {
 		return PersonApplications;
 	}
 
-	public void setPersonApplicantions(
-			ArrayList<PersonApplication> personApplicantions) {
-		PersonApplications = personApplicantions;
+	public void setPersonApplicantions(PersonApplication personApplicantions) {
+		PersonApplications.add(personApplicantions);
 	}
 	
 	public void Clean(Person D1, ArrayList<PersonApplication> PersonApplications){

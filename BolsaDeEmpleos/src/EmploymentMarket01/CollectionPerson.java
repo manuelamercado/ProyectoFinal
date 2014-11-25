@@ -33,9 +33,23 @@ public class CollectionPerson {
 
 	public void setPersons(Person persons) {
 		if (verify(persons)) {
-			Persons.add(persons);
-			setCantPerson(CantPerson = +1);
-			Order(Persons);
+			if(persons.getAcademicLevel().equalsIgnoreCase("Technical")){
+				Person P1 = new Technical();
+				Persons.add(P1);
+				setCantPerson(CantPerson = +1);
+				Order(Persons);
+			}else if(persons.getAcademicLevel().equalsIgnoreCase("Universitary")){
+				Person P1 = new Academic();
+				Persons.add(P1);
+				setCantPerson(CantPerson = +1);
+				Order(Persons);
+			}else if(persons.getAcademicLevel().equalsIgnoreCase("Other")){
+				Person P1 = new DreamerNini();
+				Persons.add(P1);
+				setCantPerson(CantPerson = +1);
+				Order(Persons);
+			}
+			
 		}
 	}
 
