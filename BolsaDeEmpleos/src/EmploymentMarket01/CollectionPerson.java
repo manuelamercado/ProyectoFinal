@@ -79,4 +79,8 @@ public class CollectionPerson {
 		}
 		return check;
 	}
+	
+	public Person getPerson(int i){
+		return Persons.get(i);
+	}
 }

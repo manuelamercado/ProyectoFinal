@@ -9,18 +9,34 @@ public class Satisfied {
 	private ArrayList<PersonApplication> SatisfiedPerson;
 	private int CantSatisfiedPerson;
 	private ArrayList<CompanyPerson> SatisfiedEmployes;
+	private CollectionPerson  PersonSatisfied;
+	private CollectionCompany CompanySatisfied;
+	private CollectionPersonApplicant PendingPersonApplication;
+	private CollectionCompanyApplication PendingCompanyApplication;
+	
+	
+	
 	
 	
 	public Satisfied(ArrayList<CompanyApplication> satisfiedCompany,
 			int cantSatisfiedCompany,
 			ArrayList<PersonApplication> satisfiedPerson,
-			int cantSatisfiedPerson, ArrayList<CompanyPerson> satisfiedEmployes) {
+			int cantSatisfiedPerson,
+			ArrayList<CompanyPerson> satisfiedEmployes,
+			CollectionPerson personSatisfied,
+			CollectionCompany companySatisfied,
+			CollectionPersonApplicant pendingPersonApplication,
+			CollectionCompanyApplication pendingCompanyApplication) {
 		super();
 		SatisfiedCompany = satisfiedCompany;
 		CantSatisfiedCompany = 0;
 		SatisfiedPerson = satisfiedPerson;
 		CantSatisfiedPerson = 0;
 		SatisfiedEmployes = satisfiedEmployes;
+		PersonSatisfied = personSatisfied;
+		CompanySatisfied = companySatisfied;
+		PendingPersonApplication = pendingPersonApplication;
+		PendingCompanyApplication = pendingCompanyApplication;
 	}
 	public ArrayList<CompanyApplication> getSatisfiedCompany() {
 		return SatisfiedCompany;
@@ -54,6 +70,37 @@ public class Satisfied {
 	public void setCantSatisfiedPerson(int cantSatisfiedPerson) {
 		CantSatisfiedPerson = cantSatisfiedPerson;
 	}
+	public CollectionPerson getPersonSatisfied() {
+		return PersonSatisfied;
+	}
+	public void setPersonSatisfied(Person personSatisfied) {
+		PersonSatisfied.setPersons(personSatisfied);
+	}
+	public CollectionCompany getCompanySatisfied() {
+		return CompanySatisfied;
+	}
+	public void setCompanySatisfied(Company companySatisfied) {
+		CompanySatisfied.setCompanies(companySatisfied);
+	}
+	
+	public CollectionPersonApplicant getPendingPersonApplication(CollectionPersonApplicant PersonApplication) {
+		setPendingPersonApplication(PersonApplication);
+		return PendingPersonApplication;
+	}
+	public void setPendingPersonApplication(CollectionPersonApplicant PersonApplication) {
+		for(int i=0; i<PersonApplication.getPersonApplicantions().size(); i++)
+			if(PersonApplication.getPersonApplication(i).isSatisfied()==false)
+				PendingPersonApplication.setPersonApplicantions(PersonApplication.getPersonApplication(i));
+	}
+	public CollectionCompanyApplication getPendingCompanyApplication(CollectionCompanyApplication CompanyApplication) {
+		setPendingCompanyApplication(CompanyApplication);
+		return PendingCompanyApplication;
+	}
+	public void setPendingCompanyApplication(CollectionCompanyApplication CompanyApplication) {
+		for(int i=0; i<CompanyApplication.getCompanyApplications().size(); i++)
+			if(CompanyApplication.getCompanyApplication(i).isSatisfied()==false)
+				PendingCompanyApplication.setCompanyApplications(CompanyApplication.getCompanyApplication(i));
+	}
 	public ArrayList<CompanyPerson> SearchPersonHistory(Person P1){
 		ArrayList<CompanyPerson>PersonHistory=new ArrayList<CompanyPerson>();
 		for(int i=0; i<SatisfiedEmployes.size(); i++)
@@ -62,5 +109,5 @@ public class Satisfied {
 		}
 		return PersonHistory;
 	}
-
+	
 }

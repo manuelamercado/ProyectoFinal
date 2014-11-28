@@ -17,5 +17,9 @@ public class CollectionCompanyApplication {
 	public void setCompanyApplications(CompanyApplication companyApplications) {
 		CompanyApplications.add(companyApplications);
 	}
+	
+	public CompanyApplication getCompanyApplication(int i){
+		return CompanyApplications.get(i);
+	}
 
 }

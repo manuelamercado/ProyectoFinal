@@ -54,4 +54,8 @@ public class CollectionCompany {
 			}
 		});
 	}
+	
+	public Company getCompany(int i){
+		return Companies.get(i);
+	}
 }

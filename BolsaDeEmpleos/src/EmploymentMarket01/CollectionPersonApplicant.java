@@ -28,4 +28,8 @@ public class CollectionPersonApplicant {
 			}
 		}
 	}
+	
+	public PersonApplication getPersonApplication(int i){
+		return PersonApplications.get(i);
+	}
 }
