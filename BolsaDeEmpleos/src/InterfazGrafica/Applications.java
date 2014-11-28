@@ -2,14 +2,13 @@ package InterfazGrafica;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Start extends JDialog {
+public class Applications extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -18,7 +17,7 @@ public class Start extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			Start dialog = new Start();
+			Applications dialog = new Applications();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -29,10 +28,7 @@ public class Start extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Start() {
-		setTitle("INICIO");
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Start.class.getResource("/InterfazGrafica/1416514885_home.png")));
+	public Applications() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());

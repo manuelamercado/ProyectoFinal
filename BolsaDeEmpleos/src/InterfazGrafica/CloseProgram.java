@@ -8,20 +8,28 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+
 import java.awt.Color;
 import java.awt.Window.Type;
 import java.awt.Toolkit;
+
 import javax.swing.JSeparator;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.beans.PropertyVetoException;
+import javax.swing.border.LineBorder;
 
 public class CloseProgram extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private final JSeparator separator = new JSeparator();
+	private Welcome welcome;
 
 	/**
 	 * Launch the application.
@@ -45,9 +53,10 @@ public class CloseProgram extends JDialog {
 		setModal(true);
 		setTitle("BOLSA DE EMPLEOS REP.DOM");
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(rootPane);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(248, 248, 255));
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
@@ -92,6 +101,11 @@ public class CloseProgram extends JDialog {
 				JButton SiButton = new JButton("S\u00ED");
 				SiButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						
+						welcome = Welcome.getInstanceWelcome();
+						setVisible(false);
+						welcome.dispose();
+						
 					}
 				});
 				SiButton.setActionCommand("Si");
@@ -100,6 +114,11 @@ public class CloseProgram extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						setVisible(false);
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
