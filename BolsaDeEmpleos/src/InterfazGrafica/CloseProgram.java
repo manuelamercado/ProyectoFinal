@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
 import java.awt.Color;
+import java.awt.Window;
 import java.awt.Window.Type;
 import java.awt.Toolkit;
 
@@ -23,6 +24,7 @@ import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyVetoException;
+
 import javax.swing.border.LineBorder;
 
 public class CloseProgram extends JDialog {
@@ -30,25 +32,10 @@ public class CloseProgram extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private final JSeparator separator = new JSeparator();
 	private Welcome welcome;
+	private JButton SiButton;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			CloseProgram dialog = new CloseProgram();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
 	public CloseProgram() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CloseProgram.class.getResource("/InterfazGrafica/Warning.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CloseProgram.class.getResource("/InterfazGrafica/Images/Warning.png")));
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
 		setTitle("BOLSA DE EMPLEOS REP.DOM");
@@ -58,6 +45,7 @@ public class CloseProgram extends JDialog {
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		setModal(true);
 		contentPanel.setLayout(null);
 		{
 			JLabel lblEstSeguroQue = new JLabel("\u00BFEst\u00E1 seguro que desea salir de Bolsa de Empleos Rep.Dom?");
@@ -65,12 +53,6 @@ public class CloseProgram extends JDialog {
 			lblEstSeguroQue.setHorizontalAlignment(SwingConstants.CENTER);
 			lblEstSeguroQue.setFont(new Font("Tahoma", Font.BOLD, 12));
 			contentPanel.add(lblEstSeguroQue);
-		}
-		{
-			JLabel label = new JLabel("");
-			label.setBounds(67, 82, 68, 89);
-			label.setIcon(new ImageIcon(CloseProgram.class.getResource("/InterfazGrafica/Encontrar-Trabajo1.jpg")));
-			contentPanel.add(label);
 		}
 		{
 			JLabel lblBolsaDeEmpleos = new JLabel("Bolsa de Empleos Rep. Dom");
@@ -92,19 +74,26 @@ public class CloseProgram extends JDialog {
 		}
 		separator.setBounds(0, 224, 434, 38);
 		contentPanel.add(separator);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(CloseProgram.class.getResource("/InterfazGrafica/Images/Encontrar-Trabajo1.jpg")));
+		lblNewLabel.setBounds(73, 88, 63, 79);
+		contentPanel.add(lblNewLabel);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton SiButton = new JButton("S\u00ED");
+				SiButton = new JButton("S\u00ED");
 				SiButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						
-						welcome = Welcome.getInstanceWelcome();
+						
+						Welcome.getInstanceWelcome();
+						//Welcome().getWindows().setVisible;
+						
 						setVisible(false);
-						welcome.dispose();
 						
 					}
 				});

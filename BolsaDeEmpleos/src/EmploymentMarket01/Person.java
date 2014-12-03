@@ -1,5 +1,6 @@
 package EmploymentMarket01;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class Person {
@@ -19,6 +20,7 @@ public abstract class Person {
 	private String WorkingDay;
 	private String sex;
 	private boolean Duty;
+	private ArrayList<String> CertTitles;
 
 	public Person(String Name, String LastName, String ID, String Phone,
 			String Mobile, String Email, String sex, Date Birth, String City,
@@ -52,6 +54,7 @@ public abstract class Person {
 		this.Address = new Address("", "", "", 0, 0);
 		Nationality = "";
 		YearsExperience = 0;
+		CertTitles= new ArrayList<String>();
 	}
 
 	public void setSex(String sex) {
@@ -60,6 +63,17 @@ public abstract class Person {
 
 	public String getName() {
 		return Name;
+	}
+	
+
+	public void setCertTitles(ArrayList<String> otherTitles) {
+		CertTitles = otherTitles;
+	}
+	public ArrayList<String> getCertTitles() {
+		return CertTitles;
+	}
+	public void setCertTitles(String other) {
+		CertTitles.add(other);
 	}
 
 	public void setName(String name) {

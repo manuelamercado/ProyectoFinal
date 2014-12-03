@@ -3,25 +3,22 @@ package EmploymentMarket01;
 
 public class CompanyApplication {
 	
-	public enum WorkingDay{Fijo,Temporal,Parcial};
-	public int EmployeeCant;
-	public String WorkPosition;
-	public String Area;
-	public GradeLevel Level;
-	public boolean Satisfied;
-	public Company company;
+	private enum WorkingDay{Fijo,Temporal,Parcial};
+	private int EmployeeCant;
+	private String WorkPosition;
+	private String Area;
+	private boolean Satisfied;
 	
 	
 	public CompanyApplication(int employeeCant, String workPosition,
-			String area, GradeLevel level, boolean satisfied, Company company) {
+			String area) {
 		super();
 		EmployeeCant = employeeCant;
 		WorkPosition = workPosition;
 		Area = area;
-		Level = level;
-		Satisfied = satisfied;
-		this.company = company;
+		Satisfied = false;
 	}
+	
 	public int getEmployeeCant() {
 		return EmployeeCant;
 	}
@@ -40,12 +37,6 @@ public class CompanyApplication {
 	public void setArea(String area) {
 		Area = area;
 	}
-	public GradeLevel getLevel() {
-		return Level;
-	}
-	public void setLevel(GradeLevel level) {
-		this.Level = level;
-	}
 
 	public boolean isSatisfied() {
 		return Satisfied;
@@ -54,14 +45,11 @@ public class CompanyApplication {
 	public void setSatisfied(boolean satisfied) {
 		Satisfied = satisfied;
 	}
+
 	public Company getCompany() {
-		return company;
+		// TODO Auto-generated method stub
+		return null;
 	}
-	public void setCompany(Company company) {
-		this.company = company;
-	}
-	
 	
 	
 }
-

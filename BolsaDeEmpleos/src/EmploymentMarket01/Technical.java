@@ -5,8 +5,9 @@ import java.util.Date;
 
 public class Technical extends Person {
 
-	private String title;
-	private ArrayList<String> OthersTitles;
+	private ArrayList<String> espTitle;
+	private ArrayList<String> TechTitles;
+	private ArrayList<String> works;
 
 	public Technical(String Name, String LastName, String ID, String Phone,
 			String Mobile, String Email, String sex, Date Birth,
@@ -22,6 +23,9 @@ public class Technical extends Person {
 
 	public Technical() {
 		super();
+		espTitle= new ArrayList<String>();
+		TechTitles = new ArrayList<String>();
+		works= new ArrayList<String>();
 	}
 
 	@Override
@@ -214,20 +218,35 @@ public class Technical extends Person {
 		super.setPostalCode(postalCode);
 	}
 
-	public String getTitle() {
-		return title;
+	public ArrayList<String> getEspTitle() {
+		return espTitle;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setEspTitle(String title) {
+		this.espTitle.add(title);
 	}
 
-	public ArrayList<String> getOthersTitles() {
-		return OthersTitles;
+	public ArrayList<String> getTechTitles() {
+		return TechTitles;
 	}
 
-	public void setOthersTitles(ArrayList<String> othersTitles) {
-		OthersTitles = othersTitles;
+	public void setTechTitles(ArrayList<String> othersTitles) {
+		TechTitles = othersTitles;
+	}
+	public void setTechTitles(String othersTitles) {
+		TechTitles.add(othersTitles);
+	}
+
+	public ArrayList<String> getWorks() {
+		return works;
+	}
+
+	public void setWorks(ArrayList<String> works) {
+		this.works = works;
+	}
+	
+	public void setWorks(String works) {
+		this.works.add(works);
 	}
 
 }

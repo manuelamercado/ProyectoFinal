@@ -5,27 +5,36 @@ import java.util.Date;
 
 public class Academic extends Person {
 
-	public String Title;
-	public String gradelevel;
-	private ArrayList<String> OthersTitles;
+	private ArrayList<String> gradeTitle;
+	private String gradelevel;
+	private ArrayList<String> technicalTitles;
+	private ArrayList<String> postGradeTitles;
+	private ArrayList<String> DoctorateTitles;
+	private ArrayList<String> espTitles;
 
 	public Academic(String Name, String LastName, String ID, String Phone,
 			String Mobile, String Email, String sex, Date Birth,
 			String Country, String City, String Sector, String Calle,
 			int HouseNumber, long PostalCode, String Nationality,
 			String CivilState, String AcademicLevel, int YearsExperience,
-			String Title, String gradelevel) {
+			ArrayList<String> Title, String gradelevel) {
 		super(Name, LastName, ID, Phone, Mobile, Email, sex, Birth, City,
 				Sector, Calle, HouseNumber, PostalCode, Nationality,
 				CivilState, AcademicLevel, YearsExperience);
-		// TODO Auto-generated constructor stub
-		this.Title = Title;
+		
+		this.setGradeTitle(Title);
 		this.gradelevel = gradelevel;
+		//
 	}
 
 	public Academic() {
 		super();
-		Title = "";
+		setGradeTitle(new ArrayList<String>());
+		setTechnicalTitles(new ArrayList<String>());
+		setCertTitles(new ArrayList<String>());
+		setPostGradeTitles(new ArrayList<String>());
+		setDoctorateTitles(new ArrayList<String>());
+		setEspTitles(new ArrayList<String>());
 		gradelevel = "";
 	}
 
@@ -169,28 +178,13 @@ public class Academic extends Person {
 		super.setWorkingDay(workingDay);
 	}
 
-	public String getTitle() {
-		return Title;
-	}
-
-	public void setTitle(String title) {
-		Title = title;
-	}
 
 	public String getGradelevel() {
 		return gradelevel;
 	}
 
-	public void String(String gradelevel) {
+	public void setGradeLevel(String gradelevel) {
 		this.gradelevel = gradelevel;
-	}
-
-	public ArrayList<String> getOthersTitles() {
-		return OthersTitles;
-	}
-
-	public void setOthersTitles(ArrayList<String> othersTitles) {
-		OthersTitles = othersTitles;
 	}
 
 	@Override
@@ -241,6 +235,76 @@ public class Academic extends Person {
 	@Override
 	public void setPostalCode(long postalCode) {
 		super.setPostalCode(postalCode);
+	}
+
+	public ArrayList<String> getGradeTitle() {
+		return gradeTitle;
+	}
+
+	public void setGradeTitle(ArrayList<String> gradeTitle) {
+		this.gradeTitle = gradeTitle;
+	}
+	
+	public void setGradeTitle(String gradeTitle) {
+		this.gradeTitle.add(gradeTitle);
+	}
+
+	public ArrayList<String> getTechnicalTitles() {
+		return technicalTitles;
+	}
+
+	public void setTechnicalTitles(ArrayList<String> technicalTitles) {
+		this.technicalTitles = technicalTitles;
+	}
+	
+	public void setTechnicalTitles(String technicalTitles) {
+		this.technicalTitles.add(technicalTitles);
+	}
+
+	public ArrayList<String> getCertTitles() {
+		return super.getCertTitles();
+	}
+
+	public void setCertTitles(ArrayList<String> otherTitles) {
+		super.setCertTitles(otherTitles);
+	}
+	public void setCertTitles(String otherTitles) {
+		super.setCertTitles(otherTitles);
+	}
+	public ArrayList<String> getPostGradeTitles() {
+		return postGradeTitles;
+	}
+
+	public void setPostGradeTitles(ArrayList<String> postGradeTitles) {
+		this.postGradeTitles = postGradeTitles;
+	}
+
+	public void setPostGradeTitles(String postGradeTitles) {
+		this.postGradeTitles.add(postGradeTitles);
+	}
+	
+	public ArrayList<String> getDoctorateTitles() {
+		return DoctorateTitles;
+	}
+
+	public void setDoctorateTitles(ArrayList<String> doctorateTitles) {
+		DoctorateTitles = doctorateTitles;
+	}
+	
+	public void setDoctorateTitles(String doctorateTitles) {
+		DoctorateTitles.add(doctorateTitles);
+	}
+
+	public ArrayList<String> getEspTitles() {
+		return espTitles;
+	}
+
+	public void setEspTitles(ArrayList<String> espTitles) {
+		this.espTitles = espTitles;
+	}
+	
+	public void setEspTitles(String espTitles) {
+		this.espTitles.add(espTitles);
 	}
 
 }

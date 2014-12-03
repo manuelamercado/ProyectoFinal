@@ -2,11 +2,13 @@ package EmploymentMarket01;
 
 public class Address {
 
-	public String City;
-	public String Sector;
-	public String Calle;
-	public int HouseNumber;
-	public long PostalCode;
+	private String City;
+	private String Sector;
+	private String Calle;
+	private int HouseNumber;
+	private long PostalCode;
+	private String region;
+	
 
 	public Address(String City, String Sector, String Calle, int HouseNumber,
 			long PostalCode) {
@@ -56,6 +58,14 @@ public class Address {
 
 	public void setPostalCode(long postalCode) {
 		PostalCode = postalCode;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
 }

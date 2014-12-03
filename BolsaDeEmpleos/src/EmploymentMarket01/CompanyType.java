@@ -2,6 +2,7 @@ package EmploymentMarket01;
 
 public enum CompanyType {
 	
+ 	Selecciona,
  	Administración,
  	Aeronáutica,
  	Agrimensura,
@@ -38,6 +39,7 @@ public enum CompanyType {
  	Impuestos,
  	Industria,
  	Producción,
+ 	Hotelería,
  	Calidad,
  	Informática,
  	Ingeniería,
@@ -76,13 +78,12 @@ public enum CompanyType {
  	ServiciosDomesticos,
  	SoporteTecnico,
  	Telemarketing, 
- 	HelpDesk,
  	Teletrabajo,
  	Traducción, 
  	Interpretación, 
  	Idiomas,
  	Transporte,
  	Turismo, 
- 	Hostelería,
+ 	
  	Ventas;
 }

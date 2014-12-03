@@ -15,6 +15,7 @@ public class Company {
 	private String Mobile;
 	private String Email;
 	private String RNC;
+	private String country;
 
 	public Company(String name, String webPage, CompanyType area2,
 			String area1, Address address) {
@@ -167,6 +168,14 @@ public class Company {
 
 	public void setRNC(String rNC) {
 		RNC = rNC;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 }

@@ -1,28 +1,45 @@
 package InterfazGrafica;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Rectangle;
-import java.awt.SystemColor;
 import java.awt.Toolkit;
+import java.awt.Dialog.ModalExclusionType;
+
+import javax.swing.JMenuBar;
+
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import EmploymentMarket01.CollectionPerson;
+
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
+
+import java.awt.SystemColor;
+import java.net.MalformedURLException;
+import java.text.SimpleDateFormat;
+import java.awt.Rectangle;
 
 public class Welcome extends JFrame {
 
@@ -35,6 +52,8 @@ public class Welcome extends JFrame {
 	private Start start;
 	private CloseProgram closeProgram;
 	private static Welcome welcome;
+	private SeePersonApplication seePersonApplication;
+	private CollectionPerson collectionPerson;
 	
 
 	/**
@@ -61,7 +80,7 @@ public class Welcome extends JFrame {
 	private Welcome() throws PropertyVetoException {
 		setResizable(false);
 		setTitle("BOLSA DE EMPLEOS REP.DOM");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Welcome.class.getResource("/InterfazGrafica/Images/Encontrar-Trabajo1.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Welcome.class.getResource("/InterfazGrafica/Images/Encontrar-Trabajo.jpg")));
 		setForeground(new Color(0, 0, 0));
 		setFont(new Font("Tahoma", Font.BOLD, 15));
 		setBackground(new Color(176, 224, 230));
@@ -113,8 +132,10 @@ public class Welcome extends JFrame {
 		JMenuItem menuItemSolicitante = new JMenuItem("Solicitante");
 		menuItemSolicitante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 				personRegister = new PersonRegister();
 				personRegister.setVisible(true);
+				
 			}
 		});
 		menuItemSolicitante.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile.png")));
@@ -194,6 +215,12 @@ public class Welcome extends JFrame {
 		mnReportes.add(mnPendientes);
 		
 		JMenuItem mntmSolicitantes_1 = new JMenuItem("Solicitantes");
+		mntmSolicitantes_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				seePersonApplication= new SeePersonApplication();
+				seePersonApplication.setVisible(true);
+			}
+		});
 		mnPendientes.add(mntmSolicitantes_1);
 		
 		JMenuItem mntmEmpresas_1 = new JMenuItem("Empresas");
@@ -253,8 +280,9 @@ public class Welcome extends JFrame {
 		btnNewButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				closeProgram = new CloseProgram();
-				closeProgram.setVisible(true);
+					closeProgram = new CloseProgram();
+					closeProgram.setVisible(true);
+					
 				
 			}
 		});
@@ -268,16 +296,24 @@ public class Welcome extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/images (1).jpg")));
-		lblNewLabel_1.setBounds(262, 241, 845, 488);
+		lblNewLabel_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/iconowelcome.png")));
+		lblNewLabel_1.setBounds(205, 181, 883, 483);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblBolsaDeEmpleos_1 = new JLabel("BOLSA DE EMPLEOS ");
 		lblBolsaDeEmpleos_1.setForeground(Color.BLUE);
 		lblBolsaDeEmpleos_1.setFont(new Font("Tahoma", Font.BOLD, 40));
 		lblBolsaDeEmpleos_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBolsaDeEmpleos_1.setBounds(262, 181, 845, 49);
+		lblBolsaDeEmpleos_1.setBounds(259, 115, 845, 49);
 		contentPane.add(lblBolsaDeEmpleos_1);
+		
+		JLabel lblSolucionesEmpresarialesY = new JLabel("SOLUCIONES EMPRESARIALES Y LABORALES ");
+		lblSolucionesEmpresarialesY.setForeground(Color.BLUE);
+		lblSolucionesEmpresarialesY.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSolucionesEmpresarialesY.setFont(new Font("Tahoma", Font.BOLD, 35));
+		lblSolucionesEmpresarialesY.setBackground(new Color(248, 248, 255));
+		lblSolucionesEmpresarialesY.setBounds(215, 628, 873, 71);
+		contentPane.add(lblSolucionesEmpresarialesY);
 		
 	}
 	

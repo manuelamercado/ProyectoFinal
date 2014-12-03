@@ -20,6 +20,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.awt.Toolkit;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -27,14 +28,17 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.UIManager;
+
+import EmploymentMarket01.CollectionCompany;
+import EmploymentMarket01.Company;
+
 import java.awt.event.KeyEvent;
+import EmploymentMarket01.CompanyType;
 
 public class CompanyRegister extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
@@ -45,26 +49,14 @@ public class CompanyRegister extends JDialog {
 	private JTextField textField_10;
 	private JTextField textField_11;
 	private JTextField textField_12;
+	private CollectionCompany collectionCompany;
+	private JTextField textField_13;
+	private JComboBox comboBox_2;
+	private JComboBox comboBox;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			CompanyRegister dialog = new CompanyRegister();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
 	public CompanyRegister() {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyRegister.class.getResource("/InterfazGrafica/1416396195_Company.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyRegister.class.getResource("/InterfazGrafica/Images/1416396195_Company.png")));
 		setType(Type.NORMAL);
 		setLocationByPlatform(true);
 		setLocation(new Point(0, 5));
@@ -75,6 +67,9 @@ public class CompanyRegister extends JDialog {
 		setBounds(10, 50, 836, 739);
 		setResizable(false);
 		setLocationRelativeTo(rootPane);
+		setModal(true);
+		
+		collectionCompany= CollectionCompany.getInstanceCollectionCompany();
 		
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(248, 248, 255));
@@ -92,60 +87,50 @@ public class CompanyRegister extends JDialog {
 		{
 			JLabel lblName = new JLabel("Nombre:");
 			lblName.setHorizontalAlignment(SwingConstants.RIGHT);
-			lblName.setBounds(10, 27, 75, 14);
+			lblName.setBounds(10, 58, 75, 14);
 			CompanyDates.add(lblName);
 		}
 		
 		textField = new JTextField();
-		textField.setBounds(95, 21, 230, 20);
+		textField.setBounds(95, 52, 230, 20);
 		CompanyDates.add(textField);
 		textField.setColumns(10);
-		{
-			JLabel lblCountry = new JLabel("Pa\u00EDs: ");
-			lblCountry.setHorizontalAlignment(SwingConstants.RIGHT);
-			lblCountry.setBounds(20, 58, 65, 14);
-			CompanyDates.add(lblCountry);
-		}
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Seleccionar>"}));
-		comboBox.setBounds(95, 52, 230, 20);
-		CompanyDates.add(comboBox);
 		
 		JLabel lblAreaLaboral = new JLabel("\u00C1rea Laboral:");
 		lblAreaLaboral.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblAreaLaboral.setBounds(10, 89, 75, 14);
 		CompanyDates.add(lblAreaLaboral);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(95, 83, 230, 20);
-		CompanyDates.add(textField_1);
-		textField_1.setColumns(10);
-		
 		JLabel lblNewLabel = new JLabel("*");
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBounds(10, 2, 46, 14);
 		CompanyDates.add(lblNewLabel);
 		
-		JLabel lblPhone = new JLabel("T\u00E9lefono:");
-		lblPhone.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPhone.setBounds(20, 120, 65, 14);
-		CompanyDates.add(lblPhone);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(95, 114, 230, 20);
-		CompanyDates.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblFax = new JLabel("Fax:");
+		JLabel lblFax = new JLabel("Web:");
 		lblFax.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFax.setBounds(39, 151, 46, 14);
+		lblFax.setBounds(38, 120, 46, 14);
 		CompanyDates.add(lblFax);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(95, 145, 230, 20);
+		textField_3.setBounds(94, 114, 230, 20);
 		CompanyDates.add(textField_3);
 		textField_3.setColumns(10);
+		
+		JLabel lblRnc = new JLabel("RNC:");
+		lblRnc.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblRnc.setBounds(10, 27, 75, 14);
+		CompanyDates.add(lblRnc);
+		
+		textField_13 = new JTextField();
+		textField_13.setColumns(10);
+		textField_13.setBounds(95, 21, 230, 20);
+		CompanyDates.add(textField_13);
+		
+		comboBox_2 = new JComboBox();
+		comboBox_2.setEditable(true);
+		comboBox_2.setModel(new DefaultComboBoxModel(CompanyType.values()));
+		comboBox_2.setBounds(95, 83, 230, 20);
+		CompanyDates.add(comboBox_2);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
@@ -194,7 +179,7 @@ public class CompanyRegister extends JDialog {
 		JLabel label_3 = new JLabel("Sector:");
 		label_3.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_3.setHorizontalAlignment(SwingConstants.TRAILING);
-		label_3.setBounds(-10, 114, 88, 14);
+		label_3.setBounds(-10, 109, 88, 14);
 		panel_1.add(label_3);
 		
 		textField_6 = new JTextField();
@@ -205,7 +190,7 @@ public class CompanyRegister extends JDialog {
 		JLabel label_4 = new JLabel("Ciudad:");
 		label_4.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_4.setHorizontalAlignment(SwingConstants.TRAILING);
-		label_4.setBounds(-10, 144, 88, 14);
+		label_4.setBounds(-10, 137, 88, 14);
 		panel_1.add(label_4);
 		
 		textField_7 = new JTextField();
@@ -216,7 +201,7 @@ public class CompanyRegister extends JDialog {
 		JLabel label_5 = new JLabel("Regi\u00F3n:");
 		label_5.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_5.setHorizontalAlignment(SwingConstants.TRAILING);
-		label_5.setBounds(-8, 168, 86, 14);
+		label_5.setBounds(-8, 165, 86, 14);
 		panel_1.add(label_5);
 		
 		textField_8 = new JTextField();
@@ -224,10 +209,10 @@ public class CompanyRegister extends JDialog {
 		textField_8.setBounds(111, 162, 169, 20);
 		panel_1.add(textField_8);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBackground(new Color(248, 248, 255));
-		comboBox_1.setBounds(111, 78, 169, 20);
-		panel_1.add(comboBox_1);
+		comboBox = new JComboBox();
+		comboBox.setBackground(new Color(248, 248, 255));
+		comboBox.setBounds(111, 78, 169, 20);
+		panel_1.add(comboBox);
 		
 		JLabel label_6 = new JLabel(" *");
 		label_6.setForeground(Color.RED);
@@ -294,6 +279,32 @@ public class CompanyRegister extends JDialog {
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			
+			JButton btnRegistrar = new JButton("Registrar");
+			btnRegistrar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+
+					Company temp = new Company();
+					temp.setRNC(textField_13.getText());
+					temp.setName(textField.getText());
+					temp.setWebPage(textField_3.getText());
+					temp.setArea(comboBox_2.getSelectedItem().toString());
+					temp.setEmail(textField_9.getText());
+					temp.setMobile(textField_10.getText());
+					temp.setPhone(textField_11.getText());
+					temp.setPostalCode(Long.parseLong(textField_12
+							.getText()));
+					temp.setCalle(textField_4.getText());
+					temp.setHouseNumber(Integer.parseInt(textField_5
+							.getText()));
+					temp.setCity(textField_7.getText());
+					temp.setSector(textField_6.getText());
+					temp.setCountry(comboBox.getSelectedItem().toString());
+					temp.getAddressCompany().setRegion(textField_8.getText());
+					collectionCompany.setCompanies(temp);
+				}
+			});
+			buttonPane.add(btnRegistrar);
 			{
 				JButton okButton = new JButton("OK");
 				okButton.setActionCommand("OK");

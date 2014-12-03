@@ -1,7 +1,6 @@
 package EmploymentMarket01;
 
 public class CompanyPerson {
-	
 	private Company company;
 	private Person person;
 	

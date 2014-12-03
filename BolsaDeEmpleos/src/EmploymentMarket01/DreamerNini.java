@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DreamerNini extends Person {
-	private String titles;
-	private ArrayList<String> otherTitles;
+	private ArrayList<String> courseTitles;
+	private ArrayList<String> works;
 
 	public DreamerNini(String Name, String LastName, String ID, String Phone,
 			String Mobile, String Email, String sex, Date Birth,
@@ -20,6 +20,8 @@ public class DreamerNini extends Person {
 
 	public DreamerNini() {
 		super();
+		courseTitles= new ArrayList<String>();
+		works= new ArrayList<String>();
 	}
 
 	@Override
@@ -212,20 +214,26 @@ public class DreamerNini extends Person {
 		super.setPostalCode(postalCode);
 	}
 
-	public ArrayList<String> getOtherTitles() {
-		return otherTitles;
+	public ArrayList<String> getcourseTitles() {
+		return courseTitles;
 	}
 
-	public void setOtherTitles(ArrayList<String> otherTitles) {
-		this.otherTitles = otherTitles;
+	public void setCourseTitles(ArrayList<String> otherTitles) {
+		this.courseTitles = otherTitles;
+	}
+	public void setCourseTitles(String otherTitles) {
+		this.courseTitles.add(otherTitles);
 	}
 
-	public String getTitles() {
-		return titles;
+	public ArrayList<String> getWorks() {
+		return works;
 	}
 
-	public void setTitles(String titles) {
-		this.titles = titles;
+	public void setWorks(ArrayList<String> titles) {
+		this.works = titles;
+	}
+	public void setWorks(String titles) {
+		this.works.add(titles);
 	}
 
 }

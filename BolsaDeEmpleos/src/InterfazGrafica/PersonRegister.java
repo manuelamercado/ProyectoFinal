@@ -3,29 +3,30 @@ package InterfazGrafica;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.SpinnerDateModel;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -33,60 +34,27 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 import EmploymentMarket01.Academic;
-import EmploymentMarket01.Address;
 import EmploymentMarket01.CollectionPerson;
 import EmploymentMarket01.DreamerNini;
 import EmploymentMarket01.Person;
 import EmploymentMarket01.Technical;
 
-import java.awt.Dialog.ModalExclusionType;
-import java.awt.Toolkit;
-
-import javax.swing.UIManager;
-
-import java.awt.Font;
-
-import javax.swing.JScrollBar;
-import javax.swing.ImageIcon;
-
-import java.awt.Window.Type;
-import java.awt.ComponentOrientation;
-import java.util.Locale;
-import java.awt.Point;
-
-import javax.swing.JCheckBox;
-
-import java.awt.event.KeyEvent;
-
-import javax.swing.JSeparator;
-
-import EmploymentMarket01.CompanyType;
-import EmploymentMarket01.GradeLevel;
-
-import javax.swing.SpinnerNumberModel;
-
-import com.toedter.components.JSpinField;
-import com.toedter.calendar.JCalendar;
-
-import java.awt.Dimension;
-
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
-import java.awt.SystemColor;
+import com.toedter.components.JSpinField;
 
 public class PersonRegister extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3034749239761135563L;
 	protected static final String String = null;
 	protected static final Date Date = null;
 	private final JPanel contentPanel = new JPanel();
 	private final JTextField textFieldID;
 	private JTextField txtSuperlargoArchipielago;
 	private JTextField textField_2;
-	// private Dimension dim;
-	private final JTable table;
-	private final DefaultTableModel tableModel;
-	private Object[] fila;
-	private int filasel, pos1;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
@@ -97,31 +65,36 @@ public class PersonRegister extends JDialog {
 	private JTextField textField_10;
 	private JTextField textField_11;
 	private final JPanel panelUniversityStudy;
-	private JComboBox comboBox_1;
-	private CollectionPerson persons;
+	private JComboBox<String> comboBox_1;
 	private final JPanel panelTechnicalStudies;
 	private JPanel panel_5Oficio;
-	private JComboBox comboBox_1_3;
-	private final JComboBox comboBox_2;
-	private final JComboBox comboBox_3;
-	private JComboBox comboBox_4;
-	private JComboBox comboBox_5;
-	private JComboBox comboBox_5_1;
-	private JComboBox comboBox_6;
-	private JComboBox comboBox_6_1;
-	private JComboBox comboBox_7;
-	private JComboBox comboBox_7_1;
-	private final JComboBox comboBox;
-	private JComboBox comboBox_1_1;
-	private JComboBox comboBox_1_2;
-	private JComboBox comboBox_1_4;
-	private JComboBox comboBox_8;
-	private JComboBox comboBox_9;
-	private JComboBox comboBox_10;
+	private JComboBox<String> comboBox_1_3;
+	private final JComboBox<String> comboBox_2;
+	private final JComboBox<String> comboBox_3;
+	private JComboBox<String> comboBox_4;
+	private JComboBox<String> comboBox_5;
+	private JComboBox<String> comboBox_5_1;
+	private JComboBox<String> comboBox_6;
+	private JComboBox<String> comboBox_6_1;
+	private JComboBox<String> comboBox_7;
+	private JComboBox<String> comboBox_7_1;
+	private final JComboBox<String> comboBox;
+	private JComboBox<String> comboBox_1_1;
+	private JComboBox<String> comboBox_1_2;
+	private JComboBox<String> comboBox_1_4;
+	private JComboBox<String> comboBox_8;
+	private JComboBox<String> comboBox_9;
+	private JComboBox<String> comboBox_10;
 	private Date date;
 	private JSpinField spinField;
 	private JMonthChooser monthChooser;
 	private JYearChooser yearChooser;
+	private JScrollPane scrollPane;
+	private JComboBox comboBox_11;
+	private JPanel panel2;
+	private JPanel panel3;
+	private JPanel panel7;
+	
 	
 	
 
@@ -146,8 +119,267 @@ public class PersonRegister extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
-		persons= CollectionPerson.getInstanceCollectionPerson();
+																																																																																																																																																																																													
+																																																																																																																																																																																															panelUniversityStudy = new JPanel();
+																																																																																																																																																																																															panelUniversityStudy.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																															panelUniversityStudy.setBounds(450, 242, 357, 235);
+																																																																																																																																																																																															contentPanel.add(panelUniversityStudy);
+																																																																																																																																																																																															panelUniversityStudy.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios Universitarios:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+																																																																																																																																																																																															panelUniversityStudy.setLayout(null);
+																																																																																																																																																																																															{
+																																																																																																																																																																																																JLabel lblPu = new JLabel("Grado:");
+																																																																																																																																																																																																lblPu.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																lblPu.setBounds(10, 56, 107, 14);
+																																																																																																																																																																																																panelUniversityStudy.add(lblPu);
+																																																																																																																																																																																																panelUniversityStudy.setVisible(true);
+																																																																																																																																																																																															}
+																																																																																																																																																																																															
+																																																																																																																																																																																															
+																																																																																																																																																																																															comboBox_11 = new JComboBox();
+																																																																																																																																																																																															
+																																																																																																																																																																																															comboBox_11.setBounds(127, 23, 219, 20);
+																																																																																																																																																																																															panelUniversityStudy.add(comboBox_11);
+																																																																																																																																																																																															comboBox_11.addItemListener(new ItemListener() {
+																																																																																																																																																																																																public void itemStateChanged(ItemEvent arg0) {
+																																																																																																																																																																																																	if((comboBox_11.getSelectedItem()=="Grado")){
+																																																																																																																																																																																																		panel2.setVisible(true);
+																																																																																																																																																																																																		panel3.setVisible(false);
+																																																																																																																																																																																																		panel7.setVisible(false);
+																																																																																																																																																																																																	}
+																																																																																																																																																																																																	if((comboBox_11.getSelectedItem()=="PostGrado")){
+																																																																																																																																																																																																		panel3.setVisible(true);
+																																																																																																																																																																																																		panel7.setVisible(false);
+																																																																																																																																																																																																		panel2.setVisible(true);
+																																																																																																																																																																																																	}
+																																																																																																																																																																																																	if((comboBox_11.getSelectedItem()=="Doctorado")){
+																																																																																																																																																																																																		panel7.setVisible(true);
+																																																																																																																																																																																																		panel3.setVisible(true);
+																																																																																																																																																																																																		panel2.setVisible(true);
+																																																																																																																																																																																																	}
+																																																																																																																																																																																																}
+																																																																																																																																																																																																
+																																																																																																																																																																																															});
+																																																																																																																																																																																															comboBox_11.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Grado", "PostGrado", "Doctorado"}));
+																																																																																																																																																																																															
+																																																																																																																																																																																																					
+																																																																																																																																																																																																			
+																																																																																																																																																																																															
+																																																																																																																																																																																																							JLabel lblPostgrade = new JLabel("Post-grado:");
+																																																																																																																																																																																																							lblPostgrade.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																							lblPostgrade.setBounds(10, 84, 107, 14);
+																																																																																																																																																																																																							panelUniversityStudy.add(lblPostgrade);
+																																																																																																																																																																																																							
+																																																																																																																																																																																																									
+																																																																																																																																																																																																									{
+																																																																																																																																																																																																										JLabel lblCertified = new JLabel("Certificaciones:");
+																																																																																																																																																																																																										lblCertified.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																										lblCertified.setBounds(10, 114, 107, 14);
+																																																																																																																																																																																																										panelUniversityStudy.add(lblCertified);
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																									{
+																																																																																																																																																																																																										comboBox_4 = new JComboBox();
+																																																																																																																																																																																																										comboBox_4.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																										comboBox_4
+																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gesti\u00F3n de recursos humanos", "Topograf\u00EDa y geom\u00E1tica para desarrollo inmobiliario", "El ambiente de los locales: Creaci\u00F3n y ambientes que componen estilos", "An\u00E1lisis estad\u00EDstico b\u00E1sico", "Artes culinarias", "Auditor\u00EDa financiera", "Biblioteca y ciencias de la informaci\u00F3n", "Chocolate y confiter\u00EDa", "Configuraci\u00F3n e implantaci\u00F3n de Windows Server 2008", "La contabilidad financiera", "Direcci\u00F3n y gesti\u00F3n empresarial", "Dise\u00F1o y desarrollo de modelos de negocio", "Estrategia financiera: La optimizaci\u00F3n de los recursos y la proyecci\u00F3n de inversiones", "Gesti\u00F3n administrativa para asistentes ejecutivos", "La gesti\u00F3n de riesgos de seguridad de la informaci\u00F3n", "La gesti\u00F3n estrat\u00E9gica de las empresas familiares", "Gesti\u00F3n Integrada de Proyectos (DIGIP) en el sector inmobiliario y de la construcci\u00F3n en la RD", "Gesti\u00F3n y direcci\u00F3n estrat\u00E9gica del capital humano", "Impuestos Corporativos: Nuevas tendencias y reglamentos tributarios", "Inteligencia Empresarial", "Ingl\u00E9s intermedio", "Medici\u00F3n, redise\u00F1o y mejoras de procesos", "Gesti\u00F3n de la cadena de suministro", "Las t\u00E9cnicas de auditor\u00EDa asistida por computadora (TAAC'S)", "Ninguna"}));
+																																																																																																																																																																																																										comboBox_4.setBounds(127, 113, 219, 20);
+																																																																																																																																																																																																										panelUniversityStudy.add(comboBox_4);
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																									{
+																																																																																																																																																																																																										JLabel lblSpecializedCourses = new JLabel(
+																																																																																																																																																																																																												"Especialidades:");
+																																																																																																																																																																																																										lblSpecializedCourses
+																																																																																																																																																																																																												.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																										lblSpecializedCourses.setBounds(10, 142, 107, 22);
+																																																																																																																																																																																																										panelUniversityStudy.add(lblSpecializedCourses);
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																									{
+																																																																																																																																																																																																										comboBox_5 = new JComboBox();
+																																																																																																																																																																																																										comboBox_5.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																										comboBox_5
+																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Conocer el mercado de valores DR", "El control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", "La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", "Las t\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, la realizaci\u00F3n y presentaci\u00F3n'S)"}));
+																																																																																																																																																																																																										comboBox_5.setBounds(127, 143, 219, 20);
+																																																																																																																																																																																																										panelUniversityStudy.add(comboBox_5);
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																									{
+																																																																																																																																																																																																										JLabel lblTechnicalCollege = new JLabel("Estudios T\u00E9cnicos:");
+																																																																																																																																																																																																										lblTechnicalCollege.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																										lblTechnicalCollege.setBounds(10, 172, 107, 22);
+																																																																																																																																																																																																										panelUniversityStudy.add(lblTechnicalCollege);
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																									{
+																																																																																																																																																																																																										comboBox_6 = new JComboBox();
+																																																																																																																																																																																																										comboBox_6.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																										comboBox_6
+																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Peque\u00F1as y medianas empresas", "Publicidad", "Aspectos de mercado", "Dise\u00F1o gr\u00E1fico", "Programaci\u00F3n de sistemas de informaci\u00F3n", "Contabilidad computarizada", "Contabilidad financiera y fiscal"}));
+																																																																																																																																																																																																										comboBox_6.setBounds(127, 173, 219, 20);
+																																																																																																																																																																																																										panelUniversityStudy.add(comboBox_6);
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																									{
+																																																																																																																																																																																																										JLabel lblDoctorate = new JLabel("Doctorados:");
+																																																																																																																																																																																																										lblDoctorate.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																										lblDoctorate.setBounds(10, 202, 107, 22);
+																																																																																																																																																																																																										panelUniversityStudy.add(lblDoctorate);
+																																																																																																																																																																																																									}
+																																																																																																																																																																																																									
+																																																																																																																																																																																																																					JLabel lblTitulo = new JLabel("Nivel Alcanzado:");
+																																																																																																																																																																																																																					lblTitulo.setHorizontalAlignment(SwingConstants.RIGHT);
+																																																																																																																																																																																																																					lblTitulo.setBounds(10, 26, 107, 14);
+																																																																																																																																																																																																																					panelUniversityStudy.add(lblTitulo);
+																																																																																																																																																																																																																					
+																																																																																																																																																																																																																					{
+																																																																																																																																																																																																																						
+																																																																																																																																																																																																																						panel2 = new JPanel();
+																																																																																																																																																																																																																						panel2.setVisible(false);
+																																																																																																																																																																																																																						panel2.setBounds(127, 53, 219, 20);
+																																																																																																																																																																																																																						panelUniversityStudy.add(panel2);
+																																																																																																																																																																																																																						panel2.setLayout(null);
+																																																																																																																																																																																																																						
+																																																																																																																																																																																																																						panel3 = new JPanel();
+																																																																																																																																																																																																																						panel3.setVisible(false);
+																																																																																																																																																																																																																						panel3.setBounds(127, 82, 219, 20);
+																																																																																																																																																																																																																						panelUniversityStudy.add(panel3);
+																																																																																																																																																																																																																						panel3.setLayout(null);
+																																																																																																																																																																																																																						
+																																																																																																																																																																																																																						panel7 = new JPanel();
+																																																																																																																																																																																																																						panel7.setVisible(false);
+																																																																																																																																																																																																																						panel7.setBounds(127, 204, 219, 20);
+																																																																																																																																																																																																																						panelUniversityStudy.add(panel7);
+																																																																																																																																																																																																																						panel7.setLayout(null);
+						
+																																																																																																																																																																																																																						
+																																																																																																																																																																																																																						comboBox_2 = new JComboBox();
+																																																																																																																																																																																																																						comboBox_2.setBounds(0, 0, 219, 20);
+																																																																																																																																																																																																																						panel2.add(comboBox_2);
+																																																																																																																																																																																																																						comboBox_2.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																						comboBox_2
+																																																																																																																																																																																																																								.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Adm. emp. menci\u00F3n operaciones", "Adm. emp. menci\u00F3n finanzas", "Adm. emp. menci\u00F3n estrategia", "Adm. emp. menci\u00F3n creaci\u00F3n y desarrollo de nuevos negocios", "Adm. emp. menci\u00F3n gesti\u00F3n humana", "Adm. emp. menci\u00F3n negocios internacionales", "Adm. hotelera menci\u00F3n comida y bebida", "Adm. hotelera menci\u00F3n mercadeo hotelero ", "Arquitectura", "Comunicaci\u00F3n social  menci\u00F3n producci\u00F3n audiovisual", "Comunicaci\u00F3n Social menci\u00F3n comunicaci\u00F3n corporativa", "Derecho", "Dise\u00F1o e interiorismo", "Ecolog\u00EDa y manejo ambiental", "Econom\u00EDa", "Educaci\u00F3n", "Enfermer\u00EDa", "Estomatolog\u00EDa", "Filosof\u00EDa", "Gesti\u00F3n financiera y auditor\u00EDa", "Ingenier\u00EDa Civil", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n mec\u00E1nica", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n el\u00E9ctricidad", "Ingenier\u00EDa Industrial", "Ingenier\u00EDa de Sistemas y equipo", "Ingenier\u00EDa Electr\u00F3nica", "Ingenier\u00EDa telem\u00E1tica", "Medicina", "Mercadeo", "Nutrici\u00F3n y diet\u00E9tica", "Psicolog\u00EDa", "fisioterapia"}));
+																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																					
+																																																																																																																																																																																																																								
+																																																																																																																																																																																																																									{
+
+																																																																																																																																																																																																																										
+																																																																																																																																																																																																																										comboBox_3 = new JComboBox();
+																																																																																																																																																																																																																										comboBox_3.setBounds(0, 0, 219, 20);
+																																																																																																																																																																																																																										panel3.add(comboBox_3);
+																																																																																																																																																																																																																										comboBox_3.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																										comboBox_3
+																																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Master Ejecutivo en Recursos Humanos Estrat\u00E9gicos", "Master en Gesti\u00F3n Estrat\u00E9gica", "MBA en Programas de Seguros", "Maestr\u00EDa en Regulaci\u00F3n Econ\u00F3mica", "Maestr\u00EDa en Derecho del Trabajo y de la Seguridad Social", "MSc en Bienes Ra\u00EDces", "Maestr\u00EDa en Tecnolog\u00EDas de la Propiedad Intelectual y Nuevas", "Master en Derecho de Negocios Corporativo", "Maestr\u00EDa en Relaciones Internacionales", "Maestr\u00EDa en Pol\u00EDticas P\u00FAblicas", "Maestr\u00EDa en Econom\u00EDa de la Empresa", "Master Ejecutivo en Gesti\u00F3n de la Cadena de Suministro", "Master en Dise\u00F1o Arquitectural concentraci\u00F3n Arquitectura Interior", "Master en Dise\u00F1o Arquitectural menci\u00F3n Arquitectura Alojamientos Tur\u00EDsticos", "Especializaci\u00F3n en Matem\u00E1ticas Aplicadas en la Educaci\u00F3n", "Especializaci\u00F3n en Educaci\u00F3n Matem\u00E1tica Nivel B\u00E1sico"}));
+																																																																																																																																																																																																																									}
+																																																																																																																																																																																																																									
+																																																																																																																																																																																																																														
+																																																																																																																																																																																																																														{
+																																																																																																																																																																																																																															comboBox_7 = new JComboBox();
+																																																																																																																																																																																																																															comboBox_7.setBounds(0, 0, 219, 20);
+																																																																																																																																																																																																																															panel7.add(comboBox_7);
+																																																																																																																																																																																																																															comboBox_7.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																															comboBox_7
+																																																																																																																																																																																																																																	.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Derecho Constitucional y Derechos Fundamentales", "Sociedad Democr\u00E1tica, Estado y Derecho", "Educaci\u00F3n (y / o en el liderazgo o en Ciencias pedag\u00F3gicas)", "Ciencias Empresariales", "Cooperaci\u00F3n e Intervenci\u00F3n Social", "Psicolog\u00EDa de la Educaci\u00F3n y Desarrollo Humano", "Econom\u00EDa", "Sociolog\u00EDa", "Filosof\u00EDa para un mundo global"}));
+																																																																																																																																																																																																																														}
+																																																																																																																																																																																										
+																																																																																																																																																																																													panel_5Oficio = new JPanel();
+																																																																																																																																																																																													panel_5Oficio.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																													panel_5Oficio.setBounds(450,242,357,150);
+																																																																																																																																																																																													contentPanel.add(panel_5Oficio);
+																																																																																																																																																																																													panel_5Oficio.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios de Oficio:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+																																																																																																																																																																																													panel_5Oficio.setVisible(false);
+																																																																																																																																																																																													panel_5Oficio.setLayout(null);
+																																																																																																																																																																																													{
+																																																																																																																																																																																														JLabel lblCertificados = new JLabel("Certificados:");
+																																																																																																																																																																																														lblCertificados.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																														lblCertificados.setBounds(10, 25, 107, 14);
+																																																																																																																																																																																														panel_5Oficio.add(lblCertificados);
+																																																																																																																																																																																													}
+																																																																																																																																																																																													{
+																																																																																																																																																																																														comboBox_8 = new JComboBox();
+																																																																																																																																																																																														comboBox_8.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																														comboBox_8
+																																																																																																																																																																																																.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gesti\u00F3n de recursos humanos", "Topograf\u00EDa y geom\u00E1tica para desarrollo inmobiliario", "El ambiente de los locales: Creaci\u00F3n y ambientes que componen estilos", "An\u00E1lisis estad\u00EDstico b\u00E1sico", "Artes culinarias", "Auditor\u00EDa financiera", "Biblioteca y ciencias de la informaci\u00F3n", "Chocolate y confiter\u00EDa", "Configuraci\u00F3n e implantaci\u00F3n de Windows Server 2008", "La contabilidad financiera", "Direcci\u00F3n y gesti\u00F3n empresarial", "Dise\u00F1o y desarrollo de modelos de negocio", "Estrategia financiera: La optimizaci\u00F3n de los recursos y la proyecci\u00F3n de inversiones", "Gesti\u00F3n administrativa para asistentes ejecutivos", "La gesti\u00F3n de riesgos de seguridad de la informaci\u00F3n", "La gesti\u00F3n estrat\u00E9gica de las empresas familiares", "Gesti\u00F3n Integrada de Proyectos (DIGIP) en el sector inmobiliario y de la construcci\u00F3n en la RD", "Gesti\u00F3n y direcci\u00F3n estrat\u00E9gica del capital humano", "Impuestos Corporativos: Nuevas tendencias y reglamentos tributarios", "Inteligencia Empresarial", "Ingl\u00E9s intermedio", "Medici\u00F3n, redise\u00F1o y mejoras de procesos", "Gesti\u00F3n de la cadena de suministro", "Las t\u00E9cnicas de auditor\u00EDa asistida por computadora (TAAC'S)", "Ninguna"}));
+																																																																																																																																																																																														comboBox_8.setBounds(127, 22, 219, 20);
+																																																																																																																																																																																														panel_5Oficio.add(comboBox_8);
+																																																																																																																																																																																													}
+																																																																																																																																																																																													{
+																																																																																																																																																																																														JLabel lblCursosEspecializados = new JLabel("Cursos:");
+																																																																																																																																																																																														lblCursosEspecializados.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																														lblCursosEspecializados.setBounds(10, 46, 107, 22);
+																																																																																																																																																																																														panel_5Oficio.add(lblCursosEspecializados);
+																																																																																																																																																																																													}
+																																																																																																																																																																																													{
+																																																																																																																																																																																														comboBox_9 = new JComboBox();
+																																																																																																																																																																																														comboBox_9.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																														comboBox_9
+																																																																																																																																																																																																.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Conocer el mercado de valores DR", "Control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", "La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", "T\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, la realizaci\u00F3n y presentaci\u00F3n"}));
+																																																																																																																																																																																														comboBox_9.setBounds(127, 47, 219, 20);
+																																																																																																																																																																																														panel_5Oficio.add(comboBox_9);
+																																																																																																																																																																																													}
+																																																																																																																																																																																													{
+																																																																																																																																																																																														JLabel lblTrabajo = new JLabel("\u00C1reas de trabajo:");
+																																																																																																																																																																																														lblTrabajo.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																														lblTrabajo.setBounds(10, 72, 107, 22);
+																																																																																																																																																																																														panel_5Oficio.add(lblTrabajo);
+																																																																																																																																																																																													}
+																																																																																																																																																																																													{
+																																																																																																																																																																																														comboBox_10 = new JComboBox();
+																																																																																																																																																																																														comboBox_10.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																														comboBox_10.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "contador", "actor / Actriz", "azafata", "arque\u00F3logo", "astronauta", "panadero", "bi\u00F3logo", "alba\u00F1il", "conductor de autob\u00FAs", "hombre de negocios", "mujer de negocios", "carnicero", "vigilante", "carpintero", "cajero", "limpiador", "payaso", "zapatero", "consultor", "cocinero", "consejero", "cocinero", "qu\u00EDmico", "bailar\u00EDn", "decorador", "dentista", "dise\u00F1ador", "modista", "basurero", "economista", "electricista", "agricultor", "bombero", "pescador", "florista", "frutero", "basurero", "jardinero", "peluquero", "ama de casa", "cazador", "Joyero", "juez", "abogado", "bibliotecario", "salvavidas", "camionero", "cartero", "mec\u00E1nico", "meteor\u00F3logo", "minero", "modelo", "monje", "ni\u00F1era", "monja", "enfermera", "ni\u00F1era", "empleado de oficina", "pintor", "pastelero", "farmac\u00E9utico", "fot\u00F3grafo", "f\u00EDsico", "fontanero", "polic\u00EDa", "pol\u00EDtico", "portero", "cartero", "sacerdote", "profesor", "programador", "psiquiatra", "psic\u00F3logo", "recepcionista", "investigador", "marinero", "vendedor", "cient\u00EDfico", "secretario", "secretario", "zapatero", "dependiente", "cantante", "asistente social", "cirujano", "taxista", "profesor", "operador telef\u00F3nico", "agente de viaje", "camionero", "veterinario", "camarero", "camarera", "limpiador de ventanas", "escritor"}));
+																																																																																																																																																																																														comboBox_10.setBounds(127, 73, 219, 20);
+																																																																																																																																																																																														panel_5Oficio.add(comboBox_10);
+																																																																																																																																																																																													}
+																																																																																																																																																																												
+																																																																																																																																																																												
+																																																																																																																																																																																										panelTechnicalStudies = new JPanel();
+																																																																																																																																																																																										panelTechnicalStudies.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																										panelTechnicalStudies.setBounds(450,242,357,235);
+																																																																																																																																																																																										contentPanel.add(panelTechnicalStudies);
+																																																																																																																																																																																										panelTechnicalStudies.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios T\u00E9cnicos", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+																																																																																																																																																																																										panelTechnicalStudies.setVisible(false);
+																																																																																																																																																																																										panelTechnicalStudies.setLayout(null);
+																																																																																																																																																																																										
+																																																																																																																																																																																												JLabel lblCertificados_1 = new JLabel("Certificados:");
+																																																																																																																																																																																												lblCertificados_1.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																												lblCertificados_1.setBounds(10, 27, 107, 14);
+																																																																																																																																																																																												panelTechnicalStudies.add(lblCertificados_1);
+																																																																																																																																																																																												
+																																																																																																																																																																																														comboBox = new JComboBox();
+																																																																																																																																																																																														comboBox.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																														comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gesti\u00F3n de recursos humanos", "Topograf\u00EDa y geom\u00E1tica para desarrollo inmobiliario", "El ambiente de los locales: Creaci\u00F3n y ambientes que componen estilos", "An\u00E1lisis estad\u00EDstico b\u00E1sico", "Artes culinarias", "Auditor\u00EDa financiera", "Biblioteca y ciencias de la informaci\u00F3n", "Chocolate y confiter\u00EDa", "Configuraci\u00F3n e implantaci\u00F3n de Windows Server 2008", "La contabilidad financiera", "Direcci\u00F3n y gesti\u00F3n empresarial", "Dise\u00F1o y desarrollo de modelos de negocio", "Estrategia financiera: La optimizaci\u00F3n de los recursos y la proyecci\u00F3n de inversiones", "Gesti\u00F3n administrativa para asistentes ejecutivos", "La gesti\u00F3n de riesgos de seguridad de la informaci\u00F3n", "La gesti\u00F3n estrat\u00E9gica de las empresas familiares", "Gesti\u00F3n Integrada de Proyectos (DIGIP) en el sector inmobiliario y de la construcci\u00F3n en la RD", "Gesti\u00F3n y direcci\u00F3n estrat\u00E9gica del capital humano", "Impuestos Corporativos: Nuevas tendencias y reglamentos tributarios", "Inteligencia Empresarial", "Ingl\u00E9s intermedio", "Medici\u00F3n, redise\u00F1o y mejoras de procesos", "Gesti\u00F3n de la cadena de suministro", "Las t\u00E9cnicas de auditor\u00EDa asistida por computadora (TAAC'S)", "Ninguna"}));
+																																																																																																																																																																																														
+																																																																																																																																																																																														comboBox.setBounds(127, 24, 219, 20);
+																																																																																																																																																																																														panelTechnicalStudies.add(comboBox);
+																																																																																																																																																																																														
+																																																																																																																																																																																																JLabel lblCursosEspecializados_1 = new JLabel("Especialidades:");
+																																																																																																																																																																																																lblCursosEspecializados_1.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																lblCursosEspecializados_1.setBounds(10, 48, 107, 22);
+																																																																																																																																																																																																panelTechnicalStudies.add(lblCursosEspecializados_1);
+																																																																																																																																																																																																
+																																																																																																																																																																																																		comboBox_5_1 = new JComboBox();
+																																																																																																																																																																																																		comboBox_5_1.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																		comboBox_5_1
+																																																																																																																																																																																																				.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Conocer el mercado de valores DR", "El control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", "La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", "Las t\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, la realizaci\u00F3n y presentaci\u00F3n'S)"}));
+																																																																																																																																																																																																		comboBox_5_1.setBounds(127, 49, 219, 20);
+																																																																																																																																																																																																		panelTechnicalStudies.add(comboBox_5_1);
+																																																																																																																																																																																																		
+																																																																																																																																																																																																				JLabel lblCarreraTcnica = new JLabel("Estudios t\u00E9cnicos:");
+																																																																																																																																																																																																				lblCarreraTcnica.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																				lblCarreraTcnica.setBounds(10, 73, 107, 22);
+																																																																																																																																																																																																				panelTechnicalStudies.add(lblCarreraTcnica);
+																																																																																																																																																																																																				
+																																																																																																																																																																																																						comboBox_6_1 = new JComboBox();
+																																																																																																																																																																																																						comboBox_6_1.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																						comboBox_6_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Peque\u00F1as y medianas empresas", "Publicidad", "Aspectos de mercado", "Dise\u00F1o gr\u00E1fico", "Programaci\u00F3n de sistemas de informaci\u00F3n", "Contabilidad computarizada", "Contabilidad financiera y fiscal"}));
+																																																																																																																																																																																																						comboBox_6_1.setBounds(127, 74, 219, 20);
+																																																																																																																																																																																																						panelTechnicalStudies.add(comboBox_6_1);
+																																																																																																																																																																																																						
+																																																																																																																																																																																																								JLabel lblreasDeTrabajo = new JLabel("\u00C1reas de Trabajo:");
+																																																																																																																																																																																																								lblreasDeTrabajo.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																																								lblreasDeTrabajo.setBounds(10, 98, 107, 22);
+																																																																																																																																																																																																								panelTechnicalStudies.add(lblreasDeTrabajo);
+																																																																																																																																																																																																								
+																																																																																																																																																																																																										comboBox_7_1 = new JComboBox();
+																																																																																																																																																																																																										comboBox_7_1.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																										comboBox_7_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "contador", "actor / Actriz", "azafata", "arque\u00F3logo", "astronauta", "panadero", "bi\u00F3logo", "alba\u00F1il", "conductor de autob\u00FAs", "hombre de negocios", "mujer de negocios", "carnicero", "vigilante", "carpintero", "cajero", "limpiador", "payaso", "zapatero", "consultor", "cocinero", "consejero", "cocinero", "qu\u00EDmico", "bailar\u00EDn", "decorador", "dentista", "dise\u00F1ador", "modista", "basurero", "economista", "electricista", "agricultor", "bombero", "pescador", "florista", "frutero", "basurero", "jardinero", "peluquero", "ama de casa", "cazador", "Joyero", "juez", "abogado", "bibliotecario", "salvavidas", "camionero", "cartero", "mec\u00E1nico", "meteor\u00F3logo", "minero", "modelo", "monje", "ni\u00F1era", "monja", "enfermera", "ni\u00F1era", "empleado de oficina", "pintor", "pastelero", "farmac\u00E9utico", "fot\u00F3grafo", "f\u00EDsico", "fontanero", "polic\u00EDa", "pol\u00EDtico", "portero", "cartero", "sacerdote", "profesor", "programador", "psiquiatra", "psic\u00F3logo", "recepcionista", "investigador", "marinero", "vendedor", "cient\u00EDfico", "secretario", "secretario", "zapatero", "dependiente", "cantante", "asistente social", "cirujano", "taxista", "profesor", "operador telef\u00F3nico", "agente de viaje", "camionero", "veterinario", "camarero", "camarera", "limpiador de ventanas", "escritor"}));
+																																																																																																																																																																																																										comboBox_7_1.setBounds(127, 99, 219, 20);
+																																																																																																																																																																																																										panelTechnicalStudies.add(comboBox_7_1);
 
 		textFieldID = new JTextField();
 		textFieldID.setBounds(553, 182, 140, 20);
@@ -161,18 +393,6 @@ public class PersonRegister extends JDialog {
 		lblId.setVerticalAlignment(SwingConstants.BOTTOM);
 		contentPanel.add(lblId);
 
-		table = new JTable();
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setBounds(35, 400, 400, 200);
-		tableModel = new DefaultTableModel();
-		String[] columnNames = { "#", "ID", "Name", "Last name", "Born date",
-				"Nacionality", "Sex", "Civil state", "Study level", "Title",
-				"Grade level", "certified", "specialized courses",
-				"technical college", "job", "e-mail", "cell-phone",
-				"telephone", "postal code", "street", "number", "country",
-				"sector", "city" };
-		tableModel.setColumnIdentifiers(columnNames);
-		//loadPerson();
 
 		{
 
@@ -205,28 +425,7 @@ public class PersonRegister extends JDialog {
 				comboBox_1_1.setBackground(new Color(248, 248, 255));
 				comboBox_1_1.setBounds(150, 95, 223, 20);
 				DatosPersonales.add(comboBox_1_1);
-				comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {
-						"<Select>", "Afghan", "American", "Argentinian",
-						"Australian", "Austrian", "Belgian", "Bolivian",
-						"Brazilian", "British", "Bulgarian", "Canadian",
-						"Chilean", "Chinese", "Colombian", "Costa Rican",
-						"Cuban", "Czech", "Danish", "Dominican", "Dutch",
-						"Ecuadorean", "Egyptian", "English", "Filipino ",
-						"Finnish ", "French ", "German ", "Greek ",
-						"Greenlander ", "Guatemalan ", "Haitian ", "Hawaiian ",
-						"Honduran ", "Hungarian ", "Icelandic ", "Indian ",
-						"Indonesian ", "Iranian ", "Iraqui ", "Irish ",
-						"Israeli ", "Italian ", "Jamaican ", "Japanese ",
-						"korean ", "Lebanese ", "Malaysian ", "Maltese ",
-						"Mexican ", "Moroccan ", "Nepalese ", "New Zealander ",
-						"Nicaraguan ", "Nigerian ", "Norwegian ", "Pakistani ",
-						"Palestinian ", "Panamanian", "Paraguayan ",
-						"Peruvian ", "Polish ", "Portuguese ", "Puerto Rican ",
-						"Rumanian ", "Russian ", "Saudi Arabian ", "Scottish ",
-						"Singaporean ", "Spanish ", "Swedish ", "Swiss ",
-						"Syrian ", "Tahitian ", "Thai ", "Tunisian ",
-						"Turkish ", "Ukrainian ", "Uruguayan ", "Venezuelan ",
-						"Vietnamese ", "Welsh ", "Yugoslavian " }));
+				comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "afgano", "americano", "argentino", "australiano", "austriaco", "belga", "boliviano", "brasile\u00F1o", "brit\u00E1nico", "b\u00FAlgaro", "canadiense", "chileno", "chino", "colombiano", "costarricense", "cubano", "checo", "dan\u00E9s", "dominicano", "holand\u00E9s", "ecuatoriano", "egipcio", "ingl\u00E9s", "filipino", "finland\u00E9s", "franc\u00E9s", "alem\u00E1n", "griego", "groenland\u00E9s", "guatemalteco", "haitiano", "hawaiano", "hondure\u00F1o", "h\u00FAngaro", "island\u00E9s", "indio", "indonesio", "iran\u00ED", "Iraqu\u00ED", "irland\u00E9s", "israel\u00ED", "italiano", "jamaiquino", "japon\u00E9s", "coreano", "liban\u00E9s", "malasio", "malt\u00E9s", "mexicano", "marroqu\u00ED", "nepal\u00E9s", "neozeland\u00E9s", "nicarag\u00FCense", "nigeriano", "noruego", "pakistan\u00ED", "palestino", "paname\u00F1o", "paraguayo", "peruano", "polaco", "portugu\u00E9s", "puertorrique\u00F1o", "rumano", "ruso", "saudita", "escoc\u00E9s", "singapurence", "espa\u00F1ol", "sueco", "suizp", "sirio", "tahitiano", "tailand\u00E9s", "tunecino", "turco", "ucranio", "uruguayo", "venezolano", "vietnamita", "gal\u00E9s", "yugoslavo"}));
 			}
 			{
 				JLabel lblNacionality = new JLabel("Nacionalidad:");
@@ -239,8 +438,7 @@ public class PersonRegister extends JDialog {
 				comboBox_1_2.setBackground(new Color(248, 248, 255));
 				comboBox_1_2.setBounds(150, 119, 223, 20);
 				DatosPersonales.add(comboBox_1_2);
-				comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {
-						"<Select>", "Female", "Male" }));
+				comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));
 			}
 			{
 				JLabel lblSex = new JLabel("Sexo:");
@@ -259,9 +457,7 @@ public class PersonRegister extends JDialog {
 				comboBox_1_3.setBackground(new Color(248, 248, 255));
 				comboBox_1_3.setBounds(150, 143, 223, 20);
 				DatosPersonales.add(comboBox_1_3);
-				comboBox_1_3.setModel(new DefaultComboBoxModel(new String[] {
-						"<Select>", "Single", "Married", "Dirvorced",
-						"Widowed", "Engaged", "Other" }));
+				comboBox_1_3.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Soltero", "Casado", "Dirvorciado", "Viudo", "Comprometido", "Otro"}));
 			}
 
 			comboBox_1 = new JComboBox();
@@ -297,10 +493,10 @@ public class PersonRegister extends JDialog {
 					
 				}
 			});
-			comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Select>", "Universitario", "Técnico", "Oficio"}));
+			comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Universitario", "T\u00E9cnico", "Oficio"}));
 
 			JLabel lblSyudyLevel = new JLabel("Nivel de Estudio:");
-			lblSyudyLevel.setBounds(10, 174, 130, 14);
+			lblSyudyLevel.setBounds(10, 170, 130, 14);
 			DatosPersonales.add(lblSyudyLevel);
 			lblSyudyLevel.setHorizontalAlignment(SwingConstants.TRAILING);
 			{
@@ -323,10 +519,16 @@ public class PersonRegister extends JDialog {
 			DatosPersonales.add(monthChooser);
 			
 			yearChooser = new JYearChooser();
+			yearChooser.setMaximum(1999);
+			yearChooser.setYear(1999);
+			yearChooser.setValue(1999);
+			yearChooser.setMinimum(1950);
 			yearChooser.setBounds(301, 71, 72, 20);
 			DatosPersonales.add(yearChooser);
 			
 			spinField = new JSpinField();
+			spinField.setMinimum(1);
+			spinField.setMaximum(31);
 			spinField.setBounds(150, 71, 46, 20);
 			DatosPersonales.add(spinField);
 			
@@ -388,7 +590,7 @@ public class PersonRegister extends JDialog {
 					}
 					{
 						JLabel lblSector = new JLabel("Sector:");
-						lblSector.setBounds(30, 114, 108, 14);
+						lblSector.setBounds(30, 109, 108, 14);
 						panel_3Address.add(lblSector);
 						lblSector.setVerticalAlignment(SwingConstants.BOTTOM);
 						lblSector
@@ -402,7 +604,7 @@ public class PersonRegister extends JDialog {
 					}
 					{
 						JLabel lblCity = new JLabel("Ciudad:");
-						lblCity.setBounds(30, 144, 108, 14);
+						lblCity.setBounds(30, 137, 108, 14);
 						panel_3Address.add(lblCity);
 						lblCity.setVerticalAlignment(SwingConstants.BOTTOM);
 						lblCity.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -415,7 +617,7 @@ public class PersonRegister extends JDialog {
 					}
 					{
 						JLabel lblRegion = new JLabel("Regi\u00F3n:");
-						lblRegion.setBounds(30, 168, 108, 14);
+						lblRegion.setBounds(30, 165, 108, 14);
 						panel_3Address.add(lblRegion);
 						lblRegion.setVerticalAlignment(SwingConstants.BOTTOM);
 						lblRegion
@@ -433,243 +635,7 @@ public class PersonRegister extends JDialog {
 						comboBox_1_4.setBounds(148, 78, 223, 20);
 						panel_3Address.add(comboBox_1_4);
 						comboBox_1_4
-								.setModel(new DefaultComboBoxModel(
-										new String[] {
-												"<Select>",
-												"Afghanistan ",
-												"Albania ",
-												"Algeria ",
-												"American Samoa ",
-												"Andorra ",
-												"Angola",
-												"Anguilla ",
-												"Antarctica ",
-												"Antigua and Barbuda ",
-												"Argentina ",
-												"Armenia ",
-												"Aruba ",
-												"Australia ",
-												"Austria ",
-												"Azerbaijan  ",
-												"Bahamas ",
-												"Bahrain ",
-												"Bangladesh ",
-												"Barbados ",
-												"Belarus ",
-												"Belgium ",
-												"Belize ",
-												"Benin ",
-												"Bermuda ",
-												"Bhutan",
-												"Bolivia ",
-												"Bosnia and Herzegovina ",
-												"Botswana ",
-												"Brazil ",
-												"Brunei Darussalam",
-												"Bulgaria ",
-												"Burkina Faso ",
-												"Burundi ",
-												"Cambodia ",
-												"Cameroon ",
-												"Canada ",
-												"Cape Verde ",
-												"Cayman Islands ",
-												"Central African Republic ",
-												"Chad ",
-												"Chile ",
-												"China ",
-												"Christmas Island ",
-												"Cocos (Keeling) Islands ",
-												"Colombia ",
-												"Comoros ",
-												"Democratic Republic of the Congo (Kinshasa) ",
-												"Congo, Republic of (Brazzaville) ",
-												"Cook Islands ",
-												"Costa Rica ",
-												"Ivory Coast (Cote d'Ivoire) ",
-												"Croatia ",
-												"Cuba ",
-												"Cyprus ",
-												"Czech Republic ",
-												"Denmark ",
-												"Djibouti ",
-												"Dominica ",
-												"Dominican Republic ",
-												"East Timor Timor-Leste ",
-												"Ecuador ",
-												"Egypt ",
-												"El Salvador ",
-												"Equatorial Guinea ",
-												"Eritrea ",
-												"Estonia ",
-												"Ethiopia ",
-												"Falkland Islands ",
-												"Faroe Islands ",
-												"Fiji ",
-												"Finland ",
-												"France ",
-												"French Guiana ",
-												"French Polynesia ",
-												"French Southern Territories ",
-												"Gabon ",
-												"Gambia ",
-												"Georgia ",
-												"Germany ",
-												"Ghana ",
-												"Gibraltar ",
-												"Great Britain ",
-												"Greece ",
-												"Greenland ",
-												"Grenada ",
-												"Guadeloupe ",
-												"Guam ",
-												"Guatemala ",
-												"Guinea ",
-												"Guinea-Bissau ",
-												"Guyana ",
-												"Haiti ",
-												"Holy See ",
-												"Honduras ",
-												"Hong Kong ",
-												"Hungary ",
-												"Iceland ",
-												"India ",
-												"Indonesia ",
-												"Iran (Islamic Republic of) ",
-												"Iraq",
-												"Ireland ",
-												"Israel ",
-												"Italy ",
-												"Jamaica ",
-												"Japan ",
-												"Jordan ",
-												"Kazakhstan ",
-												"Kenya ",
-												"Kiribati",
-												"Korea, Democratic People's Rep. (North Korea)",
-												"Korea, Republic of (South Korea)",
-												"Kosovo",
-												"Kuwait ",
-												"Kyrgyzstan",
-												"Lao, People's Democratic Republic",
-												"Latvia",
-												"Lebanon",
-												"Lesotho",
-												"Liberia",
-												"Libya",
-												"Liechtenstein",
-												"Lithuania",
-												"Luxembourg",
-												"Macao",
-												"Macedonia, Rep. of",
-												"Madagascar",
-												"Malawi",
-												"Malaysia",
-												"Maldives",
-												"Mali",
-												"Malta",
-												"Marshall Islands",
-												"Martinique",
-												"Mauritania",
-												"Mauritius",
-												"Mayotte",
-												"Mexico",
-												"Micronesia, Federal States of",
-												"Moldova, Republic of",
-												"Monaco",
-												"Mongolia",
-												"Montenegro",
-												"Montserrat",
-												"Morocco",
-												"Mozambique",
-												"Myanmar, Burma",
-												"Namibia",
-												"Nauru ",
-												"Nepal",
-												"Netherlands",
-												"Netherlands Antilles",
-												"New Caledonia",
-												"New Zealand",
-												"Nicaragua",
-												"Niger",
-												"Nigeria",
-												"Niue",
-												"Northern Mariana Islands",
-												"Norway",
-												"Oman",
-												"Pakistan",
-												"Palau",
-												"Palestinian territories",
-												"Panama",
-												"Papua New Guinea",
-												"Paraguay",
-												"Peru",
-												"Philippines",
-												"Pitcairn Island",
-												"Poland",
-												"Portugal",
-												"Puerto Rico",
-												"Qatar",
-												"Reunion Island",
-												"Romania",
-												"Russian Federation",
-												"Rwanda",
-												"Saint Kitts and Nevis",
-												"Saint Lucia",
-												"Saint Vincent and the Grenadines",
-												"Samoa",
-												"San Marino",
-												"Saint Tome and Principe ",
-												"Saudi Arabia",
-												"Senegal",
-												"Serbia",
-												"Seychelles",
-												"Sierra Leone",
-												"Singapore",
-												"Slovakia (Slovak Republic)",
-												"Slovenia",
-												"Solomon Islands",
-												"Somalia",
-												"South Africa",
-												"South Sudan",
-												"Spain",
-												"Sri Lanka",
-												"Sudan",
-												"Suriname",
-												"Swaziland",
-												"Sweden",
-												"Switzerland",
-												"Syria",
-												"Taiwan (Republic of China)",
-												"Tajikistan",
-												"Tanzania",
-												"Thailand",
-												"Tibet",
-												"Timor-Leste (East Timor)",
-												"Togo",
-												"Tokelau",
-												"Tonga",
-												"Trinidad and Tobago",
-												"Tunisia",
-												"Turkey ",
-												"Turkmenistan",
-												"Turks and Caicos Islands",
-												"Tuvalu",
-												"Uganda",
-												"Ukraine",
-												"United Arab Emirates",
-												"United Kingdom",
-												"United States",
-												"Uruguay",
-												"Uzbekistan",
-												"Vanuatu",
-												"Vatican City State (Holy See)",
-												"Venezuela", "Vietnam",
-												"Virgin Islands (British)",
-												"Virgin Islands (U.S.)",
-												"Wallis and Futuna Islands",
-												"Western Sahara", "Yemen",
-												"Zambia", "Zimbabwe" }));
+								.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afganist\u00E1n", "Albania", "Argelia", "Samoa Americana", "Andorra", "Angola", "Anguila", "Ant\u00E1rtida", "Antigua y Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaiy\u00E1n", "Bahamas", "Bahrein", "Bangladesh", "Barbados", "Bielorrusia", "B\u00E9lgica", "Belice", "Benin", "Bermuda", "But\u00E1n", "Bolivia", "Bosnia y Herzegovina", "Botswana", "Brasil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Camboya", "Camer\u00FAn", "Canad\u00E1", "Cabo Verde", "Islas Caim\u00E1n", "Rep\u00FAblica Centroafricana", "Chad", "Chile", "China", "Isla de Navidad", "Islas Cocos (Keeling)", "Colombia", "Comoras", "Rep\u00FAblica Democr\u00E1tica del Congo (Kinshasa)", "Congo, Rep\u00FAblica del (Brazzaville)", "Islas Cook", "Costa Rica", "Costa de Marfil (C\u00F4te d'Ivoire)", "Croacia", "Cuba", "Chipre", "Rep\u00FAblica Checa", "Dinamarca", "Djibouti", "Dominica", "Rep\u00FAblica Dominicana", "Timor Oriental Timor-Leste", "Ecuador", "Egipto", "El Salvador", "Guinea Ecuatorial", "Eritrea", "Estonia", "Etiop\u00EDa", "islas Malvinas", "Islas Feroe", "Fiji", "Finlandia", "Francia", "Guayana franc\u00E9s", "Polinesia franc\u00E9s", "Territorios Franceses del Sur", "Gab\u00F3n", "Gambia", "Georgia", "Alemania", "Ghana", "Gibraltar", "gran Breta\u00F1a", "Grecia", "Groenlandia", "Granada", "Guadalupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guayana", "Hait\u00ED", "Santa Sede", "Honduras", "Hong Kong", "Hungr\u00EDa", "Islandia", "India", "Indonesia", "Ir\u00E1n (Rep\u00FAblica Isl\u00E1mica del)", "Irak", "Irlanda", "Israel", "Italia", "Jamaica", "Jap\u00F3n", "Jordania", "Kazajst\u00E1n", "Kenia", "Kiribati", "Corea, Rep\u00FAblica Popular Democr\u00E1tica. (Corea del Norte)", "Corea, Rep\u00FAblica de (Corea del Sur)", "Kosovo", "Kuwait", "Kirguist\u00E1n", "Lao, Rep\u00FAblica Popular Democr\u00E1tica", "Letonia", "L\u00EDbano", "Lesoto", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macao", "Macedonia, Rep. De", "Madagascar", "Malawi", "Malasia", "Maldivas", "Mal\u00ED", "Malta", "Islas Marshall", "Martinica", "Mauritania", "Mauricio", "Mayotte", "M\u00E9xico", "Micronesia, Estados Federados de", "Moldova, Rep\u00FAblica de", "M\u00F3naco", "Mongolia", "Montenegro", "Montserrat", "Marruecos", "Mozambique", "Myanmar, Birmania", "Namibia", "Nauru", "Nepal", "Pa\u00EDses Bajos", "Antillas Holandesas", "nueva Caledonia", "nueva Zelanda", "Nicaragua", "N\u00EDger", "Nigeria", "Niue", "Islas Marianas del Norte", "Noruega", "Om\u00E1n", "Pakist\u00E1n", "Palau", "territorios palestinos", "Panam\u00E1", "Pap\u00FAa Nueva Guinea", "Paraguay", "Per\u00FA", "Filipinas", "Pitcairn Island", "Polonia", "Portugal", "Puerto Rico", "Katar", "Isla de la Reuni\u00F3n", "Rumania", "Federaci\u00F3n de Rusia", "Ruanda", "San Crist\u00F3bal y Nieves", "Santa Luc\u00EDa", "San Vicente y las Granadinas", "Samoa", "San Marino", "Santo Tom\u00E9 y Pr\u00EDncipe", "Arabia Saudita", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Eslovaquia (Rep\u00FAblica Eslovaca)", "Eslovenia", "islas Salom\u00F3n", "Somalia", "Sud\u00E1frica", "Sud\u00E1n del Sur", "Espa\u00F1a", "Sri Lanka", "Sud\u00E1n", "Suriname", "Swazilandia", "Suecia", "Suiza", "Siria", "Taiw\u00E1n (Rep\u00FAblica de China)", "Tayikist\u00E1n", "Tanzania", "Tailandia", "T\u00EDbet", "Timor-Leste (Timor Oriental)", "Togo", "Tokelau", "Tonga", "Trinidad y Tobago", "T\u00FAnez", "Pavo", "Turkmenist\u00E1n", "Islas Turcas y Caicos", "Tuvalu", "Uganda", "Ucrania", "Emiratos \u00C1rabes Unidos", "Reino Unido", "Estados Unidos", "Uruguay", "Uzbekist\u00E1n", "Vanuatu", "Ciudad del Vaticano (Santa Sede)", "Venezuela", "Vietnam", "Islas V\u00EDrgenes (brit\u00E1nica)", "Islas V\u00EDrgenes (EE.UU.)", "Islas Wallis y Futuna", "S\u00E1hara Occidental", "Yemen", "Zambia", "Zimbabue"}));
 					}
 					
 					JLabel AstBirth = new JLabel("*");
@@ -749,14 +715,6 @@ public class PersonRegister extends JDialog {
 				AstLastName.setHorizontalAlignment(SwingConstants.CENTER);
 				AstLastName.setForeground(Color.RED);
 			}
-
-			JScrollPane scrollPane = new JScrollPane();
-			scrollPane.setBounds(1278, 267, -1266, 260);
-			contentPanel.add(scrollPane);
-															
-															JScrollBar scrollBar = new JScrollBar();
-															scrollBar.setBounds(1259, 0, 25, 735);
-															contentPanel.add(scrollBar);
 															
 															JLabel lblPicture = new JLabel("\r\n\r\n\r\n\r\n\r\nSubir Foto");
 															lblPicture.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -775,28 +733,170 @@ public class PersonRegister extends JDialog {
 			contentPanel.add(buttonPane);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Register");
 				okButton.addActionListener(new ActionListener() {
-					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						setVisible(false);
+						
+						if (comboBox_1.getSelectedItem() == "Universitario") {
+							Academic temp = new Academic();
+							temp.setName(txtSuperlargoArchipielago.getText());
+							temp.setLastName(textField_2.getText());
+							temp.setID(textFieldID.getText());
+							temp.setPhone(textField_5.getText());
+							temp.setMobile(textField_4.getText());
+							temp.setEmail(textField_3.getText());
+							temp.setSex(comboBox_1_2.getSelectedItem().toString());					
+							//date.setMonth(monthChooser.getMonth());
+							//date.setDate(spinField.getValue());
+							//date.setYear(yearChooser.getYear());
+							temp.setBirth(date);
+							temp.setCity(textField_9.getText());
+							temp.getAddress().setRegion(textField_11.getText());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(Integer.parseInt(textField_7.getText()));
+							temp.setPostalCode(Long.parseLong(textField_6
+									.getText()));
+							temp.setNationality(comboBox_1_1.getSelectedItem()
+									.toString());
+							temp.setCivilState(comboBox_1_3.getSelectedItem()
+									.toString());
+							temp.setAcademicLevel(comboBox_1.getSelectedItem()
+									.toString());
+							temp.setGradeTitle(comboBox_2.getSelectedItem()
+									.toString());
+							temp.getAddress().setRegion(textField_7.getText());
+							temp.setGradeLevel(comboBox_11.getSelectedItem().toString());
+							temp.setPostGradeTitles(comboBox_3.getSelectedItem().toString());
+							temp.setCertTitles(comboBox_4.getSelectedItem().toString());
+							temp.setEspTitles(comboBox_5.getSelectedItem().toString());
+							temp.setTechnicalTitles(comboBox_6.getSelectedItem().toString());
+							temp.setDoctorateTitles(comboBox_7.getSelectedItem().toString());
+
+							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
+
+							comboBox_2.setSelectedItem("<Selecciona>");
+							comboBox_11.setSelectedItem("<Selecciona>");
+							comboBox_3.setSelectedItem("<Selecciona>");
+							comboBox_4.setSelectedItem("<Selecciona>");
+							comboBox_5.setSelectedItem("<Selecciona>");
+							comboBox_6.setSelectedItem("<Selecciona>");
+							comboBox_7.setSelectedItem("<Selecciona>");
+						}
+						else if (comboBox_1.getSelectedItem() == "Técnico") {
+							// YearsExperience,
+							// String gradelevel
+							Technical temp = new Technical();
+							temp.setName(txtSuperlargoArchipielago.getText());
+							temp.setLastName(textField_2.getText());
+							temp.setID(textFieldID.getText());
+							temp.setPhone(textField_5.getText());
+							temp.setMobile(textField_4.getText());
+							temp.setEmail(textField_3.getText());
+							temp.setSex(comboBox_1_2.getSelectedItem().toString());
+							
+							//Date date = new Date();
+							//date.setMonth(monthChooser.getMonth());
+							//date.setDate(spinField.getValue());
+							//date.setYear(yearChooser.getYear());
+							temp.setBirth(date);
+							
+							temp.setBirth(date);
+							temp.setCity(textField_9.getText());
+							temp.getAddress().setRegion(textField_11.getText());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(Integer.parseInt(textField_7
+									.getText()));
+							temp.setPostalCode(Long.parseLong(textField_6
+									.getText()));
+							temp.setNationality(comboBox_1_1.getSelectedItem()
+									.toString());
+							temp.setCivilState(comboBox_1_3.getSelectedItem()
+									.toString());
+							temp.setAcademicLevel(comboBox_1.getSelectedItem()
+									.toString());
+							temp.getAddress().setRegion(textField_7.getText());
+							temp.setCertTitles(comboBox.getSelectedItem().toString());
+							temp.setEspTitle(comboBox_5_1.getSelectedItem().toString());
+							temp.setTechTitles(comboBox_6_1.getSelectedItem().toString());
+							temp.setWorks(comboBox_7_1.getSelectedItem().toString());
+							
+							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
+							
+							comboBox.setSelectedItem("<Selecciona>");
+							comboBox_5_1.setSelectedItem("<Selecciona>");
+							comboBox_6_1.setSelectedItem("<Selecciona>");
+							comboBox_7_1.setSelectedItem("<Selecciona>");
+						}
+
+			else if (comboBox_1.getSelectedItem() == "Oficio") {
+							// YearsExperience,
+							// String gradelevel
+							DreamerNini temp = new DreamerNini();
+							temp.setName(txtSuperlargoArchipielago.getText());
+							temp.setLastName(textField_2.getText());
+							temp.setID(textFieldID.getText());
+							temp.setPhone(textField_5.getText());
+							temp.setMobile(textField_4.getText());
+							temp.setEmail(textField_3.getText());
+							temp.setSex(comboBox_1_2.getSelectedItem().toString());
+							
+							//Date date = new Date();
+							//date.setMonth(monthChooser.getMonth());
+							//date.setDate(spinField.getValue());
+							//date.setYear(yearChooser.getYear());
+							temp.setBirth(date);
+							temp.setCity(textField_9.getText());
+							temp.getAddress().setRegion(textField_11.getText());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(Integer.parseInt(textField_7
+									.getText()));
+							temp.setPostalCode(Long.parseLong(textField_6
+									.getText()));
+							temp.setNationality(comboBox_1_1.getSelectedItem()
+									.toString());
+							temp.setCivilState(comboBox_1_3.getSelectedItem()
+									.toString());
+							temp.setAcademicLevel(comboBox_1.getSelectedItem()
+									.toString());
+							temp.getAddress().setRegion(textField_7.getText());
+							temp.setCertTitles(comboBox_8.getSelectedItem().toString());
+							temp.setCourseTitles(comboBox_9.getSelectedItem().toString());
+							temp.setWorks(comboBox_10.getSelectedItem().toString());
+							
+							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
+							
+							comboBox_8.setSelectedItem("<Selecciona>");
+							comboBox_9.setSelectedItem("<Selecciona>");
+							comboBox_10.setSelectedItem("<Selecciona>");
+					}
+						
+						txtSuperlargoArchipielago.setText("");
+						textField_2.setText("");
+						textFieldID.setText("");
+						textField_5.setText("");
+						textField_4.setText("");
+						textField_3.setText("");
+						comboBox_1_2.setSelectedItem("<Selecciona>");
+						comboBox_1_4.setSelectedItem("<Selecciona>");
+						textField_8.setText("");
+						textField_10.setText("");
+						textField_7.setText("");
+						textField_6.setText("");
+						comboBox_1_1.setSelectedItem("<Selecciona>");
+						comboBox_1_3.setSelectedItem("<Selecciona>");
+						comboBox_1.setSelectedItem("<Selecciona>");
+						textField_9.setText("");
+						textField_11.setText("");
+						
 					}
 				});
-				{
-					JButton btnDelete = new JButton("Delete");
-					buttonPane.add(btnDelete);
-				}
-				{
-					JButton btnUpdate = new JButton("Update");
-					buttonPane.add(btnUpdate);
-				}
 
-				JButton btnRegister = new JButton("Register");
+				/*JButton btnRegister = new JButton("Register");
 				btnRegister.addActionListener(new ActionListener() {
-					@SuppressWarnings("deprecation")
-					@Override
-					public void actionPerformed(ActionEvent arg0) {
-						final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+					public void actionPerformed(ActionEvent e) {
 						if (comboBox_1.getSelectedItem() == "Universitary") {
 													// YearsExperience,
 													// String gradelevel
@@ -830,10 +930,12 @@ public class PersonRegister extends JDialog {
 															.toString());
 													temp.setTitle(comboBox_2.getSelectedItem()
 															.toString());
+													temp.getAddress().setRegion(textField_7.getText());
 
 													persons.setPersons(temp);
+													loadPerson(persons);
 												}
-												if (comboBox_1.getSelectedItem() == "Technical") {
+						else if (comboBox_1.getSelectedItem() == "Technical") {
 													// YearsExperience,
 													// String gradelevel
 													Technical temp = new Technical();
@@ -845,7 +947,7 @@ public class PersonRegister extends JDialog {
 													temp.setEmail(textField_3.getText());
 													temp.setSex(comboBox_1_2.getSelectedItem().toString());
 													
-													Date date = new Date();
+													date = new Date();
 													date.setMonth(monthChooser.getMonth());
 													date.setDate(spinField.getValue());
 													date.setYear(yearChooser.getYear());
@@ -866,10 +968,12 @@ public class PersonRegister extends JDialog {
 															.toString());
 													temp.setAcademicLevel(comboBox_1.getSelectedItem()
 															.toString());
+													temp.getAddress().setRegion(textField_7.getText());
 													persons.setPersons(temp);
+													loadPerson(persons);
 												}
 
-												if (comboBox_1.getSelectedItem() == "Other") {
+						else if (comboBox_1.getSelectedItem() == "Other") {
 													// YearsExperience,
 													// String gradelevel
 													DreamerNini temp = new DreamerNini();
@@ -881,7 +985,7 @@ public class PersonRegister extends JDialog {
 													temp.setEmail(textField_3.getText());
 													temp.setSex(comboBox_1_2.getSelectedItem().toString());
 													
-													Date date = new Date();
+													date = new Date();
 													date.setMonth(monthChooser.getMonth());
 													date.setDate(spinField.getValue());
 													date.setYear(yearChooser.getYear());
@@ -902,11 +1006,16 @@ public class PersonRegister extends JDialog {
 															.toString());
 													temp.setAcademicLevel(comboBox_1.getSelectedItem()
 															.toString());
+													temp.getAddress().setRegion(textField_7.getText());
 													persons.setPersons(temp);
+													loadPerson(persons);
 										
 
-				}}});
+				}}}
+				
+				);
 				buttonPane.add(btnRegister);
+				*/
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
@@ -921,336 +1030,21 @@ public class PersonRegister extends JDialog {
 				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);}}
-		
-				panelUniversityStudy = new JPanel();
-				panelUniversityStudy.setBackground(new Color(248, 248, 255));
-				panelUniversityStudy.setBounds(450, 242, 357, 235);
-				contentPanel.add(panelUniversityStudy);
-				panelUniversityStudy.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios Universitarios:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-				panelUniversityStudy.setVisible(false);
-				panelUniversityStudy.setLayout(null);
 				{
-					JLabel lblPu = new JLabel("Grado:");
-					lblPu.setHorizontalAlignment(SwingConstants.TRAILING);
-					lblPu.setBounds(10, 56, 107, 14);
-					panelUniversityStudy.add(lblPu);
 				}
-				
-						comboBox_2 = new JComboBox();
-						comboBox_2.setBackground(new Color(248, 248, 255));
-						comboBox_2
-								.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Business adm. mention operations", "Business adm. mention finance", "Business adm. mention strategy", "Business adm. mention creation and development of new business", "Business adm. mention human gestion", "Business adm. mention international business", "Hotel management mention food and drink", "Hotel management mention hotel marketing", "Arquitectura", "Social communication mention audiovisual production", "Social communication mention corporate communication", "Law", "Design and interior", "Ecology and environmental management", "Economy", "Education", "Nursing", "Stomatology", "Phylosophy", "Financial management and auditing", "Civil Engineering", "Electromechanical Engineering mention mechanical", "Electronechanical Engineerin mention electric", "Industrial Engineering", "System and computer Engineering", "Electronic Engineering", "Telematic Engineering", "Medicine", "Marketing", "Nutrition and dietetics", "Psychology", "Physical therapy"}));
-						comboBox_2.setBounds(127, 53, 219, 20);
-						panelUniversityStudy.add(comboBox_2);
-						
-								JLabel lblPostgrade = new JLabel("Post-grado:");
-								lblPostgrade.setHorizontalAlignment(SwingConstants.TRAILING);
-								lblPostgrade.setBounds(10, 84, 107, 14);
-								panelUniversityStudy.add(lblPostgrade);
-								
-										comboBox_3 = new JComboBox();
-										comboBox_3.setBackground(new Color(248, 248, 255));
-										comboBox_3
-												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Executive Master in Strategic Human Resources", "Master of Strategic Management", "MBA in Insurance Programs", "LLM in Economic Regulation", "Master of Labour Law and Social Security", "MSc in Real Estate", "Master of Intellectual Property and New Technologies", "Master of Law in Corporate Business", "Master of International Relations", "Master of Public Policy", "Master of Business Economics", "Executive Master in Supply Chain Management", "Architectural Design Master of Interior Architecture Concentration", "Architectural Design Master of Architecture mention Tourist Accommodation", "Specialization in Applied Mathematics in Education", "Specialization in Mathematics Education Basic Level"}));
-										comboBox_3.setBounds(127, 83, 219, 20);
-										panelUniversityStudy.add(comboBox_3);
-										{
-											JLabel lblCertified = new JLabel("Certificaciones:");
-											lblCertified.setHorizontalAlignment(SwingConstants.TRAILING);
-											lblCertified.setBounds(10, 114, 107, 14);
-											panelUniversityStudy.add(lblCertified);
-										}
-										{
-											comboBox_4 = new JComboBox();
-											comboBox_4.setBackground(new Color(248, 248, 255));
-											comboBox_4
-													.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Human resource management", "Surveying and Geomatics for real estate development", "Atmosphere of premises: Creating and composing styles environments", "Basic Statistical Analysis", "Culinary arts", "Financial audit", "Library and information science", "Chocolate and confectionery", "Configuring and Deploying Windows Server 2008", "Financial accounting", "Address and business management", "Design and development of business models", "Strategic Finance:", "Optimization of resources and investment projection", "Administrative management for executive assistants", "Risk management of information security", "Strategic management of family businesses", "Integrated project management (DIGIP) in real estate and construction in DR", "Management and strategic direction of human capital", "Corporate Taxes: New Trends and tax regulations", "Corporate Intelligence", "Intermediate English", "Measurement, redesign and process improvements", "Supply chain management", "Techniques of computer assisted audit (TAAC'S)"}));
-											comboBox_4.setBounds(127, 113, 219, 20);
-											panelUniversityStudy.add(comboBox_4);
-										}
-										{
-											JLabel lblSpecializedCourses = new JLabel(
-													"Especialidades:");
-											lblSpecializedCourses
-													.setHorizontalAlignment(SwingConstants.TRAILING);
-											lblSpecializedCourses.setBounds(10, 142, 107, 22);
-											panelUniversityStudy.add(lblSpecializedCourses);
-										}
-										{
-											comboBox_5 = new JComboBox();
-											comboBox_5.setBackground(new Color(248, 248, 255));
-											comboBox_5
-													.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Knowing the stock market DR", "Cost control for food and beverage operations", "IT network essential", "Effective management of social networks", "Sales Forecast", "Specialized techniques in preparation of meat: Cortes, cooking, completion and presentation"}));
-											comboBox_5.setBounds(127, 143, 219, 20);
-											panelUniversityStudy.add(comboBox_5);
-										}
-										{
-											JLabel lblTechnicalCollege = new JLabel("Estudios T\u00E9cnicos:");
-											lblTechnicalCollege.setHorizontalAlignment(SwingConstants.TRAILING);
-											lblTechnicalCollege.setBounds(10, 172, 107, 22);
-											panelUniversityStudy.add(lblTechnicalCollege);
-										}
-										{
-											comboBox_6 = new JComboBox();
-											comboBox_6.setBackground(new Color(248, 248, 255));
-											comboBox_6
-													.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Small and medium enterprises", "Advertising", "Market aspects", "Graphic design", "Programming information systems", "Computerized accounting", "Financial and tax accounting"}));
-											comboBox_6.setBounds(127, 173, 219, 20);
-											panelUniversityStudy.add(comboBox_6);
-										}
-										{
-											JLabel lblDoctorate = new JLabel("Doctorados:");
-											lblDoctorate.setHorizontalAlignment(SwingConstants.TRAILING);
-											lblDoctorate.setBounds(10, 202, 107, 22);
-											panelUniversityStudy.add(lblDoctorate);
-										}
-										{
-											comboBox_7 = new JComboBox();
-											comboBox_7.setBackground(new Color(248, 248, 255));
-											comboBox_7
-													.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Constitutional Law and Fundamental Rights", "Democratic Society, State and Law", "Education (and/or in leadership or in pedagogical sciencies)", "Business studies", "Cooperation and Social Intervention", "Educational Psychology and Human Development", "Economy", "Sociology", "Philosophy for a Global World"}));
-											comboBox_7.setBounds(127, 203, 219, 20);
-											panelUniversityStudy.add(comboBox_7);
-										}
-														
-														JComboBox comboBox_11 = new JComboBox();
-														comboBox_11.setModel(new DefaultComboBoxModel(GradeLevel.values()));
-														comboBox_11.setBounds(127, 23, 219, 20);
-														panelUniversityStudy.add(comboBox_11);
-														
-														JLabel lblTitulo = new JLabel("Nivel Alcanzado:");
-														lblTitulo.setHorizontalAlignment(SwingConstants.RIGHT);
-														lblTitulo.setBounds(10, 26, 107, 14);
-														panelUniversityStudy.add(lblTitulo);
-														
-																panelTechnicalStudies = new JPanel();
-																panelTechnicalStudies.setBackground(new Color(248, 248, 255));
-																panelTechnicalStudies.setBounds(450,242,357,235);
-																contentPanel.add(panelTechnicalStudies);
-																panelTechnicalStudies.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios T\u00E9cnicos", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-																panelTechnicalStudies.setVisible(false);
-																panelTechnicalStudies.setLayout(null);
-																
-																		JLabel lblCertificados_1 = new JLabel("Certificados:");
-																		lblCertificados_1.setHorizontalAlignment(SwingConstants.TRAILING);
-																		lblCertificados_1.setBounds(10, 27, 107, 14);
-																		panelTechnicalStudies.add(lblCertificados_1);
-																		
-																				comboBox = new JComboBox();
-																				comboBox.setBackground(new Color(248, 248, 255));
-																				comboBox.setModel(new DefaultComboBoxModel(
-																						new String[] {
-																								"<Select>",
-																								"Human resource management",
-																								"Surveying and Geomatics for real estate development",
-																								"Atmosphere of premises: Creating and composing styles environments",
-																								"Basic Statistical Analysis",
-																								"Culinary arts",
-																								"Financial audit",
-																								"Library and information science",
-																								"Chocolate and confectionery",
-																								"Configuring and Deploying Windows Server 2008",
-																								"Financial accounting",
-																								"Address and business management",
-																								"Design and development of business models",
-																								"Strategic Finance:",
-																								"Optimization of resources and investment projection",
-																								"Administrative management for executive assistants",
-																								"Risk management of information security",
-																								"Strategic management of family businesses",
-																								"Integrated project management (DIGIP) in real estate and construction in DR",
-																								"Management and strategic direction of human capital",
-																								"Corporate Taxes: New Trends and tax regulations",
-																								"Corporate Intelligence", "Intermediate English",
-																								"Measurement, redesign and process improvements",
-																								"Supply chain management",
-																								"Techniques of computer assisted audit (TAAC'S)" }));
-																				
-																				comboBox.setBounds(127, 24, 219, 20);
-																				panelTechnicalStudies.add(comboBox);
-																				
-																						JLabel lblCursosEspecializados_1 = new JLabel("Especialidades:");
-																						lblCursosEspecializados_1.setHorizontalAlignment(SwingConstants.TRAILING);
-																						lblCursosEspecializados_1.setBounds(10, 48, 107, 22);
-																						panelTechnicalStudies.add(lblCursosEspecializados_1);
-																						
-																								comboBox_5_1 = new JComboBox();
-																								comboBox_5_1.setBackground(new Color(248, 248, 255));
-																								comboBox_5_1
-																										.setModel(new DefaultComboBoxModel(
-																												new String[] {
-																														"<Select>",
-																														"Knowing the stock market DR",
-																														"Cost control for food and beverage operations",
-																														"IT network essential",
-																														"Effective management of social networks",
-																														"Sales Forecast",
-																														"Specialized techniques in preparation of meat: Cortes, cooking, completion and presentation" }));
-																								comboBox_5_1.setBounds(127, 49, 219, 20);
-																								panelTechnicalStudies.add(comboBox_5_1);
-																								
-																										JLabel lblCarreraTcnica = new JLabel("Carrera T\u00E9cnica:");
-																										lblCarreraTcnica.setHorizontalAlignment(SwingConstants.TRAILING);
-																										lblCarreraTcnica.setBounds(10, 73, 107, 22);
-																										panelTechnicalStudies.add(lblCarreraTcnica);
-																										
-																												comboBox_6_1 = new JComboBox();
-																												comboBox_6_1.setBackground(new Color(248, 248, 255));
-																												comboBox_6_1.setModel(new DefaultComboBoxModel(new String[] { "<Select>",
-																														"Small and medium enterprises", "Advertising",
-																														"Market aspects", "Graphic design",
-																														"Programming information systems", "Computerized accounting",
-																														"Financial and tax accounting" }));
-																												comboBox_6_1.setBounds(127, 74, 219, 20);
-																												panelTechnicalStudies.add(comboBox_6_1);
-																												
-																														JLabel lblreasDeTrabajo = new JLabel("\u00C1reas de Trabajo:");
-																														lblreasDeTrabajo.setHorizontalAlignment(SwingConstants.TRAILING);
-																														lblreasDeTrabajo.setBounds(10, 98, 107, 22);
-																														panelTechnicalStudies.add(lblreasDeTrabajo);
-																														
-																																comboBox_7_1 = new JComboBox();
-																																comboBox_7_1.setBackground(new Color(248, 248, 255));
-																																comboBox_7_1.setModel(new DefaultComboBoxModel(new String[] { "<Select>",
-																																		"Accountant", "Actor / Actress", "Air hostess",
-																																		"Archaeologist", "Astronaut", "Baker", "Biologist",
-																																		"Bricklayer", "Bus driver", "Businessman", "Businesswoman",
-																																		"Butcher", "Caretaker", "Carpenter", "Cashier", "Cleaner",
-																																		"Clown", "Cobbler", "Consultant", "Cook", "Counselor", "Chef",
-																																		"Chemist", "Dancer", "Decorator", "Dentist", "Designer",
-																																		"Dressmaker", "Dustman", "Economist", "Electrician", "Farmer",
-																																		"Fireman", "FIsherman", "Florist", "Fruiterer",
-																																		"Garbage collector", "Gardener", "Hairdresser", "Housewife",
-																																		"Hunter", "Jeweller", "Judge", "Lawyer", "Librarian",
-																																		"Life guard", "Lorry driver", "Mailman", "Mechanic",
-																																		"Meteorologist", "Miner", "Model", "Monk", "Nanny", "Nun",
-																																		"Nurse", "Nursemaid", "Office worker", "Painter",
-																																		"Pastry cook", "Pharmacist", "Photographer", "Physicist",
-																																		"Plumber", "Policeman / Policewoman", "Politician", "Porter",
-																																		"Postman", "Priest", "Professor", "Programmer", "Psychiatrist",
-																																		"Psychologist", "Receptionist", "Researcher", "Sailor",
-																																		"Salesman", "Scientist", "Secretary", "Secretary", "Shoemaker",
-																																		"Shop assistant", " Singer", "Social worker", "Surgeon",
-																																		"Taxi driver", "Teacher", "Telephone operator", "Travel agent",
-																																		"Truck driver", "Vet", "Veterinarian", "Waiter", "Waitress",
-																																		"Window cleaner", "Writer" }));
-																																comboBox_7_1.setBounds(127, 99, 219, 20);
-																																panelTechnicalStudies.add(comboBox_7_1);
-																																
-																																			panel_5Oficio = new JPanel();
-																																			panel_5Oficio.setBackground(new Color(248, 248, 255));
-																																			panel_5Oficio.setBounds(450,242,357,150);
-																																			contentPanel.add(panel_5Oficio);
-																																			panel_5Oficio.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios de Oficio:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-																																			panel_5Oficio.setVisible(false);
-																																			panel_5Oficio.setLayout(null);
-																																			{
-																																				JLabel lblCertificados = new JLabel("Certificados:");
-																																				lblCertificados.setHorizontalAlignment(SwingConstants.TRAILING);
-																																				lblCertificados.setBounds(10, 25, 107, 14);
-																																				panel_5Oficio.add(lblCertificados);
-																																			}
-																																			{
-																																				comboBox_8 = new JComboBox();
-																																				comboBox_8.setBackground(new Color(248, 248, 255));
-																																				comboBox_8
-																																						.setModel(new DefaultComboBoxModel(
-																																								new String[] {
-																																										"<Select>",
-																																										"Human resource management",
-																																										"Surveying and Geomatics for real estate development",
-																																										"Atmosphere of premises: Creating and composing styles environments",
-																																										"Basic Statistical Analysis",
-																																										"Culinary arts",
-																																										"Financial audit",
-																																										"Library and information science",
-																																										"Chocolate and confectionery",
-																																										"Configuring and Deploying Windows Server 2008",
-																																										"Financial accounting",
-																																										"Address and business management",
-																																										"Design and development of business models",
-																																										"Strategic Finance:",
-																																										"Optimization of resources and investment projection",
-																																										"Administrative management for executive assistants",
-																																										"Risk management of information security",
-																																										"Strategic management of family businesses",
-																																										"Integrated project management (DIGIP) in real estate and construction in DR",
-																																										"Management and strategic direction of human capital",
-																																										"Corporate Taxes: New Trends and tax regulations",
-																																										"Corporate Intelligence",
-																																										"Intermediate English",
-																																										"Measurement, redesign and process improvements",
-																																										"Supply chain management",
-																																										"Techniques of computer assisted audit (TAAC'S)" }));
-																																				comboBox_8.setBounds(127, 22, 219, 20);
-																																				panel_5Oficio.add(comboBox_8);
-																																			}
-																																			{
-																																				JLabel lblCursosEspecializados = new JLabel("Cursos");
-																																				lblCursosEspecializados.setHorizontalAlignment(SwingConstants.TRAILING);
-																																				lblCursosEspecializados.setBounds(10, 46, 107, 22);
-																																				panel_5Oficio.add(lblCursosEspecializados);
-																																			}
-																																			{
-																																				comboBox_9 = new JComboBox();
-																																				comboBox_9.setBackground(new Color(248, 248, 255));
-																																				comboBox_9
-																																						.setModel(new DefaultComboBoxModel(
-																																								new String[] {
-																																										"<Select>",
-																																										"Knowing the stock market DR",
-																																										"Cost control for food and beverage operations",
-																																										"IT network essential",
-																																										"Effective management of social networks",
-																																										"Sales Forecast",
-																																										"Specialized techniques in preparation of meat: Cortes, cooking, completion and presentation" }));
-																																				comboBox_9.setBounds(127, 47, 219, 20);
-																																				panel_5Oficio.add(comboBox_9);
-																																			}
-																																			{
-																																				JLabel lblTrabajo = new JLabel("Trabajo:");
-																																				lblTrabajo.setHorizontalAlignment(SwingConstants.TRAILING);
-																																				lblTrabajo.setBounds(10, 72, 107, 22);
-																																				panel_5Oficio.add(lblTrabajo);
-																																			}
-																																			{
-																																				comboBox_10 = new JComboBox();
-																																				comboBox_10.setBackground(new Color(248, 248, 255));
-																																				comboBox_10.setModel(new DefaultComboBoxModel(new String[] {
-																																						"<Select>", "Accountant", "Actor / Actress",
-																																						"Air hostess", "Archaeologist", "Astronaut", "Baker",
-																																						"Biologist", "Bricklayer", "Bus driver", "Businessman",
-																																						"Businesswoman", "Butcher", "Caretaker", "Carpenter",
-																																						"Cashier", "Cleaner", "Clown", "Cobbler", "Consultant",
-																																						"Cook", "Counselor", "Chef", "Chemist", "Dancer",
-																																						"Decorator", "Dentist", "Designer", "Dressmaker",
-																																						"Dustman", "Economist", "Electrician", "Farmer",
-																																						"Fireman", "FIsherman", "Florist", "Fruiterer",
-																																						"Garbage collector", "Gardener", "Hairdresser",
-																																						"Housewife", "Hunter", "Jeweller", "Judge", "Lawyer",
-																																						"Librarian", "Life guard", "Lorry driver", "Mailman",
-																																						"Mechanic", "Meteorologist", "Miner", "Model", "Monk",
-																																						"Nanny", "Nun", "Nurse", "Nursemaid", "Office worker",
-																																						"Painter", "Pastry cook", "Pharmacist", "Photographer",
-																																						"Physicist", "Plumber", "Policeman / Policewoman",
-																																						"Politician", "Porter", "Postman", "Priest",
-																																						"Professor", "Programmer", "Psychiatrist",
-																																						"Psychologist", "Receptionist", "Researcher", "Sailor",
-																																						"Salesman", "Scientist", "Secretary", "Secretary",
-																																						"Shoemaker", "Shop assistant", " Singer",
-																																						"Social worker", "Surgeon", "Taxi driver", "Teacher",
-																																						"Telephone operator", "Travel agent", "Truck driver",
-																																						"Vet", "Veterinarian", "Waiter", "Waitress",
-																																						"Window cleaner", "Writer" }));
-																																				comboBox_10.setBounds(127, 73, 219, 20);
-																																				panel_5Oficio.add(comboBox_10);
-																																			}
 																																			
 																																			JLabel labelAstID = new JLabel("   *");
 																																			labelAstID.setHorizontalAlignment(SwingConstants.RIGHT);
 																																			labelAstID.setForeground(Color.RED);
 																																			labelAstID.setBounds(501, 185, 19, 14);
-																																			contentPanel.add(labelAstID);}	
+																																			contentPanel.add(labelAstID);
+																																			{
+																																				
+																																			}}
+
+
+
+
+
 }	
 	
- 
