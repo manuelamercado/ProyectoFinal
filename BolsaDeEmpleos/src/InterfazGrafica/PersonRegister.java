@@ -42,6 +42,7 @@ import EmploymentMarket01.Technical;
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
 import com.toedter.components.JSpinField;
+import javax.swing.JLayeredPane;
 
 public class PersonRegister extends JDialog {
 
@@ -111,28 +112,25 @@ public class PersonRegister extends JDialog {
 		setBounds(10, 50, 836, 739);
 		setResizable(false);
 		setLocationRelativeTo(rootPane);
-		// dim = super.,getToolkit().getScreenSize();
-		// super.setSize(dim);
-		// setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 																																																																																																																																																																																													
-																																																																																																																																																																																															panelUniversityStudy = new JPanel();
-																																																																																																																																																																																															panelUniversityStudy.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																															panelUniversityStudy.setBounds(450, 242, 357, 235);
-																																																																																																																																																																																															contentPanel.add(panelUniversityStudy);
-																																																																																																																																																																																															panelUniversityStudy.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios Universitarios:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-																																																																																																																																																																																															panelUniversityStudy.setLayout(null);
-																																																																																																																																																																																															{
-																																																																																																																																																																																																JLabel lblPu = new JLabel("Grado:");
-																																																																																																																																																																																																lblPu.setHorizontalAlignment(SwingConstants.TRAILING);
-																																																																																																																																																																																																lblPu.setBounds(10, 56, 107, 14);
-																																																																																																																																																																																																panelUniversityStudy.add(lblPu);
-																																																																																																																																																																																																panelUniversityStudy.setVisible(true);
-																																																																																																																																																																																															}
+																																																																																																																																																																																						panelUniversityStudy = new JPanel();
+																																																																																																																																																																																						panelUniversityStudy.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																						panelUniversityStudy.setBounds(450, 242, 357, 235);
+																																																																																																																																																																																						contentPanel.add(panelUniversityStudy);
+																																																																																																																																																																																						panelUniversityStudy.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios Universitarios:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+																																																																																																																																																																																						panelUniversityStudy.setLayout(null);
+																																																																																																																																																																																							{
+																																																																																																																																																																																								JLabel lblPu = new JLabel("Grado:");
+																																																																																																																																																																																								lblPu.setHorizontalAlignment(SwingConstants.TRAILING);
+																																																																																																																																																																																	     						lblPu.setBounds(10, 56, 107, 14);
+																																																																																																																																																																																								panelUniversityStudy.add(lblPu);
+																																																																																																																																																																																								panelUniversityStudy.setVisible(true);
+																																																																																																																																																																																							}
 																																																																																																																																																																																															
 																																																																																																																																																																																															
 																																																																																																																																																																																															comboBox_11 = new JComboBox();
@@ -539,111 +537,10 @@ public class PersonRegister extends JDialog {
 			{
 				JPanel panel_2Contacto = new JPanel();
 				panel_2Contacto.setBackground(new Color(248, 248, 255));
-				panel_2Contacto.setBounds(22, 242, 416, 423);
+				panel_2Contacto.setBounds(22, 242, 416, 174);
 				panel_2Contacto.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "   Contacto:", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 				contentPanel.add(panel_2Contacto);
 				panel_2Contacto.setLayout(null);
-				{
-					JPanel panel_3Address = new JPanel();
-					panel_3Address.setBackground(new Color(248, 248, 255));
-					panel_3Address.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "     Direcci\u00F3n:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-					panel_3Address.setBounds(2, 144, 404, 244);
-					panel_2Contacto.add(panel_3Address);
-					panel_3Address.setLayout(null);
-					{
-						JLabel lblCalle = new JLabel("Calle:");
-						lblCalle.setLabelFor(this);
-						lblCalle.setDisplayedMnemonic('*');
-						lblCalle.setDisplayedMnemonic(KeyEvent.VK_ASTERISK);
-						lblCalle.setBounds(30, 25, 108, 14);
-						
-						panel_3Address.add(lblCalle);
-						lblCalle.setVerticalAlignment(SwingConstants.BOTTOM);
-						lblCalle.setHorizontalAlignment(SwingConstants.TRAILING);
-					}
-					{
-						textField_8 = new JTextField();
-						textField_8.setBounds(148, 22, 223, 20);
-						panel_3Address.add(textField_8);
-						textField_8.setColumns(10);
-					}
-					{
-						JLabel lblNmero = new JLabel("Casa No:");
-						lblNmero.setBounds(30, 53, 108, 14);
-						panel_3Address.add(lblNmero);
-						lblNmero.setVerticalAlignment(SwingConstants.BOTTOM);
-						lblNmero.setHorizontalAlignment(SwingConstants.TRAILING);
-					}
-					{
-						textField_7 = new JTextField();
-						textField_7.setBounds(148, 50, 223, 20);
-						panel_3Address.add(textField_7);
-						textField_7.setColumns(10);
-					}
-					{
-						JLabel lblCountry = new JLabel("Pa\u00EDs:");
-						lblCountry.setBounds(30, 80, 108, 14);
-						panel_3Address.add(lblCountry);
-						lblCountry.setVerticalAlignment(SwingConstants.BOTTOM);
-						lblCountry
-								.setHorizontalAlignment(SwingConstants.TRAILING);
-					}
-					{
-						JLabel lblSector = new JLabel("Sector:");
-						lblSector.setBounds(30, 109, 108, 14);
-						panel_3Address.add(lblSector);
-						lblSector.setVerticalAlignment(SwingConstants.BOTTOM);
-						lblSector
-								.setHorizontalAlignment(SwingConstants.TRAILING);
-					}
-					{
-						textField_10 = new JTextField();
-						textField_10.setBounds(148, 106, 223, 20);
-						panel_3Address.add(textField_10);
-						textField_10.setColumns(10);
-					}
-					{
-						JLabel lblCity = new JLabel("Ciudad:");
-						lblCity.setBounds(30, 137, 108, 14);
-						panel_3Address.add(lblCity);
-						lblCity.setVerticalAlignment(SwingConstants.BOTTOM);
-						lblCity.setHorizontalAlignment(SwingConstants.TRAILING);
-					}
-					{
-						textField_9 = new JTextField();
-						textField_9.setBounds(148, 134, 223, 20);
-						panel_3Address.add(textField_9);
-						textField_9.setColumns(10);
-					}
-					{
-						JLabel lblRegion = new JLabel("Regi\u00F3n:");
-						lblRegion.setBounds(30, 165, 108, 14);
-						panel_3Address.add(lblRegion);
-						lblRegion.setVerticalAlignment(SwingConstants.BOTTOM);
-						lblRegion
-								.setHorizontalAlignment(SwingConstants.TRAILING);
-					}
-					{
-						textField_11 = new JTextField();
-						textField_11.setBounds(148, 162, 223, 20);
-						panel_3Address.add(textField_11);
-						textField_11.setColumns(10);
-					}
-					{
-						comboBox_1_4 = new JComboBox();
-						comboBox_1_4.setBackground(new Color(248, 248, 255));
-						comboBox_1_4.setBounds(148, 78, 223, 20);
-						panel_3Address.add(comboBox_1_4);
-						comboBox_1_4
-								.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afganist\u00E1n", "Albania", "Argelia", "Samoa Americana", "Andorra", "Angola", "Anguila", "Ant\u00E1rtida", "Antigua y Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaiy\u00E1n", "Bahamas", "Bahrein", "Bangladesh", "Barbados", "Bielorrusia", "B\u00E9lgica", "Belice", "Benin", "Bermuda", "But\u00E1n", "Bolivia", "Bosnia y Herzegovina", "Botswana", "Brasil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Camboya", "Camer\u00FAn", "Canad\u00E1", "Cabo Verde", "Islas Caim\u00E1n", "Rep\u00FAblica Centroafricana", "Chad", "Chile", "China", "Isla de Navidad", "Islas Cocos (Keeling)", "Colombia", "Comoras", "Rep\u00FAblica Democr\u00E1tica del Congo (Kinshasa)", "Congo, Rep\u00FAblica del (Brazzaville)", "Islas Cook", "Costa Rica", "Costa de Marfil (C\u00F4te d'Ivoire)", "Croacia", "Cuba", "Chipre", "Rep\u00FAblica Checa", "Dinamarca", "Djibouti", "Dominica", "Rep\u00FAblica Dominicana", "Timor Oriental Timor-Leste", "Ecuador", "Egipto", "El Salvador", "Guinea Ecuatorial", "Eritrea", "Estonia", "Etiop\u00EDa", "islas Malvinas", "Islas Feroe", "Fiji", "Finlandia", "Francia", "Guayana franc\u00E9s", "Polinesia franc\u00E9s", "Territorios Franceses del Sur", "Gab\u00F3n", "Gambia", "Georgia", "Alemania", "Ghana", "Gibraltar", "gran Breta\u00F1a", "Grecia", "Groenlandia", "Granada", "Guadalupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guayana", "Hait\u00ED", "Santa Sede", "Honduras", "Hong Kong", "Hungr\u00EDa", "Islandia", "India", "Indonesia", "Ir\u00E1n (Rep\u00FAblica Isl\u00E1mica del)", "Irak", "Irlanda", "Israel", "Italia", "Jamaica", "Jap\u00F3n", "Jordania", "Kazajst\u00E1n", "Kenia", "Kiribati", "Corea, Rep\u00FAblica Popular Democr\u00E1tica. (Corea del Norte)", "Corea, Rep\u00FAblica de (Corea del Sur)", "Kosovo", "Kuwait", "Kirguist\u00E1n", "Lao, Rep\u00FAblica Popular Democr\u00E1tica", "Letonia", "L\u00EDbano", "Lesoto", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macao", "Macedonia, Rep. De", "Madagascar", "Malawi", "Malasia", "Maldivas", "Mal\u00ED", "Malta", "Islas Marshall", "Martinica", "Mauritania", "Mauricio", "Mayotte", "M\u00E9xico", "Micronesia, Estados Federados de", "Moldova, Rep\u00FAblica de", "M\u00F3naco", "Mongolia", "Montenegro", "Montserrat", "Marruecos", "Mozambique", "Myanmar, Birmania", "Namibia", "Nauru", "Nepal", "Pa\u00EDses Bajos", "Antillas Holandesas", "nueva Caledonia", "nueva Zelanda", "Nicaragua", "N\u00EDger", "Nigeria", "Niue", "Islas Marianas del Norte", "Noruega", "Om\u00E1n", "Pakist\u00E1n", "Palau", "territorios palestinos", "Panam\u00E1", "Pap\u00FAa Nueva Guinea", "Paraguay", "Per\u00FA", "Filipinas", "Pitcairn Island", "Polonia", "Portugal", "Puerto Rico", "Katar", "Isla de la Reuni\u00F3n", "Rumania", "Federaci\u00F3n de Rusia", "Ruanda", "San Crist\u00F3bal y Nieves", "Santa Luc\u00EDa", "San Vicente y las Granadinas", "Samoa", "San Marino", "Santo Tom\u00E9 y Pr\u00EDncipe", "Arabia Saudita", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Eslovaquia (Rep\u00FAblica Eslovaca)", "Eslovenia", "islas Salom\u00F3n", "Somalia", "Sud\u00E1frica", "Sud\u00E1n del Sur", "Espa\u00F1a", "Sri Lanka", "Sud\u00E1n", "Suriname", "Swazilandia", "Suecia", "Suiza", "Siria", "Taiw\u00E1n (Rep\u00FAblica de China)", "Tayikist\u00E1n", "Tanzania", "Tailandia", "T\u00EDbet", "Timor-Leste (Timor Oriental)", "Togo", "Tokelau", "Tonga", "Trinidad y Tobago", "T\u00FAnez", "Pavo", "Turkmenist\u00E1n", "Islas Turcas y Caicos", "Tuvalu", "Uganda", "Ucrania", "Emiratos \u00C1rabes Unidos", "Reino Unido", "Estados Unidos", "Uruguay", "Uzbekist\u00E1n", "Vanuatu", "Ciudad del Vaticano (Santa Sede)", "Venezuela", "Vietnam", "Islas V\u00EDrgenes (brit\u00E1nica)", "Islas V\u00EDrgenes (EE.UU.)", "Islas Wallis y Futuna", "S\u00E1hara Occidental", "Yemen", "Zambia", "Zimbabue"}));
-					}
-					
-					JLabel AstBirth = new JLabel("*");
-					AstBirth.setBounds(87, 74, 26, 27);
-					panel_3Address.add(AstBirth);
-					AstBirth.setHorizontalAlignment(SwingConstants.CENTER);
-					AstBirth.setForeground(Color.RED);
-				}
 				{
 					JLabel lblEmail = new JLabel("E-mail:");
 					lblEmail.setBounds(20, 26, 120, 14);
@@ -1038,13 +935,114 @@ public class PersonRegister extends JDialog {
 																																			labelAstID.setForeground(Color.RED);
 																																			labelAstID.setBounds(501, 185, 19, 14);
 																																			contentPanel.add(labelAstID);
+																																			
+																																			JLayeredPane layeredPane = new JLayeredPane();
+																																			layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+																																			layeredPane.setBounds(553, 44, 140, 127);
+																																			contentPanel.add(layeredPane);
+																																			{
+																																				JPanel panel_3Address = new JPanel();
+																																				panel_3Address.setBounds(22, 427, 418, 244);
+																																				contentPanel.add(panel_3Address);
+																																				panel_3Address.setBackground(new Color(248, 248, 255));
+																																				panel_3Address.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "     Direcci\u00F3n:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+																																				panel_3Address.setLayout(null);
+																																				{
+																																					JLabel lblCalle = new JLabel("Calle:");
+																																					lblCalle.setLabelFor(this);
+																																					lblCalle.setDisplayedMnemonic('*');
+																																					lblCalle.setDisplayedMnemonic(KeyEvent.VK_ASTERISK);
+																																					lblCalle.setBounds(30, 25, 108, 14);
+																																					
+																																					panel_3Address.add(lblCalle);
+																																					lblCalle.setVerticalAlignment(SwingConstants.BOTTOM);
+																																					lblCalle.setHorizontalAlignment(SwingConstants.TRAILING);
+																																				}
+																																				{
+																																					textField_8 = new JTextField();
+																																					textField_8.setBounds(148, 22, 223, 20);
+																																					panel_3Address.add(textField_8);
+																																					textField_8.setColumns(10);
+																																				}
+																																				{
+																																					JLabel lblNmero = new JLabel("Casa No:");
+																																					lblNmero.setBounds(30, 53, 108, 14);
+																																					panel_3Address.add(lblNmero);
+																																					lblNmero.setVerticalAlignment(SwingConstants.BOTTOM);
+																																					lblNmero.setHorizontalAlignment(SwingConstants.TRAILING);
+																																				}
+																																				{
+																																					textField_7 = new JTextField();
+																																					textField_7.setBounds(148, 50, 223, 20);
+																																					panel_3Address.add(textField_7);
+																																					textField_7.setColumns(10);
+																																				}
+																																				{
+																																					JLabel lblCountry = new JLabel("Pa\u00EDs:");
+																																					lblCountry.setBounds(30, 80, 108, 14);
+																																					panel_3Address.add(lblCountry);
+																																					lblCountry.setVerticalAlignment(SwingConstants.BOTTOM);
+																																					lblCountry
+																																							.setHorizontalAlignment(SwingConstants.TRAILING);
+																																				}
+																																				{
+																																					JLabel lblSector = new JLabel("Sector:");
+																																					lblSector.setBounds(30, 109, 108, 14);
+																																					panel_3Address.add(lblSector);
+																																					lblSector.setVerticalAlignment(SwingConstants.BOTTOM);
+																																					lblSector
+																																							.setHorizontalAlignment(SwingConstants.TRAILING);
+																																				}
+																																				{
+																																					textField_10 = new JTextField();
+																																					textField_10.setBounds(148, 106, 223, 20);
+																																					panel_3Address.add(textField_10);
+																																					textField_10.setColumns(10);
+																																				}
+																																				{
+																																					JLabel lblCity = new JLabel("Ciudad:");
+																																					lblCity.setBounds(30, 137, 108, 14);
+																																					panel_3Address.add(lblCity);
+																																					lblCity.setVerticalAlignment(SwingConstants.BOTTOM);
+																																					lblCity.setHorizontalAlignment(SwingConstants.TRAILING);
+																																				}
+																																				{
+																																					textField_9 = new JTextField();
+																																					textField_9.setBounds(148, 134, 223, 20);
+																																					panel_3Address.add(textField_9);
+																																					textField_9.setColumns(10);
+																																				}
+																																				{
+																																					JLabel lblRegion = new JLabel("Regi\u00F3n:");
+																																					lblRegion.setBounds(30, 165, 108, 14);
+																																					panel_3Address.add(lblRegion);
+																																					lblRegion.setVerticalAlignment(SwingConstants.BOTTOM);
+																																					lblRegion
+																																							.setHorizontalAlignment(SwingConstants.TRAILING);
+																																				}
+																																				{
+																																					textField_11 = new JTextField();
+																																					textField_11.setBounds(148, 162, 223, 20);
+																																					panel_3Address.add(textField_11);
+																																					textField_11.setColumns(10);
+																																				}
+																																				{
+																																					comboBox_1_4 = new JComboBox();
+																																					comboBox_1_4.setBackground(new Color(248, 248, 255));
+																																					comboBox_1_4.setBounds(148, 78, 223, 20);
+																																					panel_3Address.add(comboBox_1_4);
+																																					comboBox_1_4
+																																							.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afganist\u00E1n", "Albania", "Argelia", "Samoa Americana", "Andorra", "Angola", "Anguila", "Ant\u00E1rtida", "Antigua y Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaiy\u00E1n", "Bahamas", "Bahrein", "Bangladesh", "Barbados", "Bielorrusia", "B\u00E9lgica", "Belice", "Benin", "Bermuda", "But\u00E1n", "Bolivia", "Bosnia y Herzegovina", "Botswana", "Brasil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Camboya", "Camer\u00FAn", "Canad\u00E1", "Cabo Verde", "Islas Caim\u00E1n", "Rep\u00FAblica Centroafricana", "Chad", "Chile", "China", "Isla de Navidad", "Islas Cocos (Keeling)", "Colombia", "Comoras", "Rep\u00FAblica Democr\u00E1tica del Congo (Kinshasa)", "Congo, Rep\u00FAblica del (Brazzaville)", "Islas Cook", "Costa Rica", "Costa de Marfil (C\u00F4te d'Ivoire)", "Croacia", "Cuba", "Chipre", "Rep\u00FAblica Checa", "Dinamarca", "Djibouti", "Dominica", "Rep\u00FAblica Dominicana", "Timor Oriental Timor-Leste", "Ecuador", "Egipto", "El Salvador", "Guinea Ecuatorial", "Eritrea", "Estonia", "Etiop\u00EDa", "islas Malvinas", "Islas Feroe", "Fiji", "Finlandia", "Francia", "Guayana franc\u00E9s", "Polinesia franc\u00E9s", "Territorios Franceses del Sur", "Gab\u00F3n", "Gambia", "Georgia", "Alemania", "Ghana", "Gibraltar", "gran Breta\u00F1a", "Grecia", "Groenlandia", "Granada", "Guadalupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guayana", "Hait\u00ED", "Santa Sede", "Honduras", "Hong Kong", "Hungr\u00EDa", "Islandia", "India", "Indonesia", "Ir\u00E1n (Rep\u00FAblica Isl\u00E1mica del)", "Irak", "Irlanda", "Israel", "Italia", "Jamaica", "Jap\u00F3n", "Jordania", "Kazajst\u00E1n", "Kenia", "Kiribati", "Corea, Rep\u00FAblica Popular Democr\u00E1tica. (Corea del Norte)", "Corea, Rep\u00FAblica de (Corea del Sur)", "Kosovo", "Kuwait", "Kirguist\u00E1n", "Lao, Rep\u00FAblica Popular Democr\u00E1tica", "Letonia", "L\u00EDbano", "Lesoto", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macao", "Macedonia, Rep. De", "Madagascar", "Malawi", "Malasia", "Maldivas", "Mal\u00ED", "Malta", "Islas Marshall", "Martinica", "Mauritania", "Mauricio", "Mayotte", "M\u00E9xico", "Micronesia, Estados Federados de", "Moldova, Rep\u00FAblica de", "M\u00F3naco", "Mongolia", "Montenegro", "Montserrat", "Marruecos", "Mozambique", "Myanmar, Birmania", "Namibia", "Nauru", "Nepal", "Pa\u00EDses Bajos", "Antillas Holandesas", "nueva Caledonia", "nueva Zelanda", "Nicaragua", "N\u00EDger", "Nigeria", "Niue", "Islas Marianas del Norte", "Noruega", "Om\u00E1n", "Pakist\u00E1n", "Palau", "territorios palestinos", "Panam\u00E1", "Pap\u00FAa Nueva Guinea", "Paraguay", "Per\u00FA", "Filipinas", "Pitcairn Island", "Polonia", "Portugal", "Puerto Rico", "Katar", "Isla de la Reuni\u00F3n", "Rumania", "Federaci\u00F3n de Rusia", "Ruanda", "San Crist\u00F3bal y Nieves", "Santa Luc\u00EDa", "San Vicente y las Granadinas", "Samoa", "San Marino", "Santo Tom\u00E9 y Pr\u00EDncipe", "Arabia Saudita", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Eslovaquia (Rep\u00FAblica Eslovaca)", "Eslovenia", "islas Salom\u00F3n", "Somalia", "Sud\u00E1frica", "Sud\u00E1n del Sur", "Espa\u00F1a", "Sri Lanka", "Sud\u00E1n", "Suriname", "Swazilandia", "Suecia", "Suiza", "Siria", "Taiw\u00E1n (Rep\u00FAblica de China)", "Tayikist\u00E1n", "Tanzania", "Tailandia", "T\u00EDbet", "Timor-Leste (Timor Oriental)", "Togo", "Tokelau", "Tonga", "Trinidad y Tobago", "T\u00FAnez", "Pavo", "Turkmenist\u00E1n", "Islas Turcas y Caicos", "Tuvalu", "Uganda", "Ucrania", "Emiratos \u00C1rabes Unidos", "Reino Unido", "Estados Unidos", "Uruguay", "Uzbekist\u00E1n", "Vanuatu", "Ciudad del Vaticano (Santa Sede)", "Venezuela", "Vietnam", "Islas V\u00EDrgenes (brit\u00E1nica)", "Islas V\u00EDrgenes (EE.UU.)", "Islas Wallis y Futuna", "S\u00E1hara Occidental", "Yemen", "Zambia", "Zimbabue"}));
+																																				}
+																																				
+																																				JLabel AstBirth = new JLabel("*");
+																																				AstBirth.setBounds(87, 74, 26, 27);
+																																				panel_3Address.add(AstBirth);
+																																				AstBirth.setHorizontalAlignment(SwingConstants.CENTER);
+																																				AstBirth.setForeground(Color.RED);
+																																			}
 																																			{
 																																				
 																																			}}
-
-
-
-
-
 }	
 	

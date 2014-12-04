@@ -22,6 +22,8 @@ import EmploymentMarket01.CollectionPerson;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.beans.PropertyVetoException;
 
 import javax.swing.JMenu;
@@ -54,6 +56,7 @@ public class Welcome extends JFrame {
 	private static Welcome welcome;
 	private SeePersonApplication seePersonApplication;
 	private CollectionPerson collectionPerson;
+	private Help help;
 	
 
 	/**
@@ -112,12 +115,39 @@ public class Welcome extends JFrame {
 		menuBar.add(menu_1);
 		
 		JMenu mnInicio = new JMenu("  INICIO     ");
-		mnInicio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		mnInicio.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
 				start = new Start();
 				start.setVisible(true);
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
 				
 			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
 		});
 		mnInicio.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416514885_home.png")));
 		mnInicio.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -156,7 +186,7 @@ public class Welcome extends JFrame {
 		mnRegistrar.add(mnNuevaSolicitud);
 		
 		JMenuItem mntmEmpleado = new JMenuItem("Empleado");
-		mntmEmpleado.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396913_Login.png")));
+		mntmEmpleado.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mntmEmpleado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				personApplication = new PersonApplication();
@@ -179,36 +209,34 @@ public class Welcome extends JFrame {
 		mnBaseDeDatos.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416395841_archive.png")));
 		mnBaseDeDatos.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
+		JMenuItem mntmAreasDisponibles = new JMenuItem("Areas Disponibles");
+		mntmAreasDisponibles.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/areas.png")));
+		mnBaseDeDatos.add(mntmAreasDisponibles);
+		
+		JMenu mnRegistros = new JMenu("Registros ");
+		mnRegistros.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Modify.png")));
+		mnBaseDeDatos.add(mnRegistros);
+		
+		JMenuItem mntmNewMenuItemSolicitantes = new JMenuItem("Solicitantes");
+		mnRegistros.add(mntmNewMenuItemSolicitantes);
+		
+		JMenuItem mntmEmpresas_2 = new JMenuItem("Empresas");
+		mnRegistros.add(mntmEmpresas_2);
+		
 		JMenu mnSolicitudes = new JMenu("Solicitudes");
 		mnSolicitudes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Info.png")));
 		mnBaseDeDatos.add(mnSolicitudes);
 		
 		JMenuItem mntmEmpleados = new JMenuItem("Empleados");
-		mntmEmpleados.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396281_testimonials.png")));
 		mnSolicitudes.add(mntmEmpleados);
 		
-		JMenuItem mntmE = new JMenuItem("Empresas");
-		mntmE.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396371_companies.png")));
-		mnSolicitudes.add(mntmE);
-		
-		JMenuItem mntmAreasDisponibles = new JMenuItem("Areas Disponibles");
-		mntmAreasDisponibles.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/areas.png")));
-		mnBaseDeDatos.add(mntmAreasDisponibles);
+		JMenuItem mntmEmpresas2 = new JMenuItem("Empresas");
+		mnSolicitudes.add(mntmEmpresas2);
 		
 		JMenu mnReportes = new JMenu("REPORTES     ");
 		menuBar.add(mnReportes);
 		mnReportes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Bar Chart.png")));
 		mnReportes.setFont(new Font("Tahoma", Font.BOLD, 12));
-		
-		JMenu mnSatisfechos = new JMenu("Satisfechos");
-		mnSatisfechos.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/cheking.png")));
-		mnReportes.add(mnSatisfechos);
-		
-		JMenuItem mntmSolicitantes = new JMenuItem("Solicitantes");
-		mnSatisfechos.add(mntmSolicitantes);
-		
-		JMenuItem mntmEmpresas = new JMenuItem("Empresas");
-		mnSatisfechos.add(mntmEmpresas);
 		
 		JMenu mnPendientes = new JMenu("Pendientes");
 		mnPendientes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/pendientes.png")));
@@ -226,6 +254,16 @@ public class Welcome extends JFrame {
 		JMenuItem mntmEmpresas_1 = new JMenuItem("Empresas");
 		mnPendientes.add(mntmEmpresas_1);
 		
+		JMenu mnSatisfechos = new JMenu("Satisfechos");
+		mnSatisfechos.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/cheking.png")));
+		mnReportes.add(mnSatisfechos);
+		
+		JMenuItem mntmSolicitantes = new JMenuItem("Solicitantes");
+		mnSatisfechos.add(mntmSolicitantes);
+		
+		JMenuItem mntmEmpresas = new JMenuItem("Empresas");
+		mnSatisfechos.add(mntmEmpresas);
+		
 		JMenu mnImprimir = new JMenu("IMPRIMIR     ");
 		menuBar.add(mnImprimir);
 		mnImprimir.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396773_print.png")));
@@ -238,8 +276,8 @@ public class Welcome extends JFrame {
 		JMenuItem ImpRepSatisfied = new JMenuItem("Satisfechos");
 		ImprimirReporte.add(ImpRepSatisfied);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Pendientes");
-		ImprimirReporte.add(mntmNewMenuItem_1);
+		JMenuItem mntmPendientes = new JMenuItem("Pendientes");
+		ImprimirReporte.add(mntmPendientes);
 		
 		JMenu mnSolicitud = new JMenu("Solicitud");
 		mnSolicitud.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Info.png")));
@@ -256,29 +294,62 @@ public class Welcome extends JFrame {
 		mnConsultas.setFont(new Font("Tahoma", Font.BOLD, 12));
 		menuBar.add(mnConsultas);
 		
-		JMenuItem mntmConsultaSolicitante = new JMenuItem("Solicitante");
-		mntmConsultaSolicitante.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile.png")));
-		mnConsultas.add(mntmConsultaSolicitante);
+		JMenuItem mntmConsultaArea = new JMenuItem("\u00C1rea");
+		mntmConsultaArea.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/areas.png")));
+		mnConsultas.add(mntmConsultaArea);
 		
 		JMenuItem mntmConsultaEmpresa = new JMenuItem("Empresa");
 		mntmConsultaEmpresa.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396195_Company.png")));
 		mnConsultas.add(mntmConsultaEmpresa);
 		
-		JMenuItem mntmArea = new JMenuItem("\u00C1rea");
-		mntmArea.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/areas.png")));
-		mnConsultas.add(mntmArea);
+		JMenuItem mntmConsultaSolicitante = new JMenuItem("Solicitante");
+		mntmConsultaSolicitante.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile.png")));
+		mnConsultas.add(mntmConsultaSolicitante);
 		
 		JMenu mnAyuda = new JMenu("AYUDA     ");
+		mnAyuda.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				help = new Help();
+				help.setVisible(true);	
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		menuBar.add(mnAyuda);
 		mnAyuda.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396005_FAQ.png")));
 		mnAyuda.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		JButton btnNewButton = new JButton("CERRAR");
-		btnNewButton.setBounds(new Rectangle(0, 0, 20, 10));
-		btnNewButton.setBorder(new EmptyBorder(0, 0, 0, 0));
-		btnNewButton.setAutoscrolls(true);
-		btnNewButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCerrar = new JButton("CERRAR");
+		btnCerrar.setBounds(new Rectangle(0, 0, 20, 10));
+		btnCerrar.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btnCerrar.setAutoscrolls(true);
+		btnCerrar.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnCerrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 					closeProgram = new CloseProgram();
 					closeProgram.setVisible(true);
@@ -286,11 +357,11 @@ public class Welcome extends JFrame {
 				
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Delete.png")));
-		btnNewButton.setBackground(new Color(176, 224, 230));
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setForeground(SystemColor.inactiveCaptionText);
-		menuBar.add(btnNewButton);
+		btnCerrar.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Delete.png")));
+		btnCerrar.setBackground(new Color(176, 224, 230));
+		btnCerrar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnCerrar.setForeground(SystemColor.inactiveCaptionText);
+		menuBar.add(btnCerrar);
 		
 		
 		

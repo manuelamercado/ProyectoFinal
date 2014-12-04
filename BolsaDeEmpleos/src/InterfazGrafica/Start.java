@@ -16,7 +16,7 @@ public class Start extends JDialog {
 	public Start() {
 		setTitle("INICIO");
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Start.class.getResource("/InterfazGrafica/1416514885_home.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Start.class.getResource("/InterfazGrafica/Images/1416514885_home.png")));
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());

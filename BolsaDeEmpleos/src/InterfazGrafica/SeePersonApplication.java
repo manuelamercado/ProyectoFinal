@@ -30,9 +30,11 @@ public class SeePersonApplication extends JDialog {
 	private JScrollPane scrollPane;
 	
 	public SeePersonApplication() {
-		setBounds(100, 100, 497, 341);
+		getContentPane().setBackground(new Color(248, 248, 255));
+		setBounds(10, 50, 836, 739);
 		getContentPane().setLayout(null);
-		contentPanel.setBounds(0, 0, 481, 269);
+		contentPanel.setBackground(new Color(248, 248, 255));
+		contentPanel.setBounds(0, 11, 820, 657);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
@@ -51,7 +53,7 @@ public class SeePersonApplication extends JDialog {
 		
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 461, 258);
+		scrollPane.setBounds(0, 0, 819, 657);
 		scrollPane.setViewportView(table);
 		contentPanel.add(scrollPane);
 		
@@ -59,8 +61,9 @@ public class SeePersonApplication extends JDialog {
 
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 269, 481, 33);
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setBackground(new Color(248, 248, 255));
+			buttonPane.setBounds(0, 668, 820, 33);
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			
 			{
@@ -94,10 +97,10 @@ public class SeePersonApplication extends JDialog {
  table.getTableHeader().setReorderingAllowed(false);
  TableColumnModel columnModel = table.getColumnModel();
  		columnModel.getColumn(0).setPreferredWidth(70);
-		columnModel.getColumn(1).setPreferredWidth(150);
-		columnModel.getColumn(2).setPreferredWidth(150);
-		columnModel.getColumn(3).setPreferredWidth(150);
-		columnModel.getColumn(4).setPreferredWidth(150);
+		columnModel.getColumn(1).setPreferredWidth(160);
+		columnModel.getColumn(2).setPreferredWidth(240);
+		columnModel.getColumn(3).setPreferredWidth(240);
+		columnModel.getColumn(4).setPreferredWidth(110);
 	}	
 	
 }
