@@ -20,6 +20,8 @@ import com.toedter.components.JSpinField;
 import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.JSpinner;
+import javax.swing.JLayeredPane;
+import javax.swing.border.LineBorder;
 
 public class PersonApplication extends JDialog {
 
@@ -154,34 +156,34 @@ public class PersonApplication extends JDialog {
 		label_5.setBounds(0, 0, 30, 14);
 		panelPersonalDates.add(label_5);
 		
-		JLabel label_6 = new JLabel("");
-		label_6.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/Profile.png")));
-		label_6.setVerticalTextPosition(SwingConstants.BOTTOM);
-		label_6.setIgnoreRepaint(true);
-		label_6.setIconTextGap(8);
-		label_6.setHorizontalAlignment(SwingConstants.CENTER);
-		label_6.setForeground(Color.BLACK);
-		label_6.setBackground(Color.WHITE);
-		label_6.setBounds(568, 36, 140, 127);
-		contentPane.add(label_6);
+		JLabel labelPicture = new JLabel("");
+		labelPicture.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/Profile.png")));
+		labelPicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+		labelPicture.setIgnoreRepaint(true);
+		labelPicture.setIconTextGap(8);
+		labelPicture.setHorizontalAlignment(SwingConstants.CENTER);
+		labelPicture.setForeground(Color.BLACK);
+		labelPicture.setBackground(Color.WHITE);
+		labelPicture.setBounds(568, 36, 140, 127);
+		contentPane.add(labelPicture);
 		
 		JLabel label_7 = new JLabel("ID");
 		label_7.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_7.setHorizontalAlignment(SwingConstants.TRAILING);
 		label_7.setFont(new Font("Tahoma", Font.BOLD, 12));
-		label_7.setBounds(549, 177, 19, 14);
+		label_7.setBounds(539, 177, 19, 14);
 		contentPane.add(label_7);
 		
 		JLabel label_8 = new JLabel("   *");
 		label_8.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_8.setForeground(Color.RED);
-		label_8.setBounds(530, 177, 19, 14);
+		label_8.setBounds(518, 177, 19, 14);
 		contentPane.add(label_8);
 		
-		JLabel label_11 = new JLabel("");
-		label_11.setBackground(new Color(255, 255, 255));
-		label_11.setBounds(592, 174, 116, 17);
-		contentPane.add(label_11);
+		JLabel labelID = new JLabel("");
+		labelID.setBackground(new Color(255, 255, 255));
+		labelID.setBounds(568, 174, 140, 17);
+		contentPane.add(labelID);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
@@ -209,5 +211,15 @@ public class PersonApplication extends JDialog {
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(128, 52, 29, 20);
 		panel.add(spinner);
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		layeredPane.setBounds(568, 36, 140, 127);
+		contentPane.add(layeredPane);
+		
+		JLayeredPane layeredPane_1 = new JLayeredPane();
+		layeredPane_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		layeredPane_1.setBounds(568, 174, 140, 17);
+		contentPane.add(layeredPane_1);
 	}
 }

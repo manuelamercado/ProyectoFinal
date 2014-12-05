@@ -32,6 +32,8 @@ public class SeePersonApplication extends JDialog {
 	public SeePersonApplication() {
 		getContentPane().setBackground(new Color(248, 248, 255));
 		setBounds(10, 50, 836, 739);
+		setLocationRelativeTo(rootPane);
+		setModal(true);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBounds(0, 11, 820, 657);

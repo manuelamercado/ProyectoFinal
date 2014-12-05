@@ -55,9 +55,15 @@ public class Welcome extends JFrame {
 	private CloseProgram closeProgram;
 	private static Welcome welcome;
 	private SeePersonApplication seePersonApplication;
-	private CollectionPerson collectionPerson;
+	private SeeCompanyApplication seeCompanyApplication;
+	//private CollectionPerson collectionPerson;
 	private Help help;
-	
+	private DisponibleAreas disponibleAreas;
+	private SeeCompanies seeCompanies;
+	private SeePersons seePersons;
+	private SeeSatisfiedPerson seeSatisfiedPerson;
+	private SeeSatisfiedCompany seeSatisfiedCompany;
+	private PersonHistory personHistory;
 
 	/**
 	 * Launch the application.
@@ -115,43 +121,29 @@ public class Welcome extends JFrame {
 		menuBar.add(menu_1);
 		
 		JMenu mnInicio = new JMenu("  INICIO     ");
-		mnInicio.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				start = new Start();
-				start.setVisible(true);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
 		mnInicio.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416514885_home.png")));
 		mnInicio.setFont(new Font("Tahoma", Font.BOLD, 12));
 		menuBar.add(mnInicio);
+		
+		JMenu mnNuevo = new JMenu("Nuevo Cliente");
+		mnNuevo.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Add32.png")));
+		mnInicio.add(mnNuevo);
+		
+		JMenuItem mntmSolicitante = new JMenuItem("Solicitante");
+		mnNuevo.add(mntmSolicitante);
+		
+		JMenuItem mntmEmpresa_3 = new JMenuItem("Empresa");
+		mnNuevo.add(mntmEmpresa_3);
+		
+		JMenu mnNuevaSolicitud_1 = new JMenu("Nueva Solicitud");
+		mnNuevaSolicitud_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417568890_new-file.png")));
+		mnInicio.add(mnNuevaSolicitud_1);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitante");
+		mnNuevaSolicitud_1.add(mntmNewMenuItem);
+		
+		JMenuItem mntmEmpresa_4 = new JMenuItem("Empresa");
+		mnNuevaSolicitud_1.add(mntmEmpresa_4);
 		
 		JMenu mnRegistrar = new JMenu("REGISTRAR     ");
 		menuBar.add(mnRegistrar);
@@ -210,6 +202,12 @@ public class Welcome extends JFrame {
 		mnBaseDeDatos.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JMenuItem mntmAreasDisponibles = new JMenuItem("Areas Disponibles");
+		mntmAreasDisponibles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				disponibleAreas = new DisponibleAreas();
+				disponibleAreas.setVisible(true);
+			}
+		});
 		mntmAreasDisponibles.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/areas.png")));
 		mnBaseDeDatos.add(mntmAreasDisponibles);
 		
@@ -218,9 +216,21 @@ public class Welcome extends JFrame {
 		mnBaseDeDatos.add(mnRegistros);
 		
 		JMenuItem mntmNewMenuItemSolicitantes = new JMenuItem("Solicitantes");
+		mntmNewMenuItemSolicitantes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				seePersons = new SeePersons();
+				seePersons.setVisible(true);
+			}
+		});
 		mnRegistros.add(mntmNewMenuItemSolicitantes);
 		
 		JMenuItem mntmEmpresas_2 = new JMenuItem("Empresas");
+		mntmEmpresas_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					seeCompanies = new SeeCompanies();
+					seeCompanies.setVisible(true);		
+			}
+		});
 		mnRegistros.add(mntmEmpresas_2);
 		
 		JMenu mnSolicitudes = new JMenu("Solicitudes");
@@ -228,9 +238,21 @@ public class Welcome extends JFrame {
 		mnBaseDeDatos.add(mnSolicitudes);
 		
 		JMenuItem mntmEmpleados = new JMenuItem("Empleados");
+		mntmEmpleados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				seePersonApplication = new SeePersonApplication();
+				seePersonApplication.setVisible(true);
+			}
+		});
 		mnSolicitudes.add(mntmEmpleados);
 		
-		JMenuItem mntmEmpresas2 = new JMenuItem("Empresas");
+		JMenuItem mntmEmpresas2 = new JMenuItem("Empresas");		
+		mntmEmpresas2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				seeCompanyApplication = new SeeCompanyApplication();
+				seeCompanyApplication.setVisible(true);
+			}
+		});
 		mnSolicitudes.add(mntmEmpresas2);
 		
 		JMenu mnReportes = new JMenu("REPORTES     ");
@@ -243,12 +265,6 @@ public class Welcome extends JFrame {
 		mnReportes.add(mnPendientes);
 		
 		JMenuItem mntmSolicitantes_1 = new JMenuItem("Solicitantes");
-		mntmSolicitantes_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				seePersonApplication= new SeePersonApplication();
-				seePersonApplication.setVisible(true);
-			}
-		});
 		mnPendientes.add(mntmSolicitantes_1);
 		
 		JMenuItem mntmEmpresas_1 = new JMenuItem("Empresas");
@@ -259,9 +275,21 @@ public class Welcome extends JFrame {
 		mnReportes.add(mnSatisfechos);
 		
 		JMenuItem mntmSolicitantes = new JMenuItem("Solicitantes");
+		mntmSolicitantes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				seeSatisfiedPerson = new SeeSatisfiedPerson();
+				seeSatisfiedPerson.setVisible(true);
+			}
+		});
 		mnSatisfechos.add(mntmSolicitantes);
 		
 		JMenuItem mntmEmpresas = new JMenuItem("Empresas");
+		mntmEmpresas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				seeSatisfiedCompany = new SeeSatisfiedCompany();
+				seeSatisfiedCompany.setVisible(true);
+			}
+		});
 		mnSatisfechos.add(mntmEmpresas);
 		
 		JMenu mnImprimir = new JMenu("IMPRIMIR     ");
@@ -294,7 +322,7 @@ public class Welcome extends JFrame {
 		mnConsultas.setFont(new Font("Tahoma", Font.BOLD, 12));
 		menuBar.add(mnConsultas);
 		
-		JMenuItem mntmConsultaArea = new JMenuItem("\u00C1rea");
+		JMenuItem mntmConsultaArea = new JMenuItem("\u00C1rea Disponible");
 		mntmConsultaArea.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/areas.png")));
 		mnConsultas.add(mntmConsultaArea);
 		
@@ -303,10 +331,20 @@ public class Welcome extends JFrame {
 		mnConsultas.add(mntmConsultaEmpresa);
 		
 		JMenuItem mntmConsultaSolicitante = new JMenuItem("Solicitante");
+		mntmConsultaSolicitante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				personHistory = new PersonHistory(null);
+				personHistory.setVisible(true);
+			}
+		});
 		mntmConsultaSolicitante.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile.png")));
 		mnConsultas.add(mntmConsultaSolicitante);
 		
 		JMenu mnAyuda = new JMenu("AYUDA     ");
+		mnAyuda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		mnAyuda.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -363,14 +401,6 @@ public class Welcome extends JFrame {
 		btnCerrar.setForeground(SystemColor.inactiveCaptionText);
 		menuBar.add(btnCerrar);
 		
-		
-		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/iconowelcome.png")));
-		lblNewLabel_1.setBounds(205, 181, 883, 483);
-		contentPane.add(lblNewLabel_1);
-		
 		JLabel lblBolsaDeEmpleos_1 = new JLabel("BOLSA DE EMPLEOS ");
 		lblBolsaDeEmpleos_1.setForeground(Color.BLUE);
 		lblBolsaDeEmpleos_1.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -383,11 +413,17 @@ public class Welcome extends JFrame {
 		lblSolucionesEmpresarialesY.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSolucionesEmpresarialesY.setFont(new Font("Tahoma", Font.BOLD, 35));
 		lblSolucionesEmpresarialesY.setBackground(new Color(248, 248, 255));
-		lblSolucionesEmpresarialesY.setBounds(215, 628, 873, 71);
-		contentPane.add(lblSolucionesEmpresarialesY);
+		lblSolucionesEmpresarialesY.setBounds(215, 658, 873, 71);
+		contentPane.add(lblSolucionesEmpresarialesY);	
 		
+		
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(215, 158, 834, 550);
+		contentPane.add(lblNewLabel_1);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/iconowelcome.png")));
 	}
-	
 	public static Welcome getInstanceWelcome(){
 		
 		if (welcome==null){

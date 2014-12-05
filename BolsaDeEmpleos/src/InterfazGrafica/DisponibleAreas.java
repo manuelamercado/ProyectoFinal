@@ -7,9 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 import java.awt.Color;
 
-public class SeeCompanyApplication extends JDialog {
+public class DisponibleAreas extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -18,7 +19,7 @@ public class SeeCompanyApplication extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			SeeCompanyApplication dialog = new SeeCompanyApplication();
+			DisponibleAreas dialog = new DisponibleAreas();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -29,7 +30,9 @@ public class SeeCompanyApplication extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public SeeCompanyApplication() {
+	public DisponibleAreas() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DisponibleAreas.class.getResource("/InterfazGrafica/Images/areas.png")));
+		setTitle("\u00C1REAS DISPONIBLES");
 		setBounds(10, 50, 836, 739);
 		setLocationRelativeTo(rootPane);
 		setModal(true);
@@ -40,7 +43,8 @@ public class SeeCompanyApplication extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setBackground(new Color(248, 248, 255));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");

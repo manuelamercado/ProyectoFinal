@@ -8,13 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class CompanyApplication extends JDialog {
 
 	private JPanel contentPane;
 
 	public CompanyApplication() {
-		setTitle("SOLICITUD DE EMPLEO");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyApplication.class.getResource("/InterfazGrafica/Images/Add.png")));
+		setTitle("NUEVA SOLICITUD DE PERSONAL");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(10, 50, 836, 739);
 		setModal(true);

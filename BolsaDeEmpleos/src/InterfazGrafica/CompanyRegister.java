@@ -147,10 +147,10 @@ public class CompanyRegister extends JDialog {
 		textField_3.setColumns(10);
 		
 		JPanel panel = new JPanel();
+		panel.setBounds(25, 273, 370, 165);
 		panel.setLayout(null);
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "   Contacto:", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBackground(new Color(248, 248, 255));
-		panel.setBounds(25, 273, 370, 165);
 		contentPanel.add(panel);
 		
 		JLabel label_7 = new JLabel("E-mail:");
@@ -209,6 +209,7 @@ public class CompanyRegister extends JDialog {
 		panel.add(lblCdigoPostal);
 		
 		JLabel lblSubirLogo = new JLabel("");
+		lblSubirLogo.setBounds(513, 49, 140, 127);
 		lblSubirLogo.setIcon(new ImageIcon(CompanyRegister.class.getResource("/InterfazGrafica/Images/1416396195_Company.png")));
 		lblSubirLogo.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblSubirLogo.setIgnoreRepaint(true);
@@ -216,30 +217,29 @@ public class CompanyRegister extends JDialog {
 		lblSubirLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubirLogo.setForeground(Color.BLACK);
 		lblSubirLogo.setBackground(Color.WHITE);
-		lblSubirLogo.setBounds(513, 49, 140, 127);
 		contentPanel.add(lblSubirLogo);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		layeredPane.setBounds(513, 49, 140, 127);
+		layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		contentPanel.add(layeredPane);
 		
 		textField_13 = new JTextField();
-		textField_13.setColumns(10);
 		textField_13.setBounds(513, 187, 140, 20);
+		textField_13.setColumns(10);
 		contentPanel.add(textField_13);
 		
 		JLabel lblRnc = new JLabel("RNC");
+		lblRnc.setBounds(474, 190, 33, 14);
 		lblRnc.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblRnc.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblRnc.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblRnc.setBounds(474, 190, 33, 14);
 		contentPanel.add(lblRnc);
 		
 		JLabel label_13 = new JLabel("   *");
+		label_13.setBounds(459, 190, 19, 14);
 		label_13.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_13.setForeground(Color.RED);
-		label_13.setBounds(459, 190, 19, 14);
 		contentPanel.add(label_13);
 		
 		JPanel panel_1 = new JPanel();
@@ -307,7 +307,8 @@ public class CompanyRegister extends JDialog {
 		panel_1.add(comboBox_1);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setBackground(new Color(248, 248, 255));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");

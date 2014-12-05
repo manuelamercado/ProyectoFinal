@@ -7,9 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 import java.awt.Color;
 
-public class SeeCompanyApplication extends JDialog {
+public class CompanyPendingApplication extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -18,7 +19,7 @@ public class SeeCompanyApplication extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			SeeCompanyApplication dialog = new SeeCompanyApplication();
+			CompanyPendingApplication dialog = new CompanyPendingApplication();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -29,10 +30,12 @@ public class SeeCompanyApplication extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public SeeCompanyApplication() {
+	public CompanyPendingApplication() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyPendingApplication.class.getResource("/InterfazGrafica/Images/pendientes.png")));
+		setTitle("SOLICITUDES PENDIENTES");
 		setBounds(10, 50, 836, 739);
-		setLocationRelativeTo(rootPane);
 		setModal(true);
+		setLocationRelativeTo(rootPane);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setLayout(new FlowLayout());
@@ -40,7 +43,7 @@ public class SeeCompanyApplication extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");

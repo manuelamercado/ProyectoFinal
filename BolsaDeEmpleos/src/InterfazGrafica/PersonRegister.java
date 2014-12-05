@@ -70,10 +70,10 @@ public class PersonRegister extends JDialog {
 	private final JPanel panelTechnicalStudies;
 	private JPanel panel_5Oficio;
 	private JComboBox<String> comboBox_1_3;
-	private final JComboBox<String> comboBox_2;
-	private final JComboBox<String> comboBox_3;
-	private JComboBox<String> comboBox_4;
-	private JComboBox<String> comboBox_5;
+	private final JComboBox<String> comboBoxGrado;
+	private final JComboBox<String> comboBoxPostGrado;
+	private JComboBox<String> comboBoxCertificaciones;
+	private JComboBox<String> comboBoxEspecialidades;
 	private JComboBox<String> comboBox_5_1;
 	private JComboBox<String> comboBox_6;
 	private JComboBox<String> comboBox_6_1;
@@ -81,7 +81,7 @@ public class PersonRegister extends JDialog {
 	private JComboBox<String> comboBox_7_1;
 	private final JComboBox<String> comboBox;
 	private JComboBox<String> comboBox_1_1;
-	private JComboBox<String> comboBox_1_2;
+	private JComboBox<String> comboBoxSexo;
 	private JComboBox<String> comboBox_1_4;
 	private JComboBox<String> comboBox_8;
 	private JComboBox<String> comboBox_9;
@@ -91,7 +91,7 @@ public class PersonRegister extends JDialog {
 	private JMonthChooser monthChooser;
 	private JYearChooser yearChooser;
 	private JScrollPane scrollPane;
-	private JComboBox comboBox_11;
+	private JComboBox comboBoxNivelAlcanzado;
 	private JPanel panel2;
 	private JPanel panel3;
 	private JPanel panel7;
@@ -133,23 +133,23 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																							}
 																																																																																																																																																																																															
 																																																																																																																																																																																															
-																																																																																																																																																																																															comboBox_11 = new JComboBox();
+																																																																																																																																																																																															comboBoxNivelAlcanzado = new JComboBox();
 																																																																																																																																																																																															
-																																																																																																																																																																																															comboBox_11.setBounds(127, 23, 219, 20);
-																																																																																																																																																																																															panelUniversityStudy.add(comboBox_11);
-																																																																																																																																																																																															comboBox_11.addItemListener(new ItemListener() {
+																																																																																																																																																																																															comboBoxNivelAlcanzado.setBounds(127, 23, 219, 20);
+																																																																																																																																																																																															panelUniversityStudy.add(comboBoxNivelAlcanzado);
+																																																																																																																																																																																															comboBoxNivelAlcanzado.addItemListener(new ItemListener() {
 																																																																																																																																																																																																public void itemStateChanged(ItemEvent arg0) {
-																																																																																																																																																																																																	if((comboBox_11.getSelectedItem()=="Grado")){
+																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="Grado")){
 																																																																																																																																																																																																		panel2.setVisible(true);
 																																																																																																																																																																																																		panel3.setVisible(false);
 																																																																																																																																																																																																		panel7.setVisible(false);
 																																																																																																																																																																																																	}
-																																																																																																																																																																																																	if((comboBox_11.getSelectedItem()=="PostGrado")){
+																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="PostGrado")){
 																																																																																																																																																																																																		panel3.setVisible(true);
 																																																																																																																																																																																																		panel7.setVisible(false);
 																																																																																																																																																																																																		panel2.setVisible(true);
 																																																																																																																																																																																																	}
-																																																																																																																																																																																																	if((comboBox_11.getSelectedItem()=="Doctorado")){
+																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="Doctorado")){
 																																																																																																																																																																																																		panel7.setVisible(true);
 																																																																																																																																																																																																		panel3.setVisible(true);
 																																																																																																																																																																																																		panel2.setVisible(true);
@@ -157,7 +157,7 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																}
 																																																																																																																																																																																																
 																																																																																																																																																																																															});
-																																																																																																																																																																																															comboBox_11.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Grado", "PostGrado", "Doctorado"}));
+																																																																																																																																																																																															comboBoxNivelAlcanzado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Grado", "PostGrado", "Doctorado"}));
 																																																																																																																																																																																															
 																																																																																																																																																																																																					
 																																																																																																																																																																																																			
@@ -175,12 +175,12 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										panelUniversityStudy.add(lblCertified);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
-																																																																																																																																																																																																										comboBox_4 = new JComboBox();
-																																																																																																																																																																																																										comboBox_4.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																										comboBox_4
+																																																																																																																																																																																																										comboBoxCertificaciones = new JComboBox();
+																																																																																																																																																																																																										comboBoxCertificaciones.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																										comboBoxCertificaciones
 																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gesti\u00F3n de recursos humanos", "Topograf\u00EDa y geom\u00E1tica para desarrollo inmobiliario", "El ambiente de los locales: Creaci\u00F3n y ambientes que componen estilos", "An\u00E1lisis estad\u00EDstico b\u00E1sico", "Artes culinarias", "Auditor\u00EDa financiera", "Biblioteca y ciencias de la informaci\u00F3n", "Chocolate y confiter\u00EDa", "Configuraci\u00F3n e implantaci\u00F3n de Windows Server 2008", "La contabilidad financiera", "Direcci\u00F3n y gesti\u00F3n empresarial", "Dise\u00F1o y desarrollo de modelos de negocio", "Estrategia financiera: La optimizaci\u00F3n de los recursos y la proyecci\u00F3n de inversiones", "Gesti\u00F3n administrativa para asistentes ejecutivos", "La gesti\u00F3n de riesgos de seguridad de la informaci\u00F3n", "La gesti\u00F3n estrat\u00E9gica de las empresas familiares", "Gesti\u00F3n Integrada de Proyectos (DIGIP) en el sector inmobiliario y de la construcci\u00F3n en la RD", "Gesti\u00F3n y direcci\u00F3n estrat\u00E9gica del capital humano", "Impuestos Corporativos: Nuevas tendencias y reglamentos tributarios", "Inteligencia Empresarial", "Ingl\u00E9s intermedio", "Medici\u00F3n, redise\u00F1o y mejoras de procesos", "Gesti\u00F3n de la cadena de suministro", "Las t\u00E9cnicas de auditor\u00EDa asistida por computadora (TAAC'S)", "Ninguna"}));
-																																																																																																																																																																																																										comboBox_4.setBounds(127, 113, 219, 20);
-																																																																																																																																																																																																										panelUniversityStudy.add(comboBox_4);
+																																																																																																																																																																																																										comboBoxCertificaciones.setBounds(127, 113, 219, 20);
+																																																																																																																																																																																																										panelUniversityStudy.add(comboBoxCertificaciones);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
 																																																																																																																																																																																																										JLabel lblSpecializedCourses = new JLabel(
@@ -191,12 +191,12 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										panelUniversityStudy.add(lblSpecializedCourses);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
-																																																																																																																																																																																																										comboBox_5 = new JComboBox();
-																																																																																																																																																																																																										comboBox_5.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																										comboBox_5
+																																																																																																																																																																																																										comboBoxEspecialidades = new JComboBox();
+																																																																																																																																																																																																										comboBoxEspecialidades.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																										comboBoxEspecialidades
 																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Conocer el mercado de valores DR", "El control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", "La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", "Las t\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, la realizaci\u00F3n y presentaci\u00F3n'S)"}));
-																																																																																																																																																																																																										comboBox_5.setBounds(127, 143, 219, 20);
-																																																																																																																																																																																																										panelUniversityStudy.add(comboBox_5);
+																																																																																																																																																																																																										comboBoxEspecialidades.setBounds(127, 143, 219, 20);
+																																																																																																																																																																																																										panelUniversityStudy.add(comboBoxEspecialidades);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
 																																																																																																																																																																																																										JLabel lblTechnicalCollege = new JLabel("Estudios T\u00E9cnicos:");
@@ -245,11 +245,11 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																																						panel7.setLayout(null);
 						
 																																																																																																																																																																																																																						
-																																																																																																																																																																																																																						comboBox_2 = new JComboBox();
-																																																																																																																																																																																																																						comboBox_2.setBounds(0, 0, 219, 20);
-																																																																																																																																																																																																																						panel2.add(comboBox_2);
-																																																																																																																																																																																																																						comboBox_2.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																																						comboBox_2
+																																																																																																																																																																																																																						comboBoxGrado = new JComboBox();
+																																																																																																																																																																																																																						comboBoxGrado.setBounds(0, 0, 219, 20);
+																																																																																																																																																																																																																						panel2.add(comboBoxGrado);
+																																																																																																																																																																																																																						comboBoxGrado.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																						comboBoxGrado
 																																																																																																																																																																																																																								.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Adm. emp. menci\u00F3n operaciones", "Adm. emp. menci\u00F3n finanzas", "Adm. emp. menci\u00F3n estrategia", "Adm. emp. menci\u00F3n creaci\u00F3n y desarrollo de nuevos negocios", "Adm. emp. menci\u00F3n gesti\u00F3n humana", "Adm. emp. menci\u00F3n negocios internacionales", "Adm. hotelera menci\u00F3n comida y bebida", "Adm. hotelera menci\u00F3n mercadeo hotelero ", "Arquitectura", "Comunicaci\u00F3n social  menci\u00F3n producci\u00F3n audiovisual", "Comunicaci\u00F3n Social menci\u00F3n comunicaci\u00F3n corporativa", "Derecho", "Dise\u00F1o e interiorismo", "Ecolog\u00EDa y manejo ambiental", "Econom\u00EDa", "Educaci\u00F3n", "Enfermer\u00EDa", "Estomatolog\u00EDa", "Filosof\u00EDa", "Gesti\u00F3n financiera y auditor\u00EDa", "Ingenier\u00EDa Civil", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n mec\u00E1nica", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n el\u00E9ctricidad", "Ingenier\u00EDa Industrial", "Ingenier\u00EDa de Sistemas y equipo", "Ingenier\u00EDa Electr\u00F3nica", "Ingenier\u00EDa telem\u00E1tica", "Medicina", "Mercadeo", "Nutrici\u00F3n y diet\u00E9tica", "Psicolog\u00EDa", "fisioterapia"}));
 																																																																																																																																																																																																																					}
 																																																																																																																																																																																																																					
@@ -257,11 +257,11 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																																									{
 
 																																																																																																																																																																																																																										
-																																																																																																																																																																																																																										comboBox_3 = new JComboBox();
-																																																																																																																																																																																																																										comboBox_3.setBounds(0, 0, 219, 20);
-																																																																																																																																																																																																																										panel3.add(comboBox_3);
-																																																																																																																																																																																																																										comboBox_3.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																																										comboBox_3
+																																																																																																																																																																																																																										comboBoxPostGrado = new JComboBox();
+																																																																																																																																																																																																																										comboBoxPostGrado.setBounds(0, 0, 219, 20);
+																																																																																																																																																																																																																										panel3.add(comboBoxPostGrado);
+																																																																																																																																																																																																																										comboBoxPostGrado.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																										comboBoxPostGrado
 																																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Master Ejecutivo en Recursos Humanos Estrat\u00E9gicos", "Master en Gesti\u00F3n Estrat\u00E9gica", "MBA en Programas de Seguros", "Maestr\u00EDa en Regulaci\u00F3n Econ\u00F3mica", "Maestr\u00EDa en Derecho del Trabajo y de la Seguridad Social", "MSc en Bienes Ra\u00EDces", "Maestr\u00EDa en Tecnolog\u00EDas de la Propiedad Intelectual y Nuevas", "Master en Derecho de Negocios Corporativo", "Maestr\u00EDa en Relaciones Internacionales", "Maestr\u00EDa en Pol\u00EDticas P\u00FAblicas", "Maestr\u00EDa en Econom\u00EDa de la Empresa", "Master Ejecutivo en Gesti\u00F3n de la Cadena de Suministro", "Master en Dise\u00F1o Arquitectural concentraci\u00F3n Arquitectura Interior", "Master en Dise\u00F1o Arquitectural menci\u00F3n Arquitectura Alojamientos Tur\u00EDsticos", "Especializaci\u00F3n en Matem\u00E1ticas Aplicadas en la Educaci\u00F3n", "Especializaci\u00F3n en Educaci\u00F3n Matem\u00E1tica Nivel B\u00E1sico"}));
 																																																																																																																																																																																																																									}
 																																																																																																																																																																																																																									
@@ -380,12 +380,12 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										panelTechnicalStudies.add(comboBox_7_1);
 
 		textFieldID = new JTextField();
-		textFieldID.setBounds(553, 182, 140, 20);
+		textFieldID.setBounds(553, 192, 140, 20);
 		contentPanel.add(textFieldID);
 		textFieldID.setColumns(10);
 
 		JLabel lblId = new JLabel("ID");
-		lblId.setBounds(520, 185, 19, 14);
+		lblId.setBounds(524, 195, 19, 14);
 		lblId.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblId.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblId.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -432,12 +432,32 @@ public class PersonRegister extends JDialog {
 				lblNacionality.setHorizontalAlignment(SwingConstants.TRAILING);
 			}
 			{
-				comboBox_1_2 = new JComboBox();
-				comboBox_1_2.setBackground(new Color(248, 248, 255));
-				comboBox_1_2.setBounds(150, 119, 223, 20);
-				DatosPersonales.add(comboBox_1_2);
-				comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));
+				comboBoxSexo = new JComboBox();
+				comboBoxSexo.setBackground(new Color(248, 248, 255));
+				comboBoxSexo.setBounds(150, 119, 223, 20);
+				DatosPersonales.add(comboBoxSexo);
+				comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));		
 			}
+			
+			JLabel lblPicture = new JLabel("");
+			if (comboBoxSexo.getSelectedItem()=="Femenino")
+			{
+				lblPicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
+			}else if (comboBoxSexo.getSelectedItem()=="Masculino")
+			{
+		    	lblPicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
+			}else
+			{
+				lblPicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
+			}
+			lblPicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+			lblPicture.setIgnoreRepaint(true);
+			lblPicture.setIconTextGap(8);
+			lblPicture.setHorizontalAlignment(SwingConstants.CENTER);
+			lblPicture.setBounds(553, 44, 140, 137);
+			contentPanel.add(lblPicture);
+			lblPicture.setForeground(new Color(0, 0, 0));
+			lblPicture.setBackground(new Color(255, 255, 255));
 			{
 				JLabel lblSex = new JLabel("Sexo:");
 				lblSex.setBounds(10, 119, 130, 20);
@@ -613,16 +633,7 @@ public class PersonRegister extends JDialog {
 				AstLastName.setForeground(Color.RED);
 			}
 															
-															JLabel lblPicture = new JLabel("\r\n\r\n\r\n\r\n\r\nSubir Foto");
-															lblPicture.setVerticalTextPosition(SwingConstants.BOTTOM);
-															lblPicture.setIgnoreRepaint(true);
-															lblPicture.setIconTextGap(8);
-															lblPicture.setHorizontalAlignment(SwingConstants.CENTER);
-															lblPicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Profile.png")));
-															lblPicture.setBounds(553, 44, 140, 127);
-															contentPanel.add(lblPicture);
-															lblPicture.setForeground(new Color(0, 0, 0));
-															lblPicture.setBackground(new Color(255, 255, 255));
+															
 
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
@@ -642,7 +653,7 @@ public class PersonRegister extends JDialog {
 							temp.setPhone(textField_5.getText());
 							temp.setMobile(textField_4.getText());
 							temp.setEmail(textField_3.getText());
-							temp.setSex(comboBox_1_2.getSelectedItem().toString());					
+							temp.setSex(comboBoxSexo.getSelectedItem().toString());					
 							//date.setMonth(monthChooser.getMonth());
 							//date.setDate(spinField.getValue());
 							//date.setYear(yearChooser.getYear());
@@ -660,23 +671,23 @@ public class PersonRegister extends JDialog {
 									.toString());
 							temp.setAcademicLevel(comboBox_1.getSelectedItem()
 									.toString());
-							temp.setGradeTitle(comboBox_2.getSelectedItem()
+							temp.setGradeTitle(comboBoxGrado.getSelectedItem()
 									.toString());
 							temp.getAddress().setRegion(textField_7.getText());
-							temp.setGradeLevel(comboBox_11.getSelectedItem().toString());
-							temp.setPostGradeTitles(comboBox_3.getSelectedItem().toString());
-							temp.setCertTitles(comboBox_4.getSelectedItem().toString());
-							temp.setEspTitles(comboBox_5.getSelectedItem().toString());
+							temp.setGradeLevel(comboBoxNivelAlcanzado.getSelectedItem().toString());
+							temp.setPostGradeTitles(comboBoxPostGrado.getSelectedItem().toString());
+							temp.setCertTitles(comboBoxCertificaciones.getSelectedItem().toString());
+							temp.setEspTitles(comboBoxEspecialidades.getSelectedItem().toString());
 							temp.setTechnicalTitles(comboBox_6.getSelectedItem().toString());
 							temp.setDoctorateTitles(comboBox_7.getSelectedItem().toString());
 
 							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
 
-							comboBox_2.setSelectedItem("<Selecciona>");
-							comboBox_11.setSelectedItem("<Selecciona>");
-							comboBox_3.setSelectedItem("<Selecciona>");
-							comboBox_4.setSelectedItem("<Selecciona>");
-							comboBox_5.setSelectedItem("<Selecciona>");
+							comboBoxGrado.setSelectedItem("<Selecciona>");
+							comboBoxNivelAlcanzado.setSelectedItem("<Selecciona>");
+							comboBoxPostGrado.setSelectedItem("<Selecciona>");
+							comboBoxCertificaciones.setSelectedItem("<Selecciona>");
+							comboBoxEspecialidades.setSelectedItem("<Selecciona>");
 							comboBox_6.setSelectedItem("<Selecciona>");
 							comboBox_7.setSelectedItem("<Selecciona>");
 						}
@@ -690,7 +701,7 @@ public class PersonRegister extends JDialog {
 							temp.setPhone(textField_5.getText());
 							temp.setMobile(textField_4.getText());
 							temp.setEmail(textField_3.getText());
-							temp.setSex(comboBox_1_2.getSelectedItem().toString());
+							temp.setSex(comboBoxSexo.getSelectedItem().toString());
 							
 							//Date date = new Date();
 							//date.setMonth(monthChooser.getMonth());
@@ -737,7 +748,7 @@ public class PersonRegister extends JDialog {
 							temp.setPhone(textField_5.getText());
 							temp.setMobile(textField_4.getText());
 							temp.setEmail(textField_3.getText());
-							temp.setSex(comboBox_1_2.getSelectedItem().toString());
+							temp.setSex(comboBoxSexo.getSelectedItem().toString());
 							
 							//Date date = new Date();
 							//date.setMonth(monthChooser.getMonth());
@@ -776,7 +787,7 @@ public class PersonRegister extends JDialog {
 						textField_5.setText("");
 						textField_4.setText("");
 						textField_3.setText("");
-						comboBox_1_2.setSelectedItem("<Selecciona>");
+						comboBoxSexo.setSelectedItem("<Selecciona>");
 						comboBox_1_4.setSelectedItem("<Selecciona>");
 						textField_8.setText("");
 						textField_10.setText("");
@@ -933,12 +944,12 @@ public class PersonRegister extends JDialog {
 																																			JLabel labelAstID = new JLabel("   *");
 																																			labelAstID.setHorizontalAlignment(SwingConstants.RIGHT);
 																																			labelAstID.setForeground(Color.RED);
-																																			labelAstID.setBounds(501, 185, 19, 14);
+																																			labelAstID.setBounds(501, 195, 19, 14);
 																																			contentPanel.add(labelAstID);
 																																			
 																																			JLayeredPane layeredPane = new JLayeredPane();
 																																			layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-																																			layeredPane.setBounds(553, 44, 140, 127);
+																																			layeredPane.setBounds(553, 44, 140, 137);
 																																			contentPanel.add(layeredPane);
 																																			{
 																																				JPanel panel_3Address = new JPanel();

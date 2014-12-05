@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 
 public class SeeSatisfiedPerson extends JDialog {
 
@@ -29,8 +30,11 @@ public class SeeSatisfiedPerson extends JDialog {
 	 * Create the dialog.
 	 */
 	public SeeSatisfiedPerson() {
-		setBounds(100, 100, 450, 300);
+		setBounds(10, 50, 836, 739);
+		setLocationRelativeTo(rootPane);
+		setModal(true);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
