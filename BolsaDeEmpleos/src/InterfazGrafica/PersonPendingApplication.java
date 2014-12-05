@@ -7,8 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 
-public class PendingApplication extends JDialog {
+public class PersonPendingApplication extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -17,7 +18,7 @@ public class PendingApplication extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			PendingApplication dialog = new PendingApplication();
+			PersonPendingApplication dialog = new PersonPendingApplication();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -28,15 +29,18 @@ public class PendingApplication extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public PendingApplication() {
-		setBounds(100, 100, 450, 300);
+	public PersonPendingApplication() {
+		setBounds(10, 50, 836, 739);
+		setModal(true);
+		setLocationRelativeTo(rootPane);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");

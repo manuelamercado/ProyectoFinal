@@ -66,7 +66,7 @@ public class PersonHistory extends JDialog {
 				"No. Solicitudes" };
 		tableModel.setColumnIdentifiers(columnNames);
 		ArrayList<CompanyPerson> CP = new ArrayList<CompanyPerson>();
-		CP = Satisfied.getIntanceSatisfied().SearchPersonHistory(P);
+		CP = Satisfied.getInstanceSatisfied().SearchPersonHistory(P);
 		loadPerson(CP);
 		
 		

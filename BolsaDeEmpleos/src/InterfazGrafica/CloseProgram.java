@@ -82,10 +82,11 @@ public class CloseProgram extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				SiButton = new JButton("S\u00ED");
+				SiButton.setIcon(new ImageIcon(CloseProgram.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				SiButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						
@@ -103,6 +104,7 @@ public class CloseProgram extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setIcon(new ImageIcon(CloseProgram.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						setVisible(false);

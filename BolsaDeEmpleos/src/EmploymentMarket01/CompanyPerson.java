@@ -3,13 +3,19 @@ package EmploymentMarket01;
 public class CompanyPerson {
 	private Company company;
 	private Person person;
+	private String WorkPosition;
+	private CompanyType Area;
 	
-	public CompanyPerson(Company company, Person person) {
+	
+	
+	public CompanyPerson(Company company, Person person, String workPosition,
+			CompanyType area) {
 		super();
 		this.company = company;
 		this.person = person;
+		WorkPosition = workPosition;
+		Area = area;
 	}
-	
 	public Company getCompany() {
 		return company;
 	}
@@ -22,5 +28,18 @@ public class CompanyPerson {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
+	public String getWorkPosition() {
+		return WorkPosition;
+	}
+	public void setWorkPosition(String workPosition) {
+		WorkPosition = workPosition;
+	}
+	public CompanyType getArea() {
+		return Area;
+	}
+	public void setArea(CompanyType area) {
+		Area = area;
+	}
+	
 	
 }

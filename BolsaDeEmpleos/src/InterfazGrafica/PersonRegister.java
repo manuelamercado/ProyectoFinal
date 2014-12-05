@@ -77,7 +77,7 @@ public class PersonRegister extends JDialog {
 	private JComboBox<String> comboBox_5_1;
 	private JComboBox<String> comboBox_6;
 	private JComboBox<String> comboBox_6_1;
-	private JComboBox<String> comboBox_7;
+	private JComboBox<String> comboBoxDoctorado;
 	private JComboBox<String> comboBox_7_1;
 	private final JComboBox<String> comboBox;
 	private JComboBox<String> comboBox_1_1;
@@ -92,9 +92,6 @@ public class PersonRegister extends JDialog {
 	private JYearChooser yearChooser;
 	private JScrollPane scrollPane;
 	private JComboBox comboBoxNivelAlcanzado;
-	private JPanel panel2;
-	private JPanel panel3;
-	private JPanel panel7;
 	
 	
 	
@@ -134,25 +131,25 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																															
 																																																																																																																																																																																															
 																																																																																																																																																																																															comboBoxNivelAlcanzado = new JComboBox();
-																																																																																																																																																																																															
 																																																																																																																																																																																															comboBoxNivelAlcanzado.setBounds(127, 23, 219, 20);
 																																																																																																																																																																																															panelUniversityStudy.add(comboBoxNivelAlcanzado);
 																																																																																																																																																																																															comboBoxNivelAlcanzado.addItemListener(new ItemListener() {
 																																																																																																																																																																																																public void itemStateChanged(ItemEvent arg0) {
 																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="Grado")){
-																																																																																																																																																																																																		panel2.setVisible(true);
-																																																																																																																																																																																																		panel3.setVisible(false);
-																																																																																																																																																																																																		panel7.setVisible(false);
+																																																																																																																																																																																																		comboBoxGrado.setEnabled(true);
+																																																																																																																																																																																																		comboBoxPostGrado.setEnabled(false);
+																																																																																																																																																																																																		comboBoxDoctorado.setEnabled(false);
+																																																																																																																																																																																													
 																																																																																																																																																																																																	}
 																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="PostGrado")){
-																																																																																																																																																																																																		panel3.setVisible(true);
-																																																																																																																																																																																																		panel7.setVisible(false);
-																																																																																																																																																																																																		panel2.setVisible(true);
+																																																																																																																																																																																																		comboBoxGrado.setEnabled(true);
+																																																																																																																																																																																																		comboBoxPostGrado.setEnabled(true);
+																																																																																																																																																																																																		comboBoxDoctorado.setEnabled(false);
 																																																																																																																																																																																																	}
 																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="Doctorado")){
-																																																																																																																																																																																																		panel7.setVisible(true);
-																																																																																																																																																																																																		panel3.setVisible(true);
-																																																																																																																																																																																																		panel2.setVisible(true);
+																																																																																																																																																																																																		comboBoxGrado.setEnabled(true);
+																																																																																																																																																																																																		comboBoxPostGrado.setEnabled(true);
+																																																																																																																																																																																																		comboBoxDoctorado.setEnabled(true);
 																																																																																																																																																																																																	}
 																																																																																																																																																																																																}
 																																																																																																																																																																																																
@@ -213,7 +210,7 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										panelUniversityStudy.add(comboBox_6);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
-																																																																																																																																																																																																										JLabel lblDoctorate = new JLabel("Doctorados:");
+																																																																																																																																																																																																										JLabel lblDoctorate = new JLabel("Doctorado:");
 																																																																																																																																																																																																										lblDoctorate.setHorizontalAlignment(SwingConstants.TRAILING);
 																																																																																																																																																																																																										lblDoctorate.setBounds(10, 202, 107, 22);
 																																																																																																																																																																																																										panelUniversityStudy.add(lblDoctorate);
@@ -224,60 +221,41 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																																					lblTitulo.setBounds(10, 26, 107, 14);
 																																																																																																																																																																																																																					panelUniversityStudy.add(lblTitulo);
 																																																																																																																																																																																																																					
-																																																																																																																																																																																																																					{
-																																																																																																																																																																																																																						
-																																																																																																																																																																																																																						panel2 = new JPanel();
-																																																																																																																																																																																																																						panel2.setVisible(false);
-																																																																																																																																																																																																																						panel2.setBounds(127, 53, 219, 20);
-																																																																																																																																																																																																																						panelUniversityStudy.add(panel2);
-																																																																																																																																																																																																																						panel2.setLayout(null);
-																																																																																																																																																																																																																						
-																																																																																																																																																																																																																						panel3 = new JPanel();
-																																																																																																																																																																																																																						panel3.setVisible(false);
-																																																																																																																																																																																																																						panel3.setBounds(127, 82, 219, 20);
-																																																																																																																																																																																																																						panelUniversityStudy.add(panel3);
-																																																																																																																																																																																																																						panel3.setLayout(null);
-																																																																																																																																																																																																																						
-																																																																																																																																																																																																																						panel7 = new JPanel();
-																																																																																																																																																																																																																						panel7.setVisible(false);
-																																																																																																																																																																																																																						panel7.setBounds(127, 204, 219, 20);
-																																																																																																																																																																																																																						panelUniversityStudy.add(panel7);
-																																																																																																																																																																																																																						panel7.setLayout(null);
-						
-																																																																																																																																																																																																																						
-																																																																																																																																																																																																																						comboBoxGrado = new JComboBox();
-																																																																																																																																																																																																																						comboBoxGrado.setBounds(0, 0, 219, 20);
-																																																																																																																																																																																																																						panel2.add(comboBoxGrado);
-																																																																																																																																																																																																																						comboBoxGrado.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																																						comboBoxGrado
-																																																																																																																																																																																																																								.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Adm. emp. menci\u00F3n operaciones", "Adm. emp. menci\u00F3n finanzas", "Adm. emp. menci\u00F3n estrategia", "Adm. emp. menci\u00F3n creaci\u00F3n y desarrollo de nuevos negocios", "Adm. emp. menci\u00F3n gesti\u00F3n humana", "Adm. emp. menci\u00F3n negocios internacionales", "Adm. hotelera menci\u00F3n comida y bebida", "Adm. hotelera menci\u00F3n mercadeo hotelero ", "Arquitectura", "Comunicaci\u00F3n social  menci\u00F3n producci\u00F3n audiovisual", "Comunicaci\u00F3n Social menci\u00F3n comunicaci\u00F3n corporativa", "Derecho", "Dise\u00F1o e interiorismo", "Ecolog\u00EDa y manejo ambiental", "Econom\u00EDa", "Educaci\u00F3n", "Enfermer\u00EDa", "Estomatolog\u00EDa", "Filosof\u00EDa", "Gesti\u00F3n financiera y auditor\u00EDa", "Ingenier\u00EDa Civil", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n mec\u00E1nica", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n el\u00E9ctricidad", "Ingenier\u00EDa Industrial", "Ingenier\u00EDa de Sistemas y equipo", "Ingenier\u00EDa Electr\u00F3nica", "Ingenier\u00EDa telem\u00E1tica", "Medicina", "Mercadeo", "Nutrici\u00F3n y diet\u00E9tica", "Psicolog\u00EDa", "fisioterapia"}));
-																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																																																																																																																																																																																																																																					
+																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado = new JComboBox();
+																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado.setBounds(127, 53, 219, 20);
+																																																																																																																																																																																																																																																																																																																																																																																																																																					panelUniversityStudy.add(comboBoxGrado);
+																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Adm. emp. menci\u00F3n operaciones", "Adm. emp. menci\u00F3n finanzas", "Adm. emp. menci\u00F3n estrategia", "Adm. emp. menci\u00F3n creaci\u00F3n y desarrollo de nuevos negocios", "Adm. emp. menci\u00F3n gesti\u00F3n humana", "Adm. emp. menci\u00F3n negocios internacionales", "Adm. hotelera menci\u00F3n comida y bebida", "Adm. hotelera menci\u00F3n mercadeo hotelero ", "Arquitectura", "Comunicaci\u00F3n social  menci\u00F3n producci\u00F3n audiovisual", "Comunicaci\u00F3n Social menci\u00F3n comunicaci\u00F3n corporativa", "Derecho", "Dise\u00F1o e interiorismo", "Ecolog\u00EDa y manejo ambiental", "Econom\u00EDa", "Educaci\u00F3n", "Enfermer\u00EDa", "Estomatolog\u00EDa", "Filosof\u00EDa", "Gesti\u00F3n financiera y auditor\u00EDa", "Ingenier\u00EDa Civil", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n mec\u00E1nica", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n el\u00E9ctricidad", "Ingenier\u00EDa Industrial", "Ingenier\u00EDa de Sistemas y equipo", "Ingenier\u00EDa Electr\u00F3nica", "Ingenier\u00EDa telem\u00E1tica", "Medicina", "Mercadeo", "Nutrici\u00F3n y diet\u00E9tica", "Psicolog\u00EDa", "fisioterapia"}));
 																																																																																																																																																																																																																					
 																																																																																																																																																																																																																								
 																																																																																																																																																																																																																									{
 
 																																																																																																																																																																																																																										
 																																																																																																																																																																																																																										comboBoxPostGrado = new JComboBox();
-																																																																																																																																																																																																																										comboBoxPostGrado.setBounds(0, 0, 219, 20);
-																																																																																																																																																																																																																										panel3.add(comboBoxPostGrado);
+																																																																																																																																																																																																																										comboBoxPostGrado.setBounds(127, 81, 219, 20);
+																																																																																																																																																																																																																										panelUniversityStudy.add(comboBoxPostGrado);
 																																																																																																																																																																																																																										comboBoxPostGrado.setBackground(new Color(248, 248, 255));
 																																																																																																																																																																																																																										comboBoxPostGrado
 																																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Master Ejecutivo en Recursos Humanos Estrat\u00E9gicos", "Master en Gesti\u00F3n Estrat\u00E9gica", "MBA en Programas de Seguros", "Maestr\u00EDa en Regulaci\u00F3n Econ\u00F3mica", "Maestr\u00EDa en Derecho del Trabajo y de la Seguridad Social", "MSc en Bienes Ra\u00EDces", "Maestr\u00EDa en Tecnolog\u00EDas de la Propiedad Intelectual y Nuevas", "Master en Derecho de Negocios Corporativo", "Maestr\u00EDa en Relaciones Internacionales", "Maestr\u00EDa en Pol\u00EDticas P\u00FAblicas", "Maestr\u00EDa en Econom\u00EDa de la Empresa", "Master Ejecutivo en Gesti\u00F3n de la Cadena de Suministro", "Master en Dise\u00F1o Arquitectural concentraci\u00F3n Arquitectura Interior", "Master en Dise\u00F1o Arquitectural menci\u00F3n Arquitectura Alojamientos Tur\u00EDsticos", "Especializaci\u00F3n en Matem\u00E1ticas Aplicadas en la Educaci\u00F3n", "Especializaci\u00F3n en Educaci\u00F3n Matem\u00E1tica Nivel B\u00E1sico"}));
 																																																																																																																																																																																																																									}
-																																																																																																																																																																																																																									
-																																																																																																																																																																																																																														
-																																																																																																																																																																																																																														{
-																																																																																																																																																																																																																															comboBox_7 = new JComboBox();
-																																																																																																																																																																																																																															comboBox_7.setBounds(0, 0, 219, 20);
-																																																																																																																																																																																																																															panel7.add(comboBox_7);
-																																																																																																																																																																																																																															comboBox_7.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																																															comboBox_7
-																																																																																																																																																																																																																																	.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Derecho Constitucional y Derechos Fundamentales", "Sociedad Democr\u00E1tica, Estado y Derecho", "Educaci\u00F3n (y / o en el liderazgo o en Ciencias pedag\u00F3gicas)", "Ciencias Empresariales", "Cooperaci\u00F3n e Intervenci\u00F3n Social", "Psicolog\u00EDa de la Educaci\u00F3n y Desarrollo Humano", "Econom\u00EDa", "Sociolog\u00EDa", "Filosof\u00EDa para un mundo global"}));
-																																																																																																																																																																																																																														}
+																																																																																																																																																																																																																					
+																																																																																																																																																																																																																					{
+																																																																																																																																																																																																																						
+																																																																																																																																																																																																																											
+																																																																																																																																																																																																																											{
+																																																																																																																																																																																																																												comboBoxDoctorado = new JComboBox();
+																																																																																																																																																																																																																												comboBoxDoctorado.setBounds(127, 203, 219, 20);
+																																																																																																																																																																																																																												panelUniversityStudy.add(comboBoxDoctorado);
+																																																																																																																																																																																																																												comboBoxDoctorado.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																												comboBoxDoctorado
+																																																																																																																																																																																																																														.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Derecho Constitucional y Derechos Fundamentales", "Sociedad Democr\u00E1tica, Estado y Derecho", "Educaci\u00F3n (y / o en el liderazgo o en Ciencias pedag\u00F3gicas)", "Ciencias Empresariales", "Cooperaci\u00F3n e Intervenci\u00F3n Social", "Psicolog\u00EDa de la Educaci\u00F3n y Desarrollo Humano", "Econom\u00EDa", "Sociolog\u00EDa", "Filosof\u00EDa para un mundo global"}));
+																																																																																																																																																																																																																											}
+																																																																																																																																																																																																																					}
 																																																																																																																																																																																										
 																																																																																																																																																																																													panel_5Oficio = new JPanel();
 																																																																																																																																																																																													panel_5Oficio.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																													panel_5Oficio.setBounds(450,242,357,150);
+																																																																																																																																																																																													panel_5Oficio.setBounds(450,242,357,174);
 																																																																																																																																																																																													contentPanel.add(panel_5Oficio);
 																																																																																																																																																																																													panel_5Oficio.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios de Oficio:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 																																																																																																																																																																																													panel_5Oficio.setVisible(false);
@@ -327,7 +305,7 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																												
 																																																																																																																																																																																										panelTechnicalStudies = new JPanel();
 																																																																																																																																																																																										panelTechnicalStudies.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																										panelTechnicalStudies.setBounds(450,242,357,235);
+																																																																																																																																																																																										panelTechnicalStudies.setBounds(450,242,357,174);
 																																																																																																																																																																																										contentPanel.add(panelTechnicalStudies);
 																																																																																																																																																																																										panelTechnicalStudies.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios T\u00E9cnicos", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 																																																																																																																																																																																										panelTechnicalStudies.setVisible(false);
@@ -637,11 +615,12 @@ public class PersonRegister extends JDialog {
 
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 676, 830, 59);
+			buttonPane.setBounds(0, 652, 830, 59);
 			contentPanel.add(buttonPane);
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			{
-				JButton okButton = new JButton("Register");
+				JButton okButton = new JButton("Guardar");
+				okButton.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Save.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						
@@ -679,7 +658,7 @@ public class PersonRegister extends JDialog {
 							temp.setCertTitles(comboBoxCertificaciones.getSelectedItem().toString());
 							temp.setEspTitles(comboBoxEspecialidades.getSelectedItem().toString());
 							temp.setTechnicalTitles(comboBox_6.getSelectedItem().toString());
-							temp.setDoctorateTitles(comboBox_7.getSelectedItem().toString());
+							temp.setDoctorateTitles(comboBoxDoctorado.getSelectedItem().toString());
 
 							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
 
@@ -689,7 +668,7 @@ public class PersonRegister extends JDialog {
 							comboBoxCertificaciones.setSelectedItem("<Selecciona>");
 							comboBoxEspecialidades.setSelectedItem("<Selecciona>");
 							comboBox_6.setSelectedItem("<Selecciona>");
-							comboBox_7.setSelectedItem("<Selecciona>");
+							comboBoxDoctorado.setSelectedItem("<Selecciona>");
 						}
 						else if (comboBox_1.getSelectedItem() == "Técnico") {
 							// YearsExperience,
@@ -924,12 +903,17 @@ public class PersonRegister extends JDialog {
 				);
 				buttonPane.add(btnRegister);
 				*/
+				
+				JButton btnReiniciar = new JButton("Reiniciar");
+				btnReiniciar.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Back.png")));
+				buttonPane.add(btnReiniciar);
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
-				JButton cancelButton = new JButton("Cancel");
+				JButton cancelButton = new JButton("Cancelar");
+				cancelButton.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
@@ -953,7 +937,7 @@ public class PersonRegister extends JDialog {
 																																			contentPanel.add(layeredPane);
 																																			{
 																																				JPanel panel_3Address = new JPanel();
-																																				panel_3Address.setBounds(22, 427, 418, 244);
+																																				panel_3Address.setBounds(22, 427, 418, 207);
 																																				contentPanel.add(panel_3Address);
 																																				panel_3Address.setBackground(new Color(248, 248, 255));
 																																				panel_3Address.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "     Direcci\u00F3n:", TitledBorder.LEFT, TitledBorder.TOP, null, null));

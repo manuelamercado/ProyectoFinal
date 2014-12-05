@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class Help extends JDialog {
 
@@ -29,14 +31,20 @@ public class Help extends JDialog {
 	 * Create the dialog.
 	 */
 	public Help() {
-		setBounds(100, 100, 450, 300);
+		setTitle("AYUDA");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Help.class.getResource("/InterfazGrafica/Images/1416396005_FAQ.png")));
+		setBounds(10, 50, 836, 739);
+		setLocationRelativeTo(rootPane);
+		setModal(true);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setBackground(new Color(248, 248, 255));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");

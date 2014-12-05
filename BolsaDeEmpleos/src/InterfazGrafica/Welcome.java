@@ -130,9 +130,11 @@ public class Welcome extends JFrame {
 		mnInicio.add(mnNuevo);
 		
 		JMenuItem mntmSolicitante = new JMenuItem("Solicitante");
+		mntmSolicitante.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mnNuevo.add(mntmSolicitante);
 		
 		JMenuItem mntmEmpresa_3 = new JMenuItem("Empresa");
+		mntmEmpresa_3.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
 		mnNuevo.add(mntmEmpresa_3);
 		
 		JMenu mnNuevaSolicitud_1 = new JMenu("Nueva Solicitud");
@@ -140,9 +142,11 @@ public class Welcome extends JFrame {
 		mnInicio.add(mnNuevaSolicitud_1);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitante");
+		mntmNewMenuItem.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mnNuevaSolicitud_1.add(mntmNewMenuItem);
 		
 		JMenuItem mntmEmpresa_4 = new JMenuItem("Empresa");
+		mntmEmpresa_4.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
 		mnNuevaSolicitud_1.add(mntmEmpresa_4);
 		
 		JMenu mnRegistrar = new JMenu("REGISTRAR     ");
@@ -188,6 +192,7 @@ public class Welcome extends JFrame {
 		mnNuevaSolicitud.add(mntmEmpleado);
 		
 		JMenuItem mntmEmpresa_2 = new JMenuItem("Empresa");
+		mntmEmpresa_2.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
 		mntmEmpresa_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				companyApplication = new CompanyApplication();
@@ -216,6 +221,7 @@ public class Welcome extends JFrame {
 		mnBaseDeDatos.add(mnRegistros);
 		
 		JMenuItem mntmNewMenuItemSolicitantes = new JMenuItem("Solicitantes");
+		mntmNewMenuItemSolicitantes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828816_testimonials.png")));
 		mntmNewMenuItemSolicitantes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				seePersons = new SeePersons();
@@ -225,6 +231,7 @@ public class Welcome extends JFrame {
 		mnRegistros.add(mntmNewMenuItemSolicitantes);
 		
 		JMenuItem mntmEmpresas_2 = new JMenuItem("Empresas");
+		mntmEmpresas_2.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828832_companies.png")));
 		mntmEmpresas_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					seeCompanies = new SeeCompanies();
@@ -237,7 +244,8 @@ public class Welcome extends JFrame {
 		mnSolicitudes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Info.png")));
 		mnBaseDeDatos.add(mnSolicitudes);
 		
-		JMenuItem mntmEmpleados = new JMenuItem("Empleados");
+		JMenuItem mntmEmpleados = new JMenuItem("Solicitantes");
+		mntmEmpleados.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828816_testimonials.png")));
 		mntmEmpleados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				seePersonApplication = new SeePersonApplication();
@@ -247,6 +255,7 @@ public class Welcome extends JFrame {
 		mnSolicitudes.add(mntmEmpleados);
 		
 		JMenuItem mntmEmpresas2 = new JMenuItem("Empresas");		
+		mntmEmpresas2.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828832_companies.png")));
 		mntmEmpresas2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				seeCompanyApplication = new SeeCompanyApplication();
@@ -265,9 +274,11 @@ public class Welcome extends JFrame {
 		mnReportes.add(mnPendientes);
 		
 		JMenuItem mntmSolicitantes_1 = new JMenuItem("Solicitantes");
+		mntmSolicitantes_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828816_testimonials.png")));
 		mnPendientes.add(mntmSolicitantes_1);
 		
 		JMenuItem mntmEmpresas_1 = new JMenuItem("Empresas");
+		mntmEmpresas_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828832_companies.png")));
 		mnPendientes.add(mntmEmpresas_1);
 		
 		JMenu mnSatisfechos = new JMenu("Satisfechos");
@@ -275,6 +286,7 @@ public class Welcome extends JFrame {
 		mnReportes.add(mnSatisfechos);
 		
 		JMenuItem mntmSolicitantes = new JMenuItem("Solicitantes");
+		mntmSolicitantes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828816_testimonials.png")));
 		mntmSolicitantes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				seeSatisfiedPerson = new SeeSatisfiedPerson();
@@ -284,6 +296,7 @@ public class Welcome extends JFrame {
 		mnSatisfechos.add(mntmSolicitantes);
 		
 		JMenuItem mntmEmpresas = new JMenuItem("Empresas");
+		mntmEmpresas.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828832_companies.png")));
 		mntmEmpresas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				seeSatisfiedCompany = new SeeSatisfiedCompany();
@@ -301,11 +314,11 @@ public class Welcome extends JFrame {
 		ImprimirReporte.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Bar Chart.png")));
 		mnImprimir.add(ImprimirReporte);
 		
-		JMenuItem ImpRepSatisfied = new JMenuItem("Satisfechos");
-		ImprimirReporte.add(ImpRepSatisfied);
-		
 		JMenuItem mntmPendientes = new JMenuItem("Pendientes");
 		ImprimirReporte.add(mntmPendientes);
+		
+		JMenuItem ImpRepSatisfied = new JMenuItem("Satisfechos");
+		ImprimirReporte.add(ImpRepSatisfied);
 		
 		JMenu mnSolicitud = new JMenu("Solicitud");
 		mnSolicitud.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Info.png")));
@@ -321,10 +334,6 @@ public class Welcome extends JFrame {
 		mnConsultas.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Search.png")));
 		mnConsultas.setFont(new Font("Tahoma", Font.BOLD, 12));
 		menuBar.add(mnConsultas);
-		
-		JMenuItem mntmConsultaArea = new JMenuItem("\u00C1rea Disponible");
-		mntmConsultaArea.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/areas.png")));
-		mnConsultas.add(mntmConsultaArea);
 		
 		JMenuItem mntmConsultaEmpresa = new JMenuItem("Empresa");
 		mntmConsultaEmpresa.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396195_Company.png")));

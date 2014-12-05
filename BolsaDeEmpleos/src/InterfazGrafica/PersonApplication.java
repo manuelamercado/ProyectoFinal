@@ -157,32 +157,32 @@ public class PersonApplication extends JDialog {
 		panelPersonalDates.add(label_5);
 		
 		JLabel labelPicture = new JLabel("");
-		labelPicture.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/Profile.png")));
+		labelPicture.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
 		labelPicture.setVerticalTextPosition(SwingConstants.BOTTOM);
 		labelPicture.setIgnoreRepaint(true);
 		labelPicture.setIconTextGap(8);
 		labelPicture.setHorizontalAlignment(SwingConstants.CENTER);
 		labelPicture.setForeground(Color.BLACK);
 		labelPicture.setBackground(Color.WHITE);
-		labelPicture.setBounds(568, 36, 140, 127);
+		labelPicture.setBounds(568, 36, 140, 139);
 		contentPane.add(labelPicture);
 		
 		JLabel label_7 = new JLabel("ID");
 		label_7.setVerticalAlignment(SwingConstants.BOTTOM);
 		label_7.setHorizontalAlignment(SwingConstants.TRAILING);
 		label_7.setFont(new Font("Tahoma", Font.BOLD, 12));
-		label_7.setBounds(539, 177, 19, 14);
+		label_7.setBounds(539, 189, 19, 14);
 		contentPane.add(label_7);
 		
 		JLabel label_8 = new JLabel("   *");
 		label_8.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_8.setForeground(Color.RED);
-		label_8.setBounds(518, 177, 19, 14);
+		label_8.setBounds(518, 189, 19, 14);
 		contentPane.add(label_8);
 		
 		JLabel labelID = new JLabel("");
 		labelID.setBackground(new Color(255, 255, 255));
-		labelID.setBounds(568, 174, 140, 17);
+		labelID.setBounds(568, 186, 140, 17);
 		contentPane.add(labelID);
 		
 		JPanel panel = new JPanel();
@@ -214,12 +214,12 @@ public class PersonApplication extends JDialog {
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		layeredPane.setBounds(568, 36, 140, 127);
+		layeredPane.setBounds(568, 36, 140, 139);
 		contentPane.add(layeredPane);
 		
 		JLayeredPane layeredPane_1 = new JLayeredPane();
 		layeredPane_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		layeredPane_1.setBounds(568, 174, 140, 17);
+		layeredPane_1.setBounds(568, 186, 140, 17);
 		contentPane.add(layeredPane_1);
 	}
 }

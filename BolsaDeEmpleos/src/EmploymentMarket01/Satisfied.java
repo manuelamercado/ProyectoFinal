@@ -13,6 +13,7 @@ public class Satisfied {
 	private CollectionCompany CompanySatisfied;
 	private CollectionPersonApplicant PendingPersonApplication;
 	private CollectionCompanyApplication PendingCompanyApplication;
+	private static Satisfied satisfied;
 	
 	
 	
@@ -38,6 +39,27 @@ public class Satisfied {
 		PendingPersonApplication = pendingPersonApplication;
 		PendingCompanyApplication = pendingCompanyApplication;
 	}
+	
+	public static Satisfied getInstanceSatisfied() {
+		if (satisfied == null) {
+			satisfied = new Satisfied();
+		}
+		return satisfied;
+	}
+	
+	private Satisfied() {
+		SatisfiedCompany = new ArrayList<CompanyApplication>();
+		CantSatisfiedCompany = 0;
+		SatisfiedPerson = new ArrayList<PersonApplication>();
+		CantSatisfiedPerson = 0;
+		SatisfiedEmployes = new ArrayList<CompanyPerson>();
+		PersonSatisfied = CollectionPerson.getInstanceCollectionPerson();
+		CompanySatisfied = CollectionCompany.getInstanceCollectionCompany();
+		PendingPersonApplication = CollectionPersonApplicant.getInstanceCollectionPersonApplicant();
+		PendingCompanyApplication = CollectionCompanyApplication.getInstanceCollectionCompanyApplication();	
+	}
+	
+	
 	public ArrayList<CompanyApplication> getSatisfiedCompany() {
 		return SatisfiedCompany;
 	}

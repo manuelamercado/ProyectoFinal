@@ -4,11 +4,22 @@ import java.util.ArrayList;
 
 public class CollectionPersonApplicant {
 	private ArrayList<PersonApplication> PersonApplications;
+	private static CollectionPersonApplicant collectionPersonApplicant;
 
 	public CollectionPersonApplicant(
 			ArrayList<PersonApplication> personApplicantions) {
 		super();
 		PersonApplications = personApplicantions;
+	}
+	public static CollectionPersonApplicant getInstanceCollectionPersonApplicant() {
+		if (collectionPersonApplicant == null) {
+			collectionPersonApplicant = new CollectionPersonApplicant();
+		}
+		return collectionPersonApplicant;
+	}
+	
+	private CollectionPersonApplicant() {
+		PersonApplications = new ArrayList<PersonApplication>();	
 	}
 
 	public ArrayList<PersonApplication> getPersonApplicantions() {
