@@ -85,7 +85,8 @@ public class CloseProgram extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				SiButton = new JButton("S\u00ED");
+				SiButton = new JButton("Aceptar");
+				SiButton.setRequestFocusEnabled(false);
 				SiButton.setIcon(new ImageIcon(CloseProgram.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				SiButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
@@ -98,7 +99,7 @@ public class CloseProgram extends JDialog {
 						
 					}
 				});
-				SiButton.setActionCommand("Si");
+				SiButton.setActionCommand("Aceptar");
 				buttonPane.add(SiButton);
 				getRootPane().setDefaultButton(SiButton);
 			}

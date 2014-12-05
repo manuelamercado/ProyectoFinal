@@ -130,10 +130,22 @@ public class Welcome extends JFrame {
 		mnInicio.add(mnNuevo);
 		
 		JMenuItem mntmSolicitante = new JMenuItem("Solicitante");
+		mntmSolicitante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				personRegister = new PersonRegister();
+				personRegister.setVisible(true);
+			}
+		});
 		mntmSolicitante.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mnNuevo.add(mntmSolicitante);
 		
 		JMenuItem mntmEmpresa_3 = new JMenuItem("Empresa");
+		mntmEmpresa_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				companyRegister = new CompanyRegister();
+				companyRegister.setVisible(true);
+			}
+		});
 		mntmEmpresa_3.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
 		mnNuevo.add(mntmEmpresa_3);
 		
@@ -142,12 +154,34 @@ public class Welcome extends JFrame {
 		mnInicio.add(mnNuevaSolicitud_1);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitante");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				personApplication = new PersonApplication();
+				personApplication.setVisible(true);
+			}
+		});
 		mntmNewMenuItem.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mnNuevaSolicitud_1.add(mntmNewMenuItem);
 		
 		JMenuItem mntmEmpresa_4 = new JMenuItem("Empresa");
+		mntmEmpresa_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				companyApplication = new CompanyApplication();
+				companyApplication.setVisible(true);
+			}
+		});
 		mntmEmpresa_4.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
 		mnNuevaSolicitud_1.add(mntmEmpresa_4);
+		
+		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
+		mntmAyuda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				help = new Help();
+				help.setVisible(true);
+			}
+		});
+		mntmAyuda.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Ayuda32.png")));
+		mnInicio.add(mntmAyuda);
 		
 		JMenu mnRegistrar = new JMenu("REGISTRAR     ");
 		menuBar.add(mnRegistrar);

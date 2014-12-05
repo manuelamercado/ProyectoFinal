@@ -358,12 +358,12 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										panelTechnicalStudies.add(comboBox_7_1);
 
 		textFieldID = new JTextField();
-		textFieldID.setBounds(553, 192, 140, 20);
+		textFieldID.setBounds(561, 192, 140, 20);
 		contentPanel.add(textFieldID);
 		textFieldID.setColumns(10);
 
 		JLabel lblId = new JLabel("ID");
-		lblId.setBounds(524, 195, 19, 14);
+		lblId.setBounds(530, 198, 19, 14);
 		lblId.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblId.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblId.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -409,33 +409,58 @@ public class PersonRegister extends JDialog {
 				DatosPersonales.add(lblNacionality);
 				lblNacionality.setHorizontalAlignment(SwingConstants.TRAILING);
 			}
+		
 			{
 				comboBoxSexo = new JComboBox();
+				final JLabel labelMalePicture = new JLabel("");
+				//labelMalePicture.setVisible(false);
+				final JLabel labelFeMalePicture = new JLabel("");
+				labelMalePicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
+				labelMalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+				labelMalePicture.setIgnoreRepaint(true);
+				labelMalePicture.setIconTextGap(8);
+				labelMalePicture.setHorizontalAlignment(SwingConstants.CENTER);
+				labelMalePicture.setForeground(Color.BLACK);
+				labelMalePicture.setBackground(Color.WHITE);
+				labelMalePicture.setBounds(561, 42, 140, 139);
+				contentPanel.add(labelMalePicture);
+				{
+					JLabel labelFemalePicture = new JLabel("");
+					//labelFemalePicture.setVisible(false);
+					labelFemalePicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
+					labelFemalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+					labelFemalePicture.setIgnoreRepaint(true);
+					labelFemalePicture.setIconTextGap(8);
+					labelFemalePicture.setHorizontalAlignment(SwingConstants.CENTER);
+					labelFemalePicture.setForeground(Color.BLACK);
+					labelFemalePicture.setBackground(Color.WHITE);
+					labelFemalePicture.setBounds(561, 42, 140, 139);
+					contentPanel.add(labelFemalePicture);
+				}
+				
+				comboBoxSexo.addItemListener(new ItemListener() {
+					public void itemStateChanged(ItemEvent e) {
+						if (comboBoxSexo.getSelectedItem()== "Femenino")
+						{
+							labelFeMalePicture.setVisible(true);
+							labelMalePicture.setVisible(false);
+						}
+						else if (comboBoxSexo.getSelectedItem()== "Masculino")
+						{
+							labelFeMalePicture.setVisible(false);
+							labelMalePicture.setVisible(true);
+						}
+						
+							
+					}
+				});
+				
 				comboBoxSexo.setBackground(new Color(248, 248, 255));
 				comboBoxSexo.setBounds(150, 119, 223, 20);
 				DatosPersonales.add(comboBoxSexo);
-				comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));		
-			}
-			
-			JLabel lblPicture = new JLabel("");
-			if (comboBoxSexo.getSelectedItem()=="Femenino")
-			{
-				lblPicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
-			}else if (comboBoxSexo.getSelectedItem()=="Masculino")
-			{
-		    	lblPicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
-			}else
-			{
-				lblPicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
-			}
-			lblPicture.setVerticalTextPosition(SwingConstants.BOTTOM);
-			lblPicture.setIgnoreRepaint(true);
-			lblPicture.setIconTextGap(8);
-			lblPicture.setHorizontalAlignment(SwingConstants.CENTER);
-			lblPicture.setBounds(553, 44, 140, 137);
-			contentPanel.add(lblPicture);
-			lblPicture.setForeground(new Color(0, 0, 0));
-			lblPicture.setBackground(new Color(255, 255, 255));
+				comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));
+	
+		
 			{
 				JLabel lblSex = new JLabel("Sexo:");
 				lblSex.setBounds(10, 119, 130, 20);
@@ -928,13 +953,8 @@ public class PersonRegister extends JDialog {
 																																			JLabel labelAstID = new JLabel("   *");
 																																			labelAstID.setHorizontalAlignment(SwingConstants.RIGHT);
 																																			labelAstID.setForeground(Color.RED);
-																																			labelAstID.setBounds(501, 195, 19, 14);
+																																			labelAstID.setBounds(511, 195, 19, 14);
 																																			contentPanel.add(labelAstID);
-																																			
-																																			JLayeredPane layeredPane = new JLayeredPane();
-																																			layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-																																			layeredPane.setBounds(553, 44, 140, 137);
-																																			contentPanel.add(layeredPane);
 																																			{
 																																				JPanel panel_3Address = new JPanel();
 																																				panel_3Address.setBounds(22, 427, 418, 207);
@@ -1036,8 +1056,23 @@ public class PersonRegister extends JDialog {
 																																				AstBirth.setHorizontalAlignment(SwingConstants.CENTER);
 																																				AstBirth.setForeground(Color.RED);
 																																			}
-																																			{
+																																			
+																																			
+																																			
+																																			
+																																			
 																																				
-																																			}}
+																																			}
+		
+		
+		
+		
+		{
+			JLayeredPane layeredPane = new JLayeredPane();
+			layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+			layeredPane.setBounds(561, 42, 140, 139);
+			contentPanel.add(layeredPane);
+		}
+	}	
 }	
 	
