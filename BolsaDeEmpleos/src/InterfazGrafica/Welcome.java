@@ -26,6 +26,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.beans.PropertyVetoException;
 
+import javax.swing.AbstractButton;
 import javax.swing.JMenu;
 import javax.swing.SwingConstants;
 import javax.swing.JMenuItem;
@@ -42,9 +43,12 @@ import java.awt.SystemColor;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.awt.Rectangle;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Welcome extends JFrame {
 
+	protected static final AbstractButton KeyPressed = null;
 	private JPanel contentPane;
 	private Dimension dim;
 	private PersonRegister personRegister;
@@ -180,8 +184,24 @@ public class Welcome extends JFrame {
 				help.setVisible(true);
 			}
 		});
+		
+		JMenu mnBuscar = new JMenu("Buscar");
+		mnBuscar.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Search.png")));
+		mnInicio.add(mnBuscar);
+		
+		JMenuItem mntmSolicitante_1 = new JMenuItem("Solicitante");
+		mntmSolicitante_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
+		mnBuscar.add(mntmSolicitante_1);
+		
+		JMenuItem mntmEmpresa_5 = new JMenuItem("Empresa");
+		mntmEmpresa_5.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
+		mnBuscar.add(mntmEmpresa_5);
 		mntmAyuda.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Ayuda32.png")));
 		mnInicio.add(mntmAyuda);
+		
+		JMenuItem mntmCerrar = new JMenuItem("Cerrar");
+		mntmCerrar.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Delete32.png")));
+		mnInicio.add(mntmCerrar);
 		
 		JMenu mnRegistrar = new JMenu("REGISTRAR     ");
 		menuBar.add(mnRegistrar);
@@ -352,20 +372,23 @@ public class Welcome extends JFrame {
 		ImprimirReporte.add(mntmPendientes);
 		
 		JMenuItem ImpRepSatisfied = new JMenuItem("Satisfechos");
+		ImpRepSatisfied.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417830291_accept.png")));
 		ImprimirReporte.add(ImpRepSatisfied);
 		
 		JMenu mnSolicitud = new JMenu("Solicitud");
 		mnSolicitud.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Info.png")));
 		mnImprimir.add(mnSolicitud);
 		
-		JMenuItem mntmPersona = new JMenuItem("Persona");
+		JMenuItem mntmPersona = new JMenuItem("Solicitante");
+		mntmPersona.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mnSolicitud.add(mntmPersona);
 		
 		JMenuItem mntmEmpresa_1 = new JMenuItem("Empresa");
+		mntmEmpresa_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
 		mnSolicitud.add(mntmEmpresa_1);
 		
 		JMenu mnConsultas = new JMenu("CONSULTAS     ");
-		mnConsultas.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Search.png")));
+		mnConsultas.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Search48.png")));
 		mnConsultas.setFont(new Font("Tahoma", Font.BOLD, 12));
 		menuBar.add(mnConsultas);
 		
