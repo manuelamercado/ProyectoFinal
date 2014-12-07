@@ -12,10 +12,12 @@ public class Company {
 	private String area;
 	private String ID;
 	private String Phone;
-	private String Mobile;
+	private String Fax;
 	private String Email;
 	private String RNC;
 	private String country;
+	private String fund;
+	private String activity;
 
 	public Company(String name, String webPage, CompanyType area2,
 			String area1, Address address) {
@@ -32,14 +34,14 @@ public class Company {
 		area = "";
 		ID = "";
 		Phone = "";
-		Mobile = "";
+		Fax = "";
 		Email = "";
-		addressCompany = new Address("", "", "", 0, 0);
+		addressCompany = new Address("", "", "", "", "");
 		setRNC("");
 	}
 
 	public Company(String name, String webPage, String area1, String City,
-			String Sector, String Calle, int HouseNumber, long PostalCode) {
+			String Sector, String Calle, String HouseNumber, String PostalCode) {
 		Name = name;
 		WebPage = webPage;
 		area = area1;
@@ -98,19 +100,19 @@ public class Company {
 		addressCompany.setCalle(calle);
 	}
 
-	public int getHouseNumber() {
+	public String getHouseNumber() {
 		return addressCompany.getHouseNumber();
 	}
 
-	public void setHouseNumber(int houseNumber) {
+	public void setHouseNumber(String houseNumber) {
 		addressCompany.setHouseNumber(houseNumber);
 	}
 
-	public long getPostalCode() {
+	public String getPostalCode() {
 		return addressCompany.getPostalCode();
 	}
 
-	public void setPostalCode(long postalCode) {
+	public void setPostalCode(String postalCode) {
 		addressCompany.setPostalCode(postalCode);
 	}
 
@@ -142,12 +144,12 @@ public class Company {
 		Phone = phone;
 	}
 
-	public String getMobile() {
-		return Mobile;
+	public String getFax() {
+		return Fax;
 	}
 
-	public void setMobile(String mobile) {
-		Mobile = mobile;
+	public void setFax(String fax) {
+		Fax = fax;
 	}
 
 	public String getEmail() {
@@ -176,6 +178,22 @@ public class Company {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getFund() {
+		return fund;
+	}
+
+	public void setFund(String fund) {
+		this.fund = fund;
+	}
+
+	public String getActivity() {
+		return activity;
+	}
+
+	public void setActivity(String activity) {
+		this.activity = activity;
 	}
 
 }

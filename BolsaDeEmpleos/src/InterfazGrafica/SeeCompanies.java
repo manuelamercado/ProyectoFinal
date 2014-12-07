@@ -1,6 +1,11 @@
 package InterfazGrafica;
 
 import java.awt.BorderLayout;
+
+import EmploymentMarket01.CollectionCompanyApplication;
+import EmploymentMarket01.CollectionPersonApplicant;
+import EmploymentMarket01.Company;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -19,7 +24,9 @@ import EmploymentMarket01.CollectionCompany;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
 
 public class SeeCompanies extends JDialog {
@@ -95,6 +102,9 @@ public class SeeCompanies extends JDialog {
 		Count.setText(String.valueOf(CollectionCompany.getInstanceCollectionCompany().getCantCompany()));
 
 	}
+	public SeeCompanies(Company company) {
+		// TODO Auto-generated constructor stub
+	}
 	private void loadPerson() {
 		// TODO Auto-generated method stub
 		fila = new Object[5];
@@ -104,7 +114,7 @@ public class SeeCompanies extends JDialog {
 	 fila[1] = CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC(); 
 	 fila[2] = CollectionCompany.getInstanceCollectionCompany().getCompany(i).getName(); 
 	 fila[3] = CollectionCompany.getInstanceCollectionCompany().getCompany(i).getArea(); 
-	 fila[4] = j;
+	 fila[4] = solicitudes(CollectionCompany.getInstanceCollectionCompany().getCompany(i).getName(), CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC());;
 	 tableModel.addRow(fila); 
 	 }
  table.setModel(tableModel);
@@ -117,4 +127,13 @@ public class SeeCompanies extends JDialog {
 		columnModel.getColumn(3).setPreferredWidth(240);
 		columnModel.getColumn(4).setPreferredWidth(110);
 	}	
+	public int solicitudes(String Names, String RNCs){
+		int count=0;
+		 for(int i=0; i<CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().size(); i++)
+		 if(CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplication(i).getCompany().getName().equals(Names)&&CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplication(i).getCompany().getRNC().equals(RNCs)){
+		 count+=1;
+		 }
+		
+		 return count;
+		 }
 }

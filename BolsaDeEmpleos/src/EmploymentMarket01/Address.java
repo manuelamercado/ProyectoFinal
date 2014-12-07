@@ -5,13 +5,13 @@ public class Address {
 	private String City;
 	private String Sector;
 	private String Calle;
-	private int HouseNumber;
-	private long PostalCode;
+	private String HouseNumber;
+	private String PostalCode;
 	private String region;
 	
 
-	public Address(String City, String Sector, String Calle, int HouseNumber,
-			long PostalCode) {
+	public Address(String City, String Sector, String Calle, String HouseNumber,
+			String PostalCode) {
 
 		this.City = City;
 		this.Sector = Sector;
@@ -44,19 +44,19 @@ public class Address {
 		Calle = calle;
 	}
 
-	public int getHouseNumber() {
+	public String getHouseNumber() {
 		return HouseNumber;
 	}
 
-	public void setHouseNumber(int houseNumber) {
+	public void setHouseNumber(String houseNumber) {
 		HouseNumber = houseNumber;
 	}
 
-	public long getPostalCode() {
+	public String getPostalCode() {
 		return PostalCode;
 	}
 
-	public void setPostalCode(long postalCode) {
+	public void setPostalCode(String postalCode) {
 		PostalCode = postalCode;
 	}
 
@@ -67,5 +67,6 @@ public class Address {
 	public void setRegion(String region) {
 		this.region = region;
 	}
+
 
 }

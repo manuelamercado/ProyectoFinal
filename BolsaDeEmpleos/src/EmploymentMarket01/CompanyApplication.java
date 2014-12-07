@@ -3,7 +3,7 @@ package EmploymentMarket01;
 
 public class CompanyApplication {
 	
-	private enum WorkingDay{Fijo,Temporal,Parcial};
+	//private enum WorkingDay {Fijo,Temporal,Parcial};
 	private int EmployeeCant;
 	private String WorkPosition;
 	private String Area;

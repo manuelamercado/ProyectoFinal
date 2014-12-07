@@ -1,6 +1,7 @@
 package InterfazGrafica;
 
 import java.awt.BorderLayout;
+import EmploymentMarket01.CollectionPersonApplicant;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
@@ -40,6 +41,7 @@ public class SeePersons extends JDialog {
 	private JLabel label_1;
 	private Person Table_Click;
 	private PersonHistory personHistory;
+	private String Name, ID;
 	
 	public SeePersons() {
 		getContentPane().setBackground(new Color(248, 248, 255));
@@ -61,7 +63,8 @@ public class SeePersons extends JDialog {
 				try{
 					
 					int row = table.getSelectedRow();
-					Table_Click = (Person) (table.getModel().getValueAt(row, 0));
+					Name = (String) table.getValueAt(row, 2);
+					ID = (String) table.getValueAt(row, 1);
 					
 				}catch(Exception e){
 					JOptionPane.showMessageDialog(null, e);
@@ -106,8 +109,11 @@ public class SeePersons extends JDialog {
 			JButton btnBuscar = new JButton("Buscar");
 			btnBuscar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					personHistory = new PersonHistory(Table_Click); 
-					personHistory.setVisible(true);
+					for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
+						 if(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getName().equals(Name)&&CollectionPerson.getInstanceCollectionPerson().getPerson(i).getID().equals(ID)||CollectionPerson.getInstanceCollectionPerson().getPerson(i).getID().equals(ID)){
+						 personHistory = new PersonHistory(CollectionPerson.getInstanceCollectionPerson().getPerson(i));
+						 personHistory.setVisible(true);
+						} 
 				}
 			});
 			buttonPane.add(btnBuscar);
@@ -135,8 +141,8 @@ public class SeePersons extends JDialog {
 	 fila[0] = i+1; 
 	 fila[1] =CollectionPerson.getInstanceCollectionPerson().getPersons().get(i).getID(); 
 	 fila[2] = CollectionPerson.getInstanceCollectionPerson().getPersons().get(i).getName(); 
-	 fila[3] =CollectionPerson.getInstanceCollectionPerson().getPersons().get(i).getLastName(); 
-	 fila[4] = j;
+	 fila[3] = CollectionPerson.getInstanceCollectionPerson().getPersons().get(i).getLastName();
+	 fila[4] = solicitudes(CollectionPerson.getInstanceCollectionPerson().getPersons().get(i).getName(), CollectionPerson.getInstanceCollectionPerson().getPersons().get(i).getID());
 	 tableModel.addRow(fila); 
 	 }
  table.setModel(tableModel);
@@ -149,5 +155,16 @@ public class SeePersons extends JDialog {
 		columnModel.getColumn(3).setPreferredWidth(240);
 		columnModel.getColumn(4).setPreferredWidth(110);
 	}	
+	
+	//metodo que calcula la cantidad de solicitudes
+	 public int solicitudes(String Names, String IDs){
+	 int count=0;
+	 for(int i=0; i<CollectionPersonApplicant.getInstanceCollectionPersonApplicant().getPersonApplicantions().size(); i++)
+	 if(CollectionPersonApplicant.getInstanceCollectionPersonApplicant().getPersonApplication(i).getPerson().getName().equals(Names)&&CollectionPersonApplicant.getInstanceCollectionPersonApplicant().getPersonApplication(i).getPerson().getID().equals(IDs)){
+	 count+=1;
+	 }
+	
+	 return count;
+	}
 	
 }

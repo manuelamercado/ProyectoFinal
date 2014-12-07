@@ -32,6 +32,4 @@ public class CollectionCompanyApplication {
 	
 	public CompanyApplication getCompanyApplication(int i){
 		return CompanyApplications.get(i);
-	}
-
-}
+	}}

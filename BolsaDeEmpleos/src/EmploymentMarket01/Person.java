@@ -1,7 +1,6 @@
 package EmploymentMarket01;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public abstract class Person {
 
@@ -11,7 +10,7 @@ public abstract class Person {
 	private String Phone;
 	private String Mobile;
 	private String Email;
-	private Date Birth;
+	private String Birth;
 	private Address Address;
 	private String Nationality;
 	private String CivilState;
@@ -23,8 +22,8 @@ public abstract class Person {
 	private ArrayList<String> CertTitles;
 
 	public Person(String Name, String LastName, String ID, String Phone,
-			String Mobile, String Email, String sex, Date Birth, String City,
-			String Sector, String Calle, int HouseNumber, long PostalCode,
+			String Mobile, String Email, String sex, String Birth, String City,
+			String Sector, String Calle, String HouseNumber, String PostalCode,
 			String Nationality, String CivilState, String AcademicLevel,
 			int YearsExperience) {
 
@@ -50,8 +49,8 @@ public abstract class Person {
 		Mobile = "";
 		Email = "";
 		sex = "";
-		Birth = new Date(0);
-		this.Address = new Address("", "", "", 0, 0);
+		Birth = "";
+		this.Address = new Address("", "", "", "", "");
 		Nationality = "";
 		YearsExperience = 0;
 		CertTitles= new ArrayList<String>();
@@ -120,11 +119,11 @@ public abstract class Person {
 		Email = email;
 	}
 
-	public Date getBirth() {
+	public String getBirth() {
 		return Birth;
 	}
 
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		Birth = birth;
 	}
 
@@ -204,19 +203,19 @@ public abstract class Person {
 		Address.setCalle(calle);
 	}
 
-	public int getHouseNumber() {
+	public String getHouseNumber() {
 		return Address.getHouseNumber();
 	}
 
-	public void setHouseNumber(int houseNumber) {
+	public void setHouseNumber(String houseNumber) {
 		Address.setHouseNumber(houseNumber);
 	}
 
-	public long getPostalCode() {
+	public String getPostalCode() {
 		return Address.getPostalCode();
 	}
 
-	public void setPostalCode(long postalCode) {
+	public void setPostalCode(String postalCode) {
 		Address.setPostalCode(postalCode);
 	}
 
@@ -226,7 +225,9 @@ public abstract class Person {
 
 	public void setDuty(boolean duty) {
 		Duty = duty;
-	}
+
 	
+
+}
 
 }

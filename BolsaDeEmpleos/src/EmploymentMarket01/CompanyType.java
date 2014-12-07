@@ -29,7 +29,7 @@ public enum CompanyType {
  	Derecho,	
  	DiseñoIndustrial,
  	Electricidad, 
- 	Electrónica1,	
+ 	Electrónica,	
  	Farmacia,
  	Finanzas,
  	Formación,
@@ -84,6 +84,5 @@ public enum CompanyType {
  	Idiomas,
  	Transporte,
  	Turismo, 
- 	
  	Ventas;
 }

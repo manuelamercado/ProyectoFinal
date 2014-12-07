@@ -11,10 +11,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.swing.AbstractButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,27 +24,27 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
+import javax.swing.text.MaskFormatter;
 
 import EmploymentMarket01.Academic;
 import EmploymentMarket01.CollectionPerson;
 import EmploymentMarket01.DreamerNini;
-import EmploymentMarket01.Person;
 import EmploymentMarket01.Technical;
 
-import com.toedter.calendar.JMonthChooser;
-import com.toedter.calendar.JYearChooser;
-import com.toedter.components.JSpinField;
 import javax.swing.JLayeredPane;
+
+import com.toedter.calendar.JDateChooser;
+
+import javax.swing.JFormattedTextField;
+
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class PersonRegister extends JDialog {
 
@@ -53,13 +55,9 @@ public class PersonRegister extends JDialog {
 	protected static final String String = null;
 	protected static final Date Date = null;
 	private final JPanel contentPanel = new JPanel();
-	private final JTextField textFieldID;
 	private JTextField txtSuperlargoArchipielago;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
@@ -74,8 +72,9 @@ public class PersonRegister extends JDialog {
 	private final JComboBox<String> comboBoxPostGrado;
 	private JComboBox<String> comboBoxCertificaciones;
 	private JComboBox<String> comboBoxEspecialidades;
+	private JComboBox<String> comboBoxMaestria;
 	private JComboBox<String> comboBox_5_1;
-	private JComboBox<String> comboBox_6;
+	private JComboBox<String> comboBoxEstudiosTecnicos;
 	private JComboBox<String> comboBox_6_1;
 	private JComboBox<String> comboBoxDoctorado;
 	private JComboBox<String> comboBox_7_1;
@@ -86,12 +85,12 @@ public class PersonRegister extends JDialog {
 	private JComboBox<String> comboBox_8;
 	private JComboBox<String> comboBox_9;
 	private JComboBox<String> comboBox_10;
-	private Date date;
-	private JSpinField spinField;
-	private JMonthChooser monthChooser;
-	private JYearChooser yearChooser;
-	private JScrollPane scrollPane;
-	private JComboBox comboBoxNivelAlcanzado;
+	private JComboBox<String> comboBoxNivelAlcanzado;
+	private JLabel error;
+	private JFormattedTextField formattedTextFieldID;
+	private JFormattedTextField formattedTextField_1;
+	private JFormattedTextField formattedTextField_2;
+	private JFormattedTextField formattedTextField_3;
 	
 	
 	
@@ -106,7 +105,7 @@ public class PersonRegister extends JDialog {
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PersonRegister.class.getResource("/InterfazGrafica/Images/Profile.png")));
 		setTitle("REGISTRAR SOLICITANTE");
-		setBounds(10, 50, 836, 739);
+		setBounds(10, 50, 836, 747);
 		setResizable(false);
 		setLocationRelativeTo(rootPane);
 		getContentPane().setLayout(new BorderLayout());
@@ -115,60 +114,63 @@ public class PersonRegister extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 																																																																																																																																																																																													
-																																																																																																																																																																																						panelUniversityStudy = new JPanel();
-																																																																																																																																																																																						panelUniversityStudy.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																						panelUniversityStudy.setBounds(450, 242, 357, 235);
-																																																																																																																																																																																						contentPanel.add(panelUniversityStudy);
-																																																																																																																																																																																						panelUniversityStudy.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios Universitarios:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-																																																																																																																																																																																						panelUniversityStudy.setLayout(null);
+		panelUniversityStudy = new JPanel();
+		panelUniversityStudy.setBackground(new Color(248, 248, 255));
+		panelUniversityStudy.setBounds(450, 242, 357, 272);
+		contentPanel.add(panelUniversityStudy);
+		panelUniversityStudy.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estudios Universitarios:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		panelUniversityStudy.setLayout(null);
 																																																																																																																																																																																							{
 																																																																																																																																																																																								JLabel lblPu = new JLabel("Grado:");
 																																																																																																																																																																																								lblPu.setHorizontalAlignment(SwingConstants.TRAILING);
-																																																																																																																																																																																	     						lblPu.setBounds(10, 56, 107, 14);
+																																																																																																																																																																																	     						lblPu.setBounds(10, 59, 107, 14);
 																																																																																																																																																																																								panelUniversityStudy.add(lblPu);
 																																																																																																																																																																																								panelUniversityStudy.setVisible(true);
 																																																																																																																																																																																							}
 																																																																																																																																																																																															
 																																																																																																																																																																																															
-																																																																																																																																																																																															comboBoxNivelAlcanzado = new JComboBox();
-																																																																																																																																																																																															comboBoxNivelAlcanzado.setBounds(127, 23, 219, 20);
-																																																																																																																																																																																															panelUniversityStudy.add(comboBoxNivelAlcanzado);
-																																																																																																																																																																																															comboBoxNivelAlcanzado.addItemListener(new ItemListener() {
-																																																																																																																																																																																																public void itemStateChanged(ItemEvent arg0) {
-																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="Grado")){
-																																																																																																																																																																																																		comboBoxGrado.setEnabled(true);
-																																																																																																																																																																																																		comboBoxPostGrado.setEnabled(false);
-																																																																																																																																																																																																		comboBoxDoctorado.setEnabled(false);
-																																																																																																																																																																																													
-																																																																																																																																																																																																	}
-																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="PostGrado")){
-																																																																																																																																																																																																		comboBoxGrado.setEnabled(true);
-																																																																																																																																																																																																		comboBoxPostGrado.setEnabled(true);
-																																																																																																																																																																																																		comboBoxDoctorado.setEnabled(false);
-																																																																																																																																																																																																	}
-																																																																																																																																																																																																	if((comboBoxNivelAlcanzado.getSelectedItem()=="Doctorado")){
-																																																																																																																																																																																																		comboBoxGrado.setEnabled(true);
-																																																																																																																																																																																																		comboBoxPostGrado.setEnabled(true);
-																																																																																																																																																																																																		comboBoxDoctorado.setEnabled(true);
-																																																																																																																																																																																																	}
-																																																																																																																																																																																																}
+																																																																																																																																																																																								comboBoxNivelAlcanzado = new JComboBox();							
+																																																																																																																																																																																								comboBoxNivelAlcanzado.setBounds(127, 23, 219, 20);
+																																																																																																																																																																																								panelUniversityStudy.add(comboBoxNivelAlcanzado);
+																																																																																																																																																																																								comboBoxNivelAlcanzado.addItemListener(new ItemListener() {
+																																																																																																																																																																																									public void itemStateChanged(ItemEvent arg0) {
+																																																																																																																																																																																										if((comboBoxNivelAlcanzado.getSelectedItem()=="Grado")){
+																																																																																																																																																																																											comboBoxGrado.setEnabled(true);
+																																																																																																																																																																																											comboBoxPostGrado.setEnabled(false);
+																																																																																																																																																																																											comboBoxDoctorado.setEnabled(false);
+																																																																																																																																																																																											comboBoxMaestria.setEnabled(false);
+																																																																																																																																																																																							               	}
+																																																																																																																																																																																										if((comboBoxNivelAlcanzado.getSelectedItem()=="PostGrado")){
+																																																																																																																																																																																											comboBoxGrado.setEnabled(true);
+																																																																																																																																																																																											comboBoxPostGrado.setEnabled(true);
+																																																																																																																																																																																											comboBoxDoctorado.setEnabled(false);
+																																																																																																																																																																																											comboBoxMaestria.setEnabled(true);
+																																																																																																																																																																																																		
+																																																																																																																																																																																											}
+																																																																																																																																																																																											if((comboBoxNivelAlcanzado.getSelectedItem()=="Doctorado")){
+																																																																																																																																																																																												comboBoxGrado.setEnabled(true);
+																																																																																																																																																																																												comboBoxPostGrado.setEnabled(true);
+																																																																																																																																																																																												comboBoxDoctorado.setEnabled(true);
+																																																																																																																																																																																												comboBoxMaestria.setEnabled(true);
+																																																																																																																																																																																											}
+																																																																																																																																																																																											}
 																																																																																																																																																																																																
-																																																																																																																																																																																															});
-																																																																																																																																																																																															comboBoxNivelAlcanzado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Grado", "PostGrado", "Doctorado"}));
+																																																																																																																																																																																											});
+																																																																																																																																																																																								comboBoxNivelAlcanzado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Grado", "PostGrado", "Doctorado", "PostDoctorado"}));
 																																																																																																																																																																																															
 																																																																																																																																																																																																					
 																																																																																																																																																																																																			
 																																																																																																																																																																																															
 																																																																																																																																																																																																							JLabel lblPostgrade = new JLabel("Post-grado:");
 																																																																																																																																																																																																							lblPostgrade.setHorizontalAlignment(SwingConstants.TRAILING);
-																																																																																																																																																																																																							lblPostgrade.setBounds(10, 84, 107, 14);
+																																																																																																																																																																																																							lblPostgrade.setBounds(10, 89, 107, 14);
 																																																																																																																																																																																																							panelUniversityStudy.add(lblPostgrade);
 																																																																																																																																																																																																							
 																																																																																																																																																																																																									
 																																																																																																																																																																																																									{
 																																																																																																																																																																																																										JLabel lblCertified = new JLabel("Certificaciones:");
 																																																																																																																																																																																																										lblCertified.setHorizontalAlignment(SwingConstants.TRAILING);
-																																																																																																																																																																																																										lblCertified.setBounds(10, 114, 107, 14);
+																																																																																																																																																																																																										lblCertified.setBounds(10, 119, 107, 14);
 																																																																																																																																																																																																										panelUniversityStudy.add(lblCertified);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
@@ -191,7 +193,7 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										comboBoxEspecialidades = new JComboBox();
 																																																																																																																																																																																																										comboBoxEspecialidades.setBackground(new Color(248, 248, 255));
 																																																																																																																																																																																																										comboBoxEspecialidades
-																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Conocer el mercado de valores DR", "El control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", "La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", "Las t\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, la realizaci\u00F3n y presentaci\u00F3n'S)"}));
+																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Mercado de Valores", "Red esencial de TI", "La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas"}));
 																																																																																																																																																																																																										comboBoxEspecialidades.setBounds(127, 143, 219, 20);
 																																																																																																																																																																																																										panelUniversityStudy.add(comboBoxEspecialidades);
 																																																																																																																																																																																																									}
@@ -202,31 +204,33 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										panelUniversityStudy.add(lblTechnicalCollege);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
-																																																																																																																																																																																																										comboBox_6 = new JComboBox();
-																																																																																																																																																																																																										comboBox_6.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																										comboBox_6
+																																																																																																																																																																																																										comboBoxEstudiosTecnicos = new JComboBox();
+																																																																																																																																																																																																										comboBoxEstudiosTecnicos.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																										comboBoxEstudiosTecnicos
 																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Peque\u00F1as y medianas empresas", "Publicidad", "Aspectos de mercado", "Dise\u00F1o gr\u00E1fico", "Programaci\u00F3n de sistemas de informaci\u00F3n", "Contabilidad computarizada", "Contabilidad financiera y fiscal"}));
-																																																																																																																																																																																																										comboBox_6.setBounds(127, 173, 219, 20);
-																																																																																																																																																																																																										panelUniversityStudy.add(comboBox_6);
+																																																																																																																																																																																																										comboBoxEstudiosTecnicos.setBounds(127, 173, 219, 20);
+																																																																																																																																																																																																										panelUniversityStudy.add(comboBoxEstudiosTecnicos);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									{
 																																																																																																																																																																																																										JLabel lblDoctorate = new JLabel("Doctorado:");
 																																																																																																																																																																																																										lblDoctorate.setHorizontalAlignment(SwingConstants.TRAILING);
-																																																																																																																																																																																																										lblDoctorate.setBounds(10, 202, 107, 22);
+																																																																																																																																																																																																										lblDoctorate.setBounds(10, 234, 107, 22);
 																																																																																																																																																																																																										panelUniversityStudy.add(lblDoctorate);
 																																																																																																																																																																																																									}
 																																																																																																																																																																																																									
 																																																																																																																																																																																																																					JLabel lblTitulo = new JLabel("Nivel Alcanzado:");
 																																																																																																																																																																																																																					lblTitulo.setHorizontalAlignment(SwingConstants.RIGHT);
-																																																																																																																																																																																																																					lblTitulo.setBounds(10, 26, 107, 14);
+																																																																																																																																																																																																																					lblTitulo.setBounds(10, 31, 107, 14);
 																																																																																																																																																																																																																					panelUniversityStudy.add(lblTitulo);
 																																																																																																																																																																																																																					
-																																																																																																																																																																																																																																																																																																																																																																																																																																					
-																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado = new JComboBox();
-																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado.setBounds(127, 53, 219, 20);
-																																																																																																																																																																																																																																																																																																																																																																																																																																					panelUniversityStudy.add(comboBoxGrado);
-																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																																																																																																																																																																																																																																																					comboBoxGrado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Adm. emp. menci\u00F3n operaciones", "Adm. emp. menci\u00F3n finanzas", "Adm. emp. menci\u00F3n estrategia", "Adm. emp. menci\u00F3n creaci\u00F3n y desarrollo de nuevos negocios", "Adm. emp. menci\u00F3n gesti\u00F3n humana", "Adm. emp. menci\u00F3n negocios internacionales", "Adm. hotelera menci\u00F3n comida y bebida", "Adm. hotelera menci\u00F3n mercadeo hotelero ", "Arquitectura", "Comunicaci\u00F3n social  menci\u00F3n producci\u00F3n audiovisual", "Comunicaci\u00F3n Social menci\u00F3n comunicaci\u00F3n corporativa", "Derecho", "Dise\u00F1o e interiorismo", "Ecolog\u00EDa y manejo ambiental", "Econom\u00EDa", "Educaci\u00F3n", "Enfermer\u00EDa", "Estomatolog\u00EDa", "Filosof\u00EDa", "Gesti\u00F3n financiera y auditor\u00EDa", "Ingenier\u00EDa Civil", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n mec\u00E1nica", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n el\u00E9ctricidad", "Ingenier\u00EDa Industrial", "Ingenier\u00EDa de Sistemas y equipo", "Ingenier\u00EDa Electr\u00F3nica", "Ingenier\u00EDa telem\u00E1tica", "Medicina", "Mercadeo", "Nutrici\u00F3n y diet\u00E9tica", "Psicolog\u00EDa", "fisioterapia"}));
+																																																																																																																																																																																																																					
+																																																																																																																																																																																																																					comboBoxGrado = new JComboBox();
+																																																																																																																																																																																																																					comboBoxGrado.setBounds(127, 53, 219, 20);
+																																																																																																																																																																																																																					panelUniversityStudy.add(comboBoxGrado);
+																																																																																																																																																																																																																					 comboBoxGrado.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																					comboBoxGrado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Adm. emp. menci\u00F3n operaciones", "Adm. emp. menci\u00F3n finanzas", "Adm. emp. menci\u00F3n estrategia", "Adm. emp. menci\u00F3n creaci\u00F3n y desarrollo de nuevos negocios", "Adm. emp. menci\u00F3n gesti\u00F3n humana", "Adm. emp. menci\u00F3n negocios internacionales", "Adm. hotelera menci\u00F3n comida y bebida", "Adm. hotelera menci\u00F3n mercadeo hotelero ", "Arquitectura", "Comunicaci\u00F3n social menci\u00F3n producci\u00F3n audiovisual", "Comunicaci\u00F3n Social menci\u00F3n comunicaci\u00F3n corporativa", "Derecho", "Dise\u00F1o e interiorismo", "Ecolog\u00EDa y manejo ambiental", "Econom\u00EDa", "Educaci\u00F3n", "Enfermer\u00EDa", "Estomatolog\u00EDa", "Filosof\u00EDa", "Gesti\u00F3n financiera y auditor\u00EDa", "Ingenier\u00EDa Civil", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n mec\u00E1nica", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n el\u00E9ctricidad", "Ingenier\u00EDa Industrial", "Ingenier\u00EDa de Sistemas y equipo", "Ingenier\u00EDa Electr\u00F3nica", "Ingenier\u00EDa telem\u00E1tica", "Medicina", "Mercadeo", "Nutrici\u00F3n y diet\u00E9tica", "Psicolog\u00EDa", "fisioterapia"}));
+
+														
 																																																																																																																																																																																																																					
 																																																																																																																																																																																																																								
 																																																																																																																																																																																																																									{
@@ -239,19 +243,27 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																																										comboBoxPostGrado
 																																																																																																																																																																																																																												.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Master Ejecutivo en Recursos Humanos Estrat\u00E9gicos", "Master en Gesti\u00F3n Estrat\u00E9gica", "MBA en Programas de Seguros", "Maestr\u00EDa en Regulaci\u00F3n Econ\u00F3mica", "Maestr\u00EDa en Derecho del Trabajo y de la Seguridad Social", "MSc en Bienes Ra\u00EDces", "Maestr\u00EDa en Tecnolog\u00EDas de la Propiedad Intelectual y Nuevas", "Master en Derecho de Negocios Corporativo", "Maestr\u00EDa en Relaciones Internacionales", "Maestr\u00EDa en Pol\u00EDticas P\u00FAblicas", "Maestr\u00EDa en Econom\u00EDa de la Empresa", "Master Ejecutivo en Gesti\u00F3n de la Cadena de Suministro", "Master en Dise\u00F1o Arquitectural concentraci\u00F3n Arquitectura Interior", "Master en Dise\u00F1o Arquitectural menci\u00F3n Arquitectura Alojamientos Tur\u00EDsticos", "Especializaci\u00F3n en Matem\u00E1ticas Aplicadas en la Educaci\u00F3n", "Especializaci\u00F3n en Educaci\u00F3n Matem\u00E1tica Nivel B\u00E1sico"}));
 																																																																																																																																																																																																																									}
-																																																																																																																																																																																																																					
-																																																																																																																																																																																																																					{
-																																																																																																																																																																																																																						
-																																																																																																																																																																																																																											
-																																																																																																																																																																																																																											{
-																																																																																																																																																																																																																												comboBoxDoctorado = new JComboBox();
-																																																																																																																																																																																																																												comboBoxDoctorado.setBounds(127, 203, 219, 20);
-																																																																																																																																																																																																																												panelUniversityStudy.add(comboBoxDoctorado);
-																																																																																																																																																																																																																												comboBoxDoctorado.setBackground(new Color(248, 248, 255));
-																																																																																																																																																																																																																												comboBoxDoctorado
-																																																																																																																																																																																																																														.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Derecho Constitucional y Derechos Fundamentales", "Sociedad Democr\u00E1tica, Estado y Derecho", "Educaci\u00F3n (y / o en el liderazgo o en Ciencias pedag\u00F3gicas)", "Ciencias Empresariales", "Cooperaci\u00F3n e Intervenci\u00F3n Social", "Psicolog\u00EDa de la Educaci\u00F3n y Desarrollo Humano", "Econom\u00EDa", "Sociolog\u00EDa", "Filosof\u00EDa para un mundo global"}));
-																																																																																																																																																																																																																											}
-																																																																																																																																																																																																																					}
+																																																																																																																																																																																																																									
+																																																																																																																																																																																																																														
+																																																																																																																																																																																																																									{
+																																																																																																																																																																																																																										 comboBoxDoctorado = new JComboBox();
+																																																																																																																																																																																																																										 comboBoxDoctorado.setBounds(127, 235, 219, 20);
+																																																																																																																																																																																																																										 panelUniversityStudy.add(comboBoxDoctorado);
+																																																																																																																																																																																																																										 comboBoxDoctorado.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																										 comboBoxDoctorado
+																																																																																																																																																																																																																										 .setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Derecho Constitucional y Derechos Fundamentales", "Sociedad Democr\u00E1tica, Estado y Derecho", "Educaci\u00F3n (y / o en el liderazgo o en Ciencias pedag\u00F3gicas)", "Ciencias Empresariales", "Cooperaci\u00F3n e Intervenci\u00F3n Social", "Psicolog\u00EDa de la Educaci\u00F3n y Desarrollo Humano", "Econom\u00EDa", "Sociolog\u00EDa", "Filosof\u00EDa para un mundo global"}));
+																																																																																																																																																																																																																										 }
+																																																																																																																																																																																																																									
+																																																																																																																																																																																																																									comboBoxMaestria = new JComboBox();
+																																																																																																																																																																																																																									comboBoxMaestria.setBackground(new Color(248, 248, 255));
+																																																																																																																																																																																																																									comboBoxMaestria.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Alta Gerencia", "Control de Operaciones "}));
+																																																																																																																																																																																																																									comboBoxMaestria.setBounds(127, 204, 219, 20);
+																																																																																																																																																																																																																									panelUniversityStudy.add(comboBoxMaestria);
+																																																																																																																																																																																																																									
+																																																																																																																																																																																																																									JLabel lblMaestra = new JLabel("Maestr\u00EDa:");
+																																																																																																																																																																																																																									lblMaestra.setHorizontalAlignment(SwingConstants.RIGHT);
+																																																																																																																																																																																																																									lblMaestra.setBounds(10, 209, 107, 14);
+																																																																																																																																																																																																																									panelUniversityStudy.add(lblMaestra);
 																																																																																																																																																																																										
 																																																																																																																																																																																													panel_5Oficio = new JPanel();
 																																																																																																																																																																																													panel_5Oficio.setBackground(new Color(248, 248, 255));
@@ -357,13 +369,8 @@ public class PersonRegister extends JDialog {
 																																																																																																																																																																																																										comboBox_7_1.setBounds(127, 99, 219, 20);
 																																																																																																																																																																																																										panelTechnicalStudies.add(comboBox_7_1);
 
-		textFieldID = new JTextField();
-		textFieldID.setBounds(561, 192, 140, 20);
-		contentPanel.add(textFieldID);
-		textFieldID.setColumns(10);
-
-		JLabel lblId = new JLabel("ID");
-		lblId.setBounds(530, 198, 19, 14);
+		JLabel lblId = new JLabel("ID:");
+		lblId.setBounds(530, 201, 19, 14);
 		lblId.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblId.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblId.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -401,7 +408,7 @@ public class PersonRegister extends JDialog {
 				comboBox_1_1.setBackground(new Color(248, 248, 255));
 				comboBox_1_1.setBounds(150, 95, 223, 20);
 				DatosPersonales.add(comboBox_1_1);
-				comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "afgano", "americano", "argentino", "australiano", "austriaco", "belga", "boliviano", "brasile\u00F1o", "brit\u00E1nico", "b\u00FAlgaro", "canadiense", "chileno", "chino", "colombiano", "costarricense", "cubano", "checo", "dan\u00E9s", "dominicano", "holand\u00E9s", "ecuatoriano", "egipcio", "ingl\u00E9s", "filipino", "finland\u00E9s", "franc\u00E9s", "alem\u00E1n", "griego", "groenland\u00E9s", "guatemalteco", "haitiano", "hawaiano", "hondure\u00F1o", "h\u00FAngaro", "island\u00E9s", "indio", "indonesio", "iran\u00ED", "Iraqu\u00ED", "irland\u00E9s", "israel\u00ED", "italiano", "jamaiquino", "japon\u00E9s", "coreano", "liban\u00E9s", "malasio", "malt\u00E9s", "mexicano", "marroqu\u00ED", "nepal\u00E9s", "neozeland\u00E9s", "nicarag\u00FCense", "nigeriano", "noruego", "pakistan\u00ED", "palestino", "paname\u00F1o", "paraguayo", "peruano", "polaco", "portugu\u00E9s", "puertorrique\u00F1o", "rumano", "ruso", "saudita", "escoc\u00E9s", "singapurence", "espa\u00F1ol", "sueco", "suizp", "sirio", "tahitiano", "tailand\u00E9s", "tunecino", "turco", "ucranio", "uruguayo", "venezolano", "vietnamita", "gal\u00E9s", "yugoslavo"}));
+				comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afgano", "Alem\u00E1n", "Americano", "Argentino", "Australiano", "Austriaco", "Belga", "Boliviano", "Brasile\u00F1o", "Brit\u00E1nico", "B\u00FAlgaro", "Canadiense", "Chileno", "Chino", "Colombiano", "Coreano", "Costarricense", "Cubano", "Checo", "Dan\u00E9s", "Dominicano", "Ecuatoriano", "Egipcio", "Escoc\u00E9s", "Espa\u00F1ol", "Filipino", "Finland\u00E9s", "Franc\u00E9s", "Gal\u00E9s", "Griego", "Groenland\u00E9s", "Guatemalteco", "Haitiano", "Hawaiano", "Holand\u00E9s", "Hondure\u00F1o", "H\u00FAngaro", "Ingl\u00E9s", "Island\u00E9s", "Indio", "Indonesio", "Iran\u00ED", "Iraqu\u00ED", "Irland\u00E9s", "Israel\u00ED", "Italiano", "Jamaiquino", "Japon\u00E9s", "Liban\u00E9s", "Malasio", "Malt\u00E9s", "Mexicano", "Marroqu\u00ED", "Nepal\u00E9s", "Neozeland\u00E9s", "Nicarag\u00FCense", "Nigeriano", "Noruego", "Pakistan\u00ED", "Palestino", "Paname\u00F1o", "Paraguayo", "Peruano", "Polaco", "Portugu\u00E9s", "Puertorrique\u00F1o", "Rumano", "Ruso", "Saudita", "Singapurence", "Sueco", "Suizp", "Sirio", "Tahitiano", "Tailand\u00E9s", "Tunecino", "Turco", "Ucranio", "Uruguayo", "Venezolano", "Vietnamita", "Yugoslavo"}));
 			}
 			{
 				JLabel lblNacionality = new JLabel("Nacionalidad:");
@@ -409,58 +416,57 @@ public class PersonRegister extends JDialog {
 				DatosPersonales.add(lblNacionality);
 				lblNacionality.setHorizontalAlignment(SwingConstants.TRAILING);
 			}
-		
 			{
 				comboBoxSexo = new JComboBox();
-				final JLabel labelMalePicture = new JLabel("");
-				//labelMalePicture.setVisible(false);
-				final JLabel labelFeMalePicture = new JLabel("");
-				labelMalePicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
-				labelMalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
-				labelMalePicture.setIgnoreRepaint(true);
-				labelMalePicture.setIconTextGap(8);
-				labelMalePicture.setHorizontalAlignment(SwingConstants.CENTER);
-				labelMalePicture.setForeground(Color.BLACK);
-				labelMalePicture.setBackground(Color.WHITE);
-				labelMalePicture.setBounds(561, 42, 140, 139);
-				contentPanel.add(labelMalePicture);
-				{
-					JLabel labelFemalePicture = new JLabel("");
-					//labelFemalePicture.setVisible(false);
-					labelFemalePicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
-					labelFemalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
-					labelFemalePicture.setIgnoreRepaint(true);
-					labelFemalePicture.setIconTextGap(8);
-					labelFemalePicture.setHorizontalAlignment(SwingConstants.CENTER);
-					labelFemalePicture.setForeground(Color.BLACK);
-					labelFemalePicture.setBackground(Color.WHITE);
-					labelFemalePicture.setBounds(561, 42, 140, 139);
-					contentPanel.add(labelFemalePicture);
-				}
-				
-				comboBoxSexo.addItemListener(new ItemListener() {
-					public void itemStateChanged(ItemEvent e) {
-						if (comboBoxSexo.getSelectedItem()== "Femenino")
-						{
-							labelFeMalePicture.setVisible(true);
-							labelMalePicture.setVisible(false);
-						}
-						else if (comboBoxSexo.getSelectedItem()== "Masculino")
-						{
-							labelFeMalePicture.setVisible(false);
-							labelMalePicture.setVisible(true);
-						}
-						
-							
-					}
-				});
-				
 				comboBoxSexo.setBackground(new Color(248, 248, 255));
 				comboBoxSexo.setBounds(150, 119, 223, 20);
 				DatosPersonales.add(comboBoxSexo);
-				comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));
-	
-		
+				 final JLabel labelMalePicture = new JLabel("");
+				//labelMalePicture.setVisible(false);
+				final JLabel labelFeMalePicture = new JLabel("");
+				 labelMalePicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
+				 labelMalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+				 labelMalePicture.setIgnoreRepaint(true);
+				 labelMalePicture.setIconTextGap(8);
+				 labelMalePicture.setHorizontalAlignment(SwingConstants.CENTER);
+				 labelMalePicture.setForeground(Color.BLACK);
+				 labelMalePicture.setBackground(Color.WHITE);
+				 labelMalePicture.setBounds(561, 42, 140, 139);
+				 contentPanel.add(labelMalePicture);
+				 {
+				 JLabel labelFemalePicture = new JLabel("");
+				 //labelFemalePicture.setVisible(false);
+				 labelFemalePicture.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
+				 labelFemalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+				 labelFemalePicture.setIgnoreRepaint(true);
+				 labelFemalePicture.setIconTextGap(8);
+				 labelFemalePicture.setHorizontalAlignment(SwingConstants.CENTER);
+				 labelFemalePicture.setForeground(Color.BLACK);
+				 labelFemalePicture.setBackground(Color.WHITE);
+				 labelFemalePicture.setBounds(561, 42, 140, 139);
+				 contentPanel.add(labelFemalePicture);
+				 }
+				
+				 comboBoxSexo.addItemListener(new ItemListener() {
+				 public void itemStateChanged(ItemEvent e) {
+				 if (comboBoxSexo.getSelectedItem()== "Femenino")
+				 {
+				 labelFeMalePicture.setVisible(true);
+				 labelMalePicture.setVisible(false);
+				 }
+				 else if (comboBoxSexo.getSelectedItem()== "Masculino")
+				 {
+				 labelFeMalePicture.setVisible(false);
+				 labelMalePicture.setVisible(true);
+				 }
+				
+				
+				 }
+				 });
+				 comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));
+				 
+				  
+			}
 			{
 				JLabel lblSex = new JLabel("Sexo:");
 				lblSex.setBounds(10, 119, 130, 20);
@@ -535,28 +541,14 @@ public class PersonRegister extends JDialog {
 				lblLastName.setVerticalAlignment(SwingConstants.BOTTOM);
 			}
 			
-			monthChooser = new JMonthChooser();
-			monthChooser.setBounds(194, 71, 108, 20);
-			DatosPersonales.add(monthChooser);
-			
-			yearChooser = new JYearChooser();
-			yearChooser.setMaximum(1999);
-			yearChooser.setYear(1999);
-			yearChooser.setValue(1999);
-			yearChooser.setMinimum(1950);
-			yearChooser.setBounds(301, 71, 72, 20);
-			DatosPersonales.add(yearChooser);
-			
-			spinField = new JSpinField();
-			spinField.setMinimum(1);
-			spinField.setMaximum(31);
-			spinField.setBounds(150, 71, 46, 20);
-			DatosPersonales.add(spinField);
-			
 			JLabel label = new JLabel("*");
 			label.setForeground(Color.RED);
 			label.setBounds(10, 0, 36, 14);
 			DatosPersonales.add(label);
+			
+			final JDateChooser dateChooser = new JDateChooser();
+			dateChooser.setBounds(150, 71, 223, 20);
+			DatosPersonales.add(dateChooser);
 			{
 				JPanel panel_2Contacto = new JPanel();
 				panel_2Contacto.setBackground(new Color(248, 248, 255));
@@ -580,30 +572,12 @@ public class PersonRegister extends JDialog {
 							.setHorizontalAlignment(SwingConstants.TRAILING);
 				}
 				{
-					textField_4 = new JTextField();
-					textField_4.setBounds(150, 54, 223, 20);
-					panel_2Contacto.add(textField_4);
-					textField_4.setColumns(10);
-				}
-				{
 					JLabel lblTelephone = new JLabel("Tel\u00E9fono:");
 					lblTelephone.setBounds(2, 91, 138, 14);
 					panel_2Contacto.add(lblTelephone);
 					lblTelephone.setVerticalAlignment(SwingConstants.BOTTOM);
 					lblTelephone
 							.setHorizontalAlignment(SwingConstants.TRAILING);
-				}
-				{
-					textField_5 = new JTextField();
-					textField_5.setBounds(150, 85, 223, 20);
-					panel_2Contacto.add(textField_5);
-					textField_5.setColumns(10);
-				}
-				{
-					textField_6 = new JTextField();
-					textField_6.setBounds(150, 116, 223, 20);
-					panel_2Contacto.add(textField_6);
-					textField_6.setColumns(10);
 				}
 				
 				JLabel AstMovil = new JLabel("*");
@@ -634,13 +608,51 @@ public class PersonRegister extends JDialog {
 				panel_2Contacto.add(AstLastName);
 				AstLastName.setHorizontalAlignment(SwingConstants.CENTER);
 				AstLastName.setForeground(Color.RED);
+				{
+					MaskFormatter mascara1;
+					try {
+						mascara1 = new MaskFormatter("###-###-####");
+						formattedTextField_1 = new JFormattedTextField(mascara1);
+						formattedTextField_1.setBounds(150, 57, 223, 20);
+						panel_2Contacto.add(formattedTextField_1);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}
+				{
+					MaskFormatter mascara2;
+					try {
+						mascara2 = new MaskFormatter("###-###-####");
+						formattedTextField_2 = new JFormattedTextField(mascara2);
+						formattedTextField_2.setBounds(150, 88, 223, 20);
+						panel_2Contacto.add(formattedTextField_2);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}
+				{
+					MaskFormatter mascara3;
+					try {
+						mascara3 = new MaskFormatter("#####");
+						formattedTextField_3 = new JFormattedTextField(mascara3);
+						formattedTextField_3.setBounds(150, 116, 223, 20);
+						panel_2Contacto.add(formattedTextField_3);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
 			}
-															
 															
 
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 652, 830, 59);
+			buttonPane.setBounds(0, 664, 830, 55);
 			contentPanel.add(buttonPane);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			{
@@ -648,33 +660,41 @@ public class PersonRegister extends JDialog {
 				okButton.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Save.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						
-						if (comboBox_1.getSelectedItem() == "Universitario") {
+						if(comboBox_1.getSelectedItem() == "<Selecciona>"){
+							error.setText("Seleccione un nivel de estudio");
+						}
+						else if (comboBox_1.getSelectedItem() == "Universitario") {
 							Academic temp = new Academic();
+							try{
 							temp.setName(txtSuperlargoArchipielago.getText());
 							temp.setLastName(textField_2.getText());
-							temp.setID(textFieldID.getText());
-							temp.setPhone(textField_5.getText());
-							temp.setMobile(textField_4.getText());
+							temp.setID(formattedTextFieldID.getText());
+							temp.setPhone(formattedTextField_2.getText());
+							temp.setMobile(formattedTextField_1.getText());
 							temp.setEmail(textField_3.getText());
-							temp.setSex(comboBoxSexo.getSelectedItem().toString());					
-							//date.setMonth(monthChooser.getMonth());
-							//date.setDate(spinField.getValue());
-							//date.setYear(yearChooser.getYear());
-							temp.setBirth(date);
-							temp.setCity(textField_9.getText());
-							temp.getAddress().setRegion(textField_11.getText());
-							temp.setSector(textField_10.getText());
-							temp.setCalle(textField_8.getText());
-							temp.setHouseNumber(Integer.parseInt(textField_7.getText()));
-							temp.setPostalCode(Long.parseLong(textField_6
-									.getText()));
+							temp.setSex(comboBoxSexo.getSelectedItem().toString());	
+							String month= Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
+							String day = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+							String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+							String date1 = (day + "-" + month + "-" + year);
+							temp.setBirth(date1);
 							temp.setNationality(comboBox_1_1.getSelectedItem()
 									.toString());
 							temp.setCivilState(comboBox_1_3.getSelectedItem()
 									.toString());
 							temp.setAcademicLevel(comboBox_1.getSelectedItem()
 									.toString());
+							}
+							catch(Exception exception){
+							error.setText("Todos los campos con asteriscos son obligatorios");	}								
+							
+							temp.setCity(textField_9.getText());
+							temp.getAddress().setRegion(textField_11.getText());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(textField_7.getText());
+							temp.setPostalCode(formattedTextField_3
+									.getText());
 							temp.setGradeTitle(comboBoxGrado.getSelectedItem()
 									.toString());
 							temp.getAddress().setRegion(textField_7.getText());
@@ -682,52 +702,51 @@ public class PersonRegister extends JDialog {
 							temp.setPostGradeTitles(comboBoxPostGrado.getSelectedItem().toString());
 							temp.setCertTitles(comboBoxCertificaciones.getSelectedItem().toString());
 							temp.setEspTitles(comboBoxEspecialidades.getSelectedItem().toString());
-							temp.setTechnicalTitles(comboBox_6.getSelectedItem().toString());
+							temp.setTechnicalTitles(comboBoxEstudiosTecnicos.getSelectedItem().toString());
 							temp.setDoctorateTitles(comboBoxDoctorado.getSelectedItem().toString());
-
+							
 							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
-
-							comboBoxGrado.setSelectedItem("<Selecciona>");
-							comboBoxNivelAlcanzado.setSelectedItem("<Selecciona>");
-							comboBoxPostGrado.setSelectedItem("<Selecciona>");
-							comboBoxCertificaciones.setSelectedItem("<Selecciona>");
-							comboBoxEspecialidades.setSelectedItem("<Selecciona>");
-							comboBox_6.setSelectedItem("<Selecciona>");
-							comboBoxDoctorado.setSelectedItem("<Selecciona>");
+							if(CollectionPerson.getInstanceCollectionPerson().verify(temp)==false){
+								error.setText("Su registro fue realizado correctamente");
+								CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
+							}
+							
+							
 						}
 						else if (comboBox_1.getSelectedItem() == "Técnico") {
-							// YearsExperience,
-							// String gradelevel
 							Technical temp = new Technical();
+							try{	
 							temp.setName(txtSuperlargoArchipielago.getText());
 							temp.setLastName(textField_2.getText());
-							temp.setID(textFieldID.getText());
-							temp.setPhone(textField_5.getText());
-							temp.setMobile(textField_4.getText());
+								error.setText("ID debe tener 11 dígitos, no incluir '-'");
+								temp.setID(formattedTextFieldID.getText());
+							temp.setPhone(formattedTextField_2.getText());
+							temp.setMobile(formattedTextField_1.getText());
 							temp.setEmail(textField_3.getText());
 							temp.setSex(comboBoxSexo.getSelectedItem().toString());
-							
-							//Date date = new Date();
-							//date.setMonth(monthChooser.getMonth());
-							//date.setDate(spinField.getValue());
-							//date.setYear(yearChooser.getYear());
-							temp.setBirth(date);
-							
-							temp.setBirth(date);
-							temp.setCity(textField_9.getText());
-							temp.getAddress().setRegion(textField_11.getText());
-							temp.setSector(textField_10.getText());
-							temp.setCalle(textField_8.getText());
-							temp.setHouseNumber(Integer.parseInt(textField_7
-									.getText()));
-							temp.setPostalCode(Long.parseLong(textField_6
-									.getText()));
+							String month= Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
+							String day = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+							String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+							String date1 = (day + "-" + month + "-" + year);
+							temp.setBirth(date1);
 							temp.setNationality(comboBox_1_1.getSelectedItem()
 									.toString());
 							temp.setCivilState(comboBox_1_3.getSelectedItem()
 									.toString());
 							temp.setAcademicLevel(comboBox_1.getSelectedItem()
 									.toString());
+							}
+							catch(Exception exception){
+							error.setText("Todos los campos con asteriscos son obligatorios");	}
+							temp.setCity(textField_9.getText());
+							temp.getAddress().setRegion(textField_11.getText());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(textField_7
+									.getText());
+							temp.setPostalCode(formattedTextField_3
+									.getText());
+
 							temp.getAddress().setRegion(textField_7.getText());
 							temp.setCertTitles(comboBox.getSelectedItem().toString());
 							temp.setEspTitle(comboBox_5_1.getSelectedItem().toString());
@@ -735,207 +754,161 @@ public class PersonRegister extends JDialog {
 							temp.setWorks(comboBox_7_1.getSelectedItem().toString());
 							
 							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
+							if(CollectionPerson.getInstanceCollectionPerson().verify(temp)==false){
+								error.setText("Su registro fue realizado correctamente");
+								CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
+							}
 							
-							comboBox.setSelectedItem("<Selecciona>");
-							comboBox_5_1.setSelectedItem("<Selecciona>");
-							comboBox_6_1.setSelectedItem("<Selecciona>");
-							comboBox_7_1.setSelectedItem("<Selecciona>");
+							
 						}
 
 			else if (comboBox_1.getSelectedItem() == "Oficio") {
-							// YearsExperience,
-							// String gradelevel
-							DreamerNini temp = new DreamerNini();
+				DreamerNini temp = new DreamerNini();
+				try{
+
 							temp.setName(txtSuperlargoArchipielago.getText());
 							temp.setLastName(textField_2.getText());
-							temp.setID(textFieldID.getText());
-							temp.setPhone(textField_5.getText());
-							temp.setMobile(textField_4.getText());
+								error.setText("ID debe tener 11 dígitos, no incluir '-'");
+								temp.setID(formattedTextFieldID.getText());
+							temp.setPhone(formattedTextField_2.getText());
+							temp.setMobile(formattedTextField_1.getText());
 							temp.setEmail(textField_3.getText());
 							temp.setSex(comboBoxSexo.getSelectedItem().toString());
-							
-							//Date date = new Date();
-							//date.setMonth(monthChooser.getMonth());
-							//date.setDate(spinField.getValue());
-							//date.setYear(yearChooser.getYear());
-							temp.setBirth(date);
-							temp.setCity(textField_9.getText());
-							temp.getAddress().setRegion(textField_11.getText());
-							temp.setSector(textField_10.getText());
-							temp.setCalle(textField_8.getText());
-							temp.setHouseNumber(Integer.parseInt(textField_7
-									.getText()));
-							temp.setPostalCode(Long.parseLong(textField_6
-									.getText()));
+							String month= Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
+							String day = Integer.toString(dateChooser.getCalendar().get(Calendar.DAY_OF_MONTH));
+							String year = Integer.toString(dateChooser.getCalendar().get(Calendar.YEAR));
+							String date1 = (day + "-" + month + "-" + year);
+							temp.setBirth(date1);
 							temp.setNationality(comboBox_1_1.getSelectedItem()
 									.toString());
 							temp.setCivilState(comboBox_1_3.getSelectedItem()
 									.toString());
 							temp.setAcademicLevel(comboBox_1.getSelectedItem()
 									.toString());
+				}
+				catch(Exception exception){
+				error.setText("Todos los campos con asteriscos son obligatorios");}	
+					
+							
+							temp.setCity(textField_9.getText());
+							temp.getAddress().setRegion(textField_11.getText());
+							temp.setSector(textField_10.getText());
+							temp.setCalle(textField_8.getText());
+							temp.setHouseNumber(textField_7
+									.getText());
+							temp.setPostalCode(formattedTextField_3
+									.getText());
+
 							temp.getAddress().setRegion(textField_7.getText());
 							temp.setCertTitles(comboBox_8.getSelectedItem().toString());
 							temp.setCourseTitles(comboBox_9.getSelectedItem().toString());
 							temp.setWorks(comboBox_10.getSelectedItem().toString());
+
+							if(CollectionPerson.getInstanceCollectionPerson().verify(temp)==false){
+								error.setText("Su registro fue realizado correctamente");
+								CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
+							}
 							
-							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
-							
-							comboBox_8.setSelectedItem("<Selecciona>");
-							comboBox_9.setSelectedItem("<Selecciona>");
-							comboBox_10.setSelectedItem("<Selecciona>");
 					}
 						
-						txtSuperlargoArchipielago.setText("");
-						textField_2.setText("");
-						textFieldID.setText("");
-						textField_5.setText("");
-						textField_4.setText("");
-						textField_3.setText("");
-						comboBoxSexo.setSelectedItem("<Selecciona>");
-						comboBox_1_4.setSelectedItem("<Selecciona>");
-						textField_8.setText("");
-						textField_10.setText("");
-						textField_7.setText("");
-						textField_6.setText("");
-						comboBox_1_1.setSelectedItem("<Selecciona>");
-						comboBox_1_3.setSelectedItem("<Selecciona>");
-						comboBox_1.setSelectedItem("<Selecciona>");
-						textField_9.setText("");
-						textField_11.setText("");
+
 						
 					}
 				});
 
-				/*JButton btnRegister = new JButton("Register");
-				btnRegister.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if (comboBox_1.getSelectedItem() == "Universitary") {
-													// YearsExperience,
-													// String gradelevel
-													Academic temp = new Academic();
-													temp.setName(txtSuperlargoArchipielago.getText());
-													temp.setLastName(textField_2.getText());
-													temp.setID(textFieldID.getText());
-													temp.setPhone(textField_5.getText());
-													temp.setMobile(textField_4.getText());
-													temp.setEmail(textField_3.getText());
-													temp.setSex(comboBox_1_2.getSelectedItem().toString());
-													
-													Date date = new Date();
-													date.setMonth(monthChooser.getMonth());
-													date.setDate(spinField.getValue());
-													date.setYear(yearChooser.getYear());
-													temp.setBirth(date);
-													temp.setCity(comboBox_1_4.getSelectedItem()
-															.toString());
-													temp.setSector(textField_10.getText());
-													temp.setCalle(textField_8.getText());
-													temp.setHouseNumber(Integer.parseInt(textField_7
-															.getText()));
-													temp.setPostalCode(Long.parseLong(textField_6
-															.getText()));
-													temp.setNationality(comboBox_1_1.getSelectedItem()
-															.toString());
-													temp.setCivilState(comboBox_1_3.getSelectedItem()
-															.toString());
-													temp.setAcademicLevel(comboBox_1.getSelectedItem()
-															.toString());
-													temp.setTitle(comboBox_2.getSelectedItem()
-															.toString());
-													temp.getAddress().setRegion(textField_7.getText());
-
-													persons.setPersons(temp);
-													loadPerson(persons);
-												}
-						else if (comboBox_1.getSelectedItem() == "Technical") {
-													// YearsExperience,
-													// String gradelevel
-													Technical temp = new Technical();
-													temp.setName(txtSuperlargoArchipielago.getText());
-													temp.setLastName(textField_2.getText());
-													temp.setID(textFieldID.getText());
-													temp.setPhone(textField_5.getText());
-													temp.setMobile(textField_4.getText());
-													temp.setEmail(textField_3.getText());
-													temp.setSex(comboBox_1_2.getSelectedItem().toString());
-													
-													date = new Date();
-													date.setMonth(monthChooser.getMonth());
-													date.setDate(spinField.getValue());
-													date.setYear(yearChooser.getYear());
-													temp.setBirth(date);
-													
-													temp.setBirth(date);
-													temp.setCity(comboBox_1_4.getSelectedItem()
-															.toString());
-													temp.setSector(textField_10.getText());
-													temp.setCalle(textField_8.getText());
-													temp.setHouseNumber(Integer.parseInt(textField_7
-															.getText()));
-													temp.setPostalCode(Long.parseLong(textField_6
-															.getText()));
-													temp.setNationality(comboBox_1_1.getSelectedItem()
-															.toString());
-													temp.setCivilState(comboBox_1_3.getSelectedItem()
-															.toString());
-													temp.setAcademicLevel(comboBox_1.getSelectedItem()
-															.toString());
-													temp.getAddress().setRegion(textField_7.getText());
-													persons.setPersons(temp);
-													loadPerson(persons);
-												}
-
-						else if (comboBox_1.getSelectedItem() == "Other") {
-													// YearsExperience,
-													// String gradelevel
-													DreamerNini temp = new DreamerNini();
-													temp.setName(txtSuperlargoArchipielago.getText());
-													temp.setLastName(textField_2.getText());
-													temp.setID(textFieldID.getText());
-													temp.setPhone(textField_5.getText());
-													temp.setMobile(textField_4.getText());
-													temp.setEmail(textField_3.getText());
-													temp.setSex(comboBox_1_2.getSelectedItem().toString());
-													
-													date = new Date();
-													date.setMonth(monthChooser.getMonth());
-													date.setDate(spinField.getValue());
-													date.setYear(yearChooser.getYear());
-													temp.setBirth(date);
-													
-													temp.setBirth(date);
-													temp.setCity(comboBox_1_4.getSelectedItem()
-															.toString());
-													temp.setSector(textField_10.getText());
-													temp.setCalle(textField_8.getText());
-													temp.setHouseNumber(Integer.parseInt(textField_7
-															.getText()));
-													temp.setPostalCode(Long.parseLong(textField_6
-															.getText()));
-													temp.setNationality(comboBox_1_1.getSelectedItem()
-															.toString());
-													temp.setCivilState(comboBox_1_3.getSelectedItem()
-															.toString());
-													temp.setAcademicLevel(comboBox_1.getSelectedItem()
-															.toString());
-													temp.getAddress().setRegion(textField_7.getText());
-													persons.setPersons(temp);
-													loadPerson(persons);
-										
-
-				}}}
-				
-				);
-				buttonPane.add(btnRegister);
-				*/
+			
 				
 				JButton btnReiniciar = new JButton("Reiniciar");
+				btnReiniciar.setHorizontalAlignment(SwingConstants.LEFT);
+				btnReiniciar.setVerticalAlignment(SwingConstants.BOTTOM);
 				btnReiniciar.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Back.png")));
+				btnReiniciar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						if (comboBox_1.getSelectedItem() == "Universitario" || comboBox_1.getSelectedItem() == "<Selecciona>") {
+							comboBoxGrado.setSelectedItem("<Selecciona>");
+							comboBoxNivelAlcanzado.setSelectedItem("<Selecciona>");
+							comboBoxPostGrado.setSelectedItem("<Selecciona>");
+							comboBoxCertificaciones.setSelectedItem("<Selecciona>");
+							comboBoxEspecialidades.setSelectedItem("<Selecciona>");
+							comboBoxEstudiosTecnicos.setSelectedItem("<Selecciona>");
+							comboBoxDoctorado.setSelectedItem("<Selecciona>");
+							txtSuperlargoArchipielago.setText("");
+							textField_2.setText("");
+							formattedTextField_3.setText("");
+							formattedTextField_1.setText("");
+							formattedTextFieldID.setText("");
+							textField_3.setText("");
+							comboBoxSexo.setSelectedItem("<Selecciona>");
+							comboBox_1_4.setSelectedItem("<Selecciona>");
+							textField_8.setText("");
+							textField_10.setText("");
+							textField_7.setText("");
+							formattedTextField_2.setText("");
+							comboBox_1_1.setSelectedItem("<Selecciona>");
+							comboBox_1_3.setSelectedItem("<Selecciona>");
+							comboBox_1.setSelectedItem("<Selecciona>");
+							textField_9.setText("");
+							textField_11.setText("");
+							dateChooser.setDate(null);}
+						
+						else if (comboBox_1.getSelectedItem() == "Técnico") {
+							comboBox.setSelectedItem("<Selecciona>");
+							comboBox_5_1.setSelectedItem("<Selecciona>");
+							comboBox_6_1.setSelectedItem("<Selecciona>");
+							comboBox_7_1.setSelectedItem("<Selecciona>");
+							txtSuperlargoArchipielago.setText("");
+							textField_2.setText("");
+							formattedTextField_3.setText("");
+							formattedTextField_1.setText("");
+							formattedTextFieldID.setText("");
+							textField_3.setText("");
+							comboBoxSexo.setSelectedItem("<Selecciona>");
+							comboBox_1_4.setSelectedItem("<Selecciona>");
+							textField_8.setText("");
+							textField_10.setText("");
+							textField_7.setText("");
+							formattedTextField_2.setText("");
+							comboBox_1_1.setSelectedItem("<Selecciona>");
+							comboBox_1_3.setSelectedItem("<Selecciona>");
+							comboBox_1.setSelectedItem("<Selecciona>");
+							textField_9.setText("");
+							textField_11.setText("");
+							dateChooser.setDate(null);
+						}
+
+			else if (comboBox_1.getSelectedItem() == "Oficio") {			
+							comboBox_8.setSelectedItem("<Selecciona>");
+							comboBox_9.setSelectedItem("<Selecciona>");
+							comboBox_10.setSelectedItem("<Selecciona>");
+							txtSuperlargoArchipielago.setText("");
+							textField_2.setText("");
+							formattedTextField_3.setText("");
+							formattedTextField_1.setText("");
+							formattedTextFieldID.setText("");
+							textField_3.setText("");
+							comboBoxSexo.setSelectedItem("<Selecciona>");
+							comboBox_1_4.setSelectedItem("<Selecciona>");
+							textField_8.setText("");
+							textField_10.setText("");
+							textField_7.setText("");
+							formattedTextField_2.setText("");
+							comboBox_1_1.setSelectedItem("<Selecciona>");
+							comboBox_1_3.setSelectedItem("<Selecciona>");
+							comboBox_1.setSelectedItem("<Selecciona>");
+							textField_9.setText("");
+							textField_11.setText("");
+							dateChooser.setDate(null);
+							}
+					}
+		
+					
+				});
 				buttonPane.add(btnReiniciar);
+				
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
-			}
+
 			{
 				JButton cancelButton = new JButton("Cancelar");
 				cancelButton.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Delete32.png")));
@@ -946,18 +919,22 @@ public class PersonRegister extends JDialog {
 					}
 				});
 				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);}}
-				{
-				}
+				buttonPane.add(cancelButton);
+
 																																			
 																																			JLabel labelAstID = new JLabel("   *");
 																																			labelAstID.setHorizontalAlignment(SwingConstants.RIGHT);
 																																			labelAstID.setForeground(Color.RED);
-																																			labelAstID.setBounds(511, 195, 19, 14);
+																																			labelAstID.setBounds(508, 198, 19, 14);
 																																			contentPanel.add(labelAstID);
+																																			
+																																			JLayeredPane layeredPane = new JLayeredPane();
+																																			layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+																																			layeredPane.setBounds(561, 42, 140, 139);
+																																			 contentPanel.add(layeredPane);
 																																			{
 																																				JPanel panel_3Address = new JPanel();
-																																				panel_3Address.setBounds(22, 427, 418, 207);
+																																				panel_3Address.setBounds(22, 427, 418, 200);
 																																				contentPanel.add(panel_3Address);
 																																				panel_3Address.setBackground(new Color(248, 248, 255));
 																																				panel_3Address.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "     Direcci\u00F3n:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
@@ -1056,23 +1033,37 @@ public class PersonRegister extends JDialog {
 																																				AstBirth.setHorizontalAlignment(SwingConstants.CENTER);
 																																				AstBirth.setForeground(Color.RED);
 																																			}
+																																			{
+																																				error = new JLabel("");
+																																				error.setHorizontalAlignment(SwingConstants.CENTER);
+																																				error.setForeground(Color.RED);
+																																				error.setBounds(450, 514, 370, 30);
+																																				contentPanel.add(error);
+																																			}
+																																			try { //Excepcion que controla la cantidad de Digitos en el ID (11 numeros)
+																																				MaskFormatter mascara = new MaskFormatter("###-#######-#");
+																																				formattedTextFieldID = new JFormattedTextField(mascara);
+																																		
+																																			} catch (ParseException e) {
+																																				// TODO Auto-generated catch block
+																																				e.printStackTrace();
+																																			}
 																																			
+																																			formattedTextFieldID.setBounds(559, 195, 144, 20);
+																																			contentPanel.add(formattedTextFieldID);
 																																			
-																																			
-																																			
-																																			
+																																			JLabel lblcdula = new JLabel("(C\u00E9dula)");
+																																			lblcdula.setFont(new Font("Tahoma", Font.PLAIN, 10));
+																																			lblcdula.setForeground(Color.GRAY);
+																																			lblcdula.setBounds(705, 198, 75, 14);
+																																			contentPanel.add(lblcdula);
+																																			{
 																																				
 																																			}
-		
-		
-		
-		
-		{
-			JLayeredPane layeredPane = new JLayeredPane();
-			layeredPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-			layeredPane.setBounds(561, 42, 140, 139);
-			contentPanel.add(layeredPane);
-		}
-	}	
-}	
-	
+			}
+}
+}
+	}
+}
+
+

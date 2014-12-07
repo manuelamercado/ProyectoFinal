@@ -82,7 +82,7 @@ public class CollectionPerson {
 		});
 	}
 
-	private boolean verify(Person P1) {
+	public boolean verify(Person P1) {
 		boolean check = true;
 		for (int i = 0; i < Persons.size(); i++) {
 			if (Persons.get(i).getID().equals(P1.getID())) {

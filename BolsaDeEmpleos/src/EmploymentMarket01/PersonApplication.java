@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PersonApplication {
 	
 	
-	private enum Grade {};
+	//private enum Grade {};
 	private CompanyType Area;
 	private ArrayList<String> WorkPosition;
 	private boolean Satisfied;

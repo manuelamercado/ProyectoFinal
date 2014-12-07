@@ -1,7 +1,6 @@
 package EmploymentMarket01;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Technical extends Person {
 
@@ -10,9 +9,9 @@ public class Technical extends Person {
 	private ArrayList<String> works;
 
 	public Technical(String Name, String LastName, String ID, String Phone,
-			String Mobile, String Email, String sex, Date Birth,
+			String Mobile, String Email, String sex, String Birth,
 			String Country, String City, String Sector, String Calle,
-			int HouseNumber, long PostalCode, String Nationality,
+			String HouseNumber, String PostalCode, String Nationality,
 			String CivilState, String AcademicLevel, int YearsExperience,
 			String Title, String gradelevel) {
 		super(Name, LastName, ID, Phone, Mobile, Email, sex, Birth, City,
@@ -89,12 +88,12 @@ public class Technical extends Person {
 	}
 
 	@Override
-	public Date getBirth() {
+	public String getBirth() {
 		return super.getBirth();
 	}
 
 	@Override
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		super.setBirth(birth);
 	}
 
@@ -199,22 +198,22 @@ public class Technical extends Person {
 	}
 
 	@Override
-	public int getHouseNumber() {
+	public String getHouseNumber() {
 		return super.getHouseNumber();
 	}
 
 	@Override
-	public void setHouseNumber(int houseNumber) {
+	public void setHouseNumber(String houseNumber) {
 		super.setHouseNumber(houseNumber);
 	}
 
 	@Override
-	public long getPostalCode() {
+	public String getPostalCode() {
 		return super.getPostalCode();
 	}
 
 	@Override
-	public void setPostalCode(long postalCode) {
+	public void setPostalCode(String postalCode) {
 		super.setPostalCode(postalCode);
 	}
 
