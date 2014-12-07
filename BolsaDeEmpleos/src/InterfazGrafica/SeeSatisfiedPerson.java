@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class SeeSatisfiedPerson extends JDialog {
 
@@ -30,6 +31,8 @@ public class SeeSatisfiedPerson extends JDialog {
 	 * Create the dialog.
 	 */
 	public SeeSatisfiedPerson() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SeeSatisfiedPerson.class.getResource("/InterfazGrafica/Images/cheking.png")));
+		setTitle("LISTA DE PERSONAS SATISFECHAS");
 		setBounds(10, 50, 836, 739);
 		setLocationRelativeTo(rootPane);
 		setModal(true);

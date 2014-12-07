@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import EmploymentMarket01.CollectionCompany;
 import EmploymentMarket01.CollectionPerson;
+import javax.swing.ImageIcon;
 
 public class SearchCompany extends JDialog {
 
@@ -46,7 +47,7 @@ public class SearchCompany extends JDialog {
 	public SearchCompany() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SearchPerson.class.getResource("/InterfazGrafica/Images/Search.png")));
 		setTitle("BUSQUEDA");
-		setBounds(100, 100, 450, 183);
+		setBounds(100, 100, 450, 210);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -83,6 +84,7 @@ public class SearchCompany extends JDialog {
 				lbl_dontFound.setBounds(10, 85, 414, 23);
 				contentPanel.add(lbl_dontFound);
 				JButton okButton = new JButton("Buscar");
+				okButton.setIcon(new ImageIcon(SearchCompany.class.getResource("/InterfazGrafica/Images/Search32.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if(CollectionCompany.getInstanceCollectionCompany().getCantCompany()==0){
@@ -103,6 +105,7 @@ public class SearchCompany extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setIcon(new ImageIcon(SearchCompany.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();

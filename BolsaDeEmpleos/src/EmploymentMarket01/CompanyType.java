@@ -13,7 +13,6 @@ public enum CompanyType {
  	AtenciónAlCliente,
  	Banca, 
  	ServiciosFinancieros,
- 	Biblioteconomía, 
  	Documentación,	
  	CienciasEconómicas,
  	CienciasEmpresariales,

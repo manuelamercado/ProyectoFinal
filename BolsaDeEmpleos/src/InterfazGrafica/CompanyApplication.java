@@ -25,6 +25,9 @@ import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
 import javax.swing.JCheckBox;
+import javax.swing.SpinnerNumberModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CompanyApplication extends JDialog {
 
@@ -111,6 +114,7 @@ public class CompanyApplication extends JDialog {
 		panel.add(textField_1);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura", "\tAlta Gerencia\t", "\tArquitectura", "      \tAtenci\u00F3n al Cliente", "\tBiolog\u00EDa ", "\tCalidad", " \tCiencias Econ\u00F3micas", " \tCiencias Empresariales", " \tCienciasSociales", "\tCompras", " \tComunicaci\u00F3n", "\tConstrucci\u00F3n", " \tContabilidad", " \tCreatividad y Dise\u00F1o", " \tDerecho\t", " \tDise\u00F1o Industrial", "\tDistribuci\u00F3n", "\tDocencia", "\tDocumentaci\u00F3n", " \tElectricidad ", " \tElectr\u00F3nica\t", " \tFarmacia", "\tFilosof\u00EDa", " \tFinanzas", " \tFormaci\u00F3n", " \tGesti\u00F3n", "\tHoteler\u00EDa", "\tHumanidades ", "\tIdiomas", " \tImpuestos", " \tIndustria", " \tInform\u00E1tica", " \tIngenier\u00EDa", " \tIngenier\u00EDa Civil", " \tIngenier\u00EDa El\u00E9ctrica", " \tIngenier\u00EDa Electr\u00F3nica", " \tIngenier\u00EDa Industrial\t", " \tIngenier\u00EDa Mec\u00E1nica\t", " \tIngenier\u00EDa Qu\u00EDmica", " \tIngenier\u00EDa Sanitaria ", " \tIngenier\u00EDa Sistemas", " \tIngenier\u00EDa Telecomunicaciones", " \tInvestigaci\u00F3n de Mercado", " \tLog\u00EDstica", " \tMarketing\t", " \tMedio Ambiente", "\tMedicina", "\tMedios", "\tMultimedia", " \tOficios Diversos", " \tPrevenci\u00F3n de Riesgos", "\tProducci\u00F3n", "\tPsicolog\u00EDa", "\tPublicidad", " \tQuimica", " \tRecepci\u00F3n", " \tRecursos Humanos", " \tSalud", " \tSecretariado", " \tSeguridad", "       Servicios Financieros", " \tSalud Ocupacional", " \tServicios Domesticos", " \tSoporte Tecnico", " \tTelemarketing", " \tTransporte", " \tTurismo", " \tVentas"}));
 		comboBox.setBounds(152, 86, 212, 20);
 		panel.add(comboBox);
 		
@@ -120,6 +124,7 @@ public class CompanyApplication extends JDialog {
 		panel.add(label_3);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "P\u00FAblico ", "Privado"}));
 		comboBox_1.setBounds(152, 117, 212, 20);
 		panel.add(comboBox_1);
 		
@@ -182,11 +187,17 @@ public class CompanyApplication extends JDialog {
 		comboBox_4.setBounds(150, 90, 212, 20);
 		panel_3.add(comboBox_4);
 		
-		JSpinner spinner = new JSpinner();
+		final JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
 		spinner.setBounds(150, 121, 116, 20);
 		panel_3.add(spinner);
 		
-		JCheckBox checkBox = new JCheckBox("Ninguno");
+		final JCheckBox checkBox = new JCheckBox("Ninguno");
+		checkBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					spinner.setEnabled(false);
+			}
+		});
 		checkBox.setHorizontalAlignment(SwingConstants.RIGHT);
 		checkBox.setBackground(new Color(248, 248, 255));
 		checkBox.setBounds(272, 117, 90, 29);
@@ -216,7 +227,7 @@ public class CompanyApplication extends JDialog {
 		JComboBox comboBoxAreas = new JComboBox();
 		comboBoxAreas.setBounds(150, 59, 212, 20);
 		panel_3.add(comboBoxAreas);
-		comboBoxAreas.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura\t", "\tArquitectura", "       Atenci\u00F3nAlCliente", "       Biblioteconom\u00EDa", "\tConstrucci\u00F3n ", " \tDocumentaci\u00F3n,\t", " \tCienciasEcon\u00F3micas,", " \tCienciasEmpresariales,", " \tCienciasSociales,", " \tCompras,", " \tComunicaci\u00F3n, ", " \tPublicidad,", " \tMedios,", " \tContabilidad,", " \tCreatividad, ", " \tDise\u00F1o, ", " \tMultimedia,", " \tDerecho,\t", " \tDise\u00F1oIndustrial,", " \tElectricidad, ", " \tElectr\u00F3nica1,\t", " \tFarmacia,", " \tFinanzas,", " \tFormaci\u00F3n,", " \tDocencia,", " \tGesti\u00F3n,", " \tAltaDirecci\u00F3n,", " \tImpuestos,", " \tIndustria,", " \tProducci\u00F3n,", " \tHoteler\u00EDa,", " \tCalidad,", " \tInform\u00E1tica,", " \tIngenier\u00EDa,", " \tIngenier\u00EDaCivil", " \tEstructural", " \tIngenier\u00EDaEl\u00E9ctrica", " \tIngenier\u00EDaElectr\u00F3nica", " \tIngenier\u00EDaIndustrial\t", " \tIngenier\u00EDaMec\u00E1nica\t", " \tIngenier\u00EDaQu\u00EDmica", " \tIngenier\u00EDaSanitaria ", " \tAmbiental", " \tIngenier\u00EDaSistemas", " \tIngenier\u00EDaTelecomunicaciones,", " \tInvestigaci\u00F3ndeMercado,", " \tLetras, ", " \tHumanidades, ", " \tFilosof\u00EDa,", " \tLog\u00EDstica, ", " \tDistribuci\u00F3n,", " \tMarketing,\t", " \tMedioAmbiente,", " \tOficiosdiversos,", " \tPrevenci\u00F3ndeRiesgos,", "\tPsicolog\u00EDa,", " \tQuimica,", " \tBiolog\u00EDa,", " \tRecepci\u00F3n,", " \tCentralita,", " \tRecursosHumanos,", " \tSalud, ", " \tMedicina,", " \tSecretariado,", " \tSeguridad,", "       ServiciosFinancieros", " \tSaludOcupacional", " \tServiciosDomesticos", " \tSoporteTecnico", " \tTelemarketing", " \tIdiomas", " \tTransporte", " \tTurismo", " \tVentas"}));
+		comboBoxAreas.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura", "\tAlta Gerencia\t", "\tArquitectura", "      \tAtenci\u00F3n al Cliente", "\tBiolog\u00EDa ", "\tCalidad", " \tCiencias Econ\u00F3micas", " \tCiencias Empresariales", " \tCienciasSociales", "\tCompras", " \tComunicaci\u00F3n", "\tConstrucci\u00F3n", " \tContabilidad", " \tCreatividad y Dise\u00F1o", " \tDerecho\t", " \tDise\u00F1o Industrial", "\tDistribuci\u00F3n", "\tDocencia", "\tDocumentaci\u00F3n", " \tElectricidad ", " \tElectr\u00F3nica\t", " \tFarmacia", "\tFilosof\u00EDa", " \tFinanzas", " \tFormaci\u00F3n", " \tGesti\u00F3n", "\tHoteler\u00EDa", "\tHumanidades ", "\tIdiomas", " \tImpuestos", " \tIndustria", " \tInform\u00E1tica", " \tIngenier\u00EDa", " \tIngenier\u00EDa Civil", " \tIngenier\u00EDa El\u00E9ctrica", " \tIngenier\u00EDa Electr\u00F3nica", " \tIngenier\u00EDa Industrial\t", " \tIngenier\u00EDa Mec\u00E1nica\t", " \tIngenier\u00EDa Qu\u00EDmica", " \tIngenier\u00EDa Sanitaria ", " \tIngenier\u00EDa Sistemas", " \tIngenier\u00EDa Telecomunicaciones", " \tInvestigaci\u00F3n de Mercado", " \tLog\u00EDstica", " \tMarketing\t", " \tMedio Ambiente", "\tMedicina", "\tMedios", "\tMultimedia", " \tOficios Diversos", " \tPrevenci\u00F3n de Riesgos", "\tProducci\u00F3n", "\tPsicolog\u00EDa", "\tPublicidad", " \tQuimica", " \tRecepci\u00F3n", " \tRecursos Humanos", " \tSalud", " \tSecretariado", " \tSeguridad", "       Servicios Financieros", " \tSalud Ocupacional", " \tServicios Domesticos", " \tSoporte Tecnico", " \tTelemarketing", " \tTransporte", " \tTurismo", " \tVentas"}));
 		comboBoxAreas.setToolTipText("<Selecciona>\r\n\tAdministraci\u00F3n\r\n \tAeron\u00E1utica\r\n \tAgrimensura\r\n \tAgronom\u00EDa\r\n \tAgricultura\t\r\n\tArquitectura\r\n       Atenci\u00F3nAlCliente\r\n       Biblioteconom\u00EDa\r\n\tConstrucci\u00F3n \r\n \tDocumentaci\u00F3n,\t\r\n \tCienciasEcon\u00F3micas,\r\n \tCienciasEmpresariales,\r\n \tCienciasSociales,\r\n \tCompras,\r\n \tComunicaci\u00F3n, \r\n \tPublicidad,\r\n \tMedios,\r\n \tContabilidad,\r\n \tCreatividad, \r\n \tDise\u00F1o, \r\n \tMultimedia,\r\n \tDerecho,\t\r\n \tDise\u00F1oIndustrial,\r\n \tElectricidad, \r\n \tElectr\u00F3nica1,\t\r\n \tFarmacia,\r\n \tFinanzas,\r\n \tFormaci\u00F3n,\r\n \tDocencia,\r\n \tGesti\u00F3n,\r\n \tAltaDirecci\u00F3n,\r\n \tImpuestos,\r\n \tIndustria,\r\n \tProducci\u00F3n,\r\n \tHoteler\u00EDa,\r\n \tCalidad,\r\n \tInform\u00E1tica,\r\n \tIngenier\u00EDa,\r\n \tIngenier\u00EDaCivil\r\n \tEstructural\r\n \tIngenier\u00EDaEl\u00E9ctrica\r\n \tIngenier\u00EDaElectr\u00F3nica\r\n \tIngenier\u00EDaIndustrial\t\r\n \tIngenier\u00EDaMec\u00E1nica\t\r\n \tIngenier\u00EDaQu\u00EDmica\r\n \tIngenier\u00EDaSanitaria \r\n \tAmbiental\r\n \tIngenier\u00EDaSistemas\r\n \tIngenier\u00EDaTelecomunicaciones,\r\n \tInvestigaci\u00F3ndeMercado,\r\n \tLetras, \r\n \tHumanidades, \r\n \tFilosof\u00EDa,\r\n \tLog\u00EDstica, \r\n \tDistribuci\u00F3n,\r\n \tMarketing,\t\r\n \tMedioAmbiente,\r\n \tOficiosdiversos,\r\n \tPrevenci\u00F3ndeRiesgos,\r\n\tPsicolog\u00EDa,\r\n \tQuimica,\r\n \tBiolog\u00EDa,\r\n \tRecepci\u00F3n,\r\n \tCentralita,\r\n \tRecursosHumanos,\r\n \tSalud, \r\n \tMedicina,\r\n \tSecretariado,\r\n \tSeguridad,\r\n       ServiciosFinancieros\r\n \tSaludOcupacional\r\n \tServiciosDomesticos\r\n \tSoporteTecnico\r\n \tTelemarketing\r\n \tIdiomas\r\n \tTransporte\r\n \tTurismo\r\n \tVentas");
 		comboBoxAreas.setBackground(new Color(248, 248, 255));
 		

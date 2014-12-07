@@ -40,7 +40,7 @@ public class SeeCompanyApplication extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");

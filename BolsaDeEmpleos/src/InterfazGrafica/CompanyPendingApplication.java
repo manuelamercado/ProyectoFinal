@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class CompanyPendingApplication extends JDialog {
 
@@ -32,7 +33,7 @@ public class CompanyPendingApplication extends JDialog {
 	 */
 	public CompanyPendingApplication() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyPendingApplication.class.getResource("/InterfazGrafica/Images/pendientes.png")));
-		setTitle("SOLICITUDES PENDIENTES");
+		setTitle("SOLICITUDES DE PERSONAL PENDIENTES");
 		setBounds(10, 50, 836, 739);
 		setModal(true);
 		setLocationRelativeTo(rootPane);
@@ -46,13 +47,24 @@ public class CompanyPendingApplication extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Aceptar");
+				okButton.setIcon(new ImageIcon(CompanyPendingApplication.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
-				JButton cancelButton = new JButton("Cancel");
+				JButton btnModificar = new JButton("Modificar");
+				btnModificar.setIcon(new ImageIcon(CompanyPendingApplication.class.getResource("/InterfazGrafica/Images/Modify32.png")));
+				buttonPane.add(btnModificar);
+			}
+			{
+				JButton btnEliminar = new JButton("Eliminar");
+				buttonPane.add(btnEliminar);
+			}
+			{
+				JButton cancelButton = new JButton("Cancelar");
+				cancelButton.setIcon(new ImageIcon(CompanyPendingApplication.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}

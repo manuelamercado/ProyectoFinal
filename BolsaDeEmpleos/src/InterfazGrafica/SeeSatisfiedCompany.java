@@ -8,6 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class SeeSatisfiedCompany extends JDialog {
 
@@ -30,6 +31,8 @@ public class SeeSatisfiedCompany extends JDialog {
 	 * Create the dialog.
 	 */
 	public SeeSatisfiedCompany() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SeeSatisfiedCompany.class.getResource("/InterfazGrafica/Images/cheking.png")));
+		setTitle("LISTA DE COMPA\u00D1IAS SATISFECHAS");
 		setBounds(10, 50, 836, 739);
 		setLocationRelativeTo(rootPane);
 		setModal(true);

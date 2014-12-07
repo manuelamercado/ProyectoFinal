@@ -28,6 +28,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class SeePersons extends JDialog {
 
@@ -48,15 +49,18 @@ public class SeePersons extends JDialog {
 		setBounds(10, 50, 836, 739);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
-		contentPanel.setBounds(0, 40, 820, 636);
+		contentPanel.setBounds(0, 40, 820, 612);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
 		setLocationRelativeTo(null);
 		setModal(true);
-		setTitle("LISTA DE PERSONA");		
+		setTitle("LISTA DE SOLICITANTES");		
 		
 		table = new JTable();
+		table.setGridColor(new Color(248, 248, 255));
+		table.setSelectionForeground(new Color(248, 248, 255));
+		table.setBackground(new Color(248, 248, 255));
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -81,7 +85,8 @@ public class SeePersons extends JDialog {
 		
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 819, 636);
+		scrollPane.setBackground(new Color(248, 248, 255));
+		scrollPane.setBounds(0, 0, 819, 612);
 		scrollPane.setViewportView(table);
 		contentPanel.add(scrollPane);
 		
@@ -90,12 +95,13 @@ public class SeePersons extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 673, 820, 28);
+			buttonPane.setBounds(0, 650, 820, 51);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Aceptar");
+				okButton.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						setVisible(false);
@@ -107,6 +113,7 @@ public class SeePersons extends JDialog {
 			}
 			
 			JButton btnBuscar = new JButton("Buscar");
+			btnBuscar.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/Search32.png")));
 			btnBuscar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
@@ -119,7 +126,12 @@ public class SeePersons extends JDialog {
 			buttonPane.add(btnBuscar);
 			
 			JButton btnEliminar = new JButton("Eliminar");
+			btnEliminar.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/Modify32.png")));
 			buttonPane.add(btnEliminar);
+			
+			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/Delete32.png")));
+			buttonPane.add(btnCancelar);
 		}
 		
 		lblCantidadDePersonas = new JLabel("Cantidad de Personas:");

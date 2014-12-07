@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class SearchPerson extends JDialog {
 	private final JPanel contentPanel = new JPanel();
@@ -25,7 +26,7 @@ public class SearchPerson extends JDialog {
 	public SearchPerson() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SearchPerson.class.getResource("/InterfazGrafica/Images/Search.png")));
 		setTitle("BUSQUEDA");
-		setBounds(100, 100, 450, 183);
+		setBounds(100, 100, 450, 210);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -62,6 +63,7 @@ public class SearchPerson extends JDialog {
 				lbl_dontFound.setBounds(10, 85, 414, 23);
 				contentPanel.add(lbl_dontFound);
 				JButton okButton = new JButton("Buscar");
+				okButton.setIcon(new ImageIcon(SearchPerson.class.getResource("/InterfazGrafica/Images/Search32.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if(CollectionPerson.getInstanceCollectionPerson().getCantPerson()==0){
@@ -82,6 +84,7 @@ public class SearchPerson extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setIcon(new ImageIcon(SearchPerson.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();

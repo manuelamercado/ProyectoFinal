@@ -8,12 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 
 public class PersonPendingApplication extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
 	public PersonPendingApplication() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PersonPendingApplication.class.getResource("/InterfazGrafica/Images/pendientes.png")));
+		setTitle("SOLICITUDES DE EMPLEO PENDIENTES");
 		setBounds(10, 50, 836, 739);
 		setModal(true);
 		setLocationRelativeTo(rootPane);

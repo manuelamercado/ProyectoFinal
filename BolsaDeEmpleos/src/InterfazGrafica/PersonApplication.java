@@ -47,6 +47,7 @@ import javax.swing.JButton;
 
 import java.awt.Window.Type;
 import java.awt.ComponentOrientation;
+import javax.swing.SpinnerNumberModel;
 
 
 
@@ -193,7 +194,7 @@ public class PersonApplication extends JDialog {
 		panel.add(label_12);
 		
 		JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura\t", "\tArquitectura", "       Atenci\u00F3nAlCliente", "       Biblioteconom\u00EDa", "\tConstrucci\u00F3n ", " \tDocumentaci\u00F3n,\t", " \tCienciasEcon\u00F3micas,", " \tCienciasEmpresariales,", " \tCienciasSociales,", " \tCompras,", " \tComunicaci\u00F3n, ", " \tPublicidad,", " \tMedios,", " \tContabilidad,", " \tCreatividad, ", " \tDise\u00F1o, ", " \tMultimedia,", " \tDerecho,\t", " \tDise\u00F1oIndustrial,", " \tElectricidad, ", " \tElectr\u00F3nica1,\t", " \tFarmacia,", " \tFinanzas,", " \tFormaci\u00F3n,", " \tDocencia,", " \tGesti\u00F3n,", " \tAltaDirecci\u00F3n,", " \tImpuestos,", " \tIndustria,", " \tProducci\u00F3n,", " \tHoteler\u00EDa,", " \tCalidad,", " \tInform\u00E1tica,", " \tIngenier\u00EDa,", " \tIngenier\u00EDaCivil", " \tEstructural", " \tIngenier\u00EDaEl\u00E9ctrica", " \tIngenier\u00EDaElectr\u00F3nica", " \tIngenier\u00EDaIndustrial\t", " \tIngenier\u00EDaMec\u00E1nica\t", " \tIngenier\u00EDaQu\u00EDmica", " \tIngenier\u00EDaSanitaria ", " \tAmbiental", " \tIngenier\u00EDaSistemas", " \tIngenier\u00EDaTelecomunicaciones,", " \tInvestigaci\u00F3ndeMercado,", " \tLetras, ", " \tHumanidades, ", " \tFilosof\u00EDa,", " \tLog\u00EDstica, ", " \tDistribuci\u00F3n,", " \tMarketing,\t", " \tMedioAmbiente,", " \tOficiosdiversos,", " \tPrevenci\u00F3ndeRiesgos,", "\tPsicolog\u00EDa,", " \tQuimica,", " \tBiolog\u00EDa,", " \tRecepci\u00F3n,", " \tCentralita,", " \tRecursosHumanos,", " \tSalud, ", " \tMedicina,", " \tSecretariado,", " \tSeguridad,", "       ServiciosFinancieros", " \tSaludOcupacional", " \tServiciosDomesticos", " \tSoporteTecnico", " \tTelemarketing", " \tIdiomas", " \tTransporte", " \tTurismo", " \tVentas"}));
+		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura", "\tAlta Gerencia\t", "\tArquitectura", "      \tAtenci\u00F3n al Cliente", "\tBiolog\u00EDa ", "\tCalidad", " \tCiencias Econ\u00F3micas", " \tCiencias Empresariales", " \tCienciasSociales", "\tCompras", " \tComunicaci\u00F3n", "\tConstrucci\u00F3n", " \tContabilidad", " \tCreatividad y Dise\u00F1o", " \tDerecho\t", " \tDise\u00F1o Industrial", "\tDistribuci\u00F3n", "\tDocencia", "\tDocumentaci\u00F3n", " \tElectricidad ", " \tElectr\u00F3nica\t", " \tFarmacia", "\tFilosof\u00EDa", " \tFinanzas", " \tFormaci\u00F3n", " \tGesti\u00F3n", "\tHoteler\u00EDa", "\tHumanidades ", "\tIdiomas", " \tImpuestos", " \tIndustria", " \tInform\u00E1tica", " \tIngenier\u00EDa", " \tIngenier\u00EDa Civil", " \tIngenier\u00EDa El\u00E9ctrica", " \tIngenier\u00EDa Electr\u00F3nica", " \tIngenier\u00EDa Industrial\t", " \tIngenier\u00EDa Mec\u00E1nica\t", " \tIngenier\u00EDa Qu\u00EDmica", " \tIngenier\u00EDa Sanitaria ", " \tIngenier\u00EDa Sistemas", " \tIngenier\u00EDa Telecomunicaciones", " \tInvestigaci\u00F3n de Mercado", " \tLog\u00EDstica", " \tMarketing\t", " \tMedio Ambiente", "\tMedicina", "\tMedios", "\tMultimedia", " \tOficios Diversos", " \tPrevenci\u00F3n de Riesgos", "\tProducci\u00F3n", "\tPsicolog\u00EDa", "\tPublicidad", " \tQuimica", " \tRecepci\u00F3n", " \tRecursos Humanos", " \tSalud", " \tSecretariado", " \tSeguridad", "       Servicios Financieros", " \tSalud Ocupacional", " \tServicios Domesticos", " \tSoporte Tecnico", " \tTelemarketing", " \tTransporte", " \tTurismo", " \tVentas"}));
 		comboBox_4.setToolTipText("<Selecciona>");
 		comboBox_4.setBackground(new Color(248, 248, 255));
 		comboBox_4.setBounds(150, 21, 212, 20);
@@ -216,19 +217,24 @@ public class PersonApplication extends JDialog {
 		panel.add(comboBox);
 		
 		final JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
 		spinner.setBounds(150, 81, 116, 20);
 		panel.add(spinner);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Ninguno");
-		chckbxNewCheckBox.setBackground(new Color(248, 248, 255));
-		chckbxNewCheckBox.setHorizontalAlignment(SwingConstants.RIGHT);
-		chckbxNewCheckBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		final JCheckBox CheckBoxNinguno = new JCheckBox("Ninguno");
+		CheckBoxNinguno.setBackground(new Color(248, 248, 255));
+		CheckBoxNinguno.setHorizontalAlignment(SwingConstants.RIGHT);
+		CheckBoxNinguno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent Arg0) {
+				
 				spinner.setEnabled(false);
 			}
 		});
-		chckbxNewCheckBox.setBounds(272, 81, 90, 23);
-		panel.add(chckbxNewCheckBox);
+		 
+		spinner.setEnabled(true);
+		
+		CheckBoxNinguno.setBounds(272, 81, 90, 23);
+		panel.add(CheckBoxNinguno);
 		
 		JLabel lblTipoDeContrato = new JLabel("Tipo de Contrato:");
 		lblTipoDeContrato.setHorizontalAlignment(SwingConstants.RIGHT);

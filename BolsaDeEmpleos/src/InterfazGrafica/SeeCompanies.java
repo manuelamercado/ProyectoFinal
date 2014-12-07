@@ -28,6 +28,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class SeeCompanies extends JDialog {
 
@@ -43,7 +44,7 @@ public class SeeCompanies extends JDialog {
 		setBounds(10, 50, 836, 739);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
-		contentPanel.setBounds(0, 40, 820, 628);
+		contentPanel.setBounds(0, 40, 820, 609);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
@@ -62,7 +63,7 @@ public class SeeCompanies extends JDialog {
 		
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 819, 657);
+		scrollPane.setBounds(0, 0, 819, 606);
 		scrollPane.setViewportView(table);
 		contentPanel.add(scrollPane);
 		
@@ -71,12 +72,13 @@ public class SeeCompanies extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 668, 820, 33);
+			buttonPane.setBounds(0, 650, 820, 51);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Aceptar");
+				okButton.setIcon(new ImageIcon(SeeCompanies.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						setVisible(false);
@@ -89,6 +91,14 @@ public class SeeCompanies extends JDialog {
 			
 			JButton btnEliminar = new JButton("Eliminar");
 			buttonPane.add(btnEliminar);
+			
+			JButton btnModificar = new JButton("Modificar");
+			btnModificar.setIcon(new ImageIcon(SeeCompanies.class.getResource("/InterfazGrafica/Images/Modify32.png")));
+			buttonPane.add(btnModificar);
+			
+			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.setIcon(new ImageIcon(SeeCompanies.class.getResource("/InterfazGrafica/Images/Delete32.png")));
+			buttonPane.add(btnCancelar);
 		}
 		
 		JLabel lblCantidadDeCompaias = new JLabel("Cantidad de Compa\u00F1ias:");
