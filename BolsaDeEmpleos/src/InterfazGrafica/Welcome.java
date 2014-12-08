@@ -345,7 +345,7 @@ public class Welcome extends JFrame {
 		mnReportes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Bar Chart.png")));
 		mnReportes.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		JMenu mnPendientes = new JMenu("Clientes Pendientes");
+		JMenu mnPendientes = new JMenu("Solicitudes Pendientes");
 		mnPendientes.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/pendientes.png")));
 		mnReportes.add(mnPendientes);
 		
@@ -369,7 +369,7 @@ public class Welcome extends JFrame {
 		mntmEmpresas_1.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1417828832_companies.png")));
 		mnPendientes.add(mntmEmpresas_1);
 		
-		JMenu mnSatisfechos = new JMenu("Clientes Satisfechos");
+		JMenu mnSatisfechos = new JMenu("Solicitudes Satisfechos");
 		mnSatisfechos.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/cheking.png")));
 		mnReportes.add(mnSatisfechos);
 		
