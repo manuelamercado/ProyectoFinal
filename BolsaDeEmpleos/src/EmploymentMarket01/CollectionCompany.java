@@ -63,6 +63,7 @@ public class CollectionCompany {
 		for (int i = 0; i < Companies.size(); i++) {
 			if ((Companies.get(i).getRNC().equals(RNC))) {
 				temp= Companies.get(i);
+				 setCantCompany(CantCompany-1);
 			}
 		}
 		return temp;

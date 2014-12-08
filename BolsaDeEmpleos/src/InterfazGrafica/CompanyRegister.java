@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.awt.Toolkit;
 
@@ -34,8 +35,11 @@ import javax.swing.text.MaskFormatter;
 import javax.swing.JFormattedTextField;
 
 import EmploymentMarket01.CollectionCompany;
+import EmploymentMarket01.CollectionPersonApplicant;
 import EmploymentMarket01.Company;
+import EmploymentMarket01.CompanyPerson;
 import EmploymentMarket01.CompanyType;
+import EmploymentMarket01.EmploymentMarket;
 
 public class CompanyRegister extends JDialog {
 
@@ -61,6 +65,7 @@ public class CompanyRegister extends JDialog {
 	private JTextField textField;
 	private JFormattedTextField formattedTextField;
 	private JComboBox<String> comboBoxSector;
+	
 
 	public CompanyRegister() {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -72,7 +77,7 @@ public class CompanyRegister extends JDialog {
 		setFont(new Font("Tahoma", Font.BOLD, 12));
 		setModal(true);
 		setTitle("REGISTRAR EMPRESA");
-		setBounds(10, 50, 760, 650);
+		setBounds(10, 50, 760, 660);
 		setResizable(false);
 		setLocationRelativeTo(null);//Centraliza la ventana
 		
@@ -118,6 +123,7 @@ public class CompanyRegister extends JDialog {
 		textFieldActivity.setColumns(10);
 		
 		comboBoxArea = new JComboBox<CompanyType>();
+		comboBoxArea.setBackground(new Color(248, 248, 255));
 		comboBoxArea.setModel(new DefaultComboBoxModel<CompanyType>(CompanyType.values()));
 		 comboBoxArea.setBounds(116, 83, 212, 20);
 		CompanyDates.add(comboBoxArea);
@@ -128,6 +134,7 @@ public class CompanyRegister extends JDialog {
 		 CompanyDates.add(lblActividad);
 		 
 		 comboBoxSector = new JComboBox<String>();
+		 comboBoxSector.setBackground(new Color(248, 248, 255));
 		 comboBoxSector.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "P\u00FAblico", "Privado "}));
 		 comboBoxSector.setBounds(116, 114, 212, 20);
 		  CompanyDates.add(comboBoxSector);
@@ -258,8 +265,9 @@ public class CompanyRegister extends JDialog {
 		
 		 
 		 error = new JLabel("");
+		 error.setHorizontalAlignment(SwingConstants.CENTER);
 		 error.setForeground(Color.RED);
-		 error.setBounds(25, 508, 340, 27);
+		 error.setBounds(223, 496, 340, 27);
 		 contentPanel.add(error);
 
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -329,46 +337,7 @@ public class CompanyRegister extends JDialog {
 		panel_1.add(textFieldRegion);
 		
 		comboBoxCountry = new JComboBox<String>();
-		comboBoxCountry.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "Afganist\u00E1n", "Albania", 
-				"Argelia", "Samoa Americana", "Andorra", "Angola", "Anguila", "Ant\u00E1rtida", "Antigua y Barbuda",
-				"Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaiy\u00E1n", "Bahamas", "Bahrein", 
-				"Bangladesh", "Barbados", "Bielorrusia", "B\u00E9lgica", "Belice", "Benin", "Bermuda", "But\u00E1n", 
-				"Bolivia", "Bosnia y Herzegovina", "Botswana", "Brasil", "Brunei Darussalam", "Bulgaria", "Burkina Faso",
-				"Burundi", "Camboya", "Camer\u00FAn", "Canad\u00E1", "Cabo Verde", "Islas Caim\u00E1n",
-				"Rep\u00FAblica Centroafricana", "Chad", "Chile", "China", "Isla de Navidad", "Islas Cocos (Keeling)",
-				"Colombia", "Comoras", "Rep\u00FAblica Democr\u00E1tica del Congo (Kinshasa)", 
-				"Congo, Rep\u00FAblica del (Brazzaville)", "Islas Cook", "Costa Rica", "Costa de Marfil (C\u00F4te d'Ivoire)",
-				"Croacia", "Cuba", "Chipre", "Rep\u00FAblica Checa", "Dinamarca", "Djibouti", "Dominica",
-				"Rep\u00FAblica Dominicana", "Timor Oriental Timor-Leste", "Ecuador", "Egipto", "El Salvador", 
-				"Guinea Ecuatorial", "Eritrea", "Estonia", "Etiop\u00EDa", "islas Malvinas", "Islas Feroe", "Fiji", 
-				"Finlandia", "Francia", "Guayana franc\u00E9s", "Polinesia franc\u00E9s", "Territorios Franceses del Sur",
-				"Gab\u00F3n", "Gambia", "Georgia", "Alemania", "Ghana", "Gibraltar", "gran Breta\u00F1a", "Grecia", 
-				"Groenlandia", "Granada", "Guadalupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guayana",
-				"Hait\u00ED", "Santa Sede", "Honduras", "Hong Kong", "Hungr\u00EDa", "Islandia", "India", "Indonesia",
-				"Ir\u00E1n (Rep\u00FAblica Isl\u00E1mica del)", "Irak", "Irlanda", "Israel", "Italia", "Jamaica",
-				"Jap\u00F3n", "Jordania", "Kazajst\u00E1n", "Kenia", "Kiribati", 
-				"Corea, Rep\u00FAblica Popular Democr\u00E1tica. (Corea del Norte)", 
-				"Corea, Rep\u00FAblica de (Corea del Sur)", "Kosovo", "Kuwait", "Kirguist\u00E1n",
-				"Lao, Rep\u00FAblica Popular Democr\u00E1tica", "Letonia", "L\u00EDbano", "Lesoto", "Liberia", "Libia",
-				"Liechtenstein", "Lituania", "Luxemburgo", "Macao", "Macedonia, Rep. De", "Madagascar", "Malawi", "Malasia",
-				"Maldivas", "Mal\u00ED", "Malta", "Islas Marshall", "Martinica", "Mauritania", "Mauricio", "Mayotte",
-				"M\u00E9xico", "Micronesia, Estados Federados de", "Moldova, Rep\u00FAblica de", "M\u00F3naco", "Mongolia",
-				"Montenegro", "Montserrat", "Marruecos", "Mozambique", "Myanmar, Birmania", "Namibia", "Nauru", "Nepal",
-				"Pa\u00EDses Bajos", "Antillas Holandesas", "nueva Caledonia", "nueva Zelanda", "Nicaragua", "N\u00EDger",
-				"Nigeria", "Niue", "Islas Marianas del Norte", "Noruega", "Om\u00E1n", "Pakist\u00E1n", "Palau",
-				"territorios palestinos","Panam\u00E1", "Pap\u00FAa Nueva Guinea", "Paraguay", "Per\u00FA", "Filipinas",
-				"Pitcairn Island", "Polonia", "Portugal", "Puerto Rico", "Katar", "Isla de la Reuni\u00F3n", "Rumania",
-				"Federaci\u00F3n de Rusia", "Ruanda", "San Crist\u00F3bal y Nieves", "Santa Luc\u00EDa", 
-				"San Vicente y las Granadinas", "Samoa", "San Marino", "Santo Tom\u00E9 y Pr\u00EDncipe", "Arabia Saudita",
-				"Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Eslovaquia (Rep\u00FAblica Eslovaca)",
-				"Eslovenia", "islas Salom\u00F3n", "Somalia", "Sud\u00E1frica", "Sud\u00E1n del Sur", "Espa\u00F1a", 
-				"Sri Lanka", "Sud\u00E1n", "Suriname", "Swazilandia", "Suecia", "Suiza", "Siria", 
-				"Taiw\u00E1n (Rep\u00FAblica de China)", "Tayikist\u00E1n", "Tanzania", "Tailandia", "T\u00EDbet", 
-				"Timor-Leste (Timor Oriental)", "Togo", "Tokelau", "Tonga", "Trinidad y Tobago", "T\u00FAnez", "Pavo",
-				"Turkmenist\u00E1n", "Islas Turcas y Caicos", "Tuvalu", "Uganda", "Ucrania", "Emiratos \u00C1rabes Unidos", 
-				"Reino Unido", "Estados Unidos", "Uruguay", "Uzbekist\u00E1n", "Vanuatu", "Ciudad del Vaticano (Santa Sede)",
-				"Venezuela", "Vietnam", "Islas V\u00EDrgenes (brit\u00E1nica)", "Islas V\u00EDrgenes (EE.UU.)",
-				"Islas Wallis y Futuna", "S\u00E1hara Occidental", "Yemen", "Zambia", "Zimbabue"}));
+		comboBoxCountry.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afganist\u00E1n", "Albania", "Alemania", "Arabia Saudita", "Argelia", "Andorra", "Angola", "Anguila", "Ant\u00E1rtida", "Antigua y Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaiy\u00E1n", "Bahamas", "Bahrein", "Barbados", "Bielorrusia", "B\u00E9lgica", "Belice", "Benin", "Bermuda", "But\u00E1n", "Bolivia", "Bosnia y Herzegovina", "Botswana", "Brasil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Camboya", "Camer\u00FAn", "Canad\u00E1", "Cabo Verde", "Chad", "Chile", "China", "Colombia", "Comoras", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Eritrea", "Espa\u00F1a", "Estados Unidos", "Estonia", "Etiop\u00EDa", "Fiji", "Finlandia", "Francia", "Gab\u00F3n", "Gambia", "Georgia", "Ghana", "Gibraltar", "Gran Breta\u00F1a", "Grecia", "Groenlandia", "Granada", "Guadalupe", "Guam", "Guatemala", "Guinea", "Guinea Ecuatorial", "Guayana", "Hait\u00ED", "Honduras", "Hong Kong", "Hungr\u00EDa", "Islandia", "India", "Indonesia", "Ir\u00E1n (Rep\u00FAblica Isl\u00E1mica del)", "Irak", "Irlanda", "Israel", "Italia", "Jamaica", "Jap\u00F3n", "Jordania", "Kazajst\u00E1n", "Kenia", "Kosovo", "Kuwait", "Kirguist\u00E1n", "Letonia", "L\u00EDbano", "Lesoto", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macao", "Macedonia", "Madagascar", "Malawi", "Malasia", "Maldivas", "Mal\u00ED", "Malta", "Martinica", "Mauritania", "Mauricio", "Mayotte", "M\u00E9xico", "Micronesia", "Moldova", "M\u00F3naco", "Mongolia", "Montenegro", "Montserrat", "Marruecos", "Mozambique", "Myanmar, Birmania", "Namibia", "Nauru", "Nepal", "Nicaragua", "N\u00EDger", "Nigeria", "Niue", "Noruega", "Om\u00E1n", "Pa\u00EDses Bajos", "Pakist\u00E1n", "Panam\u00E1", "Paraguay", "Per\u00FA", "Pitcairn Island", "Polonia", "Portugal", "Puerto Rico", "Reino Unido", "Rep\u00FAblica Dominicana", "Ruanda", "Rumania", "San Crist\u00F3bal y Nieves", "Santa Luc\u00EDa", "San Vicente y las Granadinas", "Samoa", "San Marino", "Santo Tom\u00E9 y Pr\u00EDncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Somalia", "Sud\u00E1frica", "Sud\u00E1n del Sur", "Sri Lanka", "Sud\u00E1n", "Suriname", "Swazilandia", "Suecia", "Suiza", "Siria", "Taiw\u00E1n (Rep\u00FAblica de China)", "Trinidad y Tobago", "Uruguay", "Venezuela", "Vietnam"}));
 		comboBoxCountry.setBackground(new Color(248, 248, 255));
 		comboBoxCountry.setBounds(116, 25, 212, 20);
 		panel_1.add(comboBoxCountry);
@@ -398,9 +367,10 @@ public class CompanyRegister extends JDialog {
 
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBounds(0, 573, 754, 51);
+			contentPanel.add(buttonPane);
 			buttonPane.setBackground(new Color(248, 248, 255));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			
 			JButton btnReiniciar = new JButton("Reiniciar");
 			btnReiniciar.addActionListener(new ActionListener() {
@@ -443,6 +413,7 @@ public class CompanyRegister extends JDialog {
 							CollectionCompany.getInstanceCollectionCompany().setCompanies(temp);
 							error.setText("Su registro fue realizado correctamente");	
 							reiniciar ();
+							
 						}
 
 						else
@@ -486,6 +457,7 @@ public class CompanyRegister extends JDialog {
 		textFieldCity.setText("");
 		textFieldRoad.setText("");	
 		error.setText("");
+		textField.setText("");
 
 		
 	}
@@ -499,4 +471,5 @@ public class CompanyRegister extends JDialog {
 		return b;
 		
 	}
-}	 
+	
+}	

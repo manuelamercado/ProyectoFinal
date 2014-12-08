@@ -1,5 +1,4 @@
-
-	package InterfazGrafica;
+package InterfazGrafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -41,7 +40,7 @@ public class PersonPendingApplication extends JDialog {
 	public PersonPendingApplication() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PersonPendingApplication.class.getResource("/InterfazGrafica/Images/pendientes.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
-		setBounds(10, 50, 836, 748);
+		setBounds(10, 50, 836, 760);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBounds(0, 40, 820, 628);
@@ -56,8 +55,8 @@ public class PersonPendingApplication extends JDialog {
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		table.setBounds(35, 400, 400, 200);
 		tableModel = new DefaultTableModel();
-		String[] columnNames = { "No.", "RNC", "Name", "Area",
-				"No. Solicitudes" };
+		String[] columnNames = { "No.", "RNC", "Nombre", "Apellido",
+				"Área" };
 		tableModel.setColumnIdentifiers(columnNames);
 		loadPerson();
 		
@@ -72,7 +71,7 @@ public class PersonPendingApplication extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 668, 820, 45);
+			buttonPane.setBounds(0, 668, 820, 54);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			
@@ -114,7 +113,7 @@ public class PersonPendingApplication extends JDialog {
 	 fila[1] = Satisfied.getInstanceSatisfied().getPendingPersonApplication(CollectionPersonApplicant.getInstanceCollectionPersonApplicant()).getPersonApplication(i).getPerson().getID(); 
 	 fila[2] = Satisfied.getInstanceSatisfied().getPendingPersonApplication(CollectionPersonApplicant.getInstanceCollectionPersonApplicant()).getPersonApplication(i).getPerson().getName(); 
 	 fila[3] = Satisfied.getInstanceSatisfied().getPendingPersonApplication(CollectionPersonApplicant.getInstanceCollectionPersonApplicant()).getPersonApplication(i).getPerson().getLastName(); 
-	 fila[4] = j;
+	 fila[4] = Satisfied.getInstanceSatisfied().getPendingPersonApplication(CollectionPersonApplicant.getInstanceCollectionPersonApplicant()).getPersonApplication(i).getArea();
 	 tableModel.addRow(fila); 
 	 }
  table.setModel(tableModel);

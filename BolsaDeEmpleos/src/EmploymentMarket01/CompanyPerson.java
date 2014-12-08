@@ -4,12 +4,12 @@ public class CompanyPerson {
 	private Company company;
 	private Person person;
 	private String WorkPosition;
-	private CompanyType Area;
+	private String Area;
 	
 	
 	
 	public CompanyPerson(Company company, Person person, String workPosition,
-			CompanyType area) {
+			String area) {
 		super();
 		this.company = company;
 		this.person = person;
@@ -34,10 +34,10 @@ public class CompanyPerson {
 	public void setWorkPosition(String workPosition) {
 		WorkPosition = workPosition;
 	}
-	public CompanyType getArea() {
+	public String getArea() {
 		return Area;
 	}
-	public void setArea(CompanyType area) {
+	public void setArea(String area) {
 		Area = area;
 	}
 	

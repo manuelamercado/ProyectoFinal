@@ -33,13 +33,18 @@ import javax.swing.JCheckBox;
 import javax.swing.SpinnerNumberModel;
 
 import EmploymentMarket01.CollectionCompany;
+import EmploymentMarket01.CollectionCompanyApplication;
+import EmploymentMarket01.CollectionPersonApplicant;
 import EmploymentMarket01.Company;
 import EmploymentMarket01.CompanyApplication;
+import EmploymentMarket01.CompanyPerson;
 import EmploymentMarket01.CompanyType;
+import EmploymentMarket01.EmploymentMarket;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
@@ -65,6 +70,7 @@ public class CompanyApplicationVisual extends JDialog {
 	private JLabel error;
 	private JTextField textField_7;
 	private JTextField textField_8;
+	private ArrayList<CompanyPerson> EndCP;
 
 	public CompanyApplicationVisual() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyApplicationVisual.class.getResource("/InterfazGrafica/Images/1417568890_new-file.png")));
@@ -141,6 +147,7 @@ public class CompanyApplicationVisual extends JDialog {
 		panel.add(label);
 		
 		textField = new JTextField();
+		textField.setBackground(new Color(248, 248, 255));
 		textField.setEditable(false);
 		textField.setColumns(10);
 		textField.setBounds(152, 24, 212, 20);
@@ -157,6 +164,7 @@ public class CompanyApplicationVisual extends JDialog {
 		panel.add(label_2);
 		
 		textField_1 = new JTextField();
+		textField_1.setBackground(new Color(248, 248, 255));
 		textField_1.setEditable(false);
 		textField_1.setColumns(10);
 		textField_1.setBounds(152, 55, 212, 20);
@@ -173,12 +181,14 @@ public class CompanyApplicationVisual extends JDialog {
 		panel.add(label_4);
 		
 		textField_7 = new JTextField();
+		textField_7.setBackground(new Color(248, 248, 255));
 		textField_7.setEditable(false);
 		textField_7.setColumns(10);
 		textField_7.setBounds(152, 89, 212, 20);
 		panel.add(textField_7);
 		
 		textField_8 = new JTextField();
+		textField_8.setBackground(new Color(248, 248, 255));
 		textField_8.setEditable(false);
 		textField_8.setColumns(10);
 		textField_8.setBounds(152, 120, 212, 20);
@@ -197,17 +207,36 @@ public class CompanyApplicationVisual extends JDialog {
 		panel_2.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
 		JButton button = new JButton("Reiniciar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				reiniciar();
+			}
+		});
 		button.setIcon(new ImageIcon(CompanyApplication.class.getResource("/InterfazGrafica/Images/Back.png")));
 		panel_2.add(button);
 		
 		JButton button_1 = new JButton("Guardar");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			if(compa(formattedTextField.getText())==true){
-				CompanyApplication temp= new CompanyApplication();
-				temp.setRNC(formattedTextField.getText());
-				
-			}
+				if(compa(formattedTextField.getText())==true){
+					CompanyApplication temp= new CompanyApplication();
+					temp.setRNC(formattedTextField.getText());
+					temp.setAcademicLevel(comboBox_2.getSelectedItem().toString());
+					temp.setArea(comboBoxAreas.getSelectedItem().toString());
+					temp.setTitle(comboBox_3.getSelectedItem().toString());
+					temp.setContract(comboBox_4.getSelectedItem().toString());
+					temp.setWorkPosition(textField_2.getText());
+					temp.setDepartment(textField_3.getText());
+					temp.setEmployeeCant(Integer.parseInt(formattedTextField_1.getText()));
+					temp.setContactName(textField_4.getText());
+					temp.setContactMovil(textField_5.getText());
+					temp.setContactPos(textField_6.getText());
+					CollectionCompanyApplication.getInstanceCollectionCompanyApplication().setCompanyApplications(temp);
+					error.setText("Los campos marcados con asteriscos son obligatorios");	
+					reiniciar();
+					//EmploymentMarket.getInstanceEmploymentMarket().compare(temp, CollectionPersonApplicant.getInstanceCollectionPersonApplicant(), EndCP);
+					
+				}
 			}
 		});
 		button_1.setIcon(new ImageIcon(CompanyApplication.class.getResource("/InterfazGrafica/Images/Save.png")));
@@ -247,6 +276,8 @@ public class CompanyApplicationVisual extends JDialog {
 		panel_3.add(label_11);
 		
 		comboBox_3 = new JComboBox();
+		comboBox_3.setEditable(true);
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Abogado", "Agente de Aduanas", "Agente de Prensa", "Alba\u00F1il", "Artesano", "Asesor de Imagen ", "Asesor Financiero", "Auditor", "Bi\u00F3logo", "Bot\u00E1nico", "Cajero", "Cartero ", "Cerrajero ", "Compositor ", "Conductor", "Conserje"}));
 		comboBox_3.setToolTipText("<Selecciona>");
 		comboBox_3.setBackground(new Color(248, 248, 255));
 		comboBox_3.setBounds(150, 90, 212, 20);
@@ -382,6 +413,26 @@ public class CompanyApplicationVisual extends JDialog {
 		error.setBounds(10, 477, 374, 26);
 		contentPane.add(error);
 	}
+
+	public void reiniciar(){
+		formattedTextField.setText("");
+		textField.setText("");
+		comboBox_2.setSelectedItem(CompanyType.Selecciona);
+		textField_1.setText("");
+		textField_7.setText("");
+		textField_8.setText("");
+		textField_2.setText("" );
+		textField_3.setText( "");
+		formattedTextField_1.setText("");
+		textField_4.setText("");
+		comboBoxAreas.setSelectedItem("<Selecciona>");
+		comboBox_3.setSelectedItem("<Selecciona>");
+		comboBox_4.setSelectedItem("<Selecciona>");
+		textField_5.setText("");
+		textField_6.setText("");
+		//textFieldRoad.setText("");
+		error.setText("");
+	}
 	public boolean compa(String a){
 		boolean b= true;
 		String txt= a.replaceAll(" ", "");
@@ -392,4 +443,10 @@ public class CompanyApplicationVisual extends JDialog {
 		return b;
 		
 	}
+	//public compares(CompanyApplication CA){
+		//for(int i=0; i<CollectionPersonApplicant.getInstanceCollectionPersonApplicant().getPersonApplicantions().size(); i++)
+			//if(CA.getArea().equals(CollectionPersonApplicant.getInstanceCollectionPersonApplicant().getPersonApplication(i).getArea()))
+				
+		
+	
 }

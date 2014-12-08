@@ -85,6 +85,17 @@ public class CollectionPerson {
 			}
 		});
 	}
+	
+	public Person getPerson(String ID) {
+				Person temp = null;
+				for (int i = 0; i < Persons.size(); i++) {
+					if ((Persons.get(i).getID().equals(ID))) {
+						temp= Persons.get(i);
+						// setCantPerson(CantPerson-1);
+					}
+				}
+				return temp;
+			}
 
 	public boolean verify(Person P1) {
 		boolean check = true;

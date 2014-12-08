@@ -28,6 +28,7 @@ public class SearchCompany extends JDialog {
 	private SeeCompanies seeCompanies;
 	
 	public SearchCompany() {
+		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SearchPerson.class.getResource("/InterfazGrafica/Images/Search.png")));
 		setTitle("BUSQUEDA");
 		setBounds(100, 100, 450, 210);
@@ -71,14 +72,14 @@ public class SearchCompany extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if(CollectionCompany.getInstanceCollectionCompany().getCantCompany()==0){
-							 lbl_dontFound.setText("No hay personas registradas");
+							 lbl_dontFound.setText("No hay Empresas registradas");
 							 }
 							 for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
 							 if(CollectionCompany.getInstanceCollectionCompany().getCompany(i).getName().equals(textField_name.getText())&&CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC().equals(textField_RNC.getText())||CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC().equals(textField_RNC.getText())){
 							 seeCompanies = new SeeCompanies(CollectionCompany.getInstanceCollectionCompany().getCompany(i));
 							 seeCompanies.setVisible(true);
 							 }else if(i==CollectionCompany.getInstanceCollectionCompany().getCompanies().size()&&i!=0){
-							lbl_dontFound.setText("Este solicitante no ha sido encontrado");
+							lbl_dontFound.setText("Esta Empresa no ha sido encontrada");
 							}
 					}
 				});

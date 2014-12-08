@@ -39,7 +39,7 @@ public class SeeSatisfiedCompany extends JDialog {
 	public SeeSatisfiedCompany() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SeeSatisfiedCompany.class.getResource("/InterfazGrafica/Images/cheking.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
-		setBounds(10, 50, 836, 739);
+		setBounds(10, 50, 836, 756);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBounds(0, 40, 820, 628);
@@ -55,7 +55,7 @@ public class SeeSatisfiedCompany extends JDialog {
 		table.setBounds(35, 400, 400, 200);
 		tableModel = new DefaultTableModel();
 		String[] columnNames = { "No.", "RNC", "Name", "Area",
-				"No. Solicitudes" };
+				"Teléfono" };
 		tableModel.setColumnIdentifiers(columnNames);
 		loadPerson();
 		
@@ -70,7 +70,7 @@ public class SeeSatisfiedCompany extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 668, 820, 33);
+			buttonPane.setBounds(0, 668, 820, 54);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			
@@ -112,7 +112,7 @@ public class SeeSatisfiedCompany extends JDialog {
 	 fila[1] = Satisfied.getInstanceSatisfied().getCompanySatisfied().getCompany(i).getRNC(); 
 	 fila[2] = Satisfied.getInstanceSatisfied().getCompanySatisfied().getCompany(i).getName(); 
 	 fila[3] = Satisfied.getInstanceSatisfied().getCompanySatisfied().getCompany(i).getArea(); 
-	 fila[4] = j;
+	 fila[4] = Satisfied.getInstanceSatisfied().getCompanySatisfied().getCompany(i).getPhone();
 	 tableModel.addRow(fila); 
 	 }
  table.setModel(tableModel);
@@ -122,7 +122,7 @@ public class SeeSatisfiedCompany extends JDialog {
  		columnModel.getColumn(0).setPreferredWidth(70);
 		columnModel.getColumn(1).setPreferredWidth(160);
 		columnModel.getColumn(2).setPreferredWidth(240);
-		columnModel.getColumn(3).setPreferredWidth(240);
-		columnModel.getColumn(4).setPreferredWidth(110);
+		columnModel.getColumn(3).setPreferredWidth(170);
+		columnModel.getColumn(4).setPreferredWidth(180);
 	}	
 }

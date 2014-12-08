@@ -40,7 +40,7 @@ public class CompanyPendingApplication extends JDialog {
 	public CompanyPendingApplication() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyPendingApplication.class.getResource("/InterfazGrafica/Images/pendientes.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
-		setBounds(10, 50, 836, 739);
+		setBounds(10, 50, 836, 758);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBounds(0, 40, 820, 628);
@@ -72,7 +72,7 @@ public class CompanyPendingApplication extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 668, 820, 33);
+			buttonPane.setBounds(0, 668, 820, 52);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			
@@ -118,7 +118,7 @@ public class CompanyPendingApplication extends JDialog {
 	 fila[1] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication(CollectionCompanyApplication.getInstanceCollectionCompanyApplication()).getCompanyApplication(i).getCompany().getRNC(); 
 	 fila[2] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication(CollectionCompanyApplication.getInstanceCollectionCompanyApplication()).getCompanyApplication(i).getCompany().getName(); 
 	 fila[3] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication(CollectionCompanyApplication.getInstanceCollectionCompanyApplication()).getCompanyApplication(i).getCompany().getArea(); 
-	 fila[4] = j;
+	 fila[4] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication(CollectionCompanyApplication.getInstanceCollectionCompanyApplication()).getCompanyApplication(i).getEmployeeCant();
 	 tableModel.addRow(fila); 
 	 }
  table.setModel(tableModel);
@@ -128,7 +128,7 @@ public class CompanyPendingApplication extends JDialog {
  		columnModel.getColumn(0).setPreferredWidth(70);
 		columnModel.getColumn(1).setPreferredWidth(160);
 		columnModel.getColumn(2).setPreferredWidth(240);
-		columnModel.getColumn(3).setPreferredWidth(240);
-		columnModel.getColumn(4).setPreferredWidth(110);
+		columnModel.getColumn(3).setPreferredWidth(120);
+		columnModel.getColumn(4).setPreferredWidth(240);
 	}	
 }

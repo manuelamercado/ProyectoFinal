@@ -39,7 +39,7 @@ public class SeeSatisfiedPerson extends JDialog {
 	public SeeSatisfiedPerson() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SeeSatisfiedPerson.class.getResource("/InterfazGrafica/Images/cheking.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
-		setBounds(10, 50, 836, 739);
+		setBounds(10, 50, 836, 755);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBounds(0, 40, 820, 628);
@@ -70,7 +70,7 @@ public class SeeSatisfiedPerson extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 668, 820, 33);
+			buttonPane.setBounds(0, 668, 820, 49);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			

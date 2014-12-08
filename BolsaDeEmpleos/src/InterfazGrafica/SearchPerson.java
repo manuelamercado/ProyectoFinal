@@ -24,6 +24,7 @@ public class SearchPerson extends JDialog {
 	private PersonHistory personHistory;
 	
 	public SearchPerson() {
+		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SearchPerson.class.getResource("/InterfazGrafica/Images/Search.png")));
 		setTitle("BUSQUEDA");
 		setBounds(100, 100, 450, 210);

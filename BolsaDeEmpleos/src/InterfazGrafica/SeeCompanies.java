@@ -91,10 +91,6 @@ public class SeeCompanies extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 			
-			JButton btnModificar = new JButton("Modificar");
-			btnModificar.setIcon(new ImageIcon(SeeCompanies.class.getResource("/InterfazGrafica/Images/Modify32.png")));
-			buttonPane.add(btnModificar);
-			
 			JButton btnCancelar = new JButton("Cancelar");
 			btnCancelar.setIcon(new ImageIcon(SeeCompanies.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 			buttonPane.add(btnCancelar);

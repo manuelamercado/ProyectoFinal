@@ -134,34 +134,34 @@ public class Help extends JDialog {
 				panel.add(lblPermiteRegistrarNuevos);
 			}
 			{
-				JLabel lblSistemaYaSea = new JLabel("sistema, ya sea un nuevo cliente \u00F3 una ");
+				JLabel lblSistemaYaSea = new JLabel("sistema, sea un nuevo cliente \u00F3 una ");
 				lblSistemaYaSea.setFont(lblSistemaYaSea.getFont().deriveFont(lblSistemaYaSea.getFont().getStyle() & ~Font.BOLD));
 				lblSistemaYaSea.setBounds(10, 77, 231, 14);
 				panel.add(lblSistemaYaSea);
 			}
 			{
-				JLabel lblNuevaSolicitudDe = new JLabel("nueva solicitud de empleo o de personal");
+				JLabel lblNuevaSolicitudDe = new JLabel("nueva solicitud de empleo o personal.");
 				lblNuevaSolicitudDe.setFont(lblNuevaSolicitudDe.getFont().deriveFont(lblNuevaSolicitudDe.getFont().getStyle() & ~Font.BOLD));
 				lblNuevaSolicitudDe.setBounds(10, 93, 231, 14);
 				panel.add(lblNuevaSolicitudDe);
 			}
 			{
-				JLabel lblSolicitante = new JLabel("   Solicitante");
-				lblSolicitante.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Profile32.png")));
-				lblSolicitante.setBounds(10, 118, 172, 32);
+				JLabel lblSolicitante = new JLabel("Solicitante");
+				lblSolicitante.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Profile.png")));
+				lblSolicitante.setBounds(10, 134, 172, 49);
 				panel.add(lblSolicitante);
 			}
 			{
-				JLabel lblEmpresa = new JLabel("   Empresa");
-				lblEmpresa.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Company32.png")));
-				lblEmpresa.setBounds(10, 161, 172, 32);
+				JLabel lblEmpresa = new JLabel("Empresa");
+				lblEmpresa.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/1416396195_Company.png")));
+				lblEmpresa.setBounds(10, 194, 172, 48);
 				panel.add(lblEmpresa);
 			}
 			{
 				JLabel lblSolicitudes = new JLabel("Solicitudes");
 				lblSolicitudes.setVerticalAlignment(SwingConstants.TOP);
 				lblSolicitudes.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Info.png")));
-				lblSolicitudes.setBounds(0, 204, 182, 48);
+				lblSolicitudes.setBounds(10, 253, 182, 48);
 				panel.add(lblSolicitudes);
 			}
 		}
@@ -180,46 +180,139 @@ public class Help extends JDialog {
 				panel.add(label);
 			}
 			{
-				JLabel label = new JLabel("Permite acceder directamente a las ");
-				label.setFont(label.getFont().deriveFont(label.getFont().getStyle() & ~Font.BOLD));
-				label.setBounds(10, 59, 231, 14);
+				JLabel lblPermiteAccederA = new JLabel("Permite acceder a todos los archivos");
+				lblPermiteAccederA.setFont(lblPermiteAccederA.getFont().deriveFont(lblPermiteAccederA.getFont().getStyle() & ~Font.BOLD));
+				lblPermiteAccederA.setBounds(10, 59, 231, 14);
+				panel.add(lblPermiteAccederA);
+			}
+			{
+				JLabel lblArchivosGuardadosDentro = new JLabel("donde se encuentran los datos de los ");
+				lblArchivosGuardadosDentro.setFont(lblArchivosGuardadosDentro.getFont().deriveFont(lblArchivosGuardadosDentro.getFont().getStyle() & ~Font.BOLD));
+				lblArchivosGuardadosDentro.setBounds(10, 77, 231, 14);
+				panel.add(lblArchivosGuardadosDentro);
+			}
+			{
+				JLabel lblClientesRegistrados = new JLabel("clientes registrados en el sistema.");
+				lblClientesRegistrados.setFont(lblClientesRegistrados.getFont().deriveFont(lblClientesRegistrados.getFont().getStyle() & ~Font.BOLD));
+				lblClientesRegistrados.setBounds(10, 93, 231, 14);
+				panel.add(lblClientesRegistrados);
+			}
+			{
+				JLabel lblreasDisponibles = new JLabel("\u00C1reas Disponibles");
+				lblreasDisponibles.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/areas.png")));
+				lblreasDisponibles.setBounds(10, 134, 172, 43);
+				panel.add(lblreasDisponibles);
+			}
+			{
+				JLabel lblRegistros = new JLabel("Registros ");
+				lblRegistros.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Modify.png")));
+				lblRegistros.setBounds(10, 194, 172, 48);
+				panel.add(lblRegistros);
+			}
+			{
+				JLabel lblSolicitudes_1 = new JLabel("Solicitudes");
+				lblSolicitudes_1.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Info.png")));
+				lblSolicitudes_1.setBounds(10, 253, 172, 48);
+				panel.add(lblSolicitudes_1);
+			}
+		}
+		{
+			JPanel panel = new JPanel();
+			panel.setLayout(null);
+			panel.setForeground(Color.BLACK);
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "                 Reportes", TitledBorder.LEFT, TitledBorder.ABOVE_TOP, null, null));
+			panel.setBackground(new Color(248, 248, 255));
+			panel.setBounds(164, 360, 227, 279);
+			contentPanel.add(panel);
+			{
+				JLabel label = new JLabel("");
+				label.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Bar Chart.png")));
+				label.setBounds(10, 0, 46, 48);
 				panel.add(label);
 			}
 			{
-				JLabel label = new JLabel("principales herramientas b\u00E1sicas del ");
-				label.setFont(label.getFont().deriveFont(label.getFont().getStyle() & ~Font.BOLD));
-				label.setBounds(10, 77, 231, 14);
+				JLabel lblPermiteVisualizarLa = new JLabel("Permite llevar estadisticas del Sistema ");
+				lblPermiteVisualizarLa.setFont(lblPermiteVisualizarLa.getFont().deriveFont(lblPermiteVisualizarLa.getFont().getStyle() & ~Font.BOLD));
+				lblPermiteVisualizarLa.setBounds(10, 59, 231, 14);
+				panel.add(lblPermiteVisualizarLa);
+			}
+			{
+				JLabel lblRegistradosYSus = new JLabel("y visualizar los listados de solicitudes");
+				lblRegistradosYSus.setFont(lblRegistradosYSus.getFont().deriveFont(lblRegistradosYSus.getFont().getStyle() & ~Font.BOLD));
+				lblRegistradosYSus.setBounds(10, 77, 231, 14);
+				panel.add(lblRegistradosYSus);
+			}
+			{
+				JLabel lblSolicitudesRegistradas = new JLabel("pendientes y satisfechas.");
+				lblSolicitudesRegistradas.setFont(lblSolicitudesRegistradas.getFont().deriveFont(lblSolicitudesRegistradas.getFont().getStyle() & ~Font.BOLD));
+				lblSolicitudesRegistradas.setBounds(10, 93, 231, 14);
+				panel.add(lblSolicitudesRegistradas);
+			}
+			{
+				JLabel lblSolicitudesPendientes = new JLabel("Solicitudes Pendientes");
+				lblSolicitudesPendientes.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/pendientes.png")));
+				lblSolicitudesPendientes.setBounds(10, 138, 207, 43);
+				panel.add(lblSolicitudesPendientes);
+			}
+			{
+				JLabel lblSolicitudesSatisfechas = new JLabel("Solicitudes Satisfechas");
+				lblSolicitudesSatisfechas.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/cheking.png")));
+				lblSolicitudesSatisfechas.setBounds(10, 205, 207, 48);
+				panel.add(lblSolicitudesSatisfechas);
+			}
+			{
+				JLabel label = new JLabel("Solicitudes");
+				label.setBounds(10, 264, 172, 48);
+				panel.add(label);
+			}
+		}
+		{
+			JPanel panel = new JPanel();
+			panel.setLayout(null);
+			panel.setForeground(Color.BLACK);
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "                 Consultar", TitledBorder.LEFT, TitledBorder.ABOVE_TOP, null, null));
+			panel.setBackground(new Color(248, 248, 255));
+			panel.setBounds(436, 360, 227, 279);
+			contentPanel.add(panel);
+			{
+				JLabel label = new JLabel("");
+				label.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Search48.png")));
+				label.setBounds(10, 0, 46, 48);
 				panel.add(label);
 			}
 			{
-				JLabel label = new JLabel("sistema mencionadas a continuaci\u00F3n:");
-				label.setFont(label.getFont().deriveFont(label.getFont().getStyle() & ~Font.BOLD));
-				label.setBounds(10, 93, 231, 14);
-				panel.add(label);
+				JLabel lblPermiteAccederA_1 = new JLabel("Permite consultar todos los registros");
+				lblPermiteAccederA_1.setFont(lblPermiteAccederA_1.getFont().deriveFont(lblPermiteAccederA_1.getFont().getStyle() & ~Font.BOLD));
+				lblPermiteAccederA_1.setBounds(10, 59, 231, 14);
+				panel.add(lblPermiteAccederA_1);
 			}
 			{
-				JLabel label = new JLabel("Nuevo Cliente ");
-				label.setBounds(10, 118, 172, 32);
-				panel.add(label);
+				JLabel lblYAccederDirectamente = new JLabel("y acceder directamente a un cliente");
+				lblYAccederDirectamente.setFont(lblYAccederDirectamente.getFont().deriveFont(lblYAccederDirectamente.getFont().getStyle() & ~Font.BOLD));
+				lblYAccederDirectamente.setBounds(10, 77, 231, 14);
+				panel.add(lblYAccederDirectamente);
 			}
 			{
-				JLabel label = new JLabel("Nueva Solicitud");
-				label.setBounds(10, 161, 172, 32);
-				panel.add(label);
+				JLabel lblPorMedioDe = new JLabel("por medio de su ID o RNC.");
+				lblPorMedioDe.setFont(lblPorMedioDe.getFont().deriveFont(lblPorMedioDe.getFont().getStyle() & ~Font.BOLD));
+				lblPorMedioDe.setBounds(10, 93, 231, 14);
+				panel.add(lblPorMedioDe);
 			}
 			{
-				JLabel label = new JLabel("Buscar");
-				label.setBounds(10, 204, 172, 32);
-				panel.add(label);
+				JLabel lblEmpresa_1 = new JLabel("Empresa");
+				lblEmpresa_1.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/1416396195_Company.png")));
+				lblEmpresa_1.setBounds(10, 130, 172, 56);
+				panel.add(lblEmpresa_1);
 			}
 			{
-				JLabel label = new JLabel("Ayuda");
-				label.setBounds(10, 247, 172, 32);
-				panel.add(label);
+				JLabel lblSolicitante_1 = new JLabel("Solicitante");
+				lblSolicitante_1.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Profile.png")));
+				lblSolicitante_1.setBounds(10, 205, 172, 48);
+				panel.add(lblSolicitante_1);
 			}
 			{
-				JLabel label = new JLabel("Cerrar");
-				label.setBounds(10, 290, 172, 32);
+				JLabel label = new JLabel("Solicitudes");
+				label.setBounds(10, 264, 172, 48);
 				panel.add(label);
 			}
 		}

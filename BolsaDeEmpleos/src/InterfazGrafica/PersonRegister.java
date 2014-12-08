@@ -69,8 +69,8 @@ public class PersonRegister extends JDialog {
 	private JComboBox<String> comboBox_1_3;
 	private final JComboBox<String> comboBoxGrado;
 	private final JComboBox<String> comboBoxPostGrado;
-	private JComboBox<String> comboBox_4;
-	private JComboBox<String> comboBox_5;
+	private JComboBox<String> comboBox_Certificaciones;
+	private JComboBox<String> comboBoxEspecialidades;
 	private JComboBox<String> comboBox_5_1;
 	private JComboBox<String> comboBoxEstudiosTecnicos;
 	private JComboBox<String> comboBox_6_1;
@@ -83,7 +83,7 @@ public class PersonRegister extends JDialog {
 	private JComboBox<String> comboBox_8;
 	private JComboBox<String> comboBox_9;
 	private JComboBox<String> comboBox_10;
-	private JComboBox<String> comboBox_11;
+	private JComboBox<String> comboBoxNivelAlcanzado;
 	private JLabel error;
 	private JDateChooser dateChooser;
 	private JFormattedTextField formattedTextFieldID;
@@ -111,6 +111,88 @@ public class PersonRegister extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
+		
+		panel_5Oficio = new JPanel();
+		panel_5Oficio.setBackground(new Color(248, 248, 255));
+		panel_5Oficio.setBounds(450,242,357,174);
+		contentPanel.add(panel_5Oficio);
+		panel_5Oficio.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
+				"Estudios de Oficio:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		panel_5Oficio.setVisible(false);
+		panel_5Oficio.setLayout(null);
+		{
+			JLabel lblCertificados = new JLabel("Certificados:");
+			lblCertificados.setHorizontalAlignment(SwingConstants.TRAILING);
+			lblCertificados.setBounds(10, 25, 107, 14);
+			panel_5Oficio.add(lblCertificados);
+			}
+		{
+			comboBox_8 = new JComboBox();
+			comboBox_8.setBackground(new Color(248, 248, 255));
+			comboBox_8.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gesti\u00F3n de recursos humanos",
+					"Topograf\u00EDa y geom\u00E1tica para desarrollo inmobiliario", 
+					"El ambiente de los locales: Creaci\u00F3n y ambientes que componen estilos", 
+					"An\u00E1lisis estad\u00EDstico b\u00E1sico", "Artes culinarias", "Auditor\u00EDa financiera", 
+					"Biblioteca y ciencias de la informaci\u00F3n", "Chocolate y confiter\u00EDa", 
+					"Configuraci\u00F3n e implantaci\u00F3n de Windows Server 2008", "La contabilidad financiera", 
+					"Direcci\u00F3n y gesti\u00F3n empresarial", "Dise\u00F1o y desarrollo de modelos de negocio", 
+					"Estrategia financiera: La optimizaci\u00F3n de los recursos y la proyecci\u00F3n de inversiones",
+					"Gesti\u00F3n administrativa para asistentes ejecutivos", 
+					"La gesti\u00F3n de riesgos de seguridad de la informaci\u00F3n", 
+					"La gesti\u00F3n estrat\u00E9gica de las empresas familiares", 
+					"Gesti\u00F3n Integrada de Proyectos (DIGIP) en el sector inmobiliario y de la construcci\u00F3n"
+					+ " en la RD", "Gesti\u00F3n y direcci\u00F3n estrat\u00E9gica del capital humano", 
+					"Impuestos Corporativos: Nuevas tendencias y reglamentos tributarios", "Inteligencia Empresarial", 
+					"Ingl\u00E9s intermedio", "Medici\u00F3n, redise\u00F1o y mejoras de procesos", 
+					"Gesti\u00F3n de la cadena de suministro", 
+					"Las t\u00E9cnicas de auditor\u00EDa asistida por computadora (TAAC'S)", "Ninguna"}));
+			comboBox_8.setBounds(127, 22, 219, 20);
+			panel_5Oficio.add(comboBox_8);
+			}
+		{
+			JLabel lblCursosEspecializados = new JLabel("Cursos:");
+			lblCursosEspecializados.setHorizontalAlignment(SwingConstants.TRAILING);
+			lblCursosEspecializados.setBounds(10, 46, 107, 22);
+			panel_5Oficio.add(lblCursosEspecializados);
+			}
+		{
+			comboBox_9 = new JComboBox();
+			comboBox_9.setBackground(new Color(248, 248, 255));
+			comboBox_9.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Conocer el mercado de valores DR",
+					"Control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", 
+					"La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", 
+					"T\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, "
+					+ "la realizaci\u00F3n y presentaci\u00F3n"}));
+			comboBox_9.setBounds(127, 47, 219, 20);
+			panel_5Oficio.add(comboBox_9);
+			}
+		{
+			JLabel lblTrabajo = new JLabel("\u00C1reas de trabajo:");
+			lblTrabajo.setHorizontalAlignment(SwingConstants.TRAILING);
+			lblTrabajo.setBounds(10, 72, 107, 22);
+			panel_5Oficio.add(lblTrabajo);
+			}
+		{
+			comboBox_10 = new JComboBox();
+			comboBox_10.setBackground(new Color(248, 248, 255));
+			comboBox_10.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "contador", "actor / Actriz", 
+					"azafata", "arque\u00F3logo", "astronauta", "panadero", "bi\u00F3logo", "alba\u00F1il", 
+					"conductor de autob\u00FAs", "hombre de negocios", "mujer de negocios", "carnicero", "vigilante", 
+					"carpintero", "cajero", "limpiador", "payaso", "zapatero", "consultor", "cocinero", "consejero", 
+					"cocinero", "qu\u00EDmico", "bailar\u00EDn", "decorador", "dentista", "dise\u00F1ador", "modista", 
+					"basurero", "economista", "electricista", "agricultor", "bombero", "pescador", "florista", "frutero",
+					"basurero", "jardinero", "peluquero", "ama de casa", "cazador", "Joyero", "juez", "abogado", 
+					"bibliotecario", "salvavidas", "camionero", "cartero", "mec\u00E1nico", "meteor\u00F3logo", "minero",
+					"modelo", "monje", "ni\u00F1era", "monja", "enfermera", "ni\u00F1era", "empleado de oficina", 
+					"pintor","pastelero", "farmac\u00E9utico", "fot\u00F3grafo", "f\u00EDsico", "fontanero",
+					"polic\u00EDa", "pol\u00EDtico", "portero", "cartero", "sacerdote", "profesor", "programador",
+					"psiquiatra", "psic\u00F3logo", "recepcionista", "investigador", "marinero", "vendedor", 
+					"cient\u00EDfico", "secretario", "secretario", "zapatero", "dependiente", "cantante",
+					"asistente social", "cirujano", "taxista", "profesor", "operador telef\u00F3nico", "agente de viaje",
+					"camionero", "veterinario", "camarero", "camarera", "limpiador de ventanas", "escritor"}));
+			comboBox_10.setBounds(127, 73, 219, 20);
+			panel_5Oficio.add(comboBox_10);
+			}
 																																																																																																																																																																																													
 		panelUniversityStudy = new JPanel();
 		panelUniversityStudy.setBackground(new Color(248, 248, 255));
@@ -127,20 +209,21 @@ public class PersonRegister extends JDialog {
 			panelUniversityStudy.setVisible(true);
 			}
 																																																																																																																																																																																															
-			comboBox_11 = new JComboBox();							
-			comboBox_11.setBounds(127, 23, 219, 20);
-			panelUniversityStudy.add(comboBox_11);
-			comboBox_11.addItemListener(new ItemListener() {
+			comboBoxNivelAlcanzado = new JComboBox();							
+			comboBoxNivelAlcanzado.setBackground(new Color(248, 248, 255));
+			comboBoxNivelAlcanzado.setBounds(127, 23, 219, 20);
+			panelUniversityStudy.add(comboBoxNivelAlcanzado);
+			comboBoxNivelAlcanzado.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
-				if ((comboBox_11.getSelectedItem()=="Grado")) {
+				if ((comboBoxNivelAlcanzado.getSelectedItem()=="Grado")) {
 					comboBoxGrado.setEnabled(true);
 					comboBoxPostGrado.setEnabled(false);
 					comboBoxDoctorado.setEnabled(false);
-				} else if ((comboBox_11.getSelectedItem()=="PostGrado")) {
+				} else if ((comboBoxNivelAlcanzado.getSelectedItem()=="PostGrado")) {
 					comboBoxGrado.setEnabled(true);
 					comboBoxPostGrado.setEnabled(true);
 					comboBoxDoctorado.setEnabled(false);
-					} else if ((comboBox_11.getSelectedItem()=="Doctorado")) {
+					} else if ((comboBoxNivelAlcanzado.getSelectedItem()=="Doctorado")) {
 						comboBoxGrado.setEnabled(true);
 						comboBoxPostGrado.setEnabled(true);
 						comboBoxDoctorado.setEnabled(true);
@@ -148,7 +231,7 @@ public class PersonRegister extends JDialog {
 				}
 			
 			});
-			comboBox_11.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Grado", "PostGrado", "Doctorado"}));
+			comboBoxNivelAlcanzado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Grado", "PostGrado", "Doctorado"}));
 			
 			JLabel lblPostgrade = new JLabel("Post-grado:");
 			lblPostgrade.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -162,27 +245,11 @@ public class PersonRegister extends JDialog {
 				panelUniversityStudy.add(lblCertified);
 				}
 			{
-				comboBox_4 = new JComboBox();
-				comboBox_4.setBackground(new Color(248, 248, 255));
-				comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gesti\u00F3n de recursos humanos",
-						"Topograf\u00EDa y geom\u00E1tica para desarrollo inmobiliario", 
-						"El ambiente de los locales: Creaci\u00F3n y ambientes que componen estilos", 
-						"An\u00E1lisis estad\u00EDstico b\u00E1sico", "Artes culinarias", "Auditor\u00EDa financiera", 
-						"Biblioteca y ciencias de la informaci\u00F3n", "Chocolate y confiter\u00EDa", 
-						"Configuraci\u00F3n e implantaci\u00F3n de Windows Server 2008", "La contabilidad financiera", 
-						"Direcci\u00F3n y gesti\u00F3n empresarial", "Dise\u00F1o y desarrollo de modelos de negocio", 
-						"Estrategia financiera: La optimizaci\u00F3n de los recursos y la proyecci\u00F3n de inversiones", 
-						"Gesti\u00F3n administrativa para asistentes ejecutivos",
-						"La gesti\u00F3n de riesgos de seguridad de la informaci\u00F3n", 
-						"La gesti\u00F3n estrat\u00E9gica de las empresas familiares", 
-						"Gesti\u00F3n Integrada de Proyectos (DIGIP) en el sector inmobiliario y de la construcci\u00F3n "
-						+ "en la RD", "Gesti\u00F3n y direcci\u00F3n estrat\u00E9gica del capital humano", 
-						"Impuestos Corporativos: Nuevas tendencias y reglamentos tributarios", "Inteligencia Empresarial", 
-						"Ingl\u00E9s intermedio", "Medici\u00F3n, redise\u00F1o y mejoras de procesos",
-						"Gesti\u00F3n de la cadena de suministro",
-						"Las t\u00E9cnicas de auditor\u00EDa asistida por computadora (TAAC'S)", "Ninguna"}));
-				comboBox_4.setBounds(127, 113, 219, 20);
-				panelUniversityStudy.add(comboBox_4);
+				comboBox_Certificaciones = new JComboBox();
+				comboBox_Certificaciones.setBackground(new Color(248, 248, 255));
+				comboBox_Certificaciones.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gestión de recursos humanos", "Topografía y Geomática ", "Creación y Ambiente ", "Análisis Estadístico Básico", "Artes Culinarias", "Auditoría financiera", "Biblioteca y Ciencias ", "Chocolate y Confitería", " Windows Server 2008", "La contabilidad financiera", "Dirección y gestión empresarial", "Diseño de modelos de negocio", "Optimización de recursos ", "Proyección de inversiones", "Gestión administrativa ", "Gestión de riesgos ", "Seguridad de la información", "Gestión estratégica de  empresas ", "Gestión Integrada de Proyectos ", "Gestión estratégica del C.H", "Impuestos Corporativos", "Inteligencia Empresarial", "Inglés intermedio", "Medición y mejoras de procesos", "Gestión  cadena de suministro", "Técnicas de auditoría "}));
+				comboBox_Certificaciones.setBounds(127, 113, 219, 20);
+				panelUniversityStudy.add(comboBox_Certificaciones);
 				}
 			{
 				JLabel lblSpecializedCourses = new JLabel(
@@ -193,16 +260,11 @@ public class PersonRegister extends JDialog {
 				panelUniversityStudy.add(lblSpecializedCourses);
 				}
 			{
-				comboBox_5 = new JComboBox();
-				comboBox_5.setBackground(new Color(248, 248, 255));
-				comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", 
-						"Conocer el mercado de valores DR", 
-						"El control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", 
-						"La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", 
-						"Las t\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, "
-						+ "la realizaci\u00F3n y presentaci\u00F3n'S)"}));
-				comboBox_5.setBounds(127, 143, 219, 20);
-				panelUniversityStudy.add(comboBox_5);
+				comboBoxEspecialidades = new JComboBox();
+				comboBoxEspecialidades.setBackground(new Color(248, 248, 255));
+				comboBoxEspecialidades.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Mercado de valores R.D", "Control de Costos ", "Operaciones de alimentos y bebidas", "Red esencial de TI", "Gestión eficaz de redes sociales", "Pronóstico de Ventas", "Técnicas de preparación de la carne"}));
+				comboBoxEspecialidades.setBounds(127, 143, 219, 20);
+				panelUniversityStudy.add(comboBoxEspecialidades);
 				}
 			{
 				JLabel lblTechnicalCollege = new JLabel("Estudios T\u00E9cnicos:");
@@ -213,10 +275,7 @@ public class PersonRegister extends JDialog {
 			{
 				comboBoxEstudiosTecnicos = new JComboBox();
 				comboBoxEstudiosTecnicos.setBackground(new Color(248, 248, 255));
-				comboBoxEstudiosTecnicos.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>",
-						"Peque\u00F1as y medianas empresas", "Publicidad", "Aspectos de mercado", 
-						"Dise\u00F1o gr\u00E1fico", "Programaci\u00F3n de sistemas de informaci\u00F3n",
-						"Contabilidad computarizada", "Contabilidad financiera y fiscal"}));
+				comboBoxEstudiosTecnicos.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Pequeñas y medianas empresas", "Publicidad", "Aspectos de mercado", "Diseño gráfico", " Sistemas de información", "Contabilidad computarizada", "Contabilidad financiera y fiscal"}));
 				comboBoxEstudiosTecnicos.setBounds(127, 173, 219, 20);
 				panelUniversityStudy.add(comboBoxEstudiosTecnicos);
 				}
@@ -242,18 +301,7 @@ public class PersonRegister extends JDialog {
 				comboBoxPostGrado.setBounds(127, 81, 219, 20);
 				panelUniversityStudy.add(comboBoxPostGrado);
 				comboBoxPostGrado.setBackground(new Color(248, 248, 255));
-				comboBoxPostGrado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", 
-						"Master Ejecutivo en Recursos Humanos Estrat\u00E9gicos", "Master en Gesti\u00F3n Estrat\u00E9gica", 
-						"MBA en Programas de Seguros", "Maestr\u00EDa en Regulaci\u00F3n Econ\u00F3mica", 
-						"Maestr\u00EDa en Derecho del Trabajo y de la Seguridad Social", "MSc en Bienes Ra\u00EDces", 
-						"Maestr\u00EDa en Tecnolog\u00EDas de la Propiedad Intelectual y Nuevas", 
-						"Master en Derecho de Negocios Corporativo", "Maestr\u00EDa en Relaciones Internacionales", 
-						"Maestr\u00EDa en Pol\u00EDticas P\u00FAblicas", "Maestr\u00EDa en Econom\u00EDa de la Empresa",
-						"Master Ejecutivo en Gesti\u00F3n de la Cadena de Suministro",
-						"Master en Dise\u00F1o Arquitectural concentraci\u00F3n Arquitectura Interior", 
-						"Master en Dise\u00F1o Arquitectural menci\u00F3n Arquitectura Alojamientos Tur\u00EDsticos", 
-						"Especializaci\u00F3n en Matem\u00E1ticas Aplicadas en la Educaci\u00F3n", 
-						"Especializaci\u00F3n en Educaci\u00F3n Matem\u00E1tica Nivel B\u00E1sico"}));
+				comboBoxPostGrado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "M. en Recursos Humanos ", "M. en Gestión Estratégica", "MBA en Programas de Seguros", "M. en Regulación Económica", "M. en Derecho del Trabajo y SS", "MSC en Bienes Raíces", "M. Tec. de la Propiedad Intelectual ", "M. en Derecho de Negocios ", "M. en Relaciones Internacionales", "M.  en Políticas Públicas", "M. en Economía de la Empresa", "M. E. G de la Cadena de Suministro", "M. en Diseño Arquitectural ", "E.  Matemáticas Aplicadas", "E. Matemática Nivel Básico"}));
 				}
 
 			{
@@ -261,94 +309,7 @@ public class PersonRegister extends JDialog {
 				comboBoxDoctorado.setBounds(127, 203, 219, 20);
 				panelUniversityStudy.add(comboBoxDoctorado);
 				comboBoxDoctorado.setBackground(new Color(248, 248, 255));
-				comboBoxDoctorado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", 
-						"Derecho Constitucional y Derechos Fundamentales", "Sociedad Democr\u00E1tica, Estado y Derecho", 
-						"Educaci\u00F3n (y / o en el liderazgo o en Ciencias pedag\u00F3gicas)", "Ciencias Empresariales", 
-						"Cooperaci\u00F3n e Intervenci\u00F3n Social",
-						"Psicolog\u00EDa de la Educaci\u00F3n y Desarrollo Humano", "Econom\u00EDa", "Sociolog\u00EDa",
-						"Filosof\u00EDa para un mundo global"}));
-				}
-			
-			panel_5Oficio = new JPanel();
-			panel_5Oficio.setBackground(new Color(248, 248, 255));
-			panel_5Oficio.setBounds(450,242,357,174);
-			contentPanel.add(panel_5Oficio);
-			panel_5Oficio.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
-					"Estudios de Oficio:", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-			panel_5Oficio.setVisible(false);
-			panel_5Oficio.setLayout(null);
-			{
-				JLabel lblCertificados = new JLabel("Certificados:");
-				lblCertificados.setHorizontalAlignment(SwingConstants.TRAILING);
-				lblCertificados.setBounds(10, 25, 107, 14);
-				panel_5Oficio.add(lblCertificados);
-				}
-			{
-				comboBox_8 = new JComboBox();
-				comboBox_8.setBackground(new Color(248, 248, 255));
-				comboBox_8.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Gesti\u00F3n de recursos humanos",
-						"Topograf\u00EDa y geom\u00E1tica para desarrollo inmobiliario", 
-						"El ambiente de los locales: Creaci\u00F3n y ambientes que componen estilos", 
-						"An\u00E1lisis estad\u00EDstico b\u00E1sico", "Artes culinarias", "Auditor\u00EDa financiera", 
-						"Biblioteca y ciencias de la informaci\u00F3n", "Chocolate y confiter\u00EDa", 
-						"Configuraci\u00F3n e implantaci\u00F3n de Windows Server 2008", "La contabilidad financiera", 
-						"Direcci\u00F3n y gesti\u00F3n empresarial", "Dise\u00F1o y desarrollo de modelos de negocio", 
-						"Estrategia financiera: La optimizaci\u00F3n de los recursos y la proyecci\u00F3n de inversiones",
-						"Gesti\u00F3n administrativa para asistentes ejecutivos", 
-						"La gesti\u00F3n de riesgos de seguridad de la informaci\u00F3n", 
-						"La gesti\u00F3n estrat\u00E9gica de las empresas familiares", 
-						"Gesti\u00F3n Integrada de Proyectos (DIGIP) en el sector inmobiliario y de la construcci\u00F3n"
-						+ " en la RD", "Gesti\u00F3n y direcci\u00F3n estrat\u00E9gica del capital humano", 
-						"Impuestos Corporativos: Nuevas tendencias y reglamentos tributarios", "Inteligencia Empresarial", 
-						"Ingl\u00E9s intermedio", "Medici\u00F3n, redise\u00F1o y mejoras de procesos", 
-						"Gesti\u00F3n de la cadena de suministro", 
-						"Las t\u00E9cnicas de auditor\u00EDa asistida por computadora (TAAC'S)", "Ninguna"}));
-				comboBox_8.setBounds(127, 22, 219, 20);
-				panel_5Oficio.add(comboBox_8);
-				}
-			{
-				JLabel lblCursosEspecializados = new JLabel("Cursos:");
-				lblCursosEspecializados.setHorizontalAlignment(SwingConstants.TRAILING);
-				lblCursosEspecializados.setBounds(10, 46, 107, 22);
-				panel_5Oficio.add(lblCursosEspecializados);
-				}
-			{
-				comboBox_9 = new JComboBox();
-				comboBox_9.setBackground(new Color(248, 248, 255));
-				comboBox_9.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Conocer el mercado de valores DR",
-						"Control de costos para las operaciones de alimentos y bebidas", "Red esencial de TI", 
-						"La gesti\u00F3n eficaz de las redes sociales", "Pron\u00F3stico de Ventas", 
-						"T\u00E9cnicas especializadas en la preparaci\u00F3n de la carne: Cortes, la cocina, "
-						+ "la realizaci\u00F3n y presentaci\u00F3n"}));
-				comboBox_9.setBounds(127, 47, 219, 20);
-				panel_5Oficio.add(comboBox_9);
-				}
-			{
-				JLabel lblTrabajo = new JLabel("\u00C1reas de trabajo:");
-				lblTrabajo.setHorizontalAlignment(SwingConstants.TRAILING);
-				lblTrabajo.setBounds(10, 72, 107, 22);
-				panel_5Oficio.add(lblTrabajo);
-				}
-			{
-				comboBox_10 = new JComboBox();
-				comboBox_10.setBackground(new Color(248, 248, 255));
-				comboBox_10.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "contador", "actor / Actriz", 
-						"azafata", "arque\u00F3logo", "astronauta", "panadero", "bi\u00F3logo", "alba\u00F1il", 
-						"conductor de autob\u00FAs", "hombre de negocios", "mujer de negocios", "carnicero", "vigilante", 
-						"carpintero", "cajero", "limpiador", "payaso", "zapatero", "consultor", "cocinero", "consejero", 
-						"cocinero", "qu\u00EDmico", "bailar\u00EDn", "decorador", "dentista", "dise\u00F1ador", "modista", 
-						"basurero", "economista", "electricista", "agricultor", "bombero", "pescador", "florista", "frutero",
-						"basurero", "jardinero", "peluquero", "ama de casa", "cazador", "Joyero", "juez", "abogado", 
-						"bibliotecario", "salvavidas", "camionero", "cartero", "mec\u00E1nico", "meteor\u00F3logo", "minero",
-						"modelo", "monje", "ni\u00F1era", "monja", "enfermera", "ni\u00F1era", "empleado de oficina", 
-						"pintor","pastelero", "farmac\u00E9utico", "fot\u00F3grafo", "f\u00EDsico", "fontanero",
-						"polic\u00EDa", "pol\u00EDtico", "portero", "cartero", "sacerdote", "profesor", "programador",
-						"psiquiatra", "psic\u00F3logo", "recepcionista", "investigador", "marinero", "vendedor", 
-						"cient\u00EDfico", "secretario", "secretario", "zapatero", "dependiente", "cantante",
-						"asistente social", "cirujano", "taxista", "profesor", "operador telef\u00F3nico", "agente de viaje",
-						"camionero", "veterinario", "camarero", "camarera", "limpiador de ventanas", "escritor"}));
-				comboBox_10.setBounds(127, 73, 219, 20);
-				panel_5Oficio.add(comboBox_10);
+				comboBoxDoctorado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Derecho Constitucional ", " Derechos Fundamentales", "Sociedad Democrática", " Ciencias pedagógicas", "Ciencias Empresariales", "Cooperación Social", "Intervención Social", "Psicología de la Educación ", "Desarrollo Humano", "Economía", "Sociología", "Filosofía: Un Mundo Global"}));
 				}
 			
 			panelTechnicalStudies = new JPanel();
@@ -477,10 +438,11 @@ public class PersonRegister extends JDialog {
 			}
 			{
 				comboBox_1_1 = new JComboBox();
+				comboBox_1_1.setEditable(true);
 				comboBox_1_1.setBackground(new Color(248, 248, 255));
 				comboBox_1_1.setBounds(150, 95, 223, 20);
 				DatosPersonales.add(comboBox_1_1);
-				comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "afgano", "americano", "argentino", "australiano", "austriaco", "belga", "boliviano", "brasile\u00F1o", "brit\u00E1nico", "b\u00FAlgaro", "canadiense", "chileno", "chino", "colombiano", "costarricense", "cubano", "checo", "dan\u00E9s", "dominicano", "holand\u00E9s", "ecuatoriano", "egipcio", "ingl\u00E9s", "filipino", "finland\u00E9s", "franc\u00E9s", "alem\u00E1n", "griego", "groenland\u00E9s", "guatemalteco", "haitiano", "hawaiano", "hondure\u00F1o", "h\u00FAngaro", "island\u00E9s", "indio", "indonesio", "iran\u00ED", "Iraqu\u00ED", "irland\u00E9s", "israel\u00ED", "italiano", "jamaiquino", "japon\u00E9s", "coreano", "liban\u00E9s", "malasio", "malt\u00E9s", "mexicano", "marroqu\u00ED", "nepal\u00E9s", "neozeland\u00E9s", "nicarag\u00FCense", "nigeriano", "noruego", "pakistan\u00ED", "palestino", "paname\u00F1o", "paraguayo", "peruano", "polaco", "portugu\u00E9s", "puertorrique\u00F1o", "rumano", "ruso", "saudita", "escoc\u00E9s", "singapurence", "espa\u00F1ol", "sueco", "suizp", "sirio", "tahitiano", "tailand\u00E9s", "tunecino", "turco", "ucranio", "uruguayo", "venezolano", "vietnamita", "gal\u00E9s", "yugoslavo"}));
+				comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afgano", "Alemán", "Americano", "Argentino", "Australiano", "Austriaco", "Belga", "Boliviano", "Brasileño", "Británico", "Canadiense", "Chileno", "Chino", "Colombiano", "Costarricense", "Cubano", "Checo", "Danés", "Dominicano", "Holandés", "Ecuatoriano", "Egipcio", "Español", "Inglés", "Filipino", "Francés", "Griego", "Guatemalteco", "Haitiano", "Hawaiano", "Hondureño", "Iraní", "Iraquí", "Irlandés", "Israelí", "Italiano", "Jamaiquino", "Japonés", "Mexicano", "Marroquí", "Nicaragüense", "Panameño", "Paraguayo", "Peruano", "Polaco", "Portugués", "Puertorriqueño", "Rumano", "Ruso", "Saudita", "Sueco", "Suizo", "Sirio", "Tailandés", "Turco", "Ucranio", "Uruguayo", "Venezolano"}));
 			}
 			{
 				JLabel lblNacionality = new JLabel("Nacionalidad:");
@@ -784,10 +746,10 @@ public class PersonRegister extends JDialog {
 										temp.setPostalCode(formattedTextFieldPostal.getText());
 										temp.setGradeTitle(comboBoxGrado.getSelectedItem().toString());
 										temp.getAddress().setRegion(textField_7.getText());
-										temp.setGradeLevel(comboBox_11.getSelectedItem().toString());
+										temp.setGradeLevel(comboBoxNivelAlcanzado.getSelectedItem().toString());
 										temp.setPostGradeTitles(comboBoxPostGrado.getSelectedItem().toString());
-										temp.setCertTitles(comboBox_4.getSelectedItem().toString());
-										temp.setEspTitles(comboBox_5.getSelectedItem().toString());
+										temp.setCertTitles(comboBox_Certificaciones.getSelectedItem().toString());
+										temp.setEspTitles(comboBoxEspecialidades.getSelectedItem().toString());
 										temp.setTechnicalTitles(comboBoxEstudiosTecnicos.getSelectedItem().toString());
 										temp.setDoctorateTitles(comboBoxDoctorado.getSelectedItem().toString());
 										temp.setCountry(comboBox_1_4.getSelectedItem().toString());
@@ -1032,53 +994,7 @@ public class PersonRegister extends JDialog {
 						comboBox_1_4.setBackground(new Color(248, 248, 255));
 						comboBox_1_4.setBounds(148, 78, 223, 20);
 						panel_3Address.add(comboBox_1_4);
-						comboBox_1_4.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afganist\u00E1n",
-								"Albania", "Argelia", "Samoa Americana", "Andorra", "Angola", "Anguila", "Ant\u00E1rtida",
-								"Antigua y Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria",
-								"Azerbaiy\u00E1n", "Bahamas", "Bahrein", "Bangladesh", "Barbados", "Bielorrusia", 
-								"B\u00E9lgica", "Belice", "Benin", "Bermuda", "But\u00E1n", "Bolivia", "Bosnia y Herzegovina",
-								"Botswana", "Brasil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Camboya",
-								"Camer\u00FAn", "Canad\u00E1", "Cabo Verde", "Islas Caim\u00E1n",
-								"Rep\u00FAblica Centroafricana", "Chad", "Chile", "China", "Isla de Navidad", 
-								"Islas Cocos (Keeling)", "Colombia", "Comoras",
-								"Rep\u00FAblica Democr\u00E1tica del Congo (Kinshasa)",
-								"Congo, Rep\u00FAblica del (Brazzaville)", "Islas Cook", "Costa Rica",
-								"Costa de Marfil (C\u00F4te d'Ivoire)", "Croacia", "Cuba", "Chipre", "Rep\u00FAblica Checa",
-								"Dinamarca", "Djibouti", "Dominica", "Rep\u00FAblica Dominicana", "Timor Oriental Timor-Leste",
-								"Ecuador", "Egipto", "El Salvador", "Guinea Ecuatorial", "Eritrea", "Estonia", "Etiop\u00EDa",
-								"islas Malvinas", "Islas Feroe", "Fiji", "Finlandia", "Francia", "Guayana franc\u00E9s",
-								"Polinesia franc\u00E9s", "Territorios Franceses del Sur", "Gab\u00F3n", "Gambia", "Georgia",
-								"Alemania", "Ghana", "Gibraltar", "gran Breta\u00F1a", "Grecia", "Groenlandia", "Granada",
-								"Guadalupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guayana", "Hait\u00ED",
-								"Santa Sede", "Honduras", "Hong Kong", "Hungr\u00EDa", "Islandia", "India", "Indonesia",
-								"Ir\u00E1n (Rep\u00FAblica Isl\u00E1mica del)", "Irak", "Irlanda", "Israel", "Italia",
-								"Jamaica", "Jap\u00F3n", "Jordania", "Kazajst\u00E1n", "Kenia", "Kiribati",
-								"Corea, Rep\u00FAblica Popular Democr\u00E1tica. (Corea del Norte)",
-								"Corea, Rep\u00FAblica de (Corea del Sur)", "Kosovo", "Kuwait", "Kirguist\u00E1n",
-								"Lao, Rep\u00FAblica Popular Democr\u00E1tica", "Letonia", "L\u00EDbano", "Lesoto", "Liberia",
-								"Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macao", "Macedonia, Rep. De",
-								"Madagascar", "Malawi", "Malasia", "Maldivas", "Mal\u00ED", "Malta", "Islas Marshall", 
-								"Martinica", "Mauritania", "Mauricio", "Mayotte", "M\u00E9xico",
-								"Micronesia, Estados Federados de", "Moldova, Rep\u00FAblica de", "M\u00F3naco", "Mongolia",
-								"Montenegro", "Montserrat", "Marruecos", "Mozambique", "Myanmar, Birmania", "Namibia", "Nauru",
-								"Nepal", "Pa\u00EDses Bajos", "Antillas Holandesas", "nueva Caledonia", "nueva Zelanda",
-								"Nicaragua", "N\u00EDger", "Nigeria", "Niue", "Islas Marianas del Norte", "Noruega",
-								"Om\u00E1n", "Pakist\u00E1n", "Palau", "territorios palestinos", "Panam\u00E1", 
-								"Pap\u00FAa Nueva Guinea", "Paraguay", "Per\u00FA", "Filipinas", "Pitcairn Island", "Polonia",
-								"Portugal", "Puerto Rico", "Katar", "Isla de la Reuni\u00F3n", "Rumania",
-								"Federaci\u00F3n de Rusia", "Ruanda", "San Crist\u00F3bal y Nieves", "Santa Luc\u00EDa", 
-								"San Vicente y las Granadinas", "Samoa", "San Marino", "Santo Tom\u00E9 y Pr\u00EDncipe",
-								"Arabia Saudita", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur",
-								"Eslovaquia (Rep\u00FAblica Eslovaca)", "Eslovenia", "islas Salom\u00F3n", "Somalia",
-								"Sud\u00E1frica", "Sud\u00E1n del Sur", "Espa\u00F1a", "Sri Lanka", "Sud\u00E1n", "Suriname",
-								"Swazilandia", "Suecia", "Suiza", "Siria", "Taiw\u00E1n (Rep\u00FAblica de China)", 
-								"Tayikist\u00E1n", "Tanzania", "Tailandia", "T\u00EDbet", "Timor-Leste (Timor Oriental)",
-								"Togo", "Tokelau", "Tonga", "Trinidad y Tobago", "T\u00FAnez", "Pavo", "Turkmenist\u00E1n", 
-								"Islas Turcas y Caicos", "Tuvalu", "Uganda", "Ucrania", "Emiratos \u00C1rabes Unidos",
-								"Reino Unido", "Estados Unidos", "Uruguay", "Uzbekist\u00E1n", "Vanuatu", 
-								"Ciudad del Vaticano (Santa Sede)", "Venezuela", "Vietnam",
-								"Islas V\u00EDrgenes (brit\u00E1nica)", "Islas V\u00EDrgenes (EE.UU.)", 
-								"Islas Wallis y Futuna", "S\u00E1hara Occidental", "Yemen", "Zambia", "Zimbabue"}));
+						comboBox_1_4.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afganistán", "Albania", "Alemania", "Arabia Saudita", "Argelia", "Andorra", "Angola", "Anguila", "Antártida", "Antigua y Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bahrein", "Barbados", "Bielorrusia", "Bélgica", "Belice", "Benin", "Bermuda", "Bután", "Bolivia", "Bosnia y Herzegovina", "Botswana", "Brasil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Camboya", "Camerún", "Canadá", "Cabo Verde", "Chad", "Chile", "China", "Colombia", "Comoras", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Eritrea", "España", "Estados Unidos", "Estonia", "Etiopía", "Fiji", "Finlandia", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Gibraltar", "Gran Bretaña", "Grecia", "Groenlandia", "Granada", "Guadalupe", "Guam", "Guatemala", "Guinea", "Guinea Ecuatorial", "Guayana", "Haití", "Honduras", "Hong Kong", "Hungría", "Islandia", "India", "Indonesia", "Irán (República Islámica del)", "Irak", "Irlanda", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajstán", "Kenia", "Kosovo", "Kuwait", "Kirguistán", "Letonia", "Líbano", "Lesoto", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macao", "Macedonia", "Madagascar", "Malawi", "Malasia", "Maldivas", "Malí", "Malta", "Martinica", "Mauritania", "Mauricio", "Mayotte", "México", "Micronesia", "Moldova", "Mónaco", "Mongolia", "Montenegro", "Montserrat", "Marruecos", "Mozambique", "Myanmar, Birmania", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Niue", "Noruega", "Omán", "Países Bajos", "Pakistán", "Panamá", "Paraguay", "Perú", "Pitcairn Island", "Polonia", "Portugal", "Puerto Rico", "Reino Unido", "República Dominicana", "Ruanda", "Rumania", "San Cristóbal y Nieves", "Santa Lucía", "San Vicente y las Granadinas", "Samoa", "San Marino", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Somalia", "Sudáfrica", "Sudán del Sur", "Sri Lanka", "Sudán", "Suriname", "Swazilandia", "Suecia", "Suiza", "Siria", "Taiwán (República de China)", "Trinidad y Tobago", "Uruguay", "Venezuela", "Vietnam"}));
 						}
 					
 					JLabel AstBirth = new JLabel("*");
@@ -1089,8 +1005,9 @@ public class PersonRegister extends JDialog {
 					}
 				{
 					error = new JLabel("");
+					error.setHorizontalAlignment(SwingConstants.CENTER);
 					error.setForeground(Color.RED);
-					error.setBounds(22, 625, 416, 26);
+					error.setBounds(442, 543, 378, 26);
 					contentPanel.add(error);
 					}
 				
@@ -1118,10 +1035,10 @@ public class PersonRegister extends JDialog {
 	public void reiniciar(){
 		if (comboBox_1.getSelectedItem() == "Universitario" || comboBox_1.getSelectedItem() == "<Selecciona>") {
 			comboBoxGrado.setSelectedItem("<Selecciona>");
-			comboBox_11.setSelectedItem("<Selecciona>");
+			comboBoxNivelAlcanzado.setSelectedItem("<Selecciona>");
 			comboBoxPostGrado.setSelectedItem("<Selecciona>");
-			comboBox_4.setSelectedItem("<Selecciona>");
-			comboBox_5.setSelectedItem("<Selecciona>");
+			comboBox_Certificaciones.setSelectedItem("<Selecciona>");
+			comboBoxEspecialidades.setSelectedItem("<Selecciona>");
 			comboBoxEstudiosTecnicos.setSelectedItem("<Selecciona>");
 			comboBoxDoctorado.setSelectedItem("<Selecciona>");
 			txtSuperlargoArchipielago.setText("");

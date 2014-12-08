@@ -5,7 +5,25 @@ import java.util.ArrayList;
 public class EmploymentMarket {
 	
 	private Satisfied Satisfied;	
+	private static EmploymentMarket employmentMarket;
 	
+	
+	
+	public EmploymentMarket(Satisfied satisfied){
+		this.Satisfied=satisfied;
+	}
+	
+	
+	private EmploymentMarket(){
+		Satisfied.getInstanceSatisfied();
+	}
+	
+	
+	public static EmploymentMarket getInstanceEmploymentMarket(){
+		if(employmentMarket==null)
+			employmentMarket = new EmploymentMarket();
+		return employmentMarket;
+	}
 	
 	public void compare(CompanyApplication CApplication, CollectionPersonApplicant CPApplication, ArrayList<CompanyPerson> EndCP){
 		while(CApplication.getEmployeeCant()!=0){

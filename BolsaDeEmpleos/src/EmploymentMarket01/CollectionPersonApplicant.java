@@ -21,6 +21,17 @@ public class CollectionPersonApplicant {
 	private CollectionPersonApplicant() {
 		PersonApplications = new ArrayList<PersonApplication>();	
 	}
+	
+	public Person getPerson(String ID) {
+				Person temp = null;
+				for (int i = 0; i < PersonApplications.size(); i++) {
+					if ((PersonApplications.get(i).getPerson().getID().equals(ID))) {
+						temp= PersonApplications.get(i).getPerson();
+						// setCantPerson(CantPerson-1);
+					}
+				}
+				return temp;
+			}
 
 	public ArrayList<PersonApplication> getPersonApplicantions() {
 		return PersonApplications;

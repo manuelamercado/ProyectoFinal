@@ -46,6 +46,7 @@ import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.awt.Rectangle;
 import javax.swing.border.LineBorder;
+import java.awt.Window.Type;
 
 public class Welcome extends JFrame {
 
@@ -53,7 +54,7 @@ public class Welcome extends JFrame {
 	private Dimension dim;
 	private PersonRegister personRegister;
 	private CompanyRegister companyRegister;
-	private PersonApplication personApplication;
+	private PersonApplicationVisual personApplication;
 	private CompanyApplicationVisual companyApplicationVisual;
 	private CloseProgram closeProgram;
 	private static Welcome welcome;
@@ -100,7 +101,6 @@ public class Welcome extends JFrame {
 		setForeground(new Color(0, 0, 0));
 		setFont(new Font("Tahoma", Font.BOLD, 15));
 		setBackground(new Color(176, 224, 230));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		dim = super.getToolkit().getScreenSize();
 		super.setSize(dim);
@@ -165,7 +165,7 @@ public class Welcome extends JFrame {
 		JMenuItem mntmNewMenuItem = new JMenuItem("Solicitante");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			 personApplication = new PersonApplication();
+			 personApplication = new PersonApplicationVisual();
 			 personApplication.setVisible(true);
 			 }
 			 });
@@ -219,7 +219,8 @@ public class Welcome extends JFrame {
 		 JMenuItem mntmCerrar = new JMenuItem("Cerrar");
 		 mntmCerrar.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent arg0) {
-		 		dispose();
+		 		closeProgram = new CloseProgram();
+		 		closeProgram.setVisible(true);
 		 	}
 		 });
 		  mntmCerrar.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Delete32.png")));
@@ -261,7 +262,7 @@ public class Welcome extends JFrame {
 		mntmEmpleado.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mntmEmpleado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				personApplication = new PersonApplication();
+				personApplication = new PersonApplicationVisual();
 				personApplication.setVisible(true);
 			}
 		});
@@ -480,7 +481,7 @@ public class Welcome extends JFrame {
 		btnCerrar.setForeground(SystemColor.inactiveCaptionText);
 		menuBar.add(btnCerrar);
 		
-		JLabel lblBolsaDeEmpleos_1 = new JLabel("BOLSA DE EMPLEOS M^3");
+		JLabel lblBolsaDeEmpleos_1 = new JLabel("BOLSA DE EMPLEOS ");
 		lblBolsaDeEmpleos_1.setForeground(Color.BLUE);
 		lblBolsaDeEmpleos_1.setFont(new Font("Tahoma", Font.BOLD, 40));
 		lblBolsaDeEmpleos_1.setHorizontalAlignment(SwingConstants.CENTER);
