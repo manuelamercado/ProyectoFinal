@@ -107,7 +107,7 @@ public class PersonPendingApplication extends JDialog {
 	private void loadPerson() {
 		// TODO Auto-generated method stub
 		fila = new Object[5];
-		 for (int i = 0, j=1; i <Satisfied.getInstanceSatisfied().getPendingPersonApplication(CollectionPersonApplicant.getInstanceCollectionPersonApplicant()).getPersonApplicantions().size(); i++,j++)
+		 for (int i = 0; i <Satisfied.getInstanceSatisfied().getPendingPersonApplication(CollectionPersonApplicant.getInstanceCollectionPersonApplicant()).getPersonApplicantions().size(); i++)
 		 {  
 	 fila[0] = i+1; 
 	 fila[1] = Satisfied.getInstanceSatisfied().getPendingPersonApplication(CollectionPersonApplicant.getInstanceCollectionPersonApplicant()).getPersonApplication(i).getPerson().getID(); 

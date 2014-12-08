@@ -59,18 +59,18 @@ public class CompanyApplicationVisual extends JDialog {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JFormattedTextField formattedTextField;
-	private JComboBox comboBox_2;
-	private JComboBox comboBoxAreas;
-	private JComboBox comboBox_3;
+	private JComboBox<String> comboBox_2;
+	private JComboBox<String> comboBoxAreas;
+	private JComboBox<String> comboBox_3;
 	private JSpinner spinner;
 	private JCheckBox checkBox;
-	private JComboBox comboBox_4;
+	private JComboBox<String> comboBox_4;
 	private JLabel label_5;
 	private JFormattedTextField formattedTextField_1;
 	private JLabel error;
 	private JTextField textField_7;
 	private JTextField textField_8;
-	private ArrayList<CompanyPerson> EndCP;
+
 
 	public CompanyApplicationVisual() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CompanyApplicationVisual.class.getResource("/InterfazGrafica/Images/1417568890_new-file.png")));
@@ -231,10 +231,16 @@ public class CompanyApplicationVisual extends JDialog {
 					temp.setContactName(textField_4.getText());
 					temp.setContactMovil(textField_5.getText());
 					temp.setContactPos(textField_6.getText());
-					CollectionCompanyApplication.getInstanceCollectionCompanyApplication().setCompanyApplications(temp);
-					error.setText("Los campos marcados con asteriscos son obligatorios");	
+					if(checkBox.isEnabled()==true){
+						temp.setExpYear(0);
+					}
+					else{
+						temp.setExpYear(Integer.parseInt(spinner.getValue().toString()));
+					}
+					temp.setCompany(CollectionCompany.getInstanceCollectionCompany().getCompany(formattedTextField.getText()));
+					//CollectionCompanyApplication.getInstanceCollectionCompanyApplication().setCompanyApplications(temp);
+					error.setText("Su registro fue realizado correctamente");	
 					reiniciar();
-					//EmploymentMarket.getInstanceEmploymentMarket().compare(temp, CollectionPersonApplicant.getInstanceCollectionPersonApplicant(), EndCP);
 					
 				}
 			}
@@ -275,9 +281,9 @@ public class CompanyApplicationVisual extends JDialog {
 		label_11.setBounds(40, 96, 100, 14);
 		panel_3.add(label_11);
 		
-		comboBox_3 = new JComboBox();
+		comboBox_3 = new JComboBox<String>();
 		comboBox_3.setEditable(true);
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Abogado", "Agente de Aduanas", "Agente de Prensa", "Alba\u00F1il", "Artesano", "Asesor de Imagen ", "Asesor Financiero", "Auditor", "Bi\u00F3logo", "Bot\u00E1nico", "Cajero", "Cartero ", "Cerrajero ", "Compositor ", "Conductor", "Conserje"}));
+		comboBox_3.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "Abogado", "Agente de Aduanas", "Agente de Prensa", "Alba\u00F1il", "Artesano", "Asesor de Imagen ", "Asesor Financiero", "Auditor", "Bi\u00F3logo", "Bot\u00E1nico", "Cajero", "Cartero ", "Cerrajero ", "Compositor ", "Conductor", "Conserje"}));
 		comboBox_3.setToolTipText("<Selecciona>");
 		comboBox_3.setBackground(new Color(248, 248, 255));
 		comboBox_3.setBounds(150, 90, 212, 20);
@@ -291,7 +297,13 @@ public class CompanyApplicationVisual extends JDialog {
 		checkBox = new JCheckBox("Ninguno");
 		checkBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if(checkBox.isSelected()==true){
 					spinner.setEnabled(false);
+				}
+				else
+					spinner.setEnabled(true);
+					
 			}
 		});
 		checkBox.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -304,15 +316,15 @@ public class CompanyApplicationVisual extends JDialog {
 		label_12.setBounds(40, 158, 100, 14);
 		panel_3.add(label_12);
 		
-		comboBox_4 = new JComboBox();
-		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Fijo ", "Parcial", "Temporal"}));
+		comboBox_4 = new JComboBox<String>();
+		comboBox_4.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "Fijo ", "Parcial", "Temporal"}));
 		comboBox_4.setBounds(150, 152, 212, 20);
 		panel_3.add(comboBox_4);
 		
-		comboBox_2 = new JComboBox();
+		comboBox_2 = new JComboBox<String>();
 		comboBox_2.setBounds(150, 28, 212, 20);
 		panel_3.add(comboBox_2);
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Universitario", "T\u00E9cnico", "Oficio"}));
+		comboBox_2.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "Universitario", "T\u00E9cnico", "Oficio"}));
 		comboBox_2.setBackground(new Color(248, 248, 255));
 		
 		JLabel label_8 = new JLabel("Nivel de Estudio:");
@@ -320,7 +332,7 @@ public class CompanyApplicationVisual extends JDialog {
 		panel_3.add(label_8);
 		label_8.setHorizontalAlignment(SwingConstants.TRAILING);
 		
-		comboBoxAreas = new JComboBox();
+		comboBoxAreas = new JComboBox<String>();
 		comboBoxAreas.setBounds(150, 59, 212, 20);
 		panel_3.add(comboBoxAreas);
 		comboBoxAreas.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura", "\tAlta Gerencia\t", "\tArquitectura", "      \tAtenci\u00F3n al Cliente", "\tBiolog\u00EDa ", "\tCalidad", " \tCiencias Econ\u00F3micas", " \tCiencias Empresariales", " \tCienciasSociales", "\tCompras", " \tComunicaci\u00F3n", "\tConstrucci\u00F3n", " \tContabilidad", " \tCreatividad y Dise\u00F1o", " \tDerecho\t", " \tDise\u00F1o Industrial", "\tDistribuci\u00F3n", "\tDocencia", "\tDocumentaci\u00F3n", " \tElectricidad ", " \tElectr\u00F3nica\t", " \tFarmacia", "\tFilosof\u00EDa", " \tFinanzas", " \tFormaci\u00F3n", " \tGesti\u00F3n", "\tHoteler\u00EDa", "\tHumanidades ", "\tIdiomas", " \tImpuestos", " \tIndustria", " \tInform\u00E1tica", " \tIngenier\u00EDa", " \tIngenier\u00EDa Civil", " \tIngenier\u00EDa El\u00E9ctrica", " \tIngenier\u00EDa Electr\u00F3nica", " \tIngenier\u00EDa Industrial\t", " \tIngenier\u00EDa Mec\u00E1nica\t", " \tIngenier\u00EDa Qu\u00EDmica", " \tIngenier\u00EDa Sanitaria ", " \tIngenier\u00EDa Sistemas", " \tIngenier\u00EDa Telecomunicaciones", " \tInvestigaci\u00F3n de Mercado", " \tLog\u00EDstica", " \tMarketing\t", " \tMedio Ambiente", "\tMedicina", "\tMedios", "\tMultimedia", " \tOficios Diversos", " \tPrevenci\u00F3n de Riesgos", "\tProducci\u00F3n", "\tPsicolog\u00EDa", "\tPublicidad", " \tQuimica", " \tRecepci\u00F3n", " \tRecursos Humanos", " \tSalud", " \tSecretariado", " \tSeguridad", "       Servicios Financieros", " \tSalud Ocupacional", " \tServicios Domesticos", " \tSoporte Tecnico", " \tTelemarketing", " \tTransporte", " \tTurismo", " \tVentas"}));
@@ -417,12 +429,12 @@ public class CompanyApplicationVisual extends JDialog {
 	public void reiniciar(){
 		formattedTextField.setText("");
 		textField.setText("");
-		comboBox_2.setSelectedItem(CompanyType.Selecciona);
+		comboBox_2.setSelectedItem("<Selecciona>");
 		textField_1.setText("");
 		textField_7.setText("");
 		textField_8.setText("");
-		textField_2.setText("" );
-		textField_3.setText( "");
+		textField_2.setText("");
+		textField_3.setText("");
 		formattedTextField_1.setText("");
 		textField_4.setText("");
 		comboBoxAreas.setSelectedItem("<Selecciona>");
@@ -430,7 +442,9 @@ public class CompanyApplicationVisual extends JDialog {
 		comboBox_4.setSelectedItem("<Selecciona>");
 		textField_5.setText("");
 		textField_6.setText("");
-		//textFieldRoad.setText("");
+		checkBox.setSelected(false);
+		spinner.setEnabled(true);
+		spinner.setValue(1);
 		error.setText("");
 	}
 	public boolean compa(String a){
@@ -442,11 +456,6 @@ public class CompanyApplicationVisual extends JDialog {
 		}
 		return b;
 		
-	}
-	//public compares(CompanyApplication CA){
-		//for(int i=0; i<CollectionPersonApplicant.getInstanceCollectionPersonApplicant().getPersonApplicantions().size(); i++)
-			//if(CA.getArea().equals(CollectionPersonApplicant.getInstanceCollectionPersonApplicant().getPersonApplication(i).getArea()))
-				
-		
+	}		
 	
 }

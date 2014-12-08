@@ -3,7 +3,6 @@ package EmploymentMarket01;
 
 public class CompanyApplication {
 	
-	//private enum WorkingDay {Fijo,Temporal,Parcial};
 	private int EmployeeCant;
 	private String WorkPosition;
 	private String Area;
@@ -17,31 +16,32 @@ public class CompanyApplication {
 	private String contactName;
 	private String contactMovil;
 	private String contactPos;
-	
+	private Company Cmp;
 	
 	public CompanyApplication(int employeeCant, String workPosition,
-			String area) {
+			String area,Company cmp) {
 		super();
 		EmployeeCant = employeeCant;
 		WorkPosition = workPosition;
 		Area = area;
 		Satisfied = false;
+		Cmp= cmp;
 	}
 	
 	public CompanyApplication() {
 		EmployeeCant =0;
-		WorkPosition = null;
-		Area = null;
+		WorkPosition = "";
+		Area = "";
 		Satisfied = false;
-		RNC=null;
-		AcademicLevel=null;
-		title=null;
+		RNC="";
+		AcademicLevel="";
+		title="";
 		expYear=0;
-		contract=null;
-		department=null;
-		contactName=null;
-		contactMovil=null;
-		contactPos=null;
+		contract="";
+		department="";
+		contactName="";
+		contactMovil="";
+		contactPos="";
 		
 	}
 	public String getRNC() {
@@ -142,10 +142,23 @@ public class CompanyApplication {
 		Satisfied = satisfied;
 	}
 
-	public Company getCompany() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public void setCompany(Company company) {
+		this.Cmp = company;
+	}
+	public void setCompany(String RNC) {
+		Company temp= new Company();
+		for(int i=0; i<CollectionCompany.getInstanceCollectionCompany().getCantCompany();i++){
+			if(!CollectionCompany.getInstanceCollectionCompany().getCompanies().get(i).getRNC().equalsIgnoreCase(RNC)){
+				temp=CollectionCompany.getInstanceCollectionCompany().getCompanies().get(i);
+				setCompany(temp);
+			}
+		}
+		
 	}
 	
+	public Company getCompany() {
+		return Cmp;
+	}	
 	
 }

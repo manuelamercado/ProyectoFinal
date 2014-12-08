@@ -57,7 +57,7 @@ public class SeeCompanyApplication extends JDialog {
 				String[] columnNames = { "No.", "RNC", "Nombre", "Area",
 						"Cantidad de empleados" };
 				tableModel.setColumnIdentifiers(columnNames);
-				loadPerson();
+				loadCompany();
 				
 				
 				scrollPane = new JScrollPane();
@@ -100,16 +100,16 @@ public class SeeCompanyApplication extends JDialog {
 		Count.setText(String.valueOf(CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().size()));
 
 	}
-	private void loadPerson() {
+	private void loadCompany() {
 		// TODO Auto-generated method stub
 		fila = new Object[5];
-		 for (int i = 0, j=1; i <CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().size(); i++,j++)
+		 for (int i = 0; i <CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().size(); i++)
 		 {  
 	 fila[0] = i+1; 
-	 fila[1] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplication(i).getCompany().getRNC(); 
-	 fila[2] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplication(i).getCompany().getName(); 
-	 fila[3] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplication(i).getCompany().getArea(); 
-	 fila[4] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplication(i).getEmployeeCant();
+	 fila[1] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().get(i).getCompany().getRNC();
+	  fila[2] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().get(i).getCompany().getName();
+	  fila[3] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().get(i).getCompany().getArea();
+	  fila[4] = CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplications().get(i).getEmployeeCant();
 	 tableModel.addRow(fila); 
 	 }
  table.setModel(tableModel);

@@ -17,15 +17,8 @@ public class PersonApplication {
 	private String posLab;
 	private String nameLab;
 	private String MobileLab;
+	private int expYears;
 	
-	public PersonApplication(String area, ArrayList<String> workPosition,
-			boolean satisfied, EmploymentMarket01.Person person) {
-		super();
-		Area = area;
-		WorkPosition = workPosition;
-		Satisfied = satisfied;
-		Person = person;
-	}
 	public PersonApplication(Person p) {
 
 		Area = null;
@@ -140,5 +133,11 @@ public class PersonApplication {
 
 	public void setContract(String contract) {
 		Contract = contract;
+	}
+	public int getExpYears() {
+		return expYears;
+	}
+	public void setExpYears(int expYears) {
+		this.expYears = expYears;
 	}
 }

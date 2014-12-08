@@ -112,7 +112,7 @@ public class CompanyPendingApplication extends JDialog {
 	private void loadPerson() {
 		// TODO Auto-generated method stub
 		fila = new Object[5];
-		 for (int i = 0, j=1; i <Satisfied.getInstanceSatisfied().getPendingCompanyApplication(CollectionCompanyApplication.getInstanceCollectionCompanyApplication()).getCompanyApplications().size(); i++,j++)
+		 for (int i = 0; i <Satisfied.getInstanceSatisfied().getPendingCompanyApplication(CollectionCompanyApplication.getInstanceCollectionCompanyApplication()).getCompanyApplications().size(); i++)
 		 {  
 	 fila[0] = i+1; 
 	 fila[1] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication(CollectionCompanyApplication.getInstanceCollectionCompanyApplication()).getCompanyApplication(i).getCompany().getRNC(); 

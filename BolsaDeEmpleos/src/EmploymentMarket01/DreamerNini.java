@@ -6,17 +6,6 @@ public class DreamerNini extends Person {
 	private ArrayList<String> courseTitles;
 	private ArrayList<String> works;
 
-	public DreamerNini(String Name, String LastName, String ID, String Phone,
-			String Mobile, String Email, String sex, String Birth,
-			String Country, String City, String Sector, String Calle,
-			String HouseNumber, String PostalCode, String Nationality,
-			String CivilState, String AcademicLevel, int YearsExperience, String country) {
-		super(Name, LastName, ID, Phone, Mobile, Email, sex, Birth, City,
-				Sector, Calle, HouseNumber, PostalCode, Nationality,
-				CivilState, AcademicLevel, YearsExperience, country);
-		// TODO Auto-generated constructor stub
-	}
-
 	public DreamerNini() {
 		super();
 		courseTitles= new ArrayList<String>();

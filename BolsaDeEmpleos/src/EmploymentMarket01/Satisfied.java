@@ -14,11 +14,7 @@ public class Satisfied {
 	private CollectionPersonApplicant PendingPersonApplication;
 	private CollectionCompanyApplication PendingCompanyApplication;
 	private static Satisfied satisfied;
-	
-	
-	
-	
-	
+		
 	public Satisfied(ArrayList<CompanyApplication> satisfiedCompany,
 			int cantSatisfiedCompany,
 			ArrayList<PersonApplication> satisfiedPerson,

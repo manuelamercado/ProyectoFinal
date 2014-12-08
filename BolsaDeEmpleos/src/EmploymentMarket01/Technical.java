@@ -8,18 +8,6 @@ public class Technical extends Person {
 	private ArrayList<String> TechTitles;
 	private ArrayList<String> works;
 
-	public Technical(String Name, String LastName, String ID, String Phone,
-			String Mobile, String Email, String sex, String Birth,
-			String Country, String City, String Sector, String Calle,
-			String HouseNumber, String PostalCode, String Nationality,
-			String CivilState, String AcademicLevel, int YearsExperience,
-			String Title, String gradelevel, String country) {
-		super(Name, LastName, ID, Phone, Mobile, Email, sex, Birth, City,
-				Sector, Calle, HouseNumber, PostalCode, Nationality,
-				CivilState, AcademicLevel, YearsExperience, country);
-
-	}
-
 	public Technical() {
 		super();
 		espTitle= new ArrayList<String>();

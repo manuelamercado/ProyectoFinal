@@ -1,7 +1,9 @@
 package InterfazGrafica;
 
 import java.awt.BorderLayout;
+
 import javax.swing.AbstractButton;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.EventQueue;
@@ -25,6 +27,7 @@ import EmploymentMarket01.CollectionPerson;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.beans.PropertyVetoException;
@@ -45,7 +48,9 @@ import java.awt.SystemColor;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.awt.Rectangle;
+
 import javax.swing.border.LineBorder;
+
 import java.awt.Window.Type;
 
 public class Welcome extends JFrame {
@@ -72,6 +77,7 @@ public class Welcome extends JFrame {
 	protected static final AbstractButton KeyPressed = null;
 	private PersonPendingApplication personPendingApplication;
 	private CompanyPendingApplication companyPendingApplication;
+	private PersonAssignation personAssignation;
 	
 	/**
 	 * Launch the application.
@@ -123,7 +129,7 @@ public class Welcome extends JFrame {
 		JMenu menu = new JMenu("");
 		menuBar.add(menu);
 		
-		JMenu menu_1 = new JMenu("                                        ");
+		JMenu menu_1 = new JMenu(" ");
 		menu_1.setEnabled(false);
 		menuBar.add(menu_1);
 		
@@ -420,6 +426,19 @@ public class Welcome extends JFrame {
 		mntmConsultaSolicitante.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile.png")));
 		mnConsultas.add(mntmConsultaSolicitante);
 		
+		JMenu mnAsignar = new JMenu("ASIGNAR ");
+		 mnAsignar.addMouseListener(new MouseAdapter() {
+		 @Override
+		 public void mouseClicked(MouseEvent e) {
+		
+		 personAssignation = new PersonAssignation();
+		 personAssignation.setVisible(true);
+		 }
+		});
+		 mnAsignar.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/si.png")));
+		 mnAsignar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		 menuBar.add(mnAsignar);
+		 
 		JMenu mnAyuda = new JMenu("AYUDA        ");
 		mnAyuda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -458,6 +477,11 @@ public class Welcome extends JFrame {
 				
 			}
 		});
+		
+		
+		 mnAsignar.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/si.png")));
+		 mnAsignar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		 menuBar.add(mnAsignar);
 		menuBar.add(mnAyuda);
 		mnAyuda.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/1416396005_FAQ.png")));
 		mnAyuda.setFont(new Font("Tahoma", Font.BOLD, 12));

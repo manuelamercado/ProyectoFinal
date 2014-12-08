@@ -1,11 +1,10 @@
 package InterfazGrafica;
 
-import java.awt.EventQueue;
-
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import EmploymentMarket01.CollectionPersonApplicant;
 import EmploymentMarket01.PersonApplication;
 
@@ -21,12 +20,6 @@ import javax.swing.JComboBox;
 
 import EmploymentMarket01.CollectionPerson;
 
-import com.toedter.calendar.JMonthChooser;
-import com.toedter.calendar.JYearChooser;
-import com.toedter.components.JSpinField;
-
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -35,39 +28,32 @@ import javax.swing.JSpinner;
 import javax.swing.JLayeredPane;
 import javax.swing.border.LineBorder;
 
-import com.toedter.calendar.JDateChooser;
-
-import java.awt.Rectangle;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JToolBar;
 import javax.swing.JButton;
 
-import java.awt.Window.Type;
-import java.awt.ComponentOrientation;
-
 import javax.swing.SpinnerNumberModel;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
+
 import javax.swing.JFormattedTextField;
-import EmploymentMarket01.CompanyType;
+
 import javax.swing.text.MaskFormatter;
-import java.sql.Date;
+
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 
 
 public class PersonApplicationVisual extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5944196022595935799L;
 	private JPanel contentPane;
 	private JTextField textFieldName;
 	private JTextField textFieldLastName;
@@ -77,20 +63,20 @@ public class PersonApplicationVisual extends JDialog {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-	private JTextField textField_ID;
 	private JFormattedTextField textField;
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
 	private JTextField textField_11;
-	private JComboBox comboBox_2;
-	private JComboBox comboBox;
-	private JComboBox comboBox_1;
-	private JSpinner spinner;
-	private JCheckBox CheckBoxNinguno;
+	private JComboBox<String> comboBox_2;
+	private JComboBox<String> comboBox;
 	private JLabel error;
 	private JTextField textField_12;
+	private JCheckBox CheckBoxNinguno_1;
+	private JComboBox<String> comboBox_3;
+	private JSpinner spinner_1;
+	private JFormattedTextField formattedTextField;
 
 	public PersonApplicationVisual() {
 		setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -229,12 +215,12 @@ public class PersonApplicationVisual extends JDialog {
 				textField_11.setBounds(150, 168, 223, 20);
 				panelPersonalDates.add(textField_11);
 				
-		JLabel label_7 = new JLabel("ID");
-		label_7.setVerticalAlignment(SwingConstants.BOTTOM);
-		label_7.setHorizontalAlignment(SwingConstants.TRAILING);
-		label_7.setFont(new Font("Tahoma", Font.BOLD, 12));
-		label_7.setBounds(526, 210, 19, 14);
-		contentPane.add(label_7);
+		JLabel lblId = new JLabel("ID:");
+		lblId.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblId.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblId.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblId.setBounds(526, 210, 19, 14);
+		contentPane.add(lblId);
 		
 		JLabel label_8 = new JLabel("   *");
 		label_8.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -254,8 +240,8 @@ public class PersonApplicationVisual extends JDialog {
 		label_12.setBounds(10, 27, 130, 14);
 		panel.add(label_12);
 		
-		comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura", "\tAlta Gerencia\t", "\tArquitectura", "      \tAtenci\u00F3n al Cliente", "\tBiolog\u00EDa ", "\tCalidad", " \tCiencias Econ\u00F3micas", " \tCiencias Empresariales", " \tCienciasSociales", "\tCompras", " \tComunicaci\u00F3n", "\tConstrucci\u00F3n", " \tContabilidad", " \tCreatividad y Dise\u00F1o", " \tDerecho\t", " \tDise\u00F1o Industrial", "\tDistribuci\u00F3n", "\tDocencia", "\tDocumentaci\u00F3n", " \tElectricidad ", " \tElectr\u00F3nica\t", " \tFarmacia", "\tFilosof\u00EDa", " \tFinanzas", " \tFormaci\u00F3n", " \tGesti\u00F3n", "\tHoteler\u00EDa", "\tHumanidades ", "\tIdiomas", " \tImpuestos", " \tIndustria", " \tInform\u00E1tica", " \tIngenier\u00EDa", " \tIngenier\u00EDa Civil", " \tIngenier\u00EDa El\u00E9ctrica", " \tIngenier\u00EDa Electr\u00F3nica", " \tIngenier\u00EDa Industrial\t", " \tIngenier\u00EDa Mec\u00E1nica\t", " \tIngenier\u00EDa Qu\u00EDmica", " \tIngenier\u00EDa Sanitaria ", " \tIngenier\u00EDa Sistemas", " \tIngenier\u00EDa Telecomunicaciones", " \tInvestigaci\u00F3n de Mercado", " \tLog\u00EDstica", " \tMarketing\t", " \tMedio Ambiente", "\tMedicina", "\tMedios", "\tMultimedia", " \tOficios Diversos", " \tPrevenci\u00F3n de Riesgos", "\tProducci\u00F3n", "\tPsicolog\u00EDa", "\tPublicidad", " \tQuimica", " \tRecepci\u00F3n", " \tRecursos Humanos", " \tSalud", " \tSecretariado", " \tSeguridad", "       Servicios Financieros", " \tSalud Ocupacional", " \tServicios Domesticos", " \tSoporte Tecnico", " \tTelemarketing", " \tTransporte", " \tTurismo", " \tVentas"}));
+		comboBox_2 = new JComboBox<String>();
+		comboBox_2.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "\tAdministraci\u00F3n", " \tAeron\u00E1utica", " \tAgrimensura", " \tAgronom\u00EDa", " \tAgricultura", "\tAlta Gerencia\t", "\tArquitectura", "      \tAtenci\u00F3n al Cliente", "\tBiolog\u00EDa ", "\tCalidad", " \tCiencias Econ\u00F3micas", " \tCiencias Empresariales", " \tCienciasSociales", "\tCompras", " \tComunicaci\u00F3n", "\tConstrucci\u00F3n", " \tContabilidad", " \tCreatividad y Dise\u00F1o", " \tDerecho\t", " \tDise\u00F1o Industrial", "\tDistribuci\u00F3n", "\tDocencia", "\tDocumentaci\u00F3n", " \tElectricidad ", " \tElectr\u00F3nica\t", " \tFarmacia", "\tFilosof\u00EDa", " \tFinanzas", " \tFormaci\u00F3n", " \tGesti\u00F3n", "\tHoteler\u00EDa", "\tHumanidades ", "\tIdiomas", " \tImpuestos", " \tIndustria", " \tInform\u00E1tica", " \tIngenier\u00EDa", " \tIngenier\u00EDa Civil", " \tIngenier\u00EDa El\u00E9ctrica", " \tIngenier\u00EDa Electr\u00F3nica", " \tIngenier\u00EDa Industrial\t", " \tIngenier\u00EDa Mec\u00E1nica\t", " \tIngenier\u00EDa Qu\u00EDmica", " \tIngenier\u00EDa Sanitaria ", " \tIngenier\u00EDa Sistemas", " \tIngenier\u00EDa Telecomunicaciones", " \tInvestigaci\u00F3n de Mercado", " \tLog\u00EDstica", " \tMarketing\t", " \tMedio Ambiente", "\tMedicina", "\tMedios", "\tMultimedia", " \tOficios Diversos", " \tPrevenci\u00F3n de Riesgos", "\tProducci\u00F3n", "\tPsicolog\u00EDa", "\tPublicidad", " \tQuimica", " \tRecepci\u00F3n", " \tRecursos Humanos", " \tSalud", " \tSecretariado", " \tSeguridad", "       Servicios Financieros", " \tSalud Ocupacional", " \tServicios Domesticos", " \tSoporte Tecnico", " \tTelemarketing", " \tTransporte", " \tTurismo", " \tVentas"}));
 		comboBox_2.setToolTipText("<Selecciona>");
 		comboBox_2.setBackground(new Color(248, 248, 255));
 		comboBox_2.setBounds(150, 21, 212, 20);
@@ -271,44 +257,49 @@ public class PersonApplicationVisual extends JDialog {
 		lblProfesin.setBounds(56, 57, 84, 14);
 		panel.add(lblProfesin);
 		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Abogado", "Agente de Aduanas", "Agente de Prensa", "Alba\u00F1il", "Artesano", "Asesor de Imagen ", "Asesor Financiero", "Auditor", "Bi\u00F3logo", "Bot\u00E1nico", "Cajero", "Cartero ", "Cerrajero ", "Compositor ", "Conductor", "Conserje"}));
+		comboBox = new JComboBox<String>();
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "Abogado", "Agente de Aduanas", "Agente de Prensa", "Alba\u00F1il", "Artesano", "Asesor de Imagen ", "Asesor Financiero", "Auditor", "Bi\u00F3logo", "Bot\u00E1nico", "Cajero", "Cartero ", "Cerrajero ", "Compositor ", "Conductor", "Conserje"}));
 		comboBox.setEditable(true);
 		comboBox.setToolTipText("<Selecciona>");
 		comboBox.setBackground(new Color(248, 248, 255));
 		comboBox.setBounds(150, 51, 212, 20);
 		panel.add(comboBox);
 		
-		final JSpinner spinner = new JSpinner();		
-		spinner.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
-		spinner.setBounds(150, 81, 116, 20);
-		panel.add(spinner);
+		spinner_1 = new JSpinner();		
+		spinner_1.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
+		spinner_1.setBounds(150, 81, 116, 20);
+		panel.add(spinner_1);
 		
-	    JCheckBox CheckBoxNinguno = new JCheckBox("Ninguno");
-		CheckBoxNinguno.setBackground(new Color(248, 248, 255));
-		CheckBoxNinguno.setHorizontalAlignment(SwingConstants.RIGHT);
-		CheckBoxNinguno.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent Arg0) {
+	    CheckBoxNinguno_1 = new JCheckBox("Ninguno");
+		CheckBoxNinguno_1.setBackground(new Color(248, 248, 255));
+		CheckBoxNinguno_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		CheckBoxNinguno_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
-			    spinner.setEnabled(false);
+				if(CheckBoxNinguno_1.isSelected()==true){
+					spinner_1.setEnabled(false);
+				}
+				else
+					spinner_1.setEnabled(true);
+					
 			}
 		});
 		 
-		spinner.setEnabled(true);
+		spinner_1.setEnabled(true);
 		
-		CheckBoxNinguno.setBounds(272, 81, 90, 23);
-		panel.add(CheckBoxNinguno);
+		CheckBoxNinguno_1.setBounds(272, 81, 90, 23);
+		panel.add(CheckBoxNinguno_1);
 		
 		JLabel lblTipoDeContrato = new JLabel("Tipo de Contrato:");
 		lblTipoDeContrato.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTipoDeContrato.setBounds(10, 118, 130, 14);
 		panel.add(lblTipoDeContrato);
 		
-		final JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBackground(new Color(248, 248, 255));
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Fijo ", "Parcial", "Temporal"}));
-		comboBox_1.setBounds(150, 111, 212, 20);
-		panel.add(comboBox_1);
+		comboBox_3 = new JComboBox<String>();
+		comboBox_3.setBackground(new Color(248, 248, 255));
+		comboBox_3.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "Fijo ", "Parcial", "Temporal"}));
+		comboBox_3.setBounds(150, 111, 212, 20);
+		panel.add(comboBox_3);
 		
 		JLabel label = new JLabel("*");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -321,33 +312,6 @@ public class PersonApplicationVisual extends JDialog {
 		label_1.setForeground(Color.RED);
 		label_1.setBounds(43, 60, 33, 14);
 		panel.add(label_1);
-		
-		
-		textField_ID = new JTextField();
-		textField_ID.setBounds(555, 207, 140, 20);
-		 contentPane.add(textField_ID);
-		 textField_ID.setColumns(10);
-		
-		 JButton button = new JButton("Auto-llenado");
-		 button.addActionListener(new ActionListener() {
-		 public void actionPerformed(ActionEvent arg0) {
-		 for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
-		 if(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getID().equals(textField_ID.getText())){
-		 textFieldName.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getName());
-		 textFieldLastName.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getLastName());
-		 
-		 textField_7.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getBirth());
-		 	 textField_8.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getNationality());
-		 	 textField_9.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getSex());
-		 	 textField_10.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getCivilState());
-		 	 textField_11.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getAcademicLevel());
-		  		
-		
-		 }
-		 }
-		 });
-		 button.setBounds(556, 233, 139, 23);
-		 contentPane.add(button);
 		 
 		
 		
@@ -463,6 +427,7 @@ public class PersonApplicationVisual extends JDialog {
 		JButton buttonReiniciar = new JButton("Reiniciar");
 		buttonReiniciar.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent arg0) {
+							reiniciar();
 						}
 					});
 		buttonReiniciar.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/Back.png")));
@@ -471,21 +436,29 @@ public class PersonApplicationVisual extends JDialog {
 		JButton buttonSafe = new JButton("Guardar");
 		buttonSafe.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent arg0) {
-							//if(textField_ID)
-							if((compa(textField_ID.getText())==true)&&(comboBox_2.getSelectedItem().toString()!="<Selecciona>")&&
+							if((compa(formattedTextField.getText())==true)&&(comboBox_2.getSelectedItem().toString()!="<Selecciona>")&&
 													(comboBox.getSelectedItem().toString()!="<Selecciona>")){
-														PersonApplication temp= new PersonApplication(CollectionPerson.getInstanceCollectionPerson().getPerson(textField_ID.getText()));
+														PersonApplication temp= new PersonApplication(CollectionPerson.getInstanceCollectionPerson().getPerson(formattedTextField.getText()));
+														
 														temp.setNamePer(textField_1.getText());
 														temp.setEmailPer(textField_6.getText());
-													temp.setNameLab(textField_2.getText());
+														temp.setNameLab(textField_2.getText());
 														temp.setMobileLab(textField_3.getText());
 														temp.setCompanyLab(textField_4.getText());
 														temp.setPosLab(textField_5.getText());
 														temp.setArea(comboBox_2.getSelectedItem().toString());
 														temp.setTitle(comboBox.getSelectedItem().toString());
-														temp.setContract(comboBox_1.getSelectedItem().toString());;
+														temp.setContract(comboBox_3.getSelectedItem().toString());
+														temp.setNameLab(textField_12.getText());
 														CollectionPersonApplicant.getInstanceCollectionPersonApplicant().setPersonApplicantions(temp);
+														 if(CheckBoxNinguno_1.isEnabled()==true){
+															 temp.setExpYears(0);
+														 }
+														 else{
+															 temp.setExpYears(Integer.parseInt(spinner_1.getValue().toString()));
+														 }
 														error.setText("Su registro fue realizado correctamente");
+														reiniciar();
 													}
 						}
 					});
@@ -505,48 +478,70 @@ public class PersonApplicationVisual extends JDialog {
 		
 		error = new JLabel("");
 			error.setForeground(Color.RED);
-				error.setBounds(20, 595, 392, 20);
+				error.setBounds(418, 487, 392, 20);
 				contentPane.add(error);
+				
+				MaskFormatter mask;
+				try {
+					mask= new MaskFormatter("###########");
+					formattedTextField = new JFormattedTextField(mask);
+					formattedTextField.addFocusListener(new FocusAdapter() {
+						@Override
+						public void focusLost(FocusEvent arg0) {
+							for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getPersons().size();i++){
+							if(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getID().equals(formattedTextField.getText())){
+								 textFieldName.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getName());
+								textFieldLastName.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getLastName());
+								textField_7.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getBirth());
+								textField_8.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getNationality());
+								textField_9.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getSex());
+								textField_10.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getCivilState());
+								textField_11.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getAcademicLevel());
+								}
+							}
+						}
+					});
+					formattedTextField.setBounds(556, 203, 139, 20);
+					contentPane.add(formattedTextField);
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
 	}	
-	protected void reiniciar(JLabel textFieldRegion) {
+	public void reiniciar() {
 				// TODO Auto-generated method stub
 				textFieldName.setText("");
 				textFieldLastName.setText("");
-				//comboBoxArea.setSelectedItem(CompanyType.Selecciona);
 				textField_7.setText("");
 				textField_8.setText("");
 				textField_9.setText("");
 				textField_10.setText("");
 				textField_11.setText("");
-				//formattedTextFieldPostal.setText("");
-				//textFieldWeb.setText("");
-			//	comboBoxCountry.setSelectedItem("<Selecciona>");
-				//comboBoxSector.setSelectedItem("<Selecciona>");
-				//textFieldRegion.setText("");
-				//textFieldCity.setText("");
-				//textFieldRoad.setText("");	
-				//error.setText("");
+				textField_12.setText("");
 				textField_1.setText("");
-						textField_6.setText("");
-						comboBox.setSelectedItem("<Selecciona>");
-						comboBox_1.setSelectedItem("<Selecciona>");
-						textField_2.setText("");
-						textField_3.setText("");
-						textField_4.setText("");
-						textField_5.setText("");
-						textField_ID.setText("");
-						spinner.setValue(1);
-						CheckBoxNinguno.setDisabledIcon(null);
-						error.setText("");
+				textField_6.setText("");
+				comboBox.setSelectedItem("<Selecciona>");
+				comboBox_3.setSelectedItem("<Selecciona>");
+				comboBox_2.setSelectedItem("<Selecciona>");
+				textField_2.setText("");
+				textField_3.setText("");
+				textField_4.setText("");
+				textField_5.setText("");
+				formattedTextField.setText("");
+				CheckBoxNinguno_1.setSelected(false);
+				spinner_1.setEnabled(true);
+				spinner_1.setValue(1);
+				error.setText("");
 	}			
-						public boolean compa(String a){
-								boolean b= true;
-								String txt= a.replaceAll(" ", "");
-								if(txt.length()==0){
-									b=false;
-								error.setText("Los campos marcados con asteriscos son obligatorios");	
-								}
-								return b;
+	public boolean compa(String a){
+		boolean b= true;
+		String txt= a.replaceAll(" ", "");
+		if(txt.length()==0){
+			b=false;
+			error.setText("Los campos marcados con asteriscos son obligatorios");	
+			}
+		return b;
 								
 						
 }	

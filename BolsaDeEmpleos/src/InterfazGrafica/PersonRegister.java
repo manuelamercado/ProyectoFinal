@@ -438,7 +438,6 @@ public class PersonRegister extends JDialog {
 			}
 			{
 				comboBox_1_1 = new JComboBox();
-				comboBox_1_1.setEditable(true);
 				comboBox_1_1.setBackground(new Color(248, 248, 255));
 				comboBox_1_1.setBounds(150, 95, 223, 20);
 				DatosPersonales.add(comboBox_1_1);

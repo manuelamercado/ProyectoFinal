@@ -13,22 +13,6 @@ public class SatisfiedApplication extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			SatisfiedApplication dialog = new SatisfiedApplication();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
 	public SatisfiedApplication() {
 		setBounds(10, 50, 836, 739);
 		setLocationRelativeTo(rootPane);

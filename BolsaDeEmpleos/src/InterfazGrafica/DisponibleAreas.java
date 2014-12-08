@@ -25,22 +25,6 @@ public class DisponibleAreas extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			DisponibleAreas dialog = new DisponibleAreas();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
 	public DisponibleAreas() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(DisponibleAreas.class.getResource("/InterfazGrafica/Images/areas.png")));
 		setTitle("\u00C1REAS DISPONIBLES");

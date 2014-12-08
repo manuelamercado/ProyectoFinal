@@ -128,10 +128,15 @@ public class SeePersons extends JDialog {
 			buttonPane.add(btnBuscar);
 			
 			JButton btnEliminar = new JButton("Eliminar");
-			btnEliminar.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/Modify32.png")));
+			btnEliminar.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/eliminar32.png")));
 			buttonPane.add(btnEliminar);
 			
 			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				 dispose();
+				 }
+				 });
 			btnCancelar.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 			buttonPane.add(btnCancelar);
 			

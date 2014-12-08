@@ -21,26 +21,6 @@ public abstract class Person {
 	private boolean Duty;
 	private ArrayList<String> CertTitles;
 
-	public Person(String Name, String LastName, String ID, String Phone,
-			String Mobile, String Email, String sex, String Birth, String City,
-			String Sector, String Calle, String HouseNumber, String PostalCode,
-			String Nationality, String CivilState, String AcademicLevel,
-			int YearsExperience, String country) {
-
-		this.Name = Name;
-		this.LastName = LastName;
-		this.ID = ID;
-		this.Phone = Phone;
-		this.Mobile = Mobile;
-		this.Email = Email;
-		this.sex = sex;
-		this.Birth = Birth;
-		Address = new Address(City, Sector, Calle, HouseNumber, PostalCode, country);
-		this.Nationality = Nationality;
-		this.YearsExperience = YearsExperience;
-		this.Duty=false;
-	}
-
 	public Person() {
 		Name = " ";
 		LastName = "";
