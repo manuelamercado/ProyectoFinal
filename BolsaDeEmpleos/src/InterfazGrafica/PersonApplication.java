@@ -207,7 +207,7 @@ public class PersonApplication extends JDialog {
 		
 		JLabel lblProfesin = new JLabel("Profesi\u00F3n:");
 		lblProfesin.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblProfesin.setBounds(10, 60, 130, 14);
+		lblProfesin.setBounds(56, 60, 84, 14);
 		panel.add(lblProfesin);
 		
 		JComboBox comboBox = new JComboBox();
@@ -245,6 +245,18 @@ public class PersonApplication extends JDialog {
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Fijo ", "Parcial", "Temporal"}));
 		comboBox_1.setBounds(150, 111, 212, 20);
 		panel.add(comboBox_1);
+		
+		JLabel label = new JLabel("*");
+		label.setHorizontalAlignment(SwingConstants.RIGHT);
+		label.setForeground(new Color(255, 0, 0));
+		label.setBounds(10, 27, 33, 14);
+		panel.add(label);
+		
+		JLabel label_1 = new JLabel("*");
+		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_1.setForeground(Color.RED);
+		label_1.setBounds(43, 60, 33, 14);
+		panel.add(label_1);
 		
 		JLayeredPane layeredPanePicture = new JLayeredPane();
 		layeredPanePicture.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -378,7 +390,7 @@ public class PersonApplication extends JDialog {
 		buttonSafe.setActionCommand("OK");
 		Buttonpanel.add(buttonSafe);
 		
-		JButton buttonClose = new JButton("Cancel");
+		JButton buttonClose = new JButton("Cancelar");
 		buttonClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -387,4 +399,5 @@ public class PersonApplication extends JDialog {
 		buttonClose.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 		buttonClose.setActionCommand("Cancel");
 		Buttonpanel.add(buttonClose);
-	}}
+	}	
+}

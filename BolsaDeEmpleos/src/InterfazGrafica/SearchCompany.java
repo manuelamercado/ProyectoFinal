@@ -27,23 +27,6 @@ public class SearchCompany extends JDialog {
 	private JTextField textField_RNC;
 	private SeeCompanies seeCompanies;
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			SearchCompany dialog = new SearchCompany();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
 	public SearchCompany() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SearchPerson.class.getResource("/InterfazGrafica/Images/Search.png")));
 		setTitle("BUSQUEDA");
@@ -91,7 +74,7 @@ public class SearchCompany extends JDialog {
 							 lbl_dontFound.setText("No hay personas registradas");
 							 }
 							 for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
-							 if(CollectionCompany.getInstanceCollectionCompany().getCompany(i).getName().equals(textField_name.getText())&&CollectionCompany.getInstanceCollectionCompany().getCompany(i).getID().equals(textField_RNC.getText())||CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC().equals(textField_RNC.getText())){
+							 if(CollectionCompany.getInstanceCollectionCompany().getCompany(i).getName().equals(textField_name.getText())&&CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC().equals(textField_RNC.getText())||CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC().equals(textField_RNC.getText())){
 							 seeCompanies = new SeeCompanies(CollectionCompany.getInstanceCollectionCompany().getCompany(i));
 							 seeCompanies.setVisible(true);
 							 }else if(i==CollectionCompany.getInstanceCollectionCompany().getCompanies().size()&&i!=0){

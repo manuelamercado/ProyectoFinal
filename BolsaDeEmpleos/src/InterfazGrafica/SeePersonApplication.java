@@ -19,6 +19,8 @@ import EmploymentMarket01.CollectionPerson;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class SeePersonApplication extends JDialog {
 
@@ -30,6 +32,7 @@ public class SeePersonApplication extends JDialog {
 	private JScrollPane scrollPane;
 	
 	public SeePersonApplication() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SeePersonApplication.class.getResource("/InterfazGrafica/Images/Info.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
 		setBounds(10, 50, 836, 739);
 		setLocationRelativeTo(rootPane);
@@ -42,7 +45,7 @@ public class SeePersonApplication extends JDialog {
 		contentPanel.setLayout(null);
 		setLocationRelativeTo(null);
 		setModal(true);
-		setTitle("VER SOLICITUDES PERSONA");		
+		setTitle("SOLICITUDES PERSONA");		
 		
 		table = new JTable();
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -69,7 +72,8 @@ public class SeePersonApplication extends JDialog {
 			getContentPane().add(buttonPane);
 			
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Aceptar");
+				okButton.setIcon(new ImageIcon(SeePersonApplication.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						setVisible(false);

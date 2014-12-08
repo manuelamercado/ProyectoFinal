@@ -29,6 +29,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class SeePersons extends JDialog {
 
@@ -45,6 +46,7 @@ public class SeePersons extends JDialog {
 	private String Name, ID;
 	
 	public SeePersons() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SeePersons.class.getResource("/InterfazGrafica/Images/1416396281_testimonials.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
 		setBounds(10, 50, 836, 739);
 		getContentPane().setLayout(null);

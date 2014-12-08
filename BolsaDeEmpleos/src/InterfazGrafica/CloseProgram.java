@@ -45,6 +45,7 @@ import java.awt.event.ContainerEvent;
 		private Welcome welcome;
 		private JButton SiButton;
 	
+	
 		public CloseProgram() {
 			setIconImage(Toolkit.getDefaultToolkit().getImage(CloseProgram.class.getResource("/InterfazGrafica/Images/Warning.png")));
 			setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -102,8 +103,9 @@ import java.awt.event.ContainerEvent;
 					SiButton.setIcon(new ImageIcon(CloseProgram.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 					SiButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent arg0) {
-
 							
+						System.exit(0);
+			
 						}
 					});
 					SiButton.setActionCommand("Aceptar");
@@ -122,6 +124,7 @@ import java.awt.event.ContainerEvent;
 					buttonPane.add(cancelButton);
 				}
 			}
+			
 		}
 	}
 

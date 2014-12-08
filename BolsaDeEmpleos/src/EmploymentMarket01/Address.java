@@ -8,16 +8,18 @@ public class Address {
 	private String HouseNumber;
 	private String PostalCode;
 	private String region;
+	private String country;
 	
 
 	public Address(String City, String Sector, String Calle, String HouseNumber,
-			String PostalCode) {
+			String PostalCode, String country) {
 
 		this.City = City;
 		this.Sector = Sector;
 		this.Calle = Calle;
 		this.HouseNumber = HouseNumber;
 		this.PostalCode = PostalCode;
+		this.country=country;
 	}
 
 	public String getCity() {
@@ -66,6 +68,14 @@ public class Address {
 
 	public void setRegion(String region) {
 		this.region = region;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 

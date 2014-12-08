@@ -25,7 +25,7 @@ public abstract class Person {
 			String Mobile, String Email, String sex, String Birth, String City,
 			String Sector, String Calle, String HouseNumber, String PostalCode,
 			String Nationality, String CivilState, String AcademicLevel,
-			int YearsExperience) {
+			int YearsExperience, String country) {
 
 		this.Name = Name;
 		this.LastName = LastName;
@@ -35,7 +35,7 @@ public abstract class Person {
 		this.Email = Email;
 		this.sex = sex;
 		this.Birth = Birth;
-		Address = new Address(City, Sector, Calle, HouseNumber, PostalCode);
+		Address = new Address(City, Sector, Calle, HouseNumber, PostalCode, country);
 		this.Nationality = Nationality;
 		this.YearsExperience = YearsExperience;
 		this.Duty=false;
@@ -50,7 +50,7 @@ public abstract class Person {
 		Email = "";
 		sex = "";
 		Birth = "";
-		this.Address = new Address("", "", "", "", "");
+		this.Address = new Address("", "", "", "", "", "");
 		Nationality = "";
 		YearsExperience = 0;
 		CertTitles= new ArrayList<String>();
@@ -210,7 +210,13 @@ public abstract class Person {
 	public void setHouseNumber(String houseNumber) {
 		Address.setHouseNumber(houseNumber);
 	}
+	public String getCountry() {
+		return Address.getCountry();
+	}
 
+	public void setCountry(String country) {
+		Address.setCountry(country);
+	}
 	public String getPostalCode() {
 		return Address.getPostalCode();
 	}
@@ -225,8 +231,6 @@ public abstract class Person {
 
 	public void setDuty(boolean duty) {
 		Duty = duty;
-
-	
 
 }
 

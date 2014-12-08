@@ -154,10 +154,15 @@ public class CompanyApplication extends JDialog {
 		button_1.setActionCommand("OK");
 		panel_2.add(button_1);
 		
-		JButton button_2 = new JButton("Cancel");
-		button_2.setIcon(new ImageIcon(CompanyApplication.class.getResource("/InterfazGrafica/Images/Delete32.png")));
-		button_2.setActionCommand("Cancel");
-		panel_2.add(button_2);
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCancelar.setIcon(new ImageIcon(CompanyApplication.class.getResource("/InterfazGrafica/Images/Delete32.png")));
+		btnCancelar.setActionCommand("Cancel");
+		panel_2.add(btnCancelar);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);

@@ -10,10 +10,10 @@ public class DreamerNini extends Person {
 			String Mobile, String Email, String sex, String Birth,
 			String Country, String City, String Sector, String Calle,
 			String HouseNumber, String PostalCode, String Nationality,
-			String CivilState, String AcademicLevel, int YearsExperience) {
+			String CivilState, String AcademicLevel, int YearsExperience, String country) {
 		super(Name, LastName, ID, Phone, Mobile, Email, sex, Birth, City,
 				Sector, Calle, HouseNumber, PostalCode, Nationality,
-				CivilState, AcademicLevel, YearsExperience);
+				CivilState, AcademicLevel, YearsExperience, country);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -181,6 +181,14 @@ public class DreamerNini extends Person {
 	@Override
 	public void setSector(String sector) {
 		super.setSector(sector);
+	}
+	public String getCountry() {
+		return super.getCountry();
+	}
+
+	@Override
+	public void setCountry(String c) {
+		super.setCountry(c);
 	}
 
 	@Override

@@ -13,10 +13,10 @@ public class Technical extends Person {
 			String Country, String City, String Sector, String Calle,
 			String HouseNumber, String PostalCode, String Nationality,
 			String CivilState, String AcademicLevel, int YearsExperience,
-			String Title, String gradelevel) {
+			String Title, String gradelevel, String country) {
 		super(Name, LastName, ID, Phone, Mobile, Email, sex, Birth, City,
 				Sector, Calle, HouseNumber, PostalCode, Nationality,
-				CivilState, AcademicLevel, YearsExperience);
+				CivilState, AcademicLevel, YearsExperience, country);
 
 	}
 
@@ -246,6 +246,14 @@ public class Technical extends Person {
 	
 	public void setWorks(String works) {
 		this.works.add(works);
+	}
+	public String getCountry() {
+		return super.getCountry();
+	}
+
+	@Override
+	public void setCountry(String c) {
+		super.setCountry(c);
 	}
 
 }

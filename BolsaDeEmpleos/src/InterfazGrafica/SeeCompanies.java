@@ -29,6 +29,7 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class SeeCompanies extends JDialog {
 
@@ -40,6 +41,7 @@ public class SeeCompanies extends JDialog {
 	private JScrollPane scrollPane;
 	
 	public SeeCompanies() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SeeCompanies.class.getResource("/InterfazGrafica/Images/1417828832_companies.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
 		setBounds(10, 50, 836, 739);
 		getContentPane().setLayout(null);
@@ -50,7 +52,7 @@ public class SeeCompanies extends JDialog {
 		contentPanel.setLayout(null);
 		setLocationRelativeTo(null);
 		setModal(true);
-		setTitle("Lista de Compañias");		
+		setTitle("Lista de Empresas");		
 		
 		table = new JTable();
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -88,9 +90,6 @@ public class SeeCompanies extends JDialog {
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
-			
-			JButton btnEliminar = new JButton("Eliminar");
-			buttonPane.add(btnEliminar);
 			
 			JButton btnModificar = new JButton("Modificar");
 			btnModificar.setIcon(new ImageIcon(SeeCompanies.class.getResource("/InterfazGrafica/Images/Modify32.png")));

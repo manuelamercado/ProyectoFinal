@@ -5,17 +5,16 @@ import EmploymentMarket01.CompanyType;
 
 public class Company {
 
+	private static final Exception NullPointerException = null;
 	private String Name;
 	private String WebPage;
 	private CompanyType AreaC;
 	private Address addressCompany;
 	private String area;
-	private String ID;
 	private String Phone;
 	private String Fax;
 	private String Email;
 	private String RNC;
-	private String country;
 	private String fund;
 	private String activity;
 
@@ -32,12 +31,11 @@ public class Company {
 		Name = "";
 		WebPage = "";
 		area = "";
-		ID = "";
 		Phone = "";
 		Fax = "";
 		Email = "";
-		addressCompany = new Address("", "", "", "", "");
-		setRNC("");
+		addressCompany = new Address("", "", "", "", "", "");
+		RNC="";
 	}
 
 	public Company(String name, String webPage, String area1, String City,
@@ -128,14 +126,6 @@ public class Company {
 		this.area = area2;
 	}
 
-	public String getID() {
-		return ID;
-	}
-
-	public void setID(String iD) {
-		ID = iD;
-	}
-
 	public String getPhone() {
 		return Phone;
 	}
@@ -169,15 +159,15 @@ public class Company {
 	}
 
 	public void setRNC(String rNC) {
-		RNC = rNC;
+			RNC = rNC;	
 	}
 
 	public String getCountry() {
-		return country;
+		return addressCompany.getCountry();
 	}
 
 	public void setCountry(String country) {
-		this.country = country;
+		addressCompany.setCountry(country);
 	}
 
 	public String getFund() {

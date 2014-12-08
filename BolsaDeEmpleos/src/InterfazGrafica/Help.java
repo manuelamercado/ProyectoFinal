@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Help extends JDialog {
 
@@ -49,16 +51,15 @@ public class Help extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("Aceptar");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				okButton.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancelar");
-				cancelButton.setIcon(new ImageIcon(Help.class.getResource("/InterfazGrafica/Images/Delete32.png")));
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
 			}
 		}
 	}

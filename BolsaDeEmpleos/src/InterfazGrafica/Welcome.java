@@ -257,7 +257,7 @@ public class Welcome extends JFrame {
 		mnNuevaSolicitud.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Info.png")));
 		mnRegistrar.add(mnNuevaSolicitud);
 		
-		JMenuItem mntmEmpleado = new JMenuItem("Empleado");
+		JMenuItem mntmEmpleado = new JMenuItem("Solicitante");
 		mntmEmpleado.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Profile32.png")));
 		mntmEmpleado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -393,7 +393,7 @@ public class Welcome extends JFrame {
 		});
 		mnSatisfechos.add(mntmEmpresas);
 		
-		JMenu mnConsultas = new JMenu("CONSULTAS     ");
+		JMenu mnConsultas = new JMenu("CONSULTAR   ");
 		mnConsultas.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Search48.png")));
 		mnConsultas.setFont(new Font("Tahoma", Font.BOLD, 12));
 		menuBar.add(mnConsultas);
@@ -480,7 +480,7 @@ public class Welcome extends JFrame {
 		btnCerrar.setForeground(SystemColor.inactiveCaptionText);
 		menuBar.add(btnCerrar);
 		
-		JLabel lblBolsaDeEmpleos_1 = new JLabel("BOLSA DE EMPLEOS ");
+		JLabel lblBolsaDeEmpleos_1 = new JLabel("BOLSA DE EMPLEOS M^3");
 		lblBolsaDeEmpleos_1.setForeground(Color.BLUE);
 		lblBolsaDeEmpleos_1.setFont(new Font("Tahoma", Font.BOLD, 40));
 		lblBolsaDeEmpleos_1.setHorizontalAlignment(SwingConstants.CENTER);

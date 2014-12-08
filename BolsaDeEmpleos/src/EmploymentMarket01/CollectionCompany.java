@@ -33,17 +33,29 @@ public class CollectionCompany {
 	}
 
 	public void setCompanies(Company companies) {
+		if (verify(companies)){
 		Companies.add(companies);
 		Order(Companies);
 		setCantCompany(CantCompany = +1);
 	}
-
+	}
+	
 	public int getCantCompany() {
 		return CantCompany;
 	}
 
 	public void setCantCompany(int cantCompany) {
 		CantCompany = cantCompany;
+	}
+	
+	public boolean verify(Company P1) {
+		boolean check = true;
+		for (int i = 0; i < Companies.size(); i++) {
+			if ((Companies.get(i).getRNC().equals(P1.getRNC()))) {
+				check = false;
+			}
+		}
+		return check;
 	}
 
 	private void Order(ArrayList<Company> companies) {

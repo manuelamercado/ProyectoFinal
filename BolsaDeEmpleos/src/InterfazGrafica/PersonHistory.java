@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class PersonHistory extends JDialog {
 
@@ -46,6 +48,7 @@ public class PersonHistory extends JDialog {
 	private JLabel label_2;
 	
 	public PersonHistory(Person P) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PersonHistory.class.getResource("/InterfazGrafica/Images/1418023120_Program-Group.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
 		setBounds(10, 50, 836, 739);
 		getContentPane().setLayout(null);
@@ -56,7 +59,7 @@ public class PersonHistory extends JDialog {
 		contentPanel.setLayout(null);
 		setLocationRelativeTo(null);
 		setModal(true);
-		setTitle("LISTA DE PERSONA");		
+		setTitle("Historial del Solicitante");		
 		
 		table = new JTable();
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -85,7 +88,8 @@ public class PersonHistory extends JDialog {
 			getContentPane().add(buttonPane);
 			
 			{
-				JButton okButton = new JButton("OK");
+				JButton okButton = new JButton("Aceptar");
+				okButton.setIcon(new ImageIcon(PersonHistory.class.getResource("/InterfazGrafica/Images/botonsi.png")));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						setVisible(false);
@@ -97,6 +101,7 @@ public class PersonHistory extends JDialog {
 			}
 			
 			JButton btnEliminar = new JButton("Eliminar");
+			btnEliminar.setIcon(new ImageIcon(PersonHistory.class.getResource("/InterfazGrafica/Images/eliminar32.png")));
 			buttonPane.add(btnEliminar);
 		}
 		

@@ -1,5 +1,4 @@
-
-package EmploymentMarket01;
+	package EmploymentMarket01;
 
 import java.util.ArrayList;
 
@@ -17,10 +16,10 @@ public class Academic extends Person {
 			String Country, String City, String Sector, String Calle,
 			String HouseNumber, String PostalCode, String Nationality,
 			String CivilState, String AcademicLevel, int YearsExperience,
-			ArrayList<String> Title, String gradelevel) {
+			ArrayList<String> Title, String gradelevel, String country) {
 		super(Name, LastName, ID, Phone, Mobile, Email, sex, Birth, City,
 				Sector, Calle, HouseNumber, PostalCode, Nationality,
-				CivilState, AcademicLevel, YearsExperience);
+				CivilState, AcademicLevel, YearsExperience, country);
 		
 		this.setGradeTitle(Title);
 		this.gradelevel = gradelevel;
@@ -236,7 +235,14 @@ public class Academic extends Person {
 	public void setPostalCode(String postalCode) {
 		super.setPostalCode(postalCode);
 	}
+	public String getCountry() {
+		return super.getCountry();
+	}
 
+	@Override
+	public void setCountry(String c) {
+		super.setCountry(c);
+	}
 	public ArrayList<String> getGradeTitle() {
 		return gradeTitle;
 	}
