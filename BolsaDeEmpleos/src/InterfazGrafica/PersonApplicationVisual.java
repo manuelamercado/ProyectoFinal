@@ -138,16 +138,16 @@ public class PersonApplicationVisual extends JDialog {
 		labelMalePicture.setForeground(Color.BLACK);
 		labelMalePicture.setBackground(Color.WHITE);
 		
-		final JLabel labelFeMalePicture = new JLabel("");
-		labelFeMalePicture.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
-		labelFeMalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
-		labelFeMalePicture.setIgnoreRepaint(true);
-		labelFeMalePicture.setIconTextGap(8);
-		labelFeMalePicture.setHorizontalAlignment(SwingConstants.CENTER);
-		labelFeMalePicture.setForeground(Color.BLACK);
-		labelFeMalePicture.setBackground(Color.WHITE);
-		labelFeMalePicture.setBounds(0, 0, 140, 139);
-		layeredPanePicture.add(labelFeMalePicture);
+		final JLabel labelFemalePicture = new JLabel("");
+		labelFemalePicture.setIcon(new ImageIcon(PersonApplicationVisual.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
+		 labelFemalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+		 labelFemalePicture.setIgnoreRepaint(true);
+		 labelFemalePicture.setIconTextGap(8);
+		 labelFemalePicture.setHorizontalAlignment(SwingConstants.CENTER);
+		 labelFemalePicture.setForeground(Color.BLACK);
+		labelFemalePicture.setBackground(Color.WHITE);
+		 labelFemalePicture.setBounds(0, 0, 140, 139);
+		 layeredPanePicture.add(labelFemalePicture);
 		
 		
 		JLabel labelSexo = new JLabel("Sexo:");
@@ -495,6 +495,19 @@ public class PersonApplicationVisual extends JDialog {
 								textField_7.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getBirth());
 								textField_8.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getNationality());
 								textField_9.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getSex());
+								 {
+									  if( textField_9.getText()=="Femenino")
+									  {
+									  labelFemalePicture.setVisible(true);
+									  labelMalePicture.setVisible(false);
+									  }
+									 
+									 else if (textField_9.getText()=="Masculino")
+									  {
+									  labelMalePicture.setVisible(true);
+									  labelFemalePicture.setVisible(false);
+									  }
+									  }
 								textField_10.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getCivilState());
 								textField_11.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getAcademicLevel());
 								}

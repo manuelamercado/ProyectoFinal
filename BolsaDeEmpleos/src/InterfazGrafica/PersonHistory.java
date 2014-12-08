@@ -53,7 +53,7 @@ public class PersonHistory extends JDialog {
 		setBounds(10, 50, 836, 739);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
-		contentPanel.setBounds(0, 40, 820, 636);
+		contentPanel.setBounds(0, 40, 820, 600);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
@@ -74,7 +74,7 @@ public class PersonHistory extends JDialog {
 		
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 819, 636);
+		scrollPane.setBounds(0, 0, 819, 600);
 		scrollPane.setViewportView(table);
 		contentPanel.add(scrollPane);
 		
@@ -83,7 +83,7 @@ public class PersonHistory extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 673, 820, 28);
+			buttonPane.setBounds(0, 640, 820, 61);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			

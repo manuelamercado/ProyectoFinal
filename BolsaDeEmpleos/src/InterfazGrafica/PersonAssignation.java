@@ -16,8 +16,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-
 import javax.swing.JProgressBar;
+
+import EmploymentMarket01.CollectionCompany;
+import EmploymentMarket01.CollectionCompanyApplication;
+import EmploymentMarket01.CollectionPerson;
+import EmploymentMarket01.EmploymentMarket;
 
 public class PersonAssignation extends JDialog {
 
@@ -85,6 +89,8 @@ private final JPanel contentPanel = new JPanel();
  okButton.setIcon(new ImageIcon(PersonAssignation.class.getResource("/InterfazGrafica/Images/si.png")));
  okButton.addActionListener(new ActionListener() {
  public void actionPerformed(ActionEvent arg0) {
+	
+	 EmploymentMarket.getInstanceEmploymentMarket().compare(CollectionCompanyApplication.getInstanceCollectionCompanyApplication().getCompanyApplication(0));
 
  }});
  okButton.setActionCommand("Buscar");

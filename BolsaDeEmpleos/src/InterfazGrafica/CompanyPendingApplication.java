@@ -2,6 +2,7 @@ package InterfazGrafica;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import EmploymentMarket01.CompanyApplication;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -14,7 +15,6 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import EmploymentMarket01.CollectionCompany;
 import EmploymentMarket01.CollectionCompanyApplication;
-import EmploymentMarket01.CompanyApplication;
 import EmploymentMarket01.Satisfied;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -92,6 +92,7 @@ getContentPane().add(Count);
 Count.setText(String.valueOf(Satisfied.getInstanceSatisfied().getPendingCompanyApplication().getCompanyApplications().size()));
 }
 private void loadPerson() {
+// TODO Auto-generated method stub
 Pendinng = Satisfied.getInstanceSatisfied().getPendingCompanyApplication();
 fila = new Object[5];
 for (int i = 0, j=1; i <Satisfied.getInstanceSatisfied().getPendingCompanyApplication().getCompanyApplications().size(); i++,j++)
@@ -101,6 +102,7 @@ fila[1] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication().getCom
 fila[2] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication().getCompanyApplication(i).getCompany().getName();
 fila[3] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication().getCompanyApplication(i).getCompany().getArea();
 fila[4] = Satisfied.getInstanceSatisfied().getPendingCompanyApplication().getCompanyApplication(i).getEmployeeCant();
+tableModel.addRow(fila);
 tableModel.addRow(fila);
 }
 table.setModel(tableModel);

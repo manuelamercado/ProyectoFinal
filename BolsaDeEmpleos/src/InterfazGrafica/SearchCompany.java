@@ -74,7 +74,7 @@ public class SearchCompany extends JDialog {
 						if(CollectionCompany.getInstanceCollectionCompany().getCantCompany()==0){
 							 lbl_dontFound.setText("No hay Empresas registradas");
 							 }
-							 for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
+							 for(int i=0; i<CollectionCompany.getInstanceCollectionCompany().getCantCompany(); i++)
 							 if(CollectionCompany.getInstanceCollectionCompany().getCompany(i).getName().equals(textField_name.getText())&&CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC().equals(textField_RNC.getText())||CollectionCompany.getInstanceCollectionCompany().getCompany(i).getRNC().equals(textField_RNC.getText())){
 							 seeCompanies = new SeeCompanies(CollectionCompany.getInstanceCollectionCompany().getCompany(i));
 							 seeCompanies.setVisible(true);
