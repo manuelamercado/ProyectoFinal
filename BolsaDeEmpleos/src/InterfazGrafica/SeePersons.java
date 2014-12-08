@@ -134,6 +134,16 @@ public class SeePersons extends JDialog {
 			JButton btnCancelar = new JButton("Cancelar");
 			btnCancelar.setIcon(new ImageIcon(SeePersons.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 			buttonPane.add(btnCancelar);
+			
+			btnEliminar.addActionListener(new ActionListener() {
+				 public void actionPerformed(ActionEvent arg0) {
+				for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
+					if(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getID().equals(ID)){
+				 CollectionPerson.getInstanceCollectionPerson().removePerson(CollectionPerson.getInstanceCollectionPerson().getPerson(i));
+				 loadPerson();
+					}
+				 }
+				 });
 		}
 		
 		lblCantidadDePersonas = new JLabel("Cantidad de Personas:");
@@ -180,5 +190,6 @@ public class SeePersons extends JDialog {
 	
 	 return count;
 	}
+	 
 	
 }

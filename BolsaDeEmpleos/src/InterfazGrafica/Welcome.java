@@ -54,7 +54,7 @@ public class Welcome extends JFrame {
 	private PersonRegister personRegister;
 	private CompanyRegister companyRegister;
 	private PersonApplication personApplication;
-	private CompanyApplication companyApplication;
+	private CompanyApplicationVisual companyApplicationVisual;
 	private CloseProgram closeProgram;
 	private static Welcome welcome;
 	private SeePersonApplication seePersonApplication;
@@ -175,8 +175,8 @@ public class Welcome extends JFrame {
 		JMenuItem mntmEmpresa_4 = new JMenuItem("Empresa");
 		mntmEmpresa_4.addActionListener(new ActionListener() {
 			 public void actionPerformed(ActionEvent e) {
-			 companyApplication = new CompanyApplication();
-			 companyApplication.setVisible(true);
+			 companyApplicationVisual = new CompanyApplicationVisual();
+			 companyApplicationVisual.setVisible(true);
 			 }
 			 });
 		mntmEmpresa_4.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
@@ -271,8 +271,8 @@ public class Welcome extends JFrame {
 		mntmEmpresa_2.setIcon(new ImageIcon(Welcome.class.getResource("/InterfazGrafica/Images/Company32.png")));
 		mntmEmpresa_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				companyApplication = new CompanyApplication();
-				companyApplication.setVisible(true);
+				companyApplicationVisual = new CompanyApplicationVisual();
+				companyApplicationVisual.setVisible(true);
 			}
 		});
 		mnNuevaSolicitud.add(mntmEmpresa_2);
@@ -516,5 +516,4 @@ public class Welcome extends JFrame {
 		}
 	return welcome;}
 }
-
-		
+	

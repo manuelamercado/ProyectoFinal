@@ -86,10 +86,11 @@ public class PersonRegister extends JDialog {
 	private JComboBox<String> comboBox_11;
 	private JLabel error;
 	private JDateChooser dateChooser;
-	private JFormattedTextField formattedTextField;
-	private JFormattedTextField formattedTextField_1;
-	private JFormattedTextField formattedTextField_2;
-	private JFormattedTextField formattedTextField_3;
+	private JFormattedTextField formattedTextFieldID;
+	private JFormattedTextField formattedTextFieldMob;
+	private JFormattedTextField formattedTextFieldPhone;
+	private JFormattedTextField formattedTextFieldPostal;
+	private JLabel error1;
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public PersonRegister() {
@@ -234,21 +235,7 @@ public class PersonRegister extends JDialog {
 			comboBoxGrado.setBounds(127, 53, 219, 20);
 			panelUniversityStudy.add(comboBoxGrado);
 			comboBoxGrado.setBackground(new Color(248, 248, 255));
-			comboBoxGrado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", 
-					"Adm. emp. menci\u00F3n operaciones", "Adm. emp. menci\u00F3n finanzas", 
-					"Adm. emp. menci\u00F3n estrategia", 
-					"Adm. emp. menci\u00F3n creaci\u00F3n y desarrollo de nuevos negocios", 
-					"Adm. emp. menci\u00F3n gesti\u00F3n humana", "Adm. emp. menci\u00F3n negocios internacionales", 
-					"Adm. hotelera menci\u00F3n comida y bebida", "Adm. hotelera menci\u00F3n mercadeo hotelero ",
-					"Arquitectura", "Comunicaci\u00F3n social menci\u00F3n producci\u00F3n audiovisual", 
-					"Comunicaci\u00F3n Social menci\u00F3n comunicaci\u00F3n corporativa", "Derecho", 
-					"Dise\u00F1o e interiorismo", "Ecolog\u00EDa y manejo ambiental", "Econom\u00EDa", "Educaci\u00F3n", 
-					"Enfermer\u00EDa", "Estomatolog\u00EDa", "Filosof\u00EDa", "Gesti\u00F3n financiera y auditor\u00EDa", 
-					"Ingenier\u00EDa Civil", "Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n mec\u00E1nica", 
-					"Ingenier\u00EDa Electromec\u00E1nica menci\u00F3n el\u00E9ctricidad", "Ingenier\u00EDa Industrial", 
-					"Ingenier\u00EDa de Sistemas y equipo", "Ingenier\u00EDa Electr\u00F3nica", 
-					"Ingenier\u00EDa telem\u00E1tica", "Medicina", "Mercadeo", "Nutrici\u00F3n y diet\u00E9tica", 
-					"Psicolog\u00EDa", "fisioterapia"}));	
+			comboBoxGrado.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Adm. Emp. M. Operaciones", "Adm. Emp. M. Finanzas", "Adm. Emp. M.Estrategia", "Adm. Emp. M.Gestión Humana", "Adm. Emp. M. Negocios ", "Adm. hotelera M.CB", "Adm. hotelera M.M.H ", "Arquitectura", "Comunicación Social ", "Derecho", "Diseño e interiorismo", "Ecología y Manejo Ambiental", "Economía", "Educación", "Enfermería", "Estomatología", "Filosofía", "Fisioterapia", "Gestión financiera y auditoría", "Ingeniería Civil", "Ingeniería E. M. Mecánica", "Ingeniería E.  M.Eléctrica", "Ingeniería Industrial", "Ingeniería de Sistemas", "Ingeniería Electrónica", "Ingeniería telemática", "Medicina", "Mercadeo", "Nutrición y Dietética", "Psicología"}));	
 			{
 				
 				comboBoxPostGrado = new JComboBox();
@@ -589,7 +576,7 @@ public class PersonRegister extends JDialog {
 						panelTechnicalStudies.setVisible(false);
 					}
 					
-					if (comboBox_1.getSelectedItem() == "T�cnico") {
+					if (comboBox_1.getSelectedItem() == "Técnico") {
 						panelUniversityStudy.setVisible(false);
 						panelTechnicalStudies.setVisible(true);
 						panel_5Oficio.setVisible(false);
@@ -699,12 +686,22 @@ public class PersonRegister extends JDialog {
 				AstLastName.setHorizontalAlignment(SwingConstants.CENTER);
 				AstLastName.setForeground(Color.RED);
 				{
+					MaskFormatter mascara;
+					try {
+						mascara = new MaskFormatter("###########");
+						formattedTextFieldID = new JFormattedTextField(mascara);
+						formattedTextFieldID.setBounds(559, 195, 144, 20);
+						contentPanel.add(formattedTextFieldID);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						}
 					MaskFormatter mascara1;
 					try {
 						mascara1 = new MaskFormatter("###-###-####");
-						formattedTextField_1 = new JFormattedTextField(mascara1);
-						formattedTextField_1.setBounds(150, 57, 223, 20);
-						panel_2Contacto.add(formattedTextField_1);
+						formattedTextFieldMob = new JFormattedTextField(mascara1);
+						formattedTextFieldMob.setBounds(150, 57, 223, 20);
+						panel_2Contacto.add(formattedTextFieldMob);
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -715,9 +712,9 @@ public class PersonRegister extends JDialog {
 					MaskFormatter mascara2;
 					try {
 						mascara2 = new MaskFormatter("###-###-####");
-						formattedTextField_2 = new JFormattedTextField(mascara2);
-						formattedTextField_2.setBounds(150, 88, 223, 20);
-						panel_2Contacto.add(formattedTextField_2);
+						formattedTextFieldPhone = new JFormattedTextField(mascara2);
+						formattedTextFieldPhone.setBounds(150, 88, 223, 20);
+						panel_2Contacto.add(formattedTextFieldPhone);
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -728,9 +725,9 @@ public class PersonRegister extends JDialog {
 					MaskFormatter mascara3;
 					try {
 						mascara3 = new MaskFormatter("#####");
-						formattedTextField_3 = new JFormattedTextField(mascara3);
-						formattedTextField_3.setBounds(150, 116, 223, 20);
-						panel_2Contacto.add(formattedTextField_3);
+						formattedTextFieldPostal = new JFormattedTextField(mascara3);
+						formattedTextFieldPostal.setBounds(150, 116, 223, 20);
+						panel_2Contacto.add(formattedTextFieldPostal);
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -757,17 +754,18 @@ public class PersonRegister extends JDialog {
 							Academic temp = new Academic();
 							
 								if((compa(txtSuperlargoArchipielago.getText())==true)&&(compa(textField_2.getText())==true)&&
-									(compa(formattedTextField.getText())==true)&&(compa(formattedTextField_1.getText())==true)
-									&&(compa(textField_3.getText())==true)&&
-									(comboBoxSexo.getSelectedItem().toString()!="<Selecciona>")&&(dateChooser.getDate()!=null)
-									&&(comboBox_1_1.getSelectedItem().toString()!="<Selecciona>")&&
-									(comboBox_1_3.getSelectedItem().toString()!="<Selecciona>")&&
-									(comboBox_1_4.getSelectedItem().toString()!="<Selecciona>")){
+								(compa(formattedTextFieldMob.getText())==true)&&(compa(textField_3.getText())==true)&&
+								(comboBoxSexo.getSelectedItem().toString()!="<Selecciona>")&&(dateChooser.getDate()!=null)&&
+								(comboBox_1_1.getSelectedItem().toString()!="<Selecciona>")&&
+								(comboBox_1_3.getSelectedItem().toString()!="<Selecciona>")&&
+								(comboBox_1_4.getSelectedItem().toString()!="<Selecciona>")&&
+								(compa(formattedTextFieldID.getText())==true)&&
+								(compDate(Integer.toString((dateChooser.getCalendar().get(Calendar.YEAR))))==true)){
 										temp.setName(txtSuperlargoArchipielago.getText());
 										temp.setLastName(textField_2.getText());
-										temp.setID(formattedTextField.getText());
-										temp.setPhone(formattedTextField_2.getText());
-										temp.setMobile(formattedTextField_1.getText());
+										temp.setID(formattedTextFieldID.getText());
+										temp.setPhone(formattedTextFieldPhone.getText());
+										temp.setMobile(formattedTextFieldMob.getText());
 										temp.setEmail(textField_3.getText());
 										temp.setSex(comboBoxSexo.getSelectedItem().toString());	
 										String month= Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
@@ -783,7 +781,7 @@ public class PersonRegister extends JDialog {
 										temp.setSector(textField_10.getText());
 										temp.setCalle(textField_8.getText());
 										temp.setHouseNumber(textField_7.getText());
-										temp.setPostalCode(formattedTextField_3.getText());
+										temp.setPostalCode(formattedTextFieldPostal.getText());
 										temp.setGradeTitle(comboBoxGrado.getSelectedItem().toString());
 										temp.getAddress().setRegion(textField_7.getText());
 										temp.setGradeLevel(comboBox_11.getSelectedItem().toString());
@@ -797,26 +795,29 @@ public class PersonRegister extends JDialog {
 
 										CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
 										error.setText("Su registro fue realizado correctamente");
+										reiniciar ();
 								}
 								else{
 										error.setText("Todos los campos con asteriscos son obligatorios");	
 										}															
 										}
 						
-						else if (comboBox_1.getSelectedItem() == "T�cnico") {
+						else if (comboBox_1.getSelectedItem() == "Técnico") {
 							Technical temp = new Technical();
-							if((compa(txtSuperlargoArchipielago.getText())==true)&&(compa(textField_2.getText())==true)&&
-									(compa(formattedTextField.getText())==true)&&(compa(formattedTextField_1.getText())==true)
+							dateChooser.getCalendar();
+							if((compa(txtSuperlargoArchipielago.getText())==true)&&(compa(textField_2.getText())==true)&&(compa(formattedTextFieldMob.getText())==true)
 									&&(compa(textField_3.getText())==true)&&
 									(comboBoxSexo.getSelectedItem().toString()!="<Selecciona>")&&(dateChooser.getDate()!=null)
 									&&(comboBox_1_1.getSelectedItem().toString()!="<Selecciona>")&&
 									(comboBox_1_3.getSelectedItem().toString()!="<Selecciona>")&&
-									(comboBox_1_4.getSelectedItem().toString()!="<Selecciona>")){
+									(comboBox_1_4.getSelectedItem().toString()!="<Selecciona>")&&
+									(compa(formattedTextFieldID.getText())==true)&&
+									(compDate(Integer.toString((dateChooser.getCalendar().get(Calendar.YEAR))))==true)){
 							temp.setName(txtSuperlargoArchipielago.getText());
 							temp.setLastName(textField_2.getText());
-							temp.setID(formattedTextField.getText());
-							temp.setPhone(formattedTextField_2.getText());
-							temp.setMobile(formattedTextField_1.getText());
+							temp.setID(formattedTextFieldID.getText());
+							temp.setPhone(formattedTextFieldPhone.getText());
+							temp.setMobile(formattedTextFieldMob.getText());
 							temp.setEmail(textField_3.getText());
 							temp.setSex(comboBoxSexo.getSelectedItem().toString());
 							String month= Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
@@ -832,7 +833,7 @@ public class PersonRegister extends JDialog {
 							temp.setSector(textField_10.getText());
 							temp.setCalle(textField_8.getText());
 							temp.setHouseNumber(textField_7.getText());
-							temp.setPostalCode(formattedTextField_3.getText());
+							temp.setPostalCode(formattedTextFieldPostal.getText());
 							temp.getAddress().setRegion(textField_7.getText());
 							temp.setCertTitles(comboBox.getSelectedItem().toString());
 							temp.setEspTitle(comboBox_5_1.getSelectedItem().toString());
@@ -843,6 +844,7 @@ public class PersonRegister extends JDialog {
 
 							CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
 							error.setText("Su registro fue realizado correctamente");
+							reiniciar ();
 							}
 							else{
 								error.setText("Todos los campos con asteriscos son obligatorios");	
@@ -852,18 +854,20 @@ public class PersonRegister extends JDialog {
 
 			else if (comboBox_1.getSelectedItem() == "Oficio") {
 				DreamerNini temp = new DreamerNini();
-				if((compa(txtSuperlargoArchipielago.getText())==true)&&(compa(textField_2.getText())==true)&&
-						(compa(formattedTextField.getText())==true)&&(compa(formattedTextField_1.getText())==true)
+				System.out.println(compDate("12"));
+				if((compa(txtSuperlargoArchipielago.getText())==true)&&(compa(textField_2.getText())==true)&&(compa(formattedTextFieldMob.getText())==true)
 						&&(compa(textField_3.getText())==true)&&
 						(comboBoxSexo.getSelectedItem().toString()!="<Selecciona>")&&(dateChooser.getDate()!=null)
 						&&(comboBox_1_1.getSelectedItem().toString()!="<Selecciona>")&&
 						(comboBox_1_3.getSelectedItem().toString()!="<Selecciona>")&&
-						(comboBox_1_4.getSelectedItem().toString()!="<Selecciona>")){
+						(comboBox_1_4.getSelectedItem().toString()!="<Selecciona>")&&
+						(compa(formattedTextFieldID.getText())==true)&&
+						(compDate(Integer.toString((dateChooser.getCalendar().get(Calendar.YEAR))))==true)){
 							temp.setName(txtSuperlargoArchipielago.getText());
 							temp.setLastName(textField_2.getText());
-							temp.setID(formattedTextField.getText());
-							temp.setPhone(formattedTextField_2.getText());
-							temp.setMobile(formattedTextField_1.getText());
+							temp.setID(formattedTextFieldID.getText());
+							temp.setPhone(formattedTextFieldPhone.getText());
+							temp.setMobile(formattedTextFieldMob.getText());
 							temp.setEmail(textField_3.getText());
 							temp.setSex(comboBoxSexo.getSelectedItem().toString());
 							String month= Integer.toString(dateChooser.getCalendar().get(Calendar.MONTH)+1);
@@ -879,7 +883,7 @@ public class PersonRegister extends JDialog {
 							temp.setSector(textField_10.getText());
 							temp.setCalle(textField_8.getText());
 							temp.setHouseNumber(textField_7.getText());
-							temp.setPostalCode(formattedTextField_3.getText());
+							temp.setPostalCode(formattedTextFieldPostal.getText());
 							temp.getAddress().setRegion(textField_7.getText());
 							temp.setCertTitles(comboBox_8.getSelectedItem().toString());
 							temp.setCourseTitles(comboBox_9.getSelectedItem().toString());
@@ -887,7 +891,7 @@ public class PersonRegister extends JDialog {
 								
 								CollectionPerson.getInstanceCollectionPerson().setPersons(temp);
 								error.setText("Su registro fue realizado correctamente");
-							
+								reiniciar ();
 							
 			}
 				else{
@@ -905,81 +909,8 @@ public class PersonRegister extends JDialog {
 				btnReiniciar.setIcon(new ImageIcon(PersonRegister.class.getResource("/InterfazGrafica/Images/Back.png")));
 				btnReiniciar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						if (comboBox_1.getSelectedItem() == "Universitario" || comboBox_1.getSelectedItem() == "<Selecciona>") {
-							comboBoxGrado.setSelectedItem("<Selecciona>");
-							comboBox_11.setSelectedItem("<Selecciona>");
-							comboBoxPostGrado.setSelectedItem("<Selecciona>");
-							comboBox_4.setSelectedItem("<Selecciona>");
-							comboBox_5.setSelectedItem("<Selecciona>");
-							comboBoxEstudiosTecnicos.setSelectedItem("<Selecciona>");
-							comboBoxDoctorado.setSelectedItem("<Selecciona>");
-							txtSuperlargoArchipielago.setText("");
-							textField_2.setText("");
-							formattedTextField_3.setText("");
-							formattedTextField_1.setText("");
-							formattedTextField.setText("");
-							textField_3.setText("");
-							comboBoxSexo.setSelectedItem("<Selecciona>");
-							comboBox_1_4.setSelectedItem("<Selecciona>");
-							textField_8.setText("");
-							textField_10.setText("");
-							textField_7.setText("");
-							formattedTextField_2.setText("");
-							comboBox_1_1.setSelectedItem("<Selecciona>");
-							comboBox_1_3.setSelectedItem("<Selecciona>");
-							comboBox_1.setSelectedItem("<Selecciona>");
-							textField_9.setText("");
-							textField_11.setText("");
-							dateChooser.setDate(null);}
-						
-						else if (comboBox_1.getSelectedItem() == "T�cnico") {
-							comboBox.setSelectedItem("<Selecciona>");
-							comboBox_5_1.setSelectedItem("<Selecciona>");
-							comboBox_6_1.setSelectedItem("<Selecciona>");
-							comboBox_7_1.setSelectedItem("<Selecciona>");
-							txtSuperlargoArchipielago.setText("");
-							textField_2.setText("");
-							formattedTextField_3.setText("");
-							formattedTextField_1.setText("");
-							formattedTextField.setText("");
-							textField_3.setText("");
-							comboBoxSexo.setSelectedItem("<Selecciona>");
-							comboBox_1_4.setSelectedItem("<Selecciona>");
-							textField_8.setText("");
-							textField_10.setText("");
-							textField_7.setText("");
-							formattedTextField_2.setText("");
-							comboBox_1_1.setSelectedItem("<Selecciona>");
-							comboBox_1_3.setSelectedItem("<Selecciona>");
-							comboBox_1.setSelectedItem("<Selecciona>");
-							textField_9.setText("");
-							textField_11.setText("");
-							dateChooser.setDate(null);
-						}
+						reiniciar ();
 
-			else if (comboBox_1.getSelectedItem() == "Oficio") {			
-							comboBox_8.setSelectedItem("<Selecciona>");
-							comboBox_9.setSelectedItem("<Selecciona>");
-							comboBox_10.setSelectedItem("<Selecciona>");
-							txtSuperlargoArchipielago.setText("");
-							textField_2.setText("");
-							formattedTextField_3.setText("");
-							formattedTextField_1.setText("");
-							formattedTextField.setText("");
-							textField_3.setText("");
-							comboBoxSexo.setSelectedItem("<Selecciona>");
-							comboBox_1_4.setSelectedItem("<Selecciona>");
-							textField_8.setText("");
-							textField_10.setText("");
-							textField_7.setText("");
-							formattedTextField_2.setText("");
-							comboBox_1_1.setSelectedItem("<Selecciona>");
-							comboBox_1_3.setSelectedItem("<Selecciona>");
-							comboBox_1.setSelectedItem("<Selecciona>");
-							textField_9.setText("");
-							textField_11.setText("");
-							dateChooser.setDate(null);
-							}
 					}
 		
 					
@@ -1159,23 +1090,20 @@ public class PersonRegister extends JDialog {
 				{
 					error = new JLabel("");
 					error.setForeground(Color.RED);
-					error.setBounds(22, 625, 416, 27);
+					error.setBounds(22, 625, 416, 26);
 					contentPanel.add(error);
 					}
-				try {
-					MaskFormatter mascara = new MaskFormatter("###-#######-#");
-					formattedTextField = new JFormattedTextField(mascara);
-					
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					}
 				
-				formattedTextField.setBounds(559, 195, 144, 20);
-				contentPanel.add(formattedTextField);
+				
+			
 			}
 }
 }
+		
+		error1 = new JLabel("");
+		error1.setForeground(Color.RED);
+		error1.setBounds(442, 101, 114, 27);
+		contentPanel.add(error1);
 	}
 	public boolean compa(String a){
 		boolean b= true;
@@ -1187,5 +1115,100 @@ public class PersonRegister extends JDialog {
 		return b;
 		
 	}
-}
+	public void reiniciar(){
+		if (comboBox_1.getSelectedItem() == "Universitario" || comboBox_1.getSelectedItem() == "<Selecciona>") {
+			comboBoxGrado.setSelectedItem("<Selecciona>");
+			comboBox_11.setSelectedItem("<Selecciona>");
+			comboBoxPostGrado.setSelectedItem("<Selecciona>");
+			comboBox_4.setSelectedItem("<Selecciona>");
+			comboBox_5.setSelectedItem("<Selecciona>");
+			comboBoxEstudiosTecnicos.setSelectedItem("<Selecciona>");
+			comboBoxDoctorado.setSelectedItem("<Selecciona>");
+			txtSuperlargoArchipielago.setText("");
+			textField_2.setText("");
+			formattedTextFieldPostal.setText("");
+			formattedTextFieldMob.setText("");
+			formattedTextFieldID.setText("");
+			textField_3.setText("");
+			comboBoxSexo.setSelectedItem("<Selecciona>");
+			comboBox_1_4.setSelectedItem("<Selecciona>");
+			textField_8.setText("");
+			textField_10.setText("");
+			textField_7.setText("");
+			formattedTextFieldPhone.setText("");
+			comboBox_1_1.setSelectedItem("<Selecciona>");
+			comboBox_1_3.setSelectedItem("<Selecciona>");
+			comboBox_1.setSelectedItem("<Selecciona>");
+			textField_9.setText("");
+			textField_11.setText("");
+			dateChooser.setDate(null);			
+			error.setText(null);
+			error1.setText(null);
+			}
+		
+		else if (comboBox_1.getSelectedItem() == "Técnico") {
+			comboBox.setSelectedItem("<Selecciona>");
+			comboBox_5_1.setSelectedItem("<Selecciona>");
+			comboBox_6_1.setSelectedItem("<Selecciona>");
+			comboBox_7_1.setSelectedItem("<Selecciona>");
+			txtSuperlargoArchipielago.setText("");
+			textField_2.setText("");
+			formattedTextFieldPostal.setText("");
+			formattedTextFieldMob.setText("");
+			formattedTextFieldID.setText("");
+			textField_3.setText("");
+			comboBoxSexo.setSelectedItem("<Selecciona>");
+			comboBox_1_4.setSelectedItem("<Selecciona>");
+			textField_8.setText("");
+			textField_10.setText("");
+			textField_7.setText("");
+			formattedTextFieldPhone.setText("");
+			comboBox_1_1.setSelectedItem("<Selecciona>");
+			comboBox_1_3.setSelectedItem("<Selecciona>");
+			comboBox_1.setSelectedItem("<Selecciona>");
+			textField_9.setText("");
+			textField_11.setText("");
+			dateChooser.setDate(null);
+			error.setText(null);
+			error1.setText(null);
+		}
 
+else if (comboBox_1.getSelectedItem() == "Oficio") {			
+			comboBox_8.setSelectedItem("<Selecciona>");
+			comboBox_9.setSelectedItem("<Selecciona>");
+			comboBox_10.setSelectedItem("<Selecciona>");
+			txtSuperlargoArchipielago.setText("");
+			textField_2.setText("");
+			formattedTextFieldPostal.setText("");
+			formattedTextFieldMob.setText("");
+			formattedTextFieldID.setText("");
+			textField_3.setText("");
+			comboBoxSexo.setSelectedItem("<Selecciona>");
+			comboBox_1_4.setSelectedItem("<Selecciona>");
+			textField_8.setText("");
+			textField_10.setText("");
+			textField_7.setText("");
+			formattedTextFieldPhone.setText("");
+			comboBox_1_1.setSelectedItem("<Selecciona>");
+			comboBox_1_3.setSelectedItem("<Selecciona>");
+			comboBox_1.setSelectedItem("<Selecciona>");
+			textField_9.setText("");
+			textField_11.setText("");
+			dateChooser.setDate(null);
+			error.setText(null);
+			error1.setText(null);
+			}
+	
+	}
+	public boolean compDate(String a){
+		boolean b=true;
+		int c= Integer.parseInt(a);
+		if(c>1999 || c<1960){
+		b=false;
+		error1.setText("Edad no aceptada");
+
+		}
+		return b;
+		
+	}
+}

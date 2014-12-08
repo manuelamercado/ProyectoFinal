@@ -146,3 +146,4 @@ public class SeeCompanies extends JDialog {
 		 return count;
 		 }
 }
+				

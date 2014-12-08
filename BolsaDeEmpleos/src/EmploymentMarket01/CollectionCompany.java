@@ -58,6 +58,15 @@ public class CollectionCompany {
 		return check;
 	}
 
+	public Company getCompany(String RNC) {
+		Company temp= new Company();
+		for (int i = 0; i < Companies.size(); i++) {
+			if ((Companies.get(i).getRNC().equals(RNC))) {
+				temp= Companies.get(i);
+			}
+		}
+		return temp;
+	}
 	private void Order(ArrayList<Company> companies) {
 		Collections.sort(Companies, new Comparator<Company>() {
 			@Override

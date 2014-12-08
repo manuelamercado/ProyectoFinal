@@ -60,7 +60,11 @@ public class CollectionPerson {
 				Order(Persons);
 		}
 	}
-	
+	public void removePerson(Person P){
+		 Persons.remove(P);
+		 setCantPerson(CantPerson-1);
+		
+		 }
 	public void addacademic(Academic a){
 		Persons.add(a);
 		CantPerson+=1;
@@ -95,4 +99,5 @@ public class CollectionPerson {
 	public Person getPerson(int i){
 		return Persons.get(i);
 	}
+
 }

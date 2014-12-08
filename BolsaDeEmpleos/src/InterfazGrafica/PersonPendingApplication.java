@@ -1,4 +1,5 @@
-package InterfazGrafica;
+
+	package InterfazGrafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,7 +41,7 @@ public class PersonPendingApplication extends JDialog {
 	public PersonPendingApplication() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PersonPendingApplication.class.getResource("/InterfazGrafica/Images/pendientes.png")));
 		getContentPane().setBackground(new Color(248, 248, 255));
-		setBounds(10, 50, 836, 739);
+		setBounds(10, 50, 836, 748);
 		getContentPane().setLayout(null);
 		contentPanel.setBackground(new Color(248, 248, 255));
 		contentPanel.setBounds(0, 40, 820, 628);
@@ -71,7 +72,7 @@ public class PersonPendingApplication extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(248, 248, 255));
-			buttonPane.setBounds(0, 668, 820, 33);
+			buttonPane.setBounds(0, 668, 820, 45);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane);
 			
@@ -89,7 +90,7 @@ public class PersonPendingApplication extends JDialog {
 			}
 			
 			JButton btnEliminar = new JButton("Eliminar");
-			btnEliminar.setIcon(new ImageIcon(PersonPendingApplication.class.getResource("/InterfazGrafica/Images/eliminar32.png")));
+			btnEliminar.setIcon(new ImageIcon(PersonPendingApplication.class.getResource("/InterfazGrafica/Images/Delete32.png")));
 			buttonPane.add(btnEliminar);
 		}
 		

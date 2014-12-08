@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 
+import EmploymentMarket01.CollectionPerson;
+
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
 import com.toedter.components.JSpinField;
@@ -47,7 +49,10 @@ import javax.swing.JButton;
 
 import java.awt.Window.Type;
 import java.awt.ComponentOrientation;
+
 import javax.swing.SpinnerNumberModel;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 
 
@@ -63,6 +68,7 @@ public class PersonApplication extends JDialog {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JTextField textField_ID;
 
 	public PersonApplication() {
 		setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -101,7 +107,7 @@ public class PersonApplication extends JDialog {
 		labelBirth.setBounds(0, 71, 140, 20);
 		panelPersonalDates.add(labelBirth);
 		
-		JComboBox comboBoxNationality = new JComboBox();
+		final JComboBox comboBoxNationality = new JComboBox();
 		comboBoxNationality.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Afgano", "Alem\u00E1n", "Americano", "Argentino", "Australiano", "Austriaco", "Belga", "Boliviano", "Brasile\u00F1o", "Brit\u00E1nico", "B\u00FAlgaro", "Canadiense", "Chileno", "Chino", "Colombiano", "Coreano", "Costarricense", "Cubano", "Checo", "Dan\u00E9s", "Dominicano", "Ecuatoriano", "Egipcio", "Escoc\u00E9s", "Espa\u00F1ol", "Filipino", "Finland\u00E9s", "Franc\u00E9s", "Gal\u00E9s", "Griego", "Groenland\u00E9s", "Guatemalteco", "Haitiano", "Hawaiano", "Holand\u00E9s", "Hondure\u00F1o", "H\u00FAngaro", "Ingl\u00E9s", "Island\u00E9s", "Indio", "Indonesio", "Iran\u00ED", "Iraqu\u00ED", "Irland\u00E9s", "Israel\u00ED", "Italiano", "Jamaiquino", "Japon\u00E9s", "Liban\u00E9s", "Malasio", "Malt\u00E9s", "Mexicano", "Marroqu\u00ED", "Nepal\u00E9s", "Neozeland\u00E9s", "Nicarag\u00FCense", "Nigeriano", "Noruego", "Pakistan\u00ED", "Palestino", "Paname\u00F1o", "Paraguayo", "Peruano", "Polaco", "Portugu\u00E9s", "Puertorrique\u00F1o", "Rumano", "Ruso", "Saudita", "Singapurence", "Sueco", "Suizp", "Sirio", "Tahitiano", "Tailand\u00E9s", "Tunecino", "Turco", "Ucranio", "Uruguayo", "Venezolano", "Vietnamita", "Yugoslavo"}));
 		comboBoxNationality.setBackground(new Color(248, 248, 255));
 		comboBoxNationality.setBounds(150, 95, 223, 20);
@@ -111,12 +117,51 @@ public class PersonApplication extends JDialog {
 		labelNationality.setHorizontalAlignment(SwingConstants.TRAILING);
 		labelNationality.setBounds(10, 95, 130, 20);
 		panelPersonalDates.add(labelNationality);
+		JLayeredPane layeredPanePicture = new JLayeredPane();
+		layeredPanePicture.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		layeredPanePicture.setBounds(556, 53, 139, 139);
+		contentPane.add(layeredPanePicture);
 		
-		JComboBox comboBoxSex = new JComboBox();
-		comboBoxSex.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));
-		comboBoxSex.setBackground(new Color(248, 248, 255));
-		comboBoxSex.setBounds(150, 119, 223, 20);
-		panelPersonalDates.add(comboBoxSex);
+		final JComboBox comboBoxSexo = new JComboBox();	
+		final JLabel labelMalePicture = new JLabel("");
+		labelMalePicture.setBounds(10, 0, 119, 139);
+		layeredPanePicture.add(labelMalePicture);
+		labelMalePicture.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
+		labelMalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+		labelMalePicture.setIgnoreRepaint(true);
+		labelMalePicture.setIconTextGap(8);
+		labelMalePicture.setHorizontalAlignment(SwingConstants.CENTER);
+		labelMalePicture.setForeground(Color.BLACK);
+		labelMalePicture.setBackground(Color.WHITE);
+		
+		final JLabel labelFeMalePicture = new JLabel("");
+		labelFeMalePicture.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/femalePicture.jpg")));
+		labelFeMalePicture.setVerticalTextPosition(SwingConstants.BOTTOM);
+		labelFeMalePicture.setIgnoreRepaint(true);
+		labelFeMalePicture.setIconTextGap(8);
+		labelFeMalePicture.setHorizontalAlignment(SwingConstants.CENTER);
+		labelFeMalePicture.setForeground(Color.BLACK);
+		labelFeMalePicture.setBackground(Color.WHITE);
+		labelFeMalePicture.setBounds(0, 0, 140, 139);
+		layeredPanePicture.add(labelFeMalePicture);
+		comboBoxSexo.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				 if (comboBoxSexo.getSelectedItem()== "Femenino")
+				 {
+				 labelFeMalePicture.setVisible(true);
+				 labelMalePicture.setVisible(false);
+				 }
+				 else if (comboBoxSexo.getSelectedItem()== "Masculino")
+				 {
+				 labelFeMalePicture.setVisible(false);
+				 labelMalePicture.setVisible(true);
+				 }
+			}
+		});
+		comboBoxSexo.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Femenino", "Masculino"}));
+		comboBoxSexo.setBackground(new Color(248, 248, 255));
+		comboBoxSexo.setBounds(150, 119, 223, 20);
+		panelPersonalDates.add(comboBoxSexo);
 		
 		JLabel labelSexo = new JLabel("Sexo:");
 		labelSexo.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -128,13 +173,13 @@ public class PersonApplication extends JDialog {
 		labelCivilState.setBounds(10, 143, 130, 20);
 		panelPersonalDates.add(labelCivilState);
 		
-		JComboBox comboBoxCivilState = new JComboBox();
+		final JComboBox comboBoxCivilState = new JComboBox();
 		comboBoxCivilState.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Soltero", "Casado", "Dirvorciado", "Viudo", "Comprometido", "Otro"}));
 		comboBoxCivilState.setBackground(new Color(248, 248, 255));
 		comboBoxCivilState.setBounds(150, 143, 223, 20);
 		panelPersonalDates.add(comboBoxCivilState);
 		
-		JComboBox comboBoxStudyLevel = new JComboBox();
+		final JComboBox comboBoxStudyLevel = new JComboBox();
 		comboBoxStudyLevel.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "Universitario", "T\u00E9cnico", "Oficio"}));
 		comboBoxStudyLevel.setBackground(new Color(248, 248, 255));
 		comboBoxStudyLevel.setBounds(150, 167, 223, 20);
@@ -164,7 +209,7 @@ public class PersonApplication extends JDialog {
 		label_5.setBounds(0, 0, 30, 14);
 		panelPersonalDates.add(label_5);
 		
-		JDateChooser dateChooser = new JDateChooser();
+		final JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(150, 71, 223, 20);
 		panelPersonalDates.add(dateChooser);
 		
@@ -211,6 +256,7 @@ public class PersonApplication extends JDialog {
 		panel.add(lblProfesin);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setEditable(true);
 		comboBox.setToolTipText("<Selecciona>");
 		comboBox.setBackground(new Color(248, 248, 255));
 		comboBox.setBounds(150, 51, 212, 20);
@@ -258,31 +304,32 @@ public class PersonApplication extends JDialog {
 		label_1.setBounds(43, 60, 33, 14);
 		panel.add(label_1);
 		
-		JLayeredPane layeredPanePicture = new JLayeredPane();
-		layeredPanePicture.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		layeredPanePicture.setBounds(556, 53, 139, 139);
-		contentPane.add(layeredPanePicture);
 		
-		JLabel labelPicture = new JLabel("");
-		labelPicture.setBounds(10, 0, 119, 139);
-		layeredPanePicture.add(labelPicture);
-		labelPicture.setIcon(new ImageIcon(PersonApplication.class.getResource("/InterfazGrafica/Images/malePicture.jpg")));
-		labelPicture.setVerticalTextPosition(SwingConstants.BOTTOM);
-		labelPicture.setIgnoreRepaint(true);
-		labelPicture.setIconTextGap(8);
-		labelPicture.setHorizontalAlignment(SwingConstants.CENTER);
-		labelPicture.setForeground(Color.BLACK);
-		labelPicture.setBackground(Color.WHITE);
+		textField_ID = new JTextField();
+		textField_ID.setBounds(555, 207, 140, 20);
+		 contentPane.add(textField_ID);
+		 textField_ID.setColumns(10);
 		
-		JLayeredPane layeredPaneID = new JLayeredPane();
-		layeredPaneID.setBorder(new LineBorder(new Color(0, 0, 0)));
-		layeredPaneID.setBounds(555, 206, 140, 17);
-		contentPane.add(layeredPaneID);
+		 JButton button = new JButton("Auto-llenado");
+		 button.addActionListener(new ActionListener() {
+		 public void actionPerformed(ActionEvent arg0) {
+		 for(int i=0; i<CollectionPerson.getInstanceCollectionPerson().getCantPerson(); i++)
+		 if(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getID().equals(textField_ID.getText())){
+		 textFieldName.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getName());
+		 textFieldLastName.setText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getLastName());
+		 dateChooser.setDateFormatString(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getBirth());;
+		 comboBoxNationality.setToolTipText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getNationality());
+		 comboBoxSexo.setToolTipText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getSex());
+		comboBoxCivilState.setToolTipText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getCivilState());
+		 comboBoxStudyLevel.setToolTipText(CollectionPerson.getInstanceCollectionPerson().getPerson(i).getAcademicLevel());
 		
-		JLabel labelID = new JLabel("");
-		labelID.setBounds(-10, 0, 140, 17);
-		layeredPaneID.add(labelID);
-		labelID.setBackground(new Color(255, 255, 255));
+		 }
+		 }
+		 });
+		 button.setBounds(556, 233, 139, 23);
+		 contentPane.add(button);
+		 
+		
 		
 		JPanel panelReferencias = new JPanel();
 		panelReferencias.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Referencias ", TitledBorder.LEADING, TitledBorder.TOP, null, null));

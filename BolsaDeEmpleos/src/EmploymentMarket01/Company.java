@@ -17,6 +17,7 @@ public class Company {
 	private String RNC;
 	private String fund;
 	private String activity;
+	private String sectorWork;
 
 	public Company(String name, String webPage, CompanyType area2,
 			String area1, Address address) {
@@ -184,6 +185,14 @@ public class Company {
 
 	public void setActivity(String activity) {
 		this.activity = activity;
+	}
+
+	public String getSectorWork() {
+		return sectorWork;
+	}
+
+	public void setSectorWork(String sectorWork) {
+		this.sectorWork = sectorWork;
 	}
 
 }

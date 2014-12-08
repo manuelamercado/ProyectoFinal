@@ -46,7 +46,6 @@ public class CompanyRegister extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textFieldName;
 	private JTextField textFieldWeb;
-	private JTextField textFieldFund;
 	private JTextField textFieldActivity;
 	private JTextField textFieldRoad;
 	private JTextField textFieldCity;
@@ -60,6 +59,8 @@ public class CompanyRegister extends JDialog {
 	private JComboBox<String> comboBoxCountry;
 	private JLabel error;
 	private JTextField textField;
+	private JFormattedTextField formattedTextField;
+	private JComboBox<String> comboBoxSector;
 
 	public CompanyRegister() {
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -111,11 +112,6 @@ public class CompanyRegister extends JDialog {
 		lblNewLabel.setBounds(10, 2, 46, 14);
 		CompanyDates.add(lblNewLabel);
 		
-		textFieldFund = new JTextField();
-		textFieldFund.setBounds(116, 114, 212, 20);
-		CompanyDates.add(textFieldFund);
-		textFieldFund.setColumns(10);
-		
 		textFieldActivity = new JTextField();
 		textFieldActivity.setBounds(116, 52, 212, 20);
 		CompanyDates.add(textFieldActivity);
@@ -131,15 +127,32 @@ public class CompanyRegister extends JDialog {
 		 lblActividad.setBounds(10, 58, 100, 14);
 		 CompanyDates.add(lblActividad);
 		 
-		 final JComboBox<String> comboBoxSector = new JComboBox<String>();
-		 comboBoxSector.setModel(new DefaultComboBoxModel<String>(new String[] {"<Selecciona>", "P\u00FAblico", "Privado "}));
+		 comboBoxSector = new JComboBox<String>();
+		 comboBoxSector.setModel(new DefaultComboBoxModel(new String[] {"<Selecciona>", "P\u00FAblico", "Privado "}));
 		 comboBoxSector.setBounds(116, 114, 212, 20);
 		  CompanyDates.add(comboBoxSector);
 		
 		JLabel lblAoDeFundacin = new JLabel("A\u00F1o Fundaci\u00F3n:");
 		 lblAoDeFundacin.setHorizontalAlignment(SwingConstants.RIGHT);
-		 lblAoDeFundacin.setBounds(10, 120, 100, 14);
+		 lblAoDeFundacin.setBounds(10, 150, 100, 14);
 		 CompanyDates.add(lblAoDeFundacin);
+		 
+		 MaskFormatter mascara4;
+			try {
+				mascara4 = new MaskFormatter("####");
+				formattedTextField = new JFormattedTextField(mascara4);
+				 formattedTextField.setBounds(116, 144, 212, 20);
+				 CompanyDates.add(formattedTextField);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
+		 
+		 JLabel lblSector = new JLabel("Sector:");
+		 lblSector.setHorizontalAlignment(SwingConstants.TRAILING);
+		 lblSector.setBounds(10, 120, 100, 14);
+		 CompanyDates.add(lblSector);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(25, 255, 347, 188);
@@ -392,21 +405,7 @@ public class CompanyRegister extends JDialog {
 			JButton btnReiniciar = new JButton("Reiniciar");
 			btnReiniciar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					textFieldName.setText("");
-					textFieldActivity.setText("");
-					comboBoxArea.setSelectedItem(CompanyType.Selecciona);
-					textFieldFund.setText("");
-					formattedTextFieldRNC.setText("");
-					textFieldEmail.setText("");
-					formattedTextFieldFax.setText("");
-					formattedTextFieldPhone.setText("");
-					formattedTextFieldPostal.setText("");
-					textFieldWeb.setText("");
-					comboBoxCountry.setSelectedItem("<Selecciona>");
-					textFieldRegion.setText("");
-					textFieldCity.setText("");
-					textFieldRoad.setText("");	
-					error.setText("");
+					reiniciar ();
 					
 				}
 			});
@@ -419,16 +418,17 @@ public class CompanyRegister extends JDialog {
 						Company temp = new Company();
 						
 						if((compa(textFieldName.getText())==true)&&(compa(textFieldActivity.getText())==true)&&
-						(comboBoxArea.getSelectedItem()!=CompanyType.Selecciona)&&(compa(textFieldFund.getText())==true)&&
+						(comboBoxArea.getSelectedItem()!=CompanyType.Selecciona)&&(compa(formattedTextField.getText())==true)&&
 						(compa(textFieldWeb.getText())==true)&&(compa(textFieldEmail.getText())==true)&&
 						(compa(formattedTextFieldFax.getText())==true)&&(compa(formattedTextFieldPhone.getText())==true)&&
-						(compa(formattedTextFieldPostal.getText())==true)&&(compa(formattedTextFieldRNC.getText())==true)){															
+						(compa(formattedTextFieldPostal.getText())==true)&&(compa(formattedTextFieldRNC.getText())==true)&&
+						(comboBoxSector.getSelectedItem().toString()!="<Selecciona>")){															
 							temp.setPostalCode(formattedTextFieldPostal.getText());
 							temp.setPhone(formattedTextFieldPhone.getText());
 							temp.setFax(formattedTextFieldFax.getText());
 							temp.setEmail(textFieldEmail.getText());
 							temp.setRNC(formattedTextFieldRNC.getText());
-							temp.setFund(textFieldFund.getText());
+							temp.setFund(formattedTextField.getText());
 							temp.setArea(comboBoxArea.getSelectedItem().toString());
 							temp.setActivity(textFieldActivity.getText());
 							temp.setName(textFieldName.getText());
@@ -438,9 +438,11 @@ public class CompanyRegister extends JDialog {
 							temp.getAddressCompany().setHouseNumber(textField.getText());
 							temp.setCity(textFieldCity.getText());
 							temp.setCalle(textFieldRoad.getText());
+							temp.setSectorWork(comboBoxSector.getSelectedItem().toString());
 
 							CollectionCompany.getInstanceCollectionCompany().setCompanies(temp);
-							error.setText("Su registro fue realizado correctamente");			
+							error.setText("Su registro fue realizado correctamente");	
+							reiniciar ();
 						}
 
 						else
@@ -466,6 +468,27 @@ public class CompanyRegister extends JDialog {
 			}
 		}
 	}
+	protected void reiniciar() {
+		// TODO Auto-generated method stub
+		textFieldName.setText("");
+		textFieldActivity.setText("");
+		comboBoxArea.setSelectedItem(CompanyType.Selecciona);
+		formattedTextField.setText("");
+		formattedTextFieldRNC.setText("");
+		textFieldEmail.setText("");
+		formattedTextFieldFax.setText("");
+		formattedTextFieldPhone.setText("");
+		formattedTextFieldPostal.setText("");
+		textFieldWeb.setText("");
+		comboBoxCountry.setSelectedItem("<Selecciona>");
+		comboBoxSector.setSelectedItem("<Selecciona>");
+		textFieldRegion.setText("");
+		textFieldCity.setText("");
+		textFieldRoad.setText("");	
+		error.setText("");
+
+		
+	}
 	public boolean compa(String a){
 		boolean b= true;
 		String txt= a.replaceAll(" ", "");
@@ -476,4 +499,4 @@ public class CompanyRegister extends JDialog {
 		return b;
 		
 	}
-}
+}	 
