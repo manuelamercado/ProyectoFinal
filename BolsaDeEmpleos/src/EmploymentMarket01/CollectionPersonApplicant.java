@@ -8,7 +8,6 @@ public class CollectionPersonApplicant {
 
 	public CollectionPersonApplicant(
 			ArrayList<PersonApplication> personApplicantions) {
-		super();
 		PersonApplications = personApplicantions;
 	}
 	public static CollectionPersonApplicant getInstanceCollectionPersonApplicant() {

@@ -12,7 +12,7 @@ public class Address {
 	
 
 	public Address(String City, String Sector, String Calle, String HouseNumber,
-			String PostalCode, String country) {
+			String PostalCode, String country, String region) {
 
 		this.City = City;
 		this.Sector = Sector;
@@ -20,7 +20,10 @@ public class Address {
 		this.HouseNumber = HouseNumber;
 		this.PostalCode = PostalCode;
 		this.country=country;
+		this.region="";
 	}
+	
+	
 
 	public String getCity() {
 		return City;

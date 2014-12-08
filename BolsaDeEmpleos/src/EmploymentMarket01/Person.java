@@ -30,7 +30,7 @@ public abstract class Person {
 		Email = "";
 		sex = "";
 		Birth = "";
-		this.Address = new Address("", "", "", "", "", "");
+		this.Address = new Address("", "", "", "", "", "","");
 		Nationality = "";
 		YearsExperience = 0;
 		CertTitles= new ArrayList<String>();

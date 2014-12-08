@@ -35,8 +35,11 @@ public class Company {
 		Phone = "";
 		Fax = "";
 		Email = "";
-		addressCompany = new Address("", "", "", "", "", "");
+		addressCompany = new Address("", "", "", "", "", "","");
 		RNC="";
+		fund="";
+		activity="";
+		sectorWork="";
 	}
 
 	public Company(String name, String webPage, String area1, String City,

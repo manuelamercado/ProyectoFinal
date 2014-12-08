@@ -21,19 +21,19 @@ public class PersonApplication {
 	
 	public PersonApplication(Person p) {
 
-		Area = null;
+		Area ="";
 		WorkPosition = new ArrayList<String>();
 		Satisfied = false;
 		Person = p;
-		title=null;
-		Contract=null;
-		namePer=null;
-		MobilePer=null;
-		emailPer=null;
-		companyLab=null;
-		posLab=null;
-		nameLab=null;
-		MobileLab=null;
+		title="";
+		Contract="";
+		namePer="";
+		MobilePer="";
+		emailPer="";
+		companyLab="";
+		posLab="";
+		nameLab="";
+		MobileLab="";
 	}	
 	public ArrayList<String> getWorkPosition() {
 		return WorkPosition;

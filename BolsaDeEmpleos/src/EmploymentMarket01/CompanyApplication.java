@@ -42,7 +42,7 @@ public class CompanyApplication {
 		contactName="";
 		contactMovil="";
 		contactPos="";
-		
+		Cmp= new Company();
 	}
 	public String getRNC() {
 		return RNC;
